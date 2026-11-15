@@ -117,6 +117,8 @@ h2{font-family:var(--serif);font-weight:400;font-size:20px;margin:26px 0 10px}
 .scelte{display:flex;gap:8px;flex-wrap:wrap}
 .scelta{background:var(--fondo2);border:1px solid var(--riga);border-radius:8px;padding:10px 16px;font-weight:600;min-width:58px}
 .scelta[aria-pressed="true"]{border-color:var(--oro);color:var(--oro2);background:#d4a24c18}
+.lista-q{max-height:200px;overflow:auto;border:1px solid var(--riga);border-radius:8px;padding:2px 10px;background:var(--fondo2)}
+label.riga-q{margin:7px 0;font-size:14.5px}
 .scelta small{display:block;font-weight:400;color:var(--tenue);font-size:11.5px}
 input[type=text],input[type=number],input[type=search]{background:var(--fondo2);border:1px solid var(--riga);color:var(--testo);border-radius:8px;padding:10px 12px;font:inherit;width:100%}
 input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--oro);outline-offset:2px}
@@ -345,15 +347,13 @@ details .corpo{padding:0 2px 16px}
   </details>
 
   <details>
-    <summary>Preferenze: salva, carica, condividi</summary>
+    <summary>Preferenze: salva e carica</summary>
     <div class="corpo">
-      <p class="nota">Le preferenze (opere e artisti nascosti, filtri, statistiche) si salvano da sole in questo browser. Usa il file per spostarle o tenerne una copia.</p>
+      <p class="nota">Opere e artisti nascosti, filtri e statistiche si salvano da soli in questo browser, su questo dispositivo. Se cancelli i dati del sito o cambi telefono si perdono: con «Salva su file» ne tieni una copia, che poi puoi caricare dove vuoi.</p>
       <div class="fila">
         <button class="secondario" id="esporta">Salva su file</button>
         <button class="secondario" id="importa">Carica da file</button>
-        <button class="secondario" id="condividi">Condividi con un link</button>
       </div>
-      <p class="nota">Il link contiene opere e artisti nascosti e i filtri, non le tue statistiche.</p>
       <input type="file" id="file" accept=".json,application/json" hidden>
     </div>
   </details>
@@ -462,12 +462,13 @@ function nelFuoco(w, f) {
   if (f.tipo === 'sede') return w.s === f.valore;
   if (f.tipo === 'citta') return SEDI[w.s].c === f.valore;
   if (f.tipo === 'lista') return f.valore.has(w.id);
+  if (f.tipo === 'multi') return f.a.has(w.a) || f.s.has(w.s);
   return true;
 }
 /* opere attive: quelle che possono uscire nello studio e nei quiz */
 function attive(f = fuoco) {
   // con il fuoco su un artista lo si studia anche se è nascosto
-  return OPERE.filter(w => nelFuoco(w, f) && nelLivello(w) && !HO.has(w.id) && (f && f.tipo === 'artista' ? true : !HA.has(ART[w.a].n)) && (f ? true : !fuori(ART[w.a])));
+  return OPERE.filter(w => nelFuoco(w, f) && nelLivello(w) && !HO.has(w.id) && (f && (f.tipo === 'artista' || f.tipo === 'multi') ? true : !HA.has(ART[w.a].n)) && (f ? true : !fuori(ART[w.a])));
 }
 
 /* ================================================================= palco */
@@ -776,8 +777,27 @@ function scegliPerQuiz(base, n, priorita) {
   return base.map(w => [Math.pow(Math.random(), 1 / peso(w)), w]).sort((a, b) => b[0] - a[0]).slice(0, n).map(x => x[1]);
 }
 let quizN = 20, quizPriorita = true, quizFuoco = null;
+const quizSel = { a: new Set(), s: new Set() };      // artisti e musei scelti per il quiz (insieme: opere dell'uno o dell'altro)
+function fuocoQuiz() {
+  if (quizFuoco) return quizFuoco;
+  if (quizSel.a.size || quizSel.s.size) {
+    const nomi = [...quizSel.a].map(i => ART[i].n).concat([...quizSel.s].map(i => SEDI[i].n));
+    return { tipo: 'multi', a: quizSel.a, s: quizSel.s, etichetta: nomi.length > 3 ? nomi.slice(0, 3).join(', ') + ' e altri ' + (nomi.length - 3) : nomi.join(', ') };
+  }
+  return fuoco;
+}
+function scelteQuiz() {
+  const qa = piano(($('#qf-artisti') || { value: '' }).value.trim()), qs = piano(($('#qf-musei') || { value: '' }).value.trim());
+  const arts = ART.filter(a => !fuori(a) && a.tot && (!qa || a.cerca.includes(qa))).sort((x, y) => x.n.localeCompare(y.n, 'it'));
+  $('#ql-artisti').innerHTML = arts.map(a => `<label class="spunta riga-q"><input type="checkbox" data-qa="${a.i}" ${quizSel.a.has(a.i) ? 'checked' : ''}><span>${esc(a.n)}</span></label>`).join('') || '<p class="nota">Nessun artista con questo nome.</p>';
+  const n = new Map();
+  for (const w of OPERE) if (nelLivello(w) && !HO.has(w.id)) n.set(w.s, (n.get(w.s) || 0) + 1);
+  let m = [...n.entries()].filter(([i]) => SEDI[i].n !== 'Collezione privata' && (!qs || piano(SEDI[i].n + ' ' + SEDI[i].c).includes(qs)));
+  m.sort((x, y) => (SEDI[y[0]].n === 'Pinacoteca di Brera') - (SEDI[x[0]].n === 'Pinacoteca di Brera') || y[1] - x[1]);
+  $('#ql-musei').innerHTML = m.slice(0, qs ? 80 : 40).map(([i, k]) => `<label class="spunta riga-q"><input type="checkbox" data-qs="${i}" ${quizSel.s.has(i) ? 'checked' : ''}><span>${esc(SEDI[i].n)} <small style="color:var(--tenue)">${esc(SEDI[i].c || '')} · ${num(k)}</small></span></label>`).join('') || '<p class="nota">Nessuna sede con questo nome.</p>';
+}
 function pagQuiz() {
-  const base = attive(quizFuoco || fuoco), el = $('#quiz-dentro'), f = quizFuoco || fuoco;
+  const f = fuocoQuiz(), base = attive(f), el = $('#quiz-dentro');
   const mai = base.filter(w => !statDi(w.id)).length, err = base.filter(w => { const s = statDi(w.id); return s && s[4] < 2; }).length;
   el.innerHTML = `<h1>Quiz</h1>
     <p class="sotto">Ti mostro un'opera alla volta. Provi a riconoscerla, scopri la didascalia e dici com'è andata: le risposte alimentano le statistiche.</p>
@@ -785,14 +805,36 @@ function pagQuiz() {
     <div class="scelte" id="q-n">${[10, 20, 30, 50].map(n => `<button class="scelta" data-n="${n}" aria-pressed="${quizN === n}">${n}</button>`).join('')}
       <input type="number" id="q-altro" min="1" max="500" placeholder="Altro" style="width:96px" value="${[10, 20, 30, 50].includes(quizN) ? '' : quizN}" aria-label="Altro numero di opere"></div>
     <label class="spunta"><input type="checkbox" id="q-pri" ${quizPriorita ? 'checked' : ''}><span>Ripasso intelligente<br><span style="color:var(--tenue);font-size:13px">Escono più spesso le opere sbagliate e quelle mai viste, meno quelle che riconosci sempre.</span></span></label>
-    <p class="sotto">Pesco tra <b style="color:var(--testo)">${num(base.length)}</b> opere${f ? ' (solo: ' + esc(f.etichetta) + ')' : ''}: ${num(mai)} mai viste nei quiz, ${num(err)} da ripassare.
-      ${f ? '<button class="lk" id="q-via" style="color:var(--oro2)">Togli il filtro</button>' : ''}</p>
+    <details id="q-scelta" ${quizSel.a.size || quizSel.s.size ? 'open' : ''} style="margin:6px 0 14px"><summary style="cursor:pointer;font-weight:600">Solo alcuni artisti o musei <span id="q-nsel" style="color:var(--oro2);font-weight:400"></span></summary>
+      <p class="nota">Spunta uno o più artisti e/o uno o più musei: il quiz pesca tra le opere di tutti quelli scelti. Senza spunte vale tutto il catalogo.</p>
+      <div class="etichetta">Artisti</div><input type="search" id="qf-artisti" placeholder="Cerca un artista" style="width:100%;margin-bottom:6px"><div id="ql-artisti" class="lista-q"></div>
+      <div class="etichetta">Musei e chiese</div><input type="search" id="qf-musei" placeholder="Cerca un museo o una città" style="width:100%;margin-bottom:6px"><div id="ql-musei" class="lista-q"></div>
+      <p><button class="lk" id="q-azzera" style="color:var(--oro2)">Togli tutte le spunte</button></p>
+    </details>
+    <p class="sotto" id="q-pesca"></p>
     <button class="primario" id="q-via-libera" ${base.length ? '' : 'disabled style="opacity:.4"'}>Inizia il quiz</button>`;
-  $('#q-n').onclick = e => { const b = e.target.closest('[data-n]'); if (!b) return; quizN = +b.dataset.n; pagQuiz(); };
+  const agg = () => {
+    const f2 = fuocoQuiz(), b2 = attive(f2), nm = b2.filter(w => !statDi(w.id)).length, ne = b2.filter(w => { const s = statDi(w.id); return s && s[4] < 2; }).length;
+    $('#q-pesca').innerHTML = `Pesco tra <b style="color:var(--testo)">${num(b2.length)}</b> opere${f2 ? ' (solo: ' + esc(f2.etichetta) + ')' : ''}: ${num(nm)} mai viste nei quiz, ${num(ne)} da ripassare.` +
+      (f2 ? ' <button class="lk" id="q-via" style="color:var(--oro2)">Togli il filtro</button>' : '');
+    const k = quizSel.a.size + quizSel.s.size; $('#q-nsel').textContent = k ? '· ' + k + ' scelti' : '';
+    const bt = $('#q-via-libera'); bt.disabled = !b2.length; bt.style.opacity = b2.length ? '' : '.4';
+    if ($('#q-via')) $('#q-via').onclick = () => { quizFuoco = null; fuoco = null; quizSel.a.clear(); quizSel.s.clear(); pagQuiz(); };
+    return b2;
+  };
+  scelteQuiz(); agg();
+  $('#q-n').onclick = e => { const b = e.target.closest('[data-n]'); if (!b) return; quizN = +b.dataset.n; $$('#q-n .scelta').forEach(x => x.setAttribute('aria-pressed', String(+x.dataset.n === quizN))); $('#q-altro').value = ''; };
   $('#q-altro').oninput = e => { const n = parseInt(e.target.value, 10); if (n > 0) { quizN = Math.min(500, n); $$('#q-n .scelta').forEach(b => b.setAttribute('aria-pressed', 'false')); } };
   $('#q-pri').onchange = e => quizPriorita = e.target.checked;
-  if ($('#q-via')) $('#q-via').onclick = () => { quizFuoco = null; fuoco = null; pagQuiz(); };
-  $('#q-via-libera').onclick = () => avviaQuiz(scegliPerQuiz(base, quizN, quizPriorita));
+  $('#qf-artisti').oninput = scelteQuiz; $('#qf-musei').oninput = scelteQuiz;
+  $('#q-scelta').onchange = e => {
+    const t = e.target; if (t.dataset.qa !== undefined) { quizFuoco = null; t.checked ? quizSel.a.add(+t.dataset.qa) : quizSel.a.delete(+t.dataset.qa); }
+    else if (t.dataset.qs !== undefined) { quizFuoco = null; t.checked ? quizSel.s.add(+t.dataset.qs) : quizSel.s.delete(+t.dataset.qs); }
+    else return;
+    agg();
+  };
+  $('#q-azzera').onclick = e => { e.preventDefault(); quizSel.a.clear(); quizSel.s.clear(); quizFuoco = null; scelteQuiz(); agg(); };
+  $('#q-via-libera').onclick = () => { const b2 = agg(); avviaQuiz(scegliPerQuiz(b2, quizN, quizPriorita)); };
 }
 function avviaQuiz(lista) {
   if (!lista.length) return;
@@ -938,17 +980,15 @@ function pagInizio() {
       <button class="scelta-grande" data-i="quiz"><b>Quiz</b><span>Scegli quante opere, dici se le hai riconosciute e alimenti le statistiche.</span></button>
       <button class="scelta-grande" data-i="musei"><b>Un museo o un artista</b><span>Studia solo le opere di una sede (per esempio la Pinacoteca di Brera) o di un artista.</span></button>
       <button class="scelta-grande" data-i="statistiche"><b>Statistiche</b><span>Quali artisti riconosci meglio e quali ripassare.</span></button>
-      <button class="scelta-grande" data-i="carica"><b>Carica le preferenze</b><span>Da un file salvato in precedenza: opere e artisti nascosti, filtri, statistiche.</span></button>
       <button class="scelta-grande" data-i="menu"><b>Filtri e impostazioni</b><span>Cosa mostrare, artisti, musei, opere nascoste, salvataggio delle preferenze.</span></button>
     </div>
     <div class="fila"><button class="secondario" data-i="manca">Manca un artista o un'opera?</button><button class="secondario" data-i="info">Contatti e crediti</button></div>
-    <p class="nota" id="nota-catalogo">Catalogo del ${esc(C.gen || '')}. Le preferenze si salvano da sole in questo browser; con «Salva su file», nel menu, ne tieni una copia.</p>`;
+    <p class="nota" id="nota-catalogo">Catalogo del ${esc(C.gen || '')}. Le tue scelte (opere e artisti nascosti, filtri, statistiche) restano su questo telefono, nel browser con cui usi l'app: se cancelli i dati del sito o cambi telefono si perdono. Per tenerne una copia usa «Preferenze» nel menu ☰.</p>`;
   $('#inizio-dentro').onclick = e => {
     if (e.target.closest('#nota-catalogo')) return toccoSegreto();
     const b = e.target.closest('[data-i]'); if (!b) return; const i = b.dataset.i;
     if (i === 'studio' || i === 'quiz' || i === 'statistiche' || i === 'info') vaiA(i);
     else if (i === 'manca') chiediAggiunta('');
-    else if (i === 'carica') $('#file').click();
     else { apriCassetto(); if (i === 'musei') { $('#sez-musei').open = true; $('#sez-musei').scrollIntoView(); } }
   };
 }
@@ -981,7 +1021,7 @@ function costruisciCassetto() {
   };
   $('#vedi-nascoste').onclick = () => { if (!HO.size) return brindisi('Non hai nascosto nessuna opera'); apriGriglia({ tipo: 'lista', valore: new Set(HO), etichetta: 'Opere nascoste', nascoste: true }); };
   $('#ripristina-opere').onclick = ripristinaOpere;
-  $('#esporta').onclick = esporta; $('#importa').onclick = () => $('#file').click(); $('#file').onchange = importa; $('#condividi').onclick = condividi;
+  $('#esporta').onclick = esporta; $('#importa').onclick = () => $('#file').click(); $('#file').onchange = importa;
 }
 function ripristinaOpere() {
   if (!HO.size) return brindisi('Non hai nascosto nessuna opera');

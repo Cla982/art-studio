@@ -2,7 +2,7 @@
 // - app e catalogo: prima la rete (così gli aggiornamenti arrivano subito), poi la copia salvata se sei offline
 // - immagini locali (cartella img/): prima la copia salvata, poi la rete
 // - immagini di altri siti (wga.hu, Wikimedia): non intercettate, ci pensa il browser
-const APP = 'app-v3', IMMAGINI = 'immagini-v1';
+const APP = 'app-v4', IMMAGINI = 'immagini-v1';
 const GUSCIO = ['./', 'index.html', 'catalogo.json', 'manifest.json', 'icona-192.png', 'icona-512.png'];
 
 self.addEventListener('install', e => {
