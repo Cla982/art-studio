@@ -40,7 +40,7 @@ a{color:inherit}
 .scheda[aria-current="true"]{background:var(--fondo3);color:var(--oro2)}
 .tondo{background:var(--fondo3);border:1px solid var(--riga);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:17px;flex:none}
 .tondo:hover,.scheda:hover{color:var(--oro2)}
-@media (max-width:560px){#marchio span{display:none}.scheda{padding:8px 8px;font-size:13px}#barra{gap:3px;padding-left:8px;padding-right:8px}#contatore{margin-left:2px;font-size:12px}}
+@media (max-width:560px){#contatore{display:none!important}.solo-stretto{display:inline-block!important}#marchio span{display:none}.scheda{padding:8px 8px;font-size:13px}#barra{gap:3px;padding-left:8px;padding-right:8px}#contatore{margin-left:2px;font-size:12px}}
 
 /* palco */
 #palco{position:fixed;inset:calc(var(--barra) + env(safe-area-inset-top)) 0 0 0;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;
@@ -106,6 +106,28 @@ a{color:inherit}
   #c-quiz{flex:1}
   #c-domanda{text-align:left}
 }
+
+/* fase 2: ripasso, periodi, guidato, quiz a 4 artisti */
+.solo-stretto{display:none}
+#rip-badge{position:absolute;top:44px;left:10px;z-index:3;background:#d4a24ce6;color:#1b1407;font-weight:700;font-size:12px;border-radius:999px;padding:3px 10px;pointer-events:none}
+.carta{position:relative}
+.carta .rip{position:absolute;top:6px;right:6px;background:#d4a24cee;color:#1b1407;border-radius:999px;font-size:11px;font-weight:700;padding:1px 7px}
+.periodo{margin:0 0 12px}
+.periodo>.scelte{margin-top:6px;gap:6px}
+.scelta.per{padding:8px 14px}
+.scelta.gr{padding:6px 10px;font-size:13px;min-width:0}
+.dom{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin:0 0 1px;text-align:right;text-shadow:0 1px 3px #000}
+#c-mc{flex:1}
+#c-mc .opz-g{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.bt.opz{white-space:normal;line-height:1.2;padding:9px 8px;min-height:40px}
+.bt.opz:disabled{opacity:1}
+.bt.opz-ok{background:#4f8a48f0;border-color:transparent;color:#fff}
+.bt.opz-no{background:#c9584af0;border-color:transparent;color:#fff}
+#mc-avanti{margin-top:6px;width:100%;border-color:var(--oro);color:var(--oro2)}
+@media (max-width:760px){.dom{text-align:left}}
+.passi{display:grid;gap:8px;margin:0 0 18px}
+.passo{background:var(--fondo2);border:1px solid var(--riga);border-radius:8px;padding:10px 12px;line-height:1.45;font-size:14.5px}
+.passo b{color:var(--oro2)}
 
 /* pagine a tutto schermo */
 .pagina{position:fixed;inset:calc(var(--barra) + env(safe-area-inset-top)) 0 0 0;overflow:auto;background:var(--fondo);z-index:10;
@@ -208,7 +230,8 @@ details .corpo{padding:0 2px 16px}
 <header id="barra">
   <button id="marchio" title="Pagina iniziale" aria-label="Pagina iniziale"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Art-Studio</span></button>
   <span id="contatore" aria-live="polite"></span>
-  <button class="scheda" data-vista="studio">Studio</button>
+  <button class="scheda" data-vista="guidato">Guidato</button>
+  <button class="scheda" data-vista="studio">Libero</button>
   <button class="scheda" data-vista="quiz">Quiz</button>
   <button class="scheda" data-vista="statistiche">Statistiche</button>
   <button class="tondo" id="apri-cassetto" aria-label="Artisti, filtri e preferenze" title="Artisti, filtri e preferenze">☰</button>
@@ -219,6 +242,7 @@ details .corpo{padding:0 2px 16px}
   <div id="tela"><img id="img" alt="" referrerpolicy="no-referrer" draggable="false"></div>
   <div id="avviso" hidden></div>
   <div id="conta"></div>
+  <div id="rip-badge" hidden title="Opera tra le più richieste: da ripassare">★ Ripasso</div>
   <div id="fascia">
     <div id="sinistra">
       <div id="suggerimento">Tocca l'opera per scoprire la didascalia</div>
@@ -235,6 +259,11 @@ details .corpo{padding:0 2px 16px}
       <div class="fila-c" id="c-nasc">
         <button class="bt via" data-az="nasc-artista" id="b-nasc-artista">Nascondi l'artista</button>
         <button class="bt via" data-az="nasc-opera" id="b-nasc-opera">Nascondi l'opera</button>
+      </div>
+      <div id="c-mc" hidden>
+        <p class="dom">Chi è l'autore?</p>
+        <div class="opz-g" id="mc-opz"></div>
+        <button class="bt" id="mc-avanti" data-az="mc-avanti" hidden>Avanti →</button>
       </div>
       <div id="c-quiz" hidden>
         <p id="c-domanda">L'avevi riconosciuta?</p>
@@ -272,6 +301,7 @@ details .corpo{padding:0 2px 16px}
   <p><button class="secondario" id="info-indietro">‹ Pagina iniziale</button></p>
 </div></section>
 <section class="pagina" id="pag-quiz" hidden><div class="dentro" id="quiz-dentro"></div></section>
+<section class="pagina" id="pag-guidato" hidden><div class="dentro" id="guid-dentro"></div></section>
 <section class="pagina" id="pag-statistiche" hidden><div class="dentro" id="stat-dentro"></div></section>
 
 <section class="pagina" id="griglia" hidden>
@@ -300,6 +330,14 @@ details .corpo{padding:0 2px 16px}
       <div class="etichetta">Tipo di opera</div>
       <div class="scelte" id="sc-forme"></div>
       <p class="nota" id="riepilogo"></p>
+    </div>
+  </details>
+
+  <details id="sez-periodo">
+    <summary>Periodo e stile <span id="n-periodo" style="color:var(--oro2);font-weight:400"></span></summary>
+    <div class="corpo">
+      <p class="nota">Scegli uno o più periodi o gruppi (per esempio «Leonardo e leonardeschi» o «Milano spagnola»): studi e fai i quiz solo su quelli. La stella ★ segna le opere più richieste all'esame.</p>
+      <div id="sc-periodi" class="blocco-periodi"></div>
     </div>
   </details>
 
@@ -379,15 +417,16 @@ const mescola = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.f
 function fnv36(t) { let h = 0x811c9dc5; for (const b of new TextEncoder().encode(t)) h = Math.imul(h ^ b, 0x01000193) >>> 0; return h.toString(36); }
 
 const CHIAVE = 'riconosci_opera_v1';
-const F_DETT = 1, F_FAMOSA = 2, F_DOPPIA = 4;
+const F_DETT = 1, F_FAMOSA = 2, F_DOPPIA = 4, F_RIPASSO = 8;
+const INTERVALLI = [0, 1, 3, 7, 14, 30, 60];      // giorni prima di riproporre un'opera, in base alle volte di fila in cui è stata riconosciuta
 const FORME = ['Dipinti', 'Sculture', 'Architetture', 'Disegni e altro'];
 const LIVELLI = [['fam', 'Più famose'], ['nd', 'Senza dettagli'], ['tutte', 'Tutte']];
 
 /* ================================================================= stato */
 let C = null;              // catalogo
 let OPERE = [], ART = [], SEDI = [], PER_ID = new Map();
-let P = { v: 1, liv: 'nd', forme: [1, 1, 1, 0], ho: [], ha: [], st: {}, ordine: 'alfa', salva: false, ospiti: false };
-let HO = new Set(), HA = new Set();
+let P = { v: 1, liv: 'nd', forme: [1, 1, 1, 0], ho: [], ha: [], st: {}, ordine: 'alfa', salva: false, ospiti: false, gr: [], rip: false, gd: { fatto: false, k0: 30, t: 0 } };
+let HO = new Set(), HA = new Set(), GR = new Set(), GC = {}, RC = 0;
 let vista = 'studio';
 let fuoco = null;          // {tipo:'artista'|'sede'|'citta'|'lista', valore, etichetta}
 const S = { modo: 'studio', lista: [], i: 0, scoperta: false, ritorno: null };   // palco
@@ -403,12 +442,15 @@ function applica(d, conStat) {
   if (Array.isArray(d.ha)) P.ha = d.ha.filter(x => typeof x === 'string');
   if (typeof d.salva === 'boolean') P.salva = d.salva;
   if (typeof d.ospiti === 'boolean') P.ospiti = d.ospiti;
+  if (Array.isArray(d.gr)) P.gr = d.gr.filter(x => typeof x === 'string');
+  if (typeof d.rip === 'boolean') P.rip = d.rip;
   if (conStat && d.st && typeof d.st === 'object') P.st = d.st;
-  HO = new Set(P.ho); HA = new Set(P.ha);
+  if (conStat && d.gd && typeof d.gd === 'object') P.gd = { fatto: !!d.gd.fatto, k0: Math.max(30, +d.gd.k0 || 30), t: +d.gd.t || 0 };
+  HO = new Set(P.ho); HA = new Set(P.ha); GR = new Set(P.gr);
 }
 let tSalva = 0;
 function salva() {
-  P.ho = [...HO]; P.ha = [...HA];
+  P.ho = [...HO]; P.ha = [...HA]; P.gr = [...GR];
   clearTimeout(tSalva);
   tSalva = setTimeout(() => { try { localStorage.setItem(CHIAVE, JSON.stringify(P)); } catch (e) { brindisi('Non riesco a salvare le preferenze in questo browser'); } }, 200);
 }
@@ -428,7 +470,8 @@ async function avvia() {
     avviso('<b>Catalogo non trovato</b>Serve il file catalogo.json nella stessa cartella dell\'app, aperta da un sito (non con doppio clic sul file).');
     return;
   }
-  ART = C.artisti.map((a, i) => ({ i, x: a.x ? 1 : 0, n: a.n, al: a.al || [], w: a.w || [], b: a.b || '', d: a.d || '', bp: a.bp || '', dp: a.dp || '', wk: a.wk || '', tot: 0,
+  const GRUPPI = C.gruppi || [];
+  ART = C.artisti.map((a, i) => ({ i, g: (a.g || []).map(k => GRUPPI[k] && GRUPPI[k].n).filter(Boolean), x: a.x ? 1 : 0, n: a.n, al: a.al || [], w: a.w || [], b: a.b || '', d: a.d || '', bp: a.bp || '', dp: a.dp || '', wk: a.wk || '', tot: 0,
     cerca: piano([a.n, ...(a.al || [])].join(' | ')) }));
   SEDI = C.sedi;
   OPERE = C.opere.map((o, i) => ({ i, id: o[0], a: o[1], t: o[2], d: o[3], te: o[4], s: o[5], p: o[6], f: o[7], fl: o[8], y: o[9], loc: o[10] ? 1 : 0, wk: o[11] || '' }));
@@ -453,6 +496,12 @@ function nelLivello(w) {
   if (P.liv === 'nd') return (w.fl & (F_DETT | F_DOPPIA)) === 0;
   return true;
 }
+/* periodo/stile e «solo ripasso»: valgono quando non si sta guardando un artista o una lista precisa */
+function tema(w) {
+  if (P.rip && !(w.fl & F_RIPASSO)) return false;
+  if (GR.size && !ART[w.a].g.some(n => GR.has(n))) return false;
+  return true;
+}
 const fuori = a => false;      // gli artisti «ospiti» (presenti solo con le opere di Brera) sono sempre in rotazione
 const visibile = w => nelLivello(w) && !HO.has(w.id) && !HA.has(ART[w.a].n) && !fuori(ART[w.a]);
 function nelFuoco(w, f) {
@@ -467,7 +516,7 @@ function nelFuoco(w, f) {
 /* opere attive: quelle che possono uscire nello studio e nei quiz */
 function attive(f = fuoco) {
   // con il fuoco su un artista lo si studia anche se è nascosto
-  return OPERE.filter(w => nelFuoco(w, f) && nelLivello(w) && !HO.has(w.id) && (f && (f.tipo === 'artista' || f.tipo === 'multi') ? true : !HA.has(ART[w.a].n)) && (f ? true : !fuori(ART[w.a])));
+  return OPERE.filter(w => nelFuoco(w, f) && nelLivello(w) && !HO.has(w.id) && (f && (f.tipo === 'artista' || f.tipo === 'multi') ? true : !HA.has(ART[w.a].n)) && (f ? true : !fuori(ART[w.a])) && ((f && f.tipo !== 'sede' && f.tipo !== 'citta') ? true : tema(w)));
 }
 
 /* ================================================================= palco */
@@ -484,6 +533,7 @@ function corrente() { return S.lista[S.i]; }
 function mostra() {
   azzeraZoom();
   const w = corrente();
+  $('#rip-badge').hidden = !(w && (w.fl & F_RIPASSO) && S.modo !== 'quiz');
   $('#progresso').hidden = S.modo !== 'quiz';
   if (!w) {
     cartellino(); pillole();
@@ -509,6 +559,7 @@ function mostra() {
   cartellino();
   pillole();
   if (S.modo === 'quiz') $('#progresso i').style.width = (100 * S.i / S.lista.length) + '%';
+  if (S.modo === 'quiz' && Q && Q.tipo === 'mc') preparaMC();
 }
 function avvisoImmagine(w) {
   avviso('<div><b>Immagine non disponibile</b>' + (navigator.onLine ? 'Il sito che la ospita non risponde.' : 'Sei offline e questa immagine non è stata scaricata.') +
@@ -517,13 +568,13 @@ function avvisoImmagine(w) {
 
 function pillole() {
   const el = $('#conta'), w = corrente(); let h = '', n = '';
-  if (S.modo === 'quiz') { n = `Quiz · ${S.i + 1} di ${S.lista.length}`; h = `<span class="pillola"><button data-az="esci-quiz">Interrompi il quiz</button></span>`; }
+  if (S.modo === 'quiz') { const et = Q && Q.tipo === 'guidato' ? 'Guidato' : Q && Q.tipo === 'piazzamento' ? 'Test di piazzamento' : 'Quiz'; n = `${et} · ${S.i + 1} di ${S.lista.length}`; h = `<span class="pillola"><button data-az="esci-quiz">Interrompi</button></span>`; }
   else if (S.modo === 'sfoglia') { n = `${S.i + 1} di ${S.lista.length}`; h = `<span class="pillola"><button data-az="torna">‹ ${esc(S.ritorno ? S.ritorno.etichetta : 'Indietro')}</button></span>`; }
   else {
     n = (w ? num(S.i + 1) + ' di ' : '') + num(S.lista.length);
     if (fuoco) h = `<span class="pillola">Solo: ${esc(fuoco.etichetta)} <button data-az="via-fuoco" aria-label="Togli il filtro">✕</button></span>`;
   }
-  el.innerHTML = h;
+  el.innerHTML = (n && vista === 'studio' ? `<span class="pillola solo-stretto">${n}</span>` : '') + h;
   $('#contatore').textContent = vista === 'studio' ? n : '';
 }
 
@@ -534,11 +585,13 @@ function cartellino() {
   if (!su && $('#fascia').contains(document.activeElement)) document.activeElement.blur();
   el.hidden = !su;
   if (su) suggerito = true;
-  $('#suggerimento').hidden = su || !w || suggerito;
-  $('#suggerimento').textContent = quiz ? 'Prova a riconoscerla, poi tocca l\'opera' : 'Tocca l\'opera per scoprire la didascalia';
+  const mc = quiz && Q && Q.tipo === 'mc';
+  $('#suggerimento').hidden = su || !w || (suggerito && !mc);
+  $('#suggerimento').textContent = mc ? 'Scegli l\'artista tra i quattro' : quiz ? 'Prova a riconoscerla, poi tocca l\'opera' : 'Tocca l\'opera per scoprire la didascalia';
   $('#c-nav').hidden = quiz || !w;
   $('#c-nasc').hidden = quiz || !w;
-  $('#c-quiz').hidden = !(quiz && su);
+  $('#c-quiz').hidden = !(quiz && su && !mc);
+  $('#c-mc').hidden = !(mc && w);
   if (!w) return;
   const a = ART[w.a], s = SEDI[w.s];
   if (!quiz) {
@@ -560,6 +613,7 @@ const wk = (u, t) => `<a class="wk" href="${esc(u)}" target="_blank" rel="noopen
 function tocco() {
   if (!corrente()) return;
   if (!$('#avviso').hidden) { avviso(''); if (S.modo === 'quiz') { saltaQuiz(); } else avanti(); return; }
+  if (S.modo === 'quiz' && Q && Q.tipo === 'mc') { if (Q.risposto) prossimoMC(); return; }
   if (!S.scoperta) { S.scoperta = true; cartellino(); return; }
   if (S.modo === 'quiz') return;            // nel quiz si avanza solo rispondendo
   avanti();
@@ -666,6 +720,7 @@ document.addEventListener('keydown', e => {
   }
   else if (e.key === 'ArrowRight') { if (S.modo === 'quiz') tocco(); else avanti(); }
   else if (e.key === 'ArrowLeft') indietro();
+  else if (S.modo === 'quiz' && Q && Q.tipo === 'mc') { if ('1234'.includes(e.key) && e.key) rispostaMC(+e.key - 1); }
   else if (S.modo === 'quiz' && S.scoperta && '123'.includes(e.key)) voto(+e.key - 1);
   else if (S.modo !== 'quiz' && S.scoperta && e.key.toLowerCase() === 'n') nascondiOpera();
 });
@@ -680,6 +735,8 @@ document.addEventListener('click', e => {
   else if (az === 'nasc-opera') nascondiOpera();
   else if (az === 'nasc-artista') nascondiArtista();
   else if (az === 'voto') voto(+v);
+  else if (az === 'mc') rispostaMC(+v);
+  else if (az === 'mc-avanti') prossimoMC();
   else if (az === 'via-fuoco') { fuoco = null; nuovaSerie(); }
   else if (az === 'torna') torna();
   else if (az === 'esci-quiz') chiedi('Interrompere il quiz? Le risposte date finora restano nelle statistiche.', 'Interrompi', () => fineQuiz(true));
@@ -733,7 +790,9 @@ function altreCarte() {
     im.src = urlMini(w);
     const d = document.createElement('div');
     d.innerHTML = `<b>${esc(w.t)}</b><span>${esc(G.f.tipo === 'artista' ? (w.d || '') : ART[w.a].n)}</span>`;
-    b.append(im, d); fr.append(b);
+    b.append(im, d);
+    if (w.fl & F_RIPASSO) { const r = document.createElement('span'); r.className = 'rip'; r.textContent = '★'; r.title = 'Opera da ripasso'; b.append(r); }
+    fr.append(b);
   }
   G.n = fino; $('#gr-carte').append(fr);
   $('#gr-altre').hidden = G.n >= G.lista.length;
@@ -775,7 +834,7 @@ function scegliPerQuiz(base, n, priorita) {
   if (!priorita) return mescola(base.slice()).slice(0, n);
   return base.map(w => [Math.pow(Math.random(), 1 / peso(w)), w]).sort((a, b) => b[0] - a[0]).slice(0, n).map(x => x[1]);
 }
-let quizN = 20, quizPriorita = true, quizFuoco = null;
+let quizN = 20, quizPriorita = true, quizFuoco = null, quizModo = 'auto', quizPerAperto = false;
 const quizSel = { a: new Set(), s: new Set() };      // artisti e musei scelti per il quiz (insieme: opere dell'uno o dell'altro)
 function fuocoQuiz() {
   if (quizFuoco) return quizFuoco;
@@ -799,11 +858,18 @@ function pagQuiz() {
   const f = fuocoQuiz(), base = attive(f), el = $('#quiz-dentro');
   const mai = base.filter(w => !statDi(w.id)).length, err = base.filter(w => { const s = statDi(w.id); return s && s[4] < 2; }).length;
   el.innerHTML = `<h1>Quiz</h1>
-    <p class="sotto">Ti mostro un'opera alla volta. Provi a riconoscerla, scopri la didascalia e dici com'è andata: le risposte alimentano le statistiche.</p>
+    <div class="scelte" id="q-modo" style="margin-bottom:8px">
+      <button class="scelta" data-m="auto" aria-pressed="${quizModo === 'auto'}">Autovalutazione</button>
+      <button class="scelta" data-m="mc" aria-pressed="${quizModo === 'mc'}">4 artisti</button></div>
+    <p class="sotto">${quizModo === 'mc'
+      ? 'Ti mostro un\'opera e quattro artisti attivi negli stessi anni: scegli quello giusto. Le risposte alimentano le statistiche.'
+      : 'Ti mostro un\'opera alla volta. Provi a riconoscerla, scopri la didascalia e dici com\'è andata: le risposte alimentano le statistiche.'}</p>
     <h2>Quante opere?</h2>
     <div class="scelte" id="q-n">${[10, 20, 30, 50].map(n => `<button class="scelta" data-n="${n}" aria-pressed="${quizN === n}">${n}</button>`).join('')}
       <input type="number" id="q-altro" min="1" max="500" placeholder="Altro" style="width:96px" value="${[10, 20, 30, 50].includes(quizN) ? '' : quizN}" aria-label="Altro numero di opere"></div>
     <label class="spunta"><input type="checkbox" id="q-pri" ${quizPriorita ? 'checked' : ''}><span>Ripasso intelligente<br><span style="color:var(--tenue);font-size:13px">Escono più spesso le opere sbagliate e quelle mai viste, meno quelle che riconosci sempre.</span></span></label>
+    <details id="q-per" ${quizPerAperto || GR.size || P.rip ? 'open' : ''} style="margin:6px 0 10px"><summary style="cursor:pointer;font-weight:600">Periodo e stile <span style="color:var(--oro2);font-weight:400">${GR.size || P.rip ? '· filtro attivo' : ''}</span></summary>
+      <div class="blocco-periodi" id="qb-periodi" style="margin-top:10px">${blocchiPeriodo()}</div></details>
     <details id="q-scelta" ${quizSel.a.size || quizSel.s.size ? 'open' : ''} style="margin:6px 0 14px"><summary style="cursor:pointer;font-weight:600">Solo alcuni artisti o musei <span id="q-nsel" style="color:var(--oro2);font-weight:400"></span></summary>
       <p class="nota">Spunta uno o più artisti e/o uno o più musei: il quiz pesca tra le opere di tutti quelli scelti. Senza spunte vale tutto il catalogo.</p>
       <div class="etichetta">Artisti</div><input type="search" id="qf-artisti" placeholder="Cerca un artista" style="width:100%;margin-bottom:6px"><div id="ql-artisti" class="lista-q"></div>
@@ -825,6 +891,8 @@ function pagQuiz() {
   $('#q-n').onclick = e => { const b = e.target.closest('[data-n]'); if (!b) return; quizN = +b.dataset.n; $$('#q-n .scelta').forEach(x => x.setAttribute('aria-pressed', String(+x.dataset.n === quizN))); $('#q-altro').value = ''; };
   $('#q-altro').oninput = e => { const n = parseInt(e.target.value, 10); if (n > 0) { quizN = Math.min(500, n); $$('#q-n .scelta').forEach(b => b.setAttribute('aria-pressed', 'false')); } };
   $('#q-pri').onchange = e => quizPriorita = e.target.checked;
+  $('#q-modo').onclick = e => { const b = e.target.closest('[data-m]'); if (!b) return; quizModo = b.dataset.m; pagQuiz(); };
+  $('#qb-periodi').onclick = clicPeriodo; $('#q-per').ontoggle = () => { quizPerAperto = $('#q-per').open; };
   $('#qf-artisti').oninput = scelteQuiz; $('#qf-musei').oninput = scelteQuiz;
   $('#q-scelta').onchange = e => {
     const t = e.target; if (t.dataset.qa !== undefined) { quizFuoco = null; t.checked ? quizSel.a.add(+t.dataset.qa) : quizSel.a.delete(+t.dataset.qa); }
@@ -833,16 +901,16 @@ function pagQuiz() {
     agg();
   };
   $('#q-azzera').onclick = e => { e.preventDefault(); quizSel.a.clear(); quizSel.s.clear(); quizFuoco = null; scelteQuiz(); agg(); };
-  $('#q-via-libera').onclick = () => { const b2 = agg(); avviaQuiz(scegliPerQuiz(b2, quizN, quizPriorita)); };
+  $('#q-via-libera').onclick = () => { const b2 = agg(); avviaQuiz(scegliPerQuiz(b2, quizN, quizPriorita), quizModo); };
 }
-function avviaQuiz(lista) {
+function avviaQuiz(lista, tipo, extra) {
   if (!lista.length) return;
-  Q = { esiti: [], lista };
+  Q = Object.assign({ esiti: [], lista, tipo: tipo || 'auto', risposto: false }, extra || {});
   S.modo = 'quiz'; S.lista = lista; S.i = 0; S.scoperta = false; S.ritorno = null;
   vaiA('studio', true); mostra();
 }
 function voto(v) {
-  if (S.modo !== 'quiz' || !S.scoperta) return;
+  if (S.modo !== 'quiz' || !S.scoperta || (Q && Q.tipo === 'mc')) return;
   const w = corrente(); const s = P.st[w.id] || [0, 0, 0, 0, 0, 0];
   s[0]++; if (v >= 1) s[1]++; if (v === 2) s[2]++; s[3] = v === 2 ? s[3] + 1 : 0; s[4] = v; s[5] = Math.floor(Date.now() / 1000);
   P.st[w.id] = s; salva();
@@ -854,38 +922,200 @@ function saltaQuiz() { if (S.i + 1 >= S.lista.length) return fineQuiz(); S.i++; 
 function fineQuiz(interrotto) {
   const q = Q; Q = null; quizFuoco = null;
   S.modo = 'studio';
-  vaiA('quiz', true);
-  const el = $('#quiz-dentro'), n = q.esiti.length;
-  if (!n) { nuovaSerie(); return pagQuiz(); }
+  const guid = q.tipo === 'guidato' || q.tipo === 'piazzamento', mc = q.tipo === 'mc';
+  vaiA(guid ? 'guidato' : 'quiz', true);
+  const el = guid ? $('#guid-dentro') : $('#quiz-dentro'), n = q.esiti.length, $q = x => el.querySelector(x);
+  if (!n) { nuovaSerie(); return guid ? pagGuidato() : pagQuiz(); }
+  if (guid) { P.gd.t = Date.now(); salva(); }
+  if (q.tipo === 'piazzamento' && !interrotto) { nuovaSerie(); return fineTest(q, el); }
   const c = [0, 1, 2].map(v => q.esiti.filter(e => e[1] === v).length);
-  const sbagliate = q.esiti.filter(e => e[1] < 2).map(e => e[0]);
-  const sicure = q.esiti.filter(e => e[1] === 2 && (statDi(e[0].id) || [])[3] >= 3 && !HO.has(e[0].id)).map(e => e[0]);
-  el.innerHTML = `<h1>${interrotto ? 'Quiz interrotto' : 'Quiz finito'}</h1>
-    <p class="sotto">${n} ${n === 1 ? 'opera' : 'opere'}: hai riconosciuto l'artista in ${c[1] + c[2]} casi su ${n} (${Math.round(100 * (c[1] + c[2]) / n)}%).</p>
-    <div class="numeri">
-      <div class="numero"><b style="color:#8fc487">${c[2]}</b><span>artista e opera</span></div>
+  const bene = mc ? 1 : 2;
+  const sbagliate = q.esiti.filter(e => e[1] < bene).map(e => e[0]);
+  const sicure = mc ? [] : q.esiti.filter(e => e[1] === 2 && (statDi(e[0].id) || [])[3] >= 3 && !HO.has(e[0].id)).map(e => e[0]);
+  const titolo = (guid ? 'Sessione ' : 'Quiz ') + (interrotto ? (guid ? 'interrotta' : 'interrotto') : (guid ? 'finita' : 'finito'));
+  const intro = mc ? `${n} ${n === 1 ? 'opera' : 'opere'}: hai indovinato l'artista in ${c[1]} casi su ${n} (${Math.round(100 * c[1] / n)}%).`
+    : `${n} ${n === 1 ? 'opera' : 'opere'}: hai riconosciuto l'artista in ${c[1] + c[2]} casi su ${n} (${Math.round(100 * (c[1] + c[2]) / n)}%).`;
+  const tipoRipeti = mc ? 'mc' : guid ? 'guidato' : 'auto';
+  el.innerHTML = `<h1>${titolo}</h1>
+    <p class="sotto">${intro}</p>
+    <div class="numeri">${mc
+      ? `<div class="numero"><b style="color:#8fc487">${c[1]}</b><span>indovinate</span></div><div class="numero"><b style="color:#e08a7e">${c[0]}</b><span>sbagliate</span></div>`
+      : `<div class="numero"><b style="color:#8fc487">${c[2]}</b><span>artista e opera</span></div>
       <div class="numero"><b>${c[1]}</b><span>solo l'artista</span></div>
-      <div class="numero"><b style="color:#e08a7e">${c[0]}</b><span>non riconosciute</span></div>
+      <div class="numero"><b style="color:#e08a7e">${c[0]}</b><span>non riconosciute</span></div>`}
     </div>
-    <div class="barretta" style="height:10px;margin-bottom:18px"><i style="width:${100 * c[2] / n}%;background:var(--si)"></i><i style="width:${100 * c[1] / n}%;background:var(--forse)"></i><i style="width:${100 * c[0] / n}%;background:var(--no)"></i></div>
+    <div class="barretta" style="height:10px;margin-bottom:18px">${mc
+      ? `<i style="width:${100 * c[1] / n}%;background:var(--si)"></i><i style="width:${100 * c[0] / n}%;background:var(--no)"></i>`
+      : `<i style="width:${100 * c[2] / n}%;background:var(--si)"></i><i style="width:${100 * c[1] / n}%;background:var(--forse)"></i><i style="width:${100 * c[0] / n}%;background:var(--no)"></i>`}</div>
     <div class="fila">
-      ${sbagliate.length ? `<button class="primario" id="q-ripeti">Ripeti le ${sbagliate.length} da ripassare</button>` : ''}
-      <button class="${sbagliate.length ? 'secondario' : 'primario'}" id="q-nuovo">Nuovo quiz</button>
+      ${guid ? '<button class="primario" id="q-continua">Continua con un\'altra sessione</button>' : ''}
+      ${sbagliate.length ? `<button class="${guid ? 'secondario' : 'primario'}" id="q-ripeti">Ripeti le ${sbagliate.length} da ripassare</button>` : ''}
+      ${guid ? '<button class="secondario" id="q-percorso">Il tuo percorso</button>' : `<button class="${sbagliate.length ? 'secondario' : 'primario'}" id="q-nuovo">Nuovo quiz</button>`}
       ${sbagliate.length ? '<button class="secondario" id="q-vedi">Rivedi con calma quelle da ripassare</button>' : ''}
     </div>
     ${sicure.length ? `<h2>Opere che ormai conosci</h2><p class="sotto">${sicure.length === 1 ? 'Un\'opera l\'hai riconosciuta' : sicure.length + ' opere le hai riconosciute'} per intero almeno tre volte di fila. Vuoi toglier${sicure.length === 1 ? 'la' : 'le'} dalla rotazione?</p>
       <div class="fila"><button class="secondario" id="q-nascondi">Nascondi ${sicure.length === 1 ? 'quest\'opera' : 'queste ' + sicure.length + ' opere'}</button><button class="secondario" id="q-sicure">Vedi quali sono</button></div>` : ''}
     <h2>Com'è andata, opera per opera</h2>
-    <table><tbody>${q.esiti.map(([w, v]) => `<tr><td><span style="color:${['#e08a7e', 'var(--oro2)', '#8fc487'][v]}">●</span></td>
+    <table><tbody>${q.esiti.map(([w, v]) => `<tr><td><span style="color:${mc ? ['#e08a7e', '#8fc487'][v] : ['#e08a7e', 'var(--oro2)', '#8fc487'][v]}">●</span></td>
       <td><span style="font-family:var(--serif);font-style:italic">${esc(w.t)}</span><br><span style="color:var(--tenue);font-size:13px">${esc(ART[w.a].n)}</span></td>
-      <td class="n" style="color:var(--tenue)">${['no', 'solo artista', 'tutto'][v]}</td></tr>`).join('')}</tbody></table>`;
+      <td class="n" style="color:var(--tenue)">${(mc ? ['sbagliato', 'artista giusto'] : ['no', 'solo artista', 'tutto'])[v]}</td></tr>`).join('')}</tbody></table>`;
   const lista = (ww, et) => apriGriglia({ tipo: 'lista', valore: new Set(ww.map(w => w.id)), etichetta: et });
-  if ($('#q-ripeti')) $('#q-ripeti').onclick = () => avviaQuiz(mescola(sbagliate.slice()));
-  if ($('#q-vedi')) $('#q-vedi').onclick = () => lista(sbagliate, 'Da ripassare');
-  if ($('#q-sicure')) $('#q-sicure').onclick = () => lista(sicure, 'Opere che ormai conosci');
-  if ($('#q-nascondi')) $('#q-nascondi').onclick = () => { sicure.forEach(w => HO.add(w.id)); salva(); aggiornaTutto(); brindisi(sicure.length + (sicure.length === 1 ? ' opera nascosta' : ' opere nascoste'), 'Annulla', () => { sicure.forEach(w => HO.delete(w.id)); salva(); aggiornaTutto(); }); $('#q-nascondi').disabled = true; $('#q-nascondi').style.opacity = .4; };
-  $('#q-nuovo').onclick = pagQuiz;
+  if ($q('#q-ripeti')) $q('#q-ripeti').onclick = () => avviaQuiz(mescola(sbagliate.slice()), tipoRipeti);
+  if ($q('#q-vedi')) $q('#q-vedi').onclick = () => lista(sbagliate, 'Da ripassare');
+  if ($q('#q-sicure')) $q('#q-sicure').onclick = () => lista(sicure, 'Opere che ormai conosci');
+  if ($q('#q-nascondi')) $q('#q-nascondi').onclick = () => { sicure.forEach(w => HO.add(w.id)); salva(); aggiornaTutto(); brindisi(sicure.length + (sicure.length === 1 ? ' opera nascosta' : ' opere nascoste'), 'Annulla', () => { sicure.forEach(w => HO.delete(w.id)); salva(); aggiornaTutto(); }); $q('#q-nascondi').disabled = true; };
+  if ($q('#q-nuovo')) $q('#q-nuovo').onclick = pagQuiz;
+  if ($q('#q-continua')) $q('#q-continua').onclick = sessioneGuidata;
+  if ($q('#q-percorso')) $q('#q-percorso').onclick = pagGuidato;
   nuovaSerie();
+}
+
+/* ---------------------------------------------------- quiz «4 artisti» */
+let FIN = null;       // per ogni artista, l'arco di anni in cui è attivo (dal 10° al 90° percentile degli anni delle sue opere)
+function finestre() {
+  if (FIN) return FIN;
+  const per = ART.map(() => []);
+  for (const w of OPERE) if (w.y && !(w.fl & F_DOPPIA)) per[w.a].push(w.y);
+  FIN = per.map(l => {
+    if (!l.length) return null; l.sort((x, y) => x - y);
+    const q = p => l[Math.min(l.length - 1, Math.floor(p * (l.length - 1) + 0.5))];
+    return l.length < 4 ? [l[0], l[l.length - 1]] : [q(0.1), q(0.9)];
+  });
+  return FIN;
+}
+function opzioniMC(w) {
+  const F = finestre(), a0 = ART[w.a];
+  const y = w.y || (F[w.a] ? (F[w.a][0] + F[w.a][1]) / 2 : 0);
+  const ok = a => a.i !== w.a && !a.x && !fuori(a) && !HA.has(a.n) && F[a.i];
+  let cand = [];
+  if (y) for (const tol of [5, 10, 20, 40, 80]) { cand = ART.filter(a => ok(a) && F[a.i][0] <= y + tol && F[a.i][1] >= y - tol); if (cand.length >= 3) break; }
+  if (cand.length < 3) cand = ART.filter(ok);
+  const pool = cand.map(a => [a, a.g.some(n => a0.g.includes(n)) ? 3 : 1]), scelti = [];
+  while (scelti.length < 3 && pool.length) {
+    let r = Math.random() * pool.reduce((t, x) => t + x[1], 0), j = 0;
+    while (r > pool[j][1] && j < pool.length - 1) { r -= pool[j][1]; j++; }
+    scelti.push(pool.splice(j, 1)[0][0].i);
+  }
+  return mescola(scelti.concat(w.a));
+}
+function preparaMC() {
+  const w = corrente(); if (!w) return;
+  Q.risposto = false; Q.opz = opzioniMC(w);
+  $('#mc-opz').innerHTML = Q.opz.map((a, k) => `<button class="bt opz" data-az="mc" data-v="${k}" title="Tasto ${k + 1}">${esc(ART[a].n)}</button>`).join('');
+  $('#mc-avanti').hidden = true;
+}
+function rispostaMC(k) {
+  if (!Q || Q.tipo !== 'mc' || Q.risposto || !Q.opz || k < 0 || k >= Q.opz.length) return;
+  const w = corrente(), ok = Q.opz[k] === w.a; Q.risposto = true;
+  const s = P.st[w.id] || [0, 0, 0, 0, 0, 0];
+  s[0]++;
+  if (ok) { s[1]++; s[4] = Math.max(s[4], 1); } else { s[3] = 0; s[4] = 0; }
+  s[5] = Math.floor(Date.now() / 1000); P.st[w.id] = s; salva();
+  Q.esiti.push([w, ok ? 1 : 0]);
+  $$('#mc-opz .bt').forEach((b, j) => { b.disabled = true; if (Q.opz[j] === w.a) b.classList.add('opz-ok'); else if (j === k) b.classList.add('opz-no'); });
+  S.scoperta = true; cartellino();
+  $('#mc-avanti').hidden = false; $('#mc-avanti').textContent = S.i + 1 >= S.lista.length ? 'Vedi il risultato' : 'Avanti →';
+}
+function prossimoMC() {
+  if (!Q || !Q.risposto) return;
+  if (S.i + 1 >= S.lista.length) return fineQuiz();
+  S.i++; S.scoperta = false; mostra();
+}
+
+/* ============================================== apprendimento guidato */
+/* Ogni opera ha un punteggio d'importanza (ripasso, fama, Brera, peso dell'artista); per non riempire il percorso con un solo
+   artista si toglie un po' a ogni opera successiva dello stesso autore. Il «fronte» è il numero di opere in programma:
+   parte dal risultato del test di piazzamento e cresce di 3 ogni volta che un'opera è riconosciuta due volte di fila. */
+function classifica(pool) {
+  const fam = new Map();
+  for (const w of pool) if (w.fl & (F_FAMOSA | F_RIPASSO)) fam.set(w.a, (fam.get(w.a) || 0) + 1);
+  const base = pool.map(w => [w, ((w.fl & F_RIPASSO) ? 5 : 0) + ((w.fl & F_FAMOSA) ? 3 : 0) + (SEDI[w.s].n === 'Pinacoteca di Brera' ? 3 : 0)
+    + Math.min(2, (fam.get(w.a) || 0) / 6) + ((w.fl & F_DETT) ? -3 : 1) + ((w.fl & F_DOPPIA) ? -4 : 0)]);
+  base.sort((x, y) => y[1] - x[1] || x[0].i - y[0].i);
+  const k = new Map(), out = [];
+  for (const [w, b] of base) { const j = k.get(w.a) || 0; k.set(w.a, j + 1); out.push([b - 0.4 * j + (parseInt(w.id, 36) % 1000) / 1e5, w]); }
+  out.sort((x, y) => y[0] - x[0]);
+  return out.map(x => x[1]);
+}
+function percorso() {
+  const pool = attive(null), cl = classifica(pool), ora = Date.now() / 1000;
+  const sicure = pool.filter(w => { const s = statDi(w.id); return s && s[3] >= 2; }).length;
+  const K = Math.min(cl.length, P.gd.k0 + 3 * sicure), dovuti = [], nuove = [];
+  for (const w of cl.slice(0, K)) {
+    const s = statDi(w.id);
+    if (!s) { nuove.push(w); continue; }
+    const attesa = s[4] === 2 ? INTERVALLI[Math.min(s[3], INTERVALLI.length - 1)] * 86400 : s[4] === 1 ? 3600 : 600;
+    const ritardo = ora - s[5] - attesa;
+    if (ritardo >= 0) dovuti.push([s[4] < 2 ? 1 : 0, ritardo, w]);
+  }
+  dovuti.sort((x, y) => y[0] - x[0] || y[1] - x[1]);
+  return { cl, K, sicure, dovuti: dovuti.map(x => x[2]), nuove, oltre: cl.slice(K).filter(w => !statDi(w.id)),
+    brera: cl.slice(0, K).filter(w => SEDI[w.s].n === 'Pinacoteca di Brera').length };
+}
+function sessioneGuidata() {
+  const p = percorso(), N = 15;
+  let nu = p.nuove.slice(0, N - Math.min(p.dovuti.length, Math.round(N * 0.6)));
+  const d = p.dovuti.slice(0, Math.max(Math.round(N * 0.6), N - nu.length));
+  nu = nu.slice(0, N - d.length);
+  let lista = d.concat(nu);
+  if (!lista.length) lista = p.oltre.slice(0, N);
+  if (!lista.length) return brindisi('Con i filtri attuali non c\'è altro da studiare');
+  if (vista !== 'guidato') vaiA('guidato', true);
+  avviaQuiz(mescola(lista.slice()), 'guidato');
+}
+function avviaTest() {
+  const cl = classifica(attive(null));
+  if (!cl.length) return brindisi('Con i filtri attuali non ci sono opere');
+  const lista = [], tier = new Map();
+  [[0, 100], [100, 400], [400, 1200]].forEach(([a, b], t) => {
+    mescola(cl.slice(a, Math.min(b, cl.length))).slice(0, 7).forEach(w => { lista.push(w); tier.set(w.id, t); });
+  });
+  avviaQuiz(mescola(lista), 'piazzamento', { tier });
+}
+function fineTest(q, el) {
+  const fr = [0, 1, 2].map(t => { const l = q.esiti.filter(e => q.tier.get(e[0].id) === t); return [l.length, l.reduce((x, e) => x + e[1], 0) / 2]; });
+  const a = fr.map(([n, p]) => n ? p / n : 0);
+  const k0 = Math.round(30 + 120 * a[0] + 250 * a[1] + 500 * a[2]);
+  P.gd = { fatto: true, k0, t: Date.now() }; salva();
+  const liv = k0 < 80 ? 'Parti dalle basi' : k0 < 200 ? 'Hai già una buona base' : k0 < 450 ? 'Livello intermedio' : 'Livello avanzato';
+  const nm = ['le opere più celebri', 'quelle di fama media', 'quelle meno note'];
+  el.innerHTML = `<h1>Test finito: ${liv}</h1>
+    <p class="sotto">Ti ho dato un punteggio per ciascuna fascia di difficoltà. Il percorso parte da <b style="color:var(--testo)">${k0}</b> opere in programma e si allarga man mano che ne impari.</p>
+    <table><tbody>${fr.map(([n, p], t) => `<tr><td>${nm[t][0].toUpperCase() + nm[t].slice(1)}</td><td class="n">${n ? Math.round(100 * a[t]) + '%' : '–'}</td></tr>`).join('')}</tbody></table>
+    <div class="fila" style="margin-top:18px"><button class="primario" id="q-continua">Inizia la prima sessione</button><button class="secondario" id="q-percorso">Il tuo percorso</button></div>`;
+  el.querySelector('#q-continua').onclick = sessioneGuidata; el.querySelector('#q-percorso').onclick = pagGuidato;
+}
+function pagGuidato() {
+  const el = $('#guid-dentro');
+  if (!P.gd.fatto) {
+    el.innerHTML = `<h1>Apprendimento guidato</h1>
+      <p class="sotto">Un percorso che si adatta a te: parti con un breve test, poi ti propongo le opere dalle più richieste all'esame a quelle meno note, e ogni tanto ti faccio ripassare quelle che stai dimenticando.</p>
+      <div class="passi">
+        <div class="passo"><b>1 · Test di piazzamento</b><br>21 opere di difficoltà crescente, per capire da dove cominciare.</div>
+        <div class="passo"><b>2 · Sessioni da 15 opere</b><br>Una parte di ripasso (le opere sbagliate subito, quelle riconosciute dopo 1, 3, 7, 14… giorni) e una parte nuova.</div>
+        <div class="passo"><b>3 · Il percorso si allarga</b><br>Più opere impari, più entrano in gioco opere secondarie e artisti meno noti. Le opere della Pinacoteca di Brera hanno la precedenza.</div>
+      </div>
+      <div class="fila"><button class="primario" id="g-test">Fai il test di piazzamento</button><button class="secondario" id="g-salta">Salta il test e parti dall'inizio</button></div>
+      <p class="nota">Il percorso rispetta i filtri del menu ☰ (periodo e stile, solo ripasso, artisti nascosti).</p>`;
+    el.querySelector('#g-test').onclick = avviaTest;
+    el.querySelector('#g-salta').onclick = () => { P.gd = { fatto: true, k0: 30, t: Date.now() }; salva(); pagGuidato(); };
+    return;
+  }
+  const p = percorso(), prog = p.K ? Math.round(100 * p.sicure / Math.max(p.K, 1)) : 0;
+  const filtro = GR.size || P.rip ? `<p class="nota">Filtro attivo: ${[...GR].map(esc).join(', ')}${P.rip ? (GR.size ? ' · ' : '') + 'solo opere da ripasso' : ''}. Cambialo dal menu ☰ › Periodo e stile.</p>` : '';
+  el.innerHTML = `<h1>Apprendimento guidato</h1>
+    <p class="sotto">${p.cl.length ? `Hai in programma <b style="color:var(--testo)">${num(p.K)}</b> opere su ${num(p.cl.length)}` : 'Nessuna opera con i filtri attuali'}${p.brera ? `, di cui ${num(p.brera)} alla Pinacoteca di Brera` : ''}.</p>
+    <div class="numeri">
+      <div class="numero"><b>${num(p.dovuti.length)}</b><span>da ripassare ora</span></div>
+      <div class="numero"><b>${num(p.nuove.length)}</b><span>nuove in programma</span></div>
+      <div class="numero"><b style="color:#8fc487">${num(p.sicure)}</b><span>sicure (2 volte di fila)</span></div>
+    </div>
+    <div class="barretta" style="height:10px;margin-bottom:6px"><i style="width:${Math.min(100, prog)}%;background:var(--si)"></i></div>
+    <p class="nota" style="margin-top:0">Più opere riconosci due volte di fila, più il percorso si allarga (${P.gd.k0} di partenza + 3 per ogni opera sicura).</p>
+    <div class="fila"><button class="primario" id="g-via"${p.cl.length ? '' : ' disabled style="opacity:.4"'}>Inizia una sessione (15 opere)</button>
+      <button class="secondario" id="g-test">Rifai il test di piazzamento</button></div>
+    ${filtro}`;
+  el.querySelector('#g-via').onclick = sessioneGuidata; el.querySelector('#g-test').onclick = () => chiedi('Rifare il test di piazzamento? Il punto di partenza del percorso verrà ricalcolato; le statistiche restano.', 'Rifai il test', avviaTest);
 }
 
 /* =========================================================== statistiche */
@@ -934,16 +1164,18 @@ function pagStat() {
 
 /* ================================================================= viste */
 function vaiA(v, interno) {
-  if (!interno && Q && v !== 'studio') { return chiedi('C\'è un quiz in corso. Interromperlo?', 'Interrompi', () => { fineQuiz(true); if (v === 'statistiche') vaiA(v); }); }
+  if (!interno && Q && v !== 'studio') { return chiedi('C\'è un quiz in corso. Interromperlo?', 'Interrompi', () => { fineQuiz(true); if (v !== 'quiz') vaiA(v); }); }
   if (!interno && v === 'studio' && S.modo === 'sfoglia') torna(true);
   vista = v;
   $('#contatore').textContent = '';
-  $('#palco').hidden = v !== 'studio'; $('#pag-quiz').hidden = v !== 'quiz'; $('#pag-statistiche').hidden = v !== 'statistiche'; $('#pag-inizio').hidden = v !== 'inizio'; $('#pag-info').hidden = v !== 'info';
+  $('#palco').hidden = v !== 'studio'; $('#pag-quiz').hidden = v !== 'quiz'; $('#pag-guidato').hidden = v !== 'guidato'; $('#pag-statistiche').hidden = v !== 'statistiche'; $('#pag-inizio').hidden = v !== 'inizio'; $('#pag-info').hidden = v !== 'info';
   if (v === 'inizio') pagInizio();
   if (v === 'studio') pillole();
   if (!interno) $('#griglia').hidden = true;
-  $$('.scheda').forEach(b => b.setAttribute('aria-current', String(b.dataset.vista === (Q ? 'quiz' : v))));
+  const cur = Q ? (Q.tipo === 'guidato' || Q.tipo === 'piazzamento' ? 'guidato' : 'quiz') : v;
+  $$('.scheda').forEach(b => b.setAttribute('aria-current', String(b.dataset.vista === cur)));
   if (v === 'quiz' && !interno) pagQuiz();
+  if (v === 'guidato' && !interno) pagGuidato();
   if (v === 'statistiche') pagStat();
 }
 $$('.scheda').forEach(b => b.onclick = () => vaiA(b.dataset.vista));
@@ -975,18 +1207,19 @@ function pagInizio() {
     <p class="sotto">${num(att)} opere in rotazione di ${ART.filter(a => a.tot && !fuori(a) && !HA.has(a.n)).length} artisti` +
       (HO.size || HA.size ? ` · nascosti: ${num(HO.size)} opere, ${HA.size} artisti` : '') + (risp ? ` · ${num(risp)} opere già incontrate nei quiz` : '') + `</p>
     <div id="inizio-carte">
-      <button class="scelta-grande forte" data-i="studio"><b>Studia</b><span>Le opere una alla volta, in ordine casuale. Tocchi e compare la didascalia.</span></button>
+      <button class="scelta-grande forte" data-i="guidato"><b>Apprendimento guidato</b><span>${P.gd.fatto ? 'Continua il percorso: ripassi ciò che è dovuto e aggiungi opere nuove, a partire dalle più richieste e da Brera.' : 'Parti con un breve test di piazzamento: poi ti propongo le opere in ordine d\'importanza, ripassandole al momento giusto.'}</span></button>
+      <button class="scelta-grande" data-i="studio"><b>Apprendimento libero</b><span>Le opere una alla volta, in ordine casuale. Tocchi e compare la didascalia.</span></button>
       <button class="scelta-grande" data-i="quiz"><b>Quiz</b><span>Scegli quante opere, dici se le hai riconosciute e alimenti le statistiche.</span></button>
       <button class="scelta-grande" data-i="musei"><b>Un museo o un artista</b><span>Studia solo le opere di una sede (per esempio la Pinacoteca di Brera) o di un artista.</span></button>
       <button class="scelta-grande" data-i="statistiche"><b>Statistiche</b><span>Quali artisti riconosci meglio e quali ripassare.</span></button>
-      <button class="scelta-grande" data-i="menu"><b>Filtri e impostazioni</b><span>Cosa mostrare, artisti, musei, opere nascoste, salvataggio delle preferenze.</span></button>
+      <button class="scelta-grande" data-i="menu"><b>Filtri e impostazioni</b><span>Periodo e stile, cosa mostrare, artisti, musei, opere nascoste, salvataggio delle preferenze.</span></button>
     </div>
     <div class="fila"><button class="secondario" data-i="info">Contatti, segnalazioni e crediti</button></div>
     <p class="nota" id="nota-catalogo">Catalogo del ${esc(C.gen || '')}. Le tue scelte (opere e artisti nascosti, filtri, statistiche) restano su questo telefono, nel browser con cui usi l'app: se cancelli i dati del sito o cambi telefono si perdono. Per tenerne una copia usa «Preferenze» nel menu ☰.</p>`;
   $('#inizio-dentro').onclick = e => {
     if (e.target.closest('#nota-catalogo')) return toccoSegreto();
     const b = e.target.closest('[data-i]'); if (!b) return; const i = b.dataset.i;
-    if (i === 'studio' || i === 'quiz' || i === 'statistiche' || i === 'info') vaiA(i);
+    if (i === 'studio' || i === 'guidato' || i === 'quiz' || i === 'statistiche' || i === 'info') vaiA(i);
     else { apriCassetto(); if (i === 'musei') { $('#sez-musei').open = true; $('#sez-musei').scrollIntoView(); } }
   };
 }
@@ -998,6 +1231,7 @@ $('#apri-cassetto').onclick = apriCassetto; $('#chiudi-cassetto').onclick = chiu
 
 function costruisciCassetto() {
   $('#sc-livello').onclick = e => { const b = e.target.closest('[data-l]'); if (!b) return; P.liv = b.dataset.l; cambioFiltri(); };
+  $('#sc-periodi').onclick = clicPeriodo;
   $('#sc-forme').onclick = e => { const b = e.target.closest('[data-f]'); if (!b) return; const k = +b.dataset.f; P.forme[k] = P.forme[k] ? 0 : 1; if (!P.forme.some(Boolean)) P.forme[k] = 1; cambioFiltri(); };
   $('#filtro-artisti').oninput = listaArtisti;
   $('#artisti-manca').onclick = () => chiediAggiunta($('#filtro-artisti').value.trim());
@@ -1024,15 +1258,37 @@ function ripristinaOpere() {
   if (!HO.size) return brindisi('Non hai nascosto nessuna opera');
   chiedi('Rendere di nuovo visibili tutte le ' + HO.size + ' opere nascoste?', 'Ripristina', () => { HO.clear(); cambioFiltri(); $('#griglia').hidden = true; });
 }
-function cambioFiltri() { salva(); aggiornaTutto(); if (S.modo === 'studio') nuovaSerie(); if (vista === 'quiz' && !Q) pagQuiz(); if (vista === 'statistiche') pagStat(); if (vista === 'inizio') pagInizio(); }
+function blocchiPeriodo() {
+  const per = C.periodi || [], gr = C.gruppi || [];
+  if (!gr.length) return '<p class="nota">Questo catalogo non ha ancora i gruppi per periodo.</p>';
+  let h = `<div class="scelte" style="margin-bottom:12px"><button class="scelta" data-rip="1" aria-pressed="${!!P.rip}">★ Solo opere da ripasso<small>${num(RC)}</small></button></div>`;
+  per.forEach((pn, p) => {
+    const gs = gr.filter(g => g.p === p && ((GC[g.n] || 0) > 0 || GR.has(g.n))); if (!gs.length) return;
+    h += `<div class="periodo"><button class="scelta per" data-per="${p}" aria-pressed="${gs.every(g => GR.has(g.n))}">${esc(pn)}</button><div class="scelte">` +
+      gs.map(g => `<button class="scelta gr" data-gr="${esc(g.n)}" aria-pressed="${GR.has(g.n)}">${esc(g.n)}<small>${num(GC[g.n] || 0)}</small></button>`).join('') + '</div></div>';
+  });
+  return h + `<p class="nota">${GR.size ? '' : 'Senza nessuna selezione valgono tutti i periodi. '}<button class="lk" data-azzera-per="1" style="color:var(--oro2)">Togli i filtri di periodo</button></p>`;
+}
+function clicPeriodo(e) {
+  const b = e.target.closest('[data-per],[data-gr],[data-rip],[data-azzera-per]'); if (!b) return;
+  if (b.dataset.rip) P.rip = !P.rip;
+  else if (b.dataset.gr !== undefined) GR.has(b.dataset.gr) ? GR.delete(b.dataset.gr) : GR.add(b.dataset.gr);
+  else if (b.dataset.azzeraPer) GR.clear();
+  else { const gs = (C.gruppi || []).filter(g => g.p === +b.dataset.per), tutti = gs.every(g => GR.has(g.n)); gs.forEach(g => tutti ? GR.delete(g.n) : GR.add(g.n)); }
+  cambioFiltri();
+}
+function cambioFiltri() { salva(); aggiornaTutto(); if (S.modo === 'studio') nuovaSerie(); if (vista === 'quiz' && !Q) pagQuiz(); if (vista === 'statistiche') pagStat(); if (vista === 'inizio') pagInizio(); if (vista === 'guidato' && !Q) pagGuidato(); }
 
 function aggiornaTutto() {
   if (!C) return;
   const conta = { fam: 0, nd: 0, tutte: 0 }, perForma = [0, 0, 0, 0];
+  GC = {}; RC = 0;
   for (const a of ART) a.tot = 0;
   for (const w of OPERE) {
     const liv = P.liv === 'fam' ? (w.fl & F_FAMOSA) : P.liv === 'nd' ? !(w.fl & (F_DETT | F_DOPPIA)) : true;
     if (fuori(ART[w.a])) continue;
+    if (liv && P.forme[w.f]) { if (w.fl & F_RIPASSO) RC++; if (!P.rip || (w.fl & F_RIPASSO)) for (const n of ART[w.a].g) GC[n] = (GC[n] || 0) + 1; }
+    if (!tema(w)) continue;
     if (liv) perForma[w.f]++;
     if (P.forme[w.f]) { conta.tutte++; if (!(w.fl & (F_DETT | F_DOPPIA))) conta.nd++; if (w.fl & F_FAMOSA) conta.fam++; if (liv) ART[w.a].tot++; }
   }
@@ -1044,6 +1300,8 @@ function aggiornaTutto() {
   const nArt = ART.filter(a => !fuori(a)).length;
   $('#n-artisti').textContent = HA.size ? (nArt - ART.filter(a => !fuori(a) && HA.has(a.n)).length) + ' di ' + nArt : nArt;
   $('#n-nascoste').textContent = HO.size ? num(HO.size) : '';
+  $('#sc-periodi').innerHTML = blocchiPeriodo();
+  $('#n-periodo').textContent = GR.size || P.rip ? '· filtro attivo' : '';
   listaArtisti(); listaMusei(); offlineCorpo();
 }
 function listaMusei() {
@@ -1077,7 +1335,7 @@ function cerca() {
 }
 
 /* =========================================================== preferenze */
-function pacchetto(conStat) { const d = { app: 'art-studio', v: 1, liv: P.liv, forme: P.forme, ho: [...HO], ha: [...HA] }; d.ospiti = !!P.ospiti; if (conStat) { d.st = P.st; d.salvato = new Date().toISOString(); } return d; }
+function pacchetto(conStat) { const d = { app: 'art-studio', v: 1, liv: P.liv, forme: P.forme, ho: [...HO], ha: [...HA], gr: [...GR], rip: !!P.rip }; d.ospiti = !!P.ospiti; if (conStat) { d.st = P.st; d.gd = P.gd; d.salvato = new Date().toISOString(); } return d; }
 function esporta() {
   const b = new Blob([JSON.stringify(pacchetto(true))], { type: 'application/json' }), a = document.createElement('a');
   a.href = URL.createObjectURL(b); a.download = 'art-studio-preferenze-' + new Date().toISOString().slice(0, 10) + '.json';
