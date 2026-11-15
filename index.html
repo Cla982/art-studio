@@ -299,7 +299,6 @@ details .corpo{padding:0 2px 16px}
       <div class="scelte" id="sc-livello"></div>
       <div class="etichetta">Tipo di opera</div>
       <div class="scelte" id="sc-forme"></div>
-      <label class="spunta" id="riga-ospiti" style="margin:12px 0 4px"><input type="checkbox" id="sc-ospiti"><span>Tutta la Pinacoteca di Brera<br><span style="color:var(--tenue);font-size:13px" id="nota-ospiti"></span></span></label>
       <p class="nota" id="riepilogo"></p>
     </div>
   </details>
@@ -454,7 +453,7 @@ function nelLivello(w) {
   if (P.liv === 'nd') return (w.fl & (F_DETT | F_DOPPIA)) === 0;
   return true;
 }
-const fuori = a => a.x && !P.ospiti;      // artista fuori elenco (ospite di un museo) non incluso nella rotazione
+const fuori = a => false;      // gli artisti «ospiti» (presenti solo con le opere di Brera) sono sempre in rotazione
 const visibile = w => nelLivello(w) && !HO.has(w.id) && !HA.has(ART[w.a].n) && !fuori(ART[w.a]);
 function nelFuoco(w, f) {
   if (!f) return true;
@@ -1001,7 +1000,6 @@ $('#apri-cassetto').onclick = apriCassetto; $('#chiudi-cassetto').onclick = chiu
 function costruisciCassetto() {
   $('#sc-livello').onclick = e => { const b = e.target.closest('[data-l]'); if (!b) return; P.liv = b.dataset.l; cambioFiltri(); };
   $('#sc-forme').onclick = e => { const b = e.target.closest('[data-f]'); if (!b) return; const k = +b.dataset.f; P.forme[k] = P.forme[k] ? 0 : 1; if (!P.forme.some(Boolean)) P.forme[k] = 1; cambioFiltri(); };
-  $('#sc-ospiti').onchange = e => { P.ospiti = e.target.checked; cambioFiltri(); };
   $('#filtro-artisti').oninput = listaArtisti;
   $('#artisti-manca').onclick = () => chiediAggiunta($('#filtro-artisti').value.trim());
   $('#art-tutti').onclick = () => { HA.clear(); cambioFiltri(); };
@@ -1041,9 +1039,6 @@ function aggiornaTutto() {
   }
   $('#sc-livello').innerHTML = LIVELLI.map(([k, n]) => `<button class="scelta" data-l="${k}" aria-pressed="${P.liv === k}">${n}<small>${num(conta[k])}</small></button>`).join('');
   $('#sc-forme').innerHTML = FORME.map((n, k) => `<button class="scelta" data-f="${k}" aria-pressed="${!!P.forme[k]}">${n}<small>${num(perForma[k])}</small></button>`).join('');
-  const osp = ART.filter(a => a.x), nOsp = OPERE.filter(w => ART[w.a].x && nelLivello(w)).length;
-  $('#riga-ospiti').hidden = !osp.length; $('#sc-ospiti').checked = !!P.ospiti;
-  $('#nota-ospiti').textContent = `Aggiunge alla rotazione ${num(nOsp)} opere di ${osp.length} artisti fuori dal tuo elenco.`;
   const att = attive(null).length;
   $('#riepilogo').innerHTML = `In rotazione: <b style="color:var(--testo)">${num(att)}</b> opere di ${ART.filter(a => a.tot && !fuori(a) && !HA.has(a.n)).length} artisti.` +
     (P.liv === 'fam' ? '<br>«Più famose» è una selezione delle opere che si trovano di solito nei manuali.' : P.liv === 'tutte' ? '<br>«Tutte» comprende anche i particolari e le vedute ripetute della stessa opera.' : '');
