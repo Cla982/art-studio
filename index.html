@@ -981,13 +981,12 @@ function pagInizio() {
       <button class="scelta-grande" data-i="statistiche"><b>Statistiche</b><span>Quali artisti riconosci meglio e quali ripassare.</span></button>
       <button class="scelta-grande" data-i="menu"><b>Filtri e impostazioni</b><span>Cosa mostrare, artisti, musei, opere nascoste, salvataggio delle preferenze.</span></button>
     </div>
-    <div class="fila"><button class="secondario" data-i="manca">Manca un artista o un'opera?</button><button class="secondario" data-i="info">Contatti e crediti</button></div>
+    <div class="fila"><button class="secondario" data-i="info">Contatti, segnalazioni e crediti</button></div>
     <p class="nota" id="nota-catalogo">Catalogo del ${esc(C.gen || '')}. Le tue scelte (opere e artisti nascosti, filtri, statistiche) restano su questo telefono, nel browser con cui usi l'app: se cancelli i dati del sito o cambi telefono si perdono. Per tenerne una copia usa «Preferenze» nel menu ☰.</p>`;
   $('#inizio-dentro').onclick = e => {
     if (e.target.closest('#nota-catalogo')) return toccoSegreto();
     const b = e.target.closest('[data-i]'); if (!b) return; const i = b.dataset.i;
     if (i === 'studio' || i === 'quiz' || i === 'statistiche' || i === 'info') vaiA(i);
-    else if (i === 'manca') chiediAggiunta('');
     else { apriCassetto(); if (i === 'musei') { $('#sez-musei').open = true; $('#sez-musei').scrollIntoView(); } }
   };
 }
