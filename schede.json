@@ -1,0 +1,2556 @@
+{
+ "v": 1,
+ "artisti": {
+  "Cosmè Tura": {
+   "sint": "Caposcuola del Rinascimento ferrarese, attivo stabilmente come pittore ufficiale della corte estense. Fonde la preziosità cortese e fiamminga con il rigore prospettico padovano e di Piero della Francesca in forme tese, aspre e quasi metalliche.",
+   "vita": [
+    "Nasce a Ferrara intorno al 1430 da un calzolaio e inizia probabilmente come miniatore sotto Leonello o Borso d'Este.",
+    "Tra il 1452 e il 1456 viaggia probabilmente a Padova e Venezia, entrando in contatto con la bottega di Francesco Squarcione, Donatello e Mantegna.",
+    "Nel 1456 viene nominato pittore ufficiale della corte estense con residenza al Castello Estense.",
+    "Nel 1471 Ercole I d'Este lo conferma come ritrattista di corte, ruolo che mantiene fino al 1486, quando gli subentra Ercole de' Roberti.",
+    "Negli ultimi anni versa in gravi difficoltà economiche e muore in povertà nel 1495."
+   ],
+   "stile": [
+    "Sviluppa un linguaggio fortemente personale che unisce il gotico internazionale all'impianto plastico padovano e alla precisione analitica fiamminga.",
+    "Tratta i panneggi e le superfici con chiaroscuri taglienti che li fanno apparire scolpiti nella pietra o sbalzati nel metallo.",
+    "Utilizza colori accesi e smaltati, una luce incidente e prospettive spesso ribassate che conferiscono alle figure un'aura visionaria e quasi surreale."
+   ],
+   "tappe": [
+    [
+     "Padova e Venezia, 1452-1456",
+     "Assorbe la cultura plastica di Donatello e Mantegna nella bottega di Francesco Squarcione."
+    ],
+    [
+     "Ferrara, 1456-1495",
+     "Pittore ufficiale degli Este per decenni; realizza le Muse per lo Studiolo di Belfiore, le ante d'organo del Duomo, il Polittico Roverella e opere devote come il San Girolamo penitente."
+    ]
+   ],
+   "brera": "Alla Pinacoteca di Brera è conservato il piccolo ma intensissimo Cristo crocifisso, probabile frammento superiore del San Girolamo penitente di Londra.",
+   "opere": [
+    "3rj271",
+    "1u2aupt",
+    "jojltm",
+    "15aathh",
+    "1odrcue",
+    "1o3rr5f",
+    "1q2spfy",
+    "1rgqpwt",
+    "1wn8lpa",
+    "o30ari",
+    "1rxqe0t"
+   ],
+   "v": [
+    "Per l'affresco di Agosto a Palazzo Schifanoia gli appunti da un lato lo attribuiscono a Tura e al Maestro di Ercole, dall'altro mettono in dubbio la partecipazione diretta di Tura al Salone dei Mesi."
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 8 - RINASCIMENTO A FERRARA  - RINASCIMENTO A FERRARA.txt."
+  },
+  "Francesco del Cossa": {
+   "sint": "Protagonista della Scuola ferrarese accanto a Cosmè Tura, attivo tra Ferrara e Bologna. Rielabora il linearismo gotico e le tensioni espressive ferraresi attraverso la chiarezza prospettica e luminosa di Piero della Francesca, raggiungendo uno stile più equilibrato e teatrale.",
+   "vita": [
+    "Nasce a Ferrara intorno al 1436 dal lapicida Cristoforo del Cossa e si forma tra la bottega paterna e l'ambiente di Cosmè Tura.",
+    "Attivo inizialmente a Ferrara (documentato già nel 1456 nella Cattedrale), lavora intorno al 1468-1470 agli affreschi del Salone dei Mesi di Palazzo Schifanoia.",
+    "Insoddisfatto del compenso ricevuto da Borso d'Este nonostante una celebre lettera di protesta del 1470, si trasferisce stabilmente a Bologna.",
+    "A Bologna lavora per i Bentivoglio e realizza il Polittico Griffoni e la Pala dei Mercanti; muore giovane intorno al 1477-1478, probabilmente per una pestilenza."
+   ],
+   "stile": [
+    "Sintetizza linearismo gotico e rigore rinascimentale, unendo contorni incisivi e solidità plastica a un'attenta costruzione prospettica.",
+    "Trae da Piero della Francesca l'uso della luce chiara e unificante, che rende credibili anche i paesaggi più visionari con rocce stalagmitiche e castelli fiabeschi.",
+    "Mostra una spiccata vivacità narrativa e un uso brillante del colore, con panneggi complessi dai riflessi quasi metallici."
+   ],
+   "tappe": [
+    [
+     "Ferrara, fino al 1470 circa",
+     "Esegue i mesi di Marzo, Aprile e Maggio nel Salone dei Mesi di Palazzo Schifanoia per Borso d'Este."
+    ],
+    [
+     "Bologna, 1470-1478 circa",
+     "Dipinge il Polittico Griffoni in San Petronio con Ercole de' Roberti, la Pala dei Mercanti e avvia gli affreschi della Cappella Garganelli."
+    ]
+   ],
+   "brera": "A Brera sono conservati gli scomparti laterali del Polittico Griffoni raffiguranti San Pietro e San Giovanni Battista.",
+   "opere": [
+    "1x2vrva",
+    "1b68v6m",
+    "1m7710m",
+    "afek58",
+    "b9dd85",
+    "9bg5dc",
+    "a5eyg9",
+    "13mwunf"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 8 - RINASCIMENTO A FERRARA  - RINASCIMENTO A FERRARA.txt."
+  },
+  "Ercole de' Roberti": {
+   "sint": "Uno dei massimi innovatori del Quattrocento padano, formatosi nella cerchia di Cosmè Tura e Francesco del Cossa. Evolse da un espressionismo drammatico e spigoloso verso una monumentalità classica carica di introspezione psicologica, lavorando tra Bologna e la corte estense.",
+   "vita": [
+    "Nasce a Ferrara intorno al 1450 e si forma nell'ambiente di Cosmè Tura e Francesco del Cossa.",
+    "Esordisce autonomamente nel Salone dei Mesi di Palazzo Schifanoia e tra il 1470 e il 1472 segue Del Cossa a Bologna.",
+    "A Bologna collabora al Polittico Griffoni, lavora per i Bentivoglio e completa gli affreschi della Cappella Garganelli dopo la morte di Cossa.",
+    "Nel 1486 torna a Ferrara succedendo a Cosmè Tura come pittore ufficiale di corte degli Este, per i quali compie anche viaggi diplomatici a Mantova, Roma e in Ungheria.",
+    "Muore a Ferrara nel 1496 ed è sepolto nella chiesa di San Domenico."
+   ],
+   "stile": [
+    "In gioventù adotta un espressionismo drammatico, con figure allungate, linee spezzate, rocce prismatiche e panneggi taglienti simili a carta piegata.",
+    "Nella maturità assimila la lezione luminosa e psicologica di Giovanni Bellini e Antonello da Messina, approdando a composizioni più equilibrate e solenni.",
+    "Coniuga la precisione miniaturistica e l'attenzione fiamminga al dettaglio con un intenso pathos narrativo."
+   ],
+   "tappe": [
+    [
+     "Ferrara, fine anni '60 del '400",
+     "Lavora nell'Officina ferrarese al ciclo del Salone dei Mesi a Palazzo Schifanoia (mese di Settembre)."
+    ],
+    [
+     "Bologna e Ravenna, 1470-1486 circa",
+     "Esegue predella e pilastrini del Polittico Griffoni, i ritratti dei Bentivoglio, la Pala di Santa Maria in Porto e completa la Cappella Garganelli."
+    ],
+    [
+     "Ferrara, 1486-1496",
+     "Pittore di corte per Ercole I ed Eleonora d'Aragona; dipinge le serie sulle eroine antiche e raffinate opere devozionali come il Dittico di Londra."
+    ]
+   ],
+   "brera": "La Pinacoteca di Brera custodisce la monumentale Pala di Santa Maria in Porto, capolavoro della sua maturità classica.",
+   "opere": [
+    "1owrj7j",
+    "1o2sq4m",
+    "1ocsbtl",
+    "1nitiqo",
+    "1nst4fn",
+    "1pgqqlh",
+    "x2ducv",
+    "qjjco1",
+    "1kmme7q",
+    "1kcmsir",
+    "1rgahup",
+    "1qmbors",
+    "1qwbagr"
+   ],
+   "v": [
+    "Per l'affresco di Settembre a Palazzo Schifanoia gli appunti riportano sia l'attribuzione a Ercole de' Roberti sia l'ipotesi di un autore anonimo detto Maestro della Bilancia."
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 8 - RINASCIMENTO A FERRARA  - RINASCIMENTO A FERRARA.txt."
+  },
+  "Lorenzo Costa il Vecchio": {
+   "sint": "Pittore di origine ferrarese che traghetta la tradizione espressiva di Tura e Roberti verso il classicismo rinascimentale padano. Attivo a lungo a Bologna e poi successore di Mantegna alla corte dei Gonzaga a Mantova, fonde grazia cortigiana, luce soffusa e naturalismo paesaggistico.",
+   "vita": [
+    "Nasce a Ferrara intorno al 1460 e si forma sull'esempio di Cosmè Tura e soprattutto di Ercole de' Roberti.",
+    "Intorno al 1483 si trasferisce a Bologna, dove lavora per oltre vent'anni per i Bentivoglio e collabora strettamente con Francesco Francia.",
+    "Compie un viaggio a Roma nei primi anni del Cinquecento e nel 1506 si stabilisce a Mantova su invito di Isabella d'Este, succedendo ad Andrea Mantegna come pittore di corte.",
+    "Rimane al servizio dei Gonzaga fino alla morte, avvenuta a Mantova nel 1535."
+   ],
+   "stile": [
+    "Ammorbidisce gradualmente la durezza lineare e nervosa della scuola ferrarese in favore di forme pacate, volti dolci e composizioni armoniche.",
+    "Unisce la precisione ritrattistica di Antonello da Messina alla grazia narrativa di Perugino, Ghirlandaio e Filippino Lippi.",
+    "Cura con grande sensibilità i paesaggi ampi e luminosi, resi tramite la prospettiva aerea."
+   ],
+   "tappe": [
+    [
+     "Ferrara, fino al 1483 circa",
+     "Formazione giovanile nell'orbita di Cosmè Tura ed Ercole de' Roberti."
+    ],
+    [
+     "Bologna, 1483-1506",
+     "Lavora nella Cappella Bentivoglio in San Giacomo Maggiore, nell'Oratorio di Santa Cecilia con Francia e dipinge l'Adorazione dei Magi ora a Brera."
+    ],
+    [
+     "Mantova, 1506-1535",
+     "Pittore ufficiale dei Gonzaga; esegue tele allegoriche per lo studiolo di Isabella d'Este (Isabella d'Este nel regno di Armonia e Regno di Como) e ritratti."
+    ]
+   ],
+   "brera": "A Brera si trova l'Adorazione dei Magi del 1499, originariamente predella di una pala di Francesco Francia per la chiesa bolognese di Santa Maria della Misericordia.",
+   "opere": [
+    "ot9vna"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 8 - RINASCIMENTO A FERRARA  - RINASCIMENTO A FERRARA.txt."
+  },
+  "Jacopo della Quercia": {
+   "sint": "Scultore senese cerniera tra Gotico internazionale e primo Rinascimento, unisce la linea decorativa a una potente monumentalità classica e a una forza plastica che influenzerà profondamente Michelangelo.",
+   "vita": [
+    "Nasce a Siena tra il 1371 e il 1374, formandosi nella bottega orafa e scultorea del padre Piero d'Angelo.",
+    "Nel 1401 partecipa al concorso per la porta nord del Battistero di Firenze contro Ghiberti e Brunelleschi.",
+    "Attivo a Lucca per Paolo Guinigi tra il 1406 e il 1408, e a Ferrara dove scolpisce la Madonna della Melagrana.",
+    "Lavora per la Repubblica di Siena realizzando la monumentale Fonte Gaia in Piazza del Campo tra il 1414 e il 1419.",
+    "Tra il 1425 e il 1434 lavora al suo capolavoro, i rilievi della Porta Magna per San Petronio a Bologna; muore a Siena nel 1438."
+   ],
+   "stile": [
+    "Sintesi originale tra eleganza decorativa tardogotica e monumentalità anatomica di ispirazione classica.",
+    "Rilievo plastico peculiare, diverso dallo stiacciato: figure compresse tra due piani invisibili, con linee nette e ombre minime.",
+    "Forte contrasto tra superfici lisce e fratture di piani, da cui scaturisce un effetto di intensa energia trattenuta.",
+    "Sviluppo della tradizione toscana dei Pisano, caratterizzato da tensione dinamica e figure energiche ed espressive."
+   ],
+   "tappe": [
+    [
+     "Lucca e Ferrara, 1406-1408",
+     "Monumento funebre a Ilaria del Carretto a Lucca e Madonna della Melagrana per la Cattedrale di Ferrara."
+    ],
+    [
+     "Siena, 1414-1419",
+     "Realizzazione della Fonte Gaia in Piazza del Campo con rilievi biblici e statue a tutto tondo."
+    ],
+    [
+     "Lucca, 1416-1422",
+     "Lavori alla Cappella Trenta in San Frediano con altare marmoreo e statue di santi."
+    ],
+    [
+     "Bologna, 1425-1434",
+     "Esecuzione delle formelle con le Storie della Genesi per la Porta Magna della basilica di San Petronio."
+    ]
+   ],
+   "opere": [
+    "hicyyt",
+    "1olh6t2",
+    "ymwo8c",
+    "1i8neid",
+    "1gkpscj",
+    "1pi9jid",
+    "1bffj42",
+    "1j86t86",
+    "1km4tp1"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 1 - RINASCIMENTO A FIRENZE  - 1 - RINASCIMENTO FIRENZE_ QUERCIA-GHIBERTI- NANNI DI BARTOLO - MASOLINO -MASACCIO .txt"
+  },
+  "Lorenzo Ghiberti": {
+   "sint": "Scultore, orafo e scrittore d'arte fiorentino, mediatore tra eleganza del gotico cortese e razionalità prospettica rinascimentale, celebre autore delle porte bronzee del Battistero di Firenze e dei Commentarii.",
+   "vita": [
+    "Nasce a Firenze nel 1378 e si forma nell'oreficeria del padre Bartolo di Michele.",
+    "Nel 1401 vince il concorso indetto dall'Arte di Calimala per la seconda porta del Battistero fiorentino.",
+    "Guida per oltre vent'anni una bottega attivissima dove si formano artisti come Donatello, Michelozzo e Paolo Uccello.",
+    "Realizza capolavori in bronzo per Orsanmichele, vetrate per il Duomo e la celebre Porta del Paradiso (1425-1452).",
+    "Tra il 1447 e la morte, avvenuta a Firenze nel 1455, redige i Commentarii, primo trattato storiografico e teorico scritto da un artista."
+   ],
+   "stile": [
+    "Perfetta mediazione tra il linearismo del Gotico internazionale e le nuove conquiste anatomiche e prospettiche.",
+    "Virtuosismo straordinario nella tecnica della fusione a cera persa, nel cesello e nella doratura del bronzo.",
+    "Ricerca di armonia compositiva, proporzioni classiche e resa minuziosa e naturalistica di flora e fauna.",
+    "Uso scalato del rilievo, dall'altorilievo allo stiacciato, per conferire profondità illusionistica alla narrazione."
+   ],
+   "tappe": [
+    [
+     "Firenze, 1401-1424",
+     "Vittoria al concorso del 1401 e realizzazione della Porta Nord del Battistero."
+    ],
+    [
+     "Firenze, 1412-1428",
+     "Statue bronzee monumentali per Orsanmichele: San Giovanni Battista, San Matteo e Santo Stefano."
+    ],
+    [
+     "Siena, 1417-1427",
+     "Rilievi in bronzo dorato con il Battesimo e la Cattura del Battista per il fonte battesimale del Battistero di San Giovanni."
+    ],
+    [
+     "Firenze, 1425-1452",
+     "Progettazione ed esecuzione dei dieci grandi pannelli biblici della Porta del Paradiso."
+    ]
+   ],
+   "opere": [
+    "ib49sb",
+    "ymv664",
+    "2xopt7",
+    "16acnav",
+    "5thgw6",
+    "1m3c9w0",
+    "ov482r",
+    "1eq3egw",
+    "wc1rcz"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 1 - RINASCIMENTO A FIRENZE  - 1 - RINASCIMENTO FIRENZE_ QUERCIA-GHIBERTI- NANNI DI BARTOLO - MASOLINO -MASACCIO .txt"
+  },
+  "Nanni di Bartolo": {
+   "sint": "Scultore fiorentino attivo nella prima metà del Quattrocento, collaboratore di Donatello, protagonista fondamentale nell'esportare e diffondere le novità del Rinascimento toscano a Venezia e in Veneto.",
+   "vita": [
+    "Iscritto all'Arte dei Maestri di Pietra e Legname a Firenze nel 1405, si forma nel cantiere del Duomo.",
+    "Lavora a stretto contatto con Donatello per le statue del Campanile di Giotto, collaborando al Sacrificio di Isacco nel 1421.",
+    "Intorno al 1424 si trasferisce a Venezia, introducendo il linguaggio plastico fiorentino nella cultura artistica lagunare.",
+    "Lavora a Verona al Monumento Brenzoni (1424-1426), a Tolentino (1432-1434) e di nuovo a Venezia; è documentato fino al 1451."
+   ],
+   "stile": [
+    "Linguaggio di transizione in continuo equilibrio tra persistenza del decorativismo gotico e plasticismo rinascimentale.",
+    "Figure caratterizzate da solidità d'impianto, rigore volumetrico e crescente ricerca espressiva derivata dal modello donatelliano.",
+    "Capacità di adattare la monumentalità toscana al gusto ornamentale e narrativo locale delle committenze venete."
+   ],
+   "tappe": [
+    [
+     "Firenze, fino al 1424",
+     "Sculture per l'Opera del Duomo e il Campanile, tra cui il profeta Abdia e il Sacrificio di Isacco."
+    ],
+    [
+     "Verona, 1424-1426",
+     "Esecuzione della parte scultorea del Monumento Brenzoni in San Fermo Maggiore."
+    ],
+    [
+     "Tolentino e Venezia, 1432-1437",
+     "Portale della chiesa di San Nicola a Tolentino e Tomba del Beato Pacifico ai Frari a Venezia."
+    ]
+   ],
+   "opere": [
+    "13kxeuu",
+    "14ew7xr"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 1 - RINASCIMENTO A FIRENZE  - 1 - RINASCIMENTO FIRENZE_ QUERCIA-GHIBERTI- NANNI DI BARTOLO - MASOLINO -MASACCIO .txt"
+  },
+  "Masolino da Panicale": {
+   "sint": "Pittore fiorentino che incarna la transizione tra tardo Gotico internazionale e Rinascimento, unendo la raffinatezza cromatica e cortese all'adozione della nuova prospettiva e volumetria rinascimentale.",
+   "vita": [
+    "Nasce intorno al 1383 a Panicale e si forma a Firenze, forse con Gherardo Starnina e collaborando con Lorenzo Ghiberti.",
+    "Nel 1423 si immatricola all'Arte dei Medici e Speziali di Firenze e avvia la propria bottega.",
+    "Dal 1424 collabora strettamente con Masaccio nella Cappella Brancacci a Firenze e nella Sant'Anna Metterza.",
+    "Tra il 1425 e il 1427 soggiorna in Ungheria al servizio di Pippo Spano, per poi lavorare a Roma e a Castiglione Olona.",
+    "Muore probabilmente tra il 1440 e il 1447."
+   ],
+   "stile": [
+    "Fusione di eleganza lineare, decorativismo gotico e primi esperimenti di prospettiva scientifica e resa chiaroscurale.",
+    "Narrazione lirica, delicata e fiabesca, con figure affusolate, gestualità aggraziata e armonie cromatiche luminose.",
+    "Apertura progressiva verso la monumentalità plastica e la spazialità coerente grazie al confronto continuo con Masaccio."
+   ],
+   "tappe": [
+    [
+     "Empoli e Firenze, 1424-1425",
+     "Affreschi in Santo Stefano a Empoli e avvio della decorazione della Cappella Brancacci con Masaccio."
+    ],
+    [
+     "Roma, 1427-1431",
+     "Realizzazione della Pala Colonna e affreschi nella Cappella di Santa Caterina in San Clemente per Branda Castiglioni."
+    ],
+    [
+     "Castiglione Olona, 1435",
+     "Cicli ad affresco nel Battistero, nella Collegiata e nel Palazzo Branda Castiglioni."
+    ]
+   ],
+   "opere": [
+    "1sjcmy2",
+    "1np1qij",
+    "gs5883",
+    "1hke3uz",
+    "jo9d7i",
+    "126bvpc",
+    "1cdw4w9"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 1 - RINASCIMENTO A FIRENZE  - 1 - RINASCIMENTO FIRENZE_ QUERCIA-GHIBERTI- NANNI DI BARTOLO - MASOLINO -MASACCIO .txt"
+  },
+  "Masaccio": {
+   "sint": "Fondatore della pittura rinascimentale, rivoluziona l'arte occidentale applicando con rigore la prospettiva lineare brunelleschiana, il chiaroscuro plastico donatelliano e un potente realismo morale.",
+   "vita": [
+    "Tommaso di Ser Giovanni nasce a San Giovanni Valdarno nel 1401.",
+    "Nel 1422 si iscrive all'Arte dei Medici e Speziali a Firenze, realizzando il Trittico di San Giovenale.",
+    "Dal 1424 stringe un celebre sodalizio con Masolino, lavorando alla Sant'Anna Metterza e alla Cappella Brancacci.",
+    "Nel 1426 soggiorna a Pisa per dipingere il maestoso Polittico del Carmine per il notaio ser Giuliano degli Scarsi.",
+    "Esegue la Trinità in Santa Maria Novella e si trasferisce a Roma nel 1428, dove muore prematuramente a soli 27 anni."
+   ],
+   "stile": [
+    "Spazio costruito scientificamente con la prospettiva lineare a punto di fuga unico e architetture coerenti.",
+    "Volumetria possente modellata dalla luce reale e dal chiaroscuro, priva di ornamenti gotici e definita da stesura a getto.",
+    "Realismo drammatico e profondità psicologica dei personaggi, concepiti con severa dignità morale e terrena.",
+    "Superamento della gerarchia dimensionale medievale e inserimento naturale dei corpi nello spazio reale."
+   ],
+   "tappe": [
+    [
+     "Cascia di Reggello e Firenze, 1422-1425",
+     "Trittico di San Giovenale e prima collaborazione con Masolino per la Sant'Anna Metterza."
+    ],
+    [
+     "Firenze, 1424-1428",
+     "Affreschi capitali della Cappella Brancacci al Carmine e affresco della Trinità in Santa Maria Novella."
+    ],
+    [
+     "Pisa, 1426",
+     "Esecuzione del grandioso Polittico per la chiesa del Carmine su commissione di ser Giuliano di Colino."
+    ],
+    [
+     "Roma, 1428",
+     "Soggiorno romano con Masolino (Pala Colonna) fino all'improvvisa e precoce scomparsa."
+    ]
+   ],
+   "opere": [
+    "1ganchv",
+    "1vx1r1v",
+    "wr62tr",
+    "t3stv9",
+    "1mhm8ef",
+    "173z5jp",
+    "kkj520",
+    "1cs1mla"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 1 - RINASCIMENTO A FIRENZE  - 1 - RINASCIMENTO FIRENZE_ QUERCIA-GHIBERTI- NANNI DI BARTOLO - MASOLINO -MASACCIO .txt"
+  },
+  "Beato Angelico": {
+   "sint": "Frate domenicano e figura cardine del primo Rinascimento, Beato Angelico unisce la preziosità e il misticismo tardogotico alle novità prospettiche e volumetriche di Masaccio e Brunelleschi. La sua pittura di luce eleva la narrazione sacra a pura contemplazione spirituale, segnando profondamente l'arte fiorentina del Quattrocento.",
+   "vita": [
+    "Nasce tra il 1395 e il 1400 a Vicchio nel Mugello con il nome di Guido di Pietro.",
+    "Formatosi come miniatore, probabilmente con Lorenzo Monaco, entra nell'ordine domenicano a Fiesole assumendo il nome di fra Giovanni.",
+    "Attivo tra Fiesole e Cortona negli anni Venti e Trenta del Quattrocento, esegue le prime grandi pale d'altare e dipinti devozionali.",
+    "Dal 1438 al 1445 si stabilisce a Firenze nel convento di San Marco, decorandone su incarico di Cosimo de' Medici celle, chiostri e spazi comunitari.",
+    "Chiamato a Roma nel 1445 dai pontefici Eugenio IV e Niccolò V, affresca la Cappella Niccolina in Vaticano e nel 1447 lavora al Duomo di Orvieto.",
+    "Rientrato a Fiesole dove è priore, compie gli ultimi lavori fiorentini prima di morire a Roma nel 1455."
+   ],
+   "stile": [
+    "Fusione equilibrata tra il decorativismo lineare del tardogotico e la nuova razionalità spaziale e prospettica del primo Rinascimento fiorentino.",
+    "Uso teologico e simbolico della luce, concepita come riflesso del lumen divinum di matrice tomista, che modella forme limpide e volumi nitidi.",
+    "Tavolozza chiarissima, brillante e pura, memore della tecnica miniaturistica, che negli affreschi conventuali si fa sobria ed essenziale.",
+    "Figure umane idealizzate ma volumetriche, caratterizzate da una gestualità pacata, sguardi raccolti e una profonda intensità devozionale."
+   ],
+   "tappe": [
+    [
+     "Fiesole, anni Venti e Trenta",
+     "Attività nel convento di San Domenico: realizza manoscritti miniati, la Pala di Fiesole, l'Annunciazione del Prado e l'Incoronazione del Louvre."
+    ],
+    [
+     "Cortona, 1434-1438 circa",
+     "Realizza importanti tavole per i domenicani cortonesi, tra cui la celebre Annunciazione e il Trittico di San Domenico."
+    ],
+    [
+     "Firenze (San Marco), 1438-1445",
+     "Affresca le celle e gli spazi comuni del convento ristrutturato da Michelozzo e dipinge la Pala di San Marco per Cosimo de' Medici."
+    ],
+    [
+     "Roma e Orvieto, 1445-1449",
+     "Lavora per papa Niccolò V nella Cappella Niccolina in Vaticano e affresca due vele nella Cappella di San Brizio a Orvieto con Benozzo Gozzoli."
+    ],
+    [
+     "Rientro a Firenze e ultimi anni, 1450-1455",
+     "Priore a Fiesole, esegue l'Armadio degli Argenti per la Santissima Annunziata e la Pala di Bosco ai Frati prima del soggiorno finale a Roma."
+    ]
+   ],
+   "opere": [
+    "8323l5",
+    "1i8d3a4",
+    "a2znvu",
+    "1q95jnh",
+    "1cv10il",
+    "13b7e3j",
+    "1k2lxvf",
+    "1xj70rg"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 1 - RINASCIMENTO A FIRENZE  -  2 - RINASCIMENTO FIRENZE (BEATO ANGELICO).txt"
+  },
+  "Maestro Venceslao": {
+   "sint": "Pittore di origine boema attivo a Trento intorno al 1400, alla corte del principe-vescovo Giorgio di Liechtenstein. Porta il gotico internazionale «transalpino» nel cuore delle Alpi con il Ciclo dei Mesi della Torre Aquila.",
+   "vita": [
+    "Vive all'incirca tra il 1352 e il 1411; documentato a Trento nel 1397, dove affitta una residenza affacciata sulla Torre Aquila («magister Winceslaus pictor… de partibus teutonicis»).",
+    "Lavora per la corte vescovile di Trento; attribuiti anche affreschi a Pergine, Merano e nella cappella cimiteriale di Rifiano (1415)."
+   ],
+   "stile": [
+    "Gotico internazionale di impronta boemo-trentina.",
+    "Narrazione spaziale ampia: le colonnine tortili creano l'illusione di una loggetta continua.",
+    "Attenzione alle stagioni e ai dettagli naturalistici, sul modello dei Tacuina sanitatis.",
+    "Equilibrio tra mondo cavalleresco e vita quotidiana, quasi senza concessioni al grottesco."
+   ],
+   "opere": [
+    "16gvgqj"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Jacopino da Tradate": {
+   "sint": "Il principale scultore lombardo della prima metà del Quattrocento: gotico internazionale fatto di drappeggi morbidi, decorazioni vegetali e figure eleganti, tra influssi borgognoni, tedeschi e miniatura lombarda.",
+   "vita": [
+    "Nasce a Tradate nel XIV secolo; attivo soprattutto tra il 1401 e il 1433. Nuovi documenti della Veneranda Fabbrica lo dicono già morto prima dell'aprile 1433 (non nel 1465 come si credeva).",
+    "Non ha bottega autonoma: lavora stabilmente per la Fabbrica del Duomo di Milano, con apprendisti formati da lui (forse Giovanni di Valdemagna).",
+    "Probabilmente conclude la carriera a Mantova, presso i Gonzaga.",
+    "Influenze: Michelino da Besozzo, Paolino da Montorfano, Isacco da Imbonate, poi artisti veneziani."
+   ],
+   "stile": [
+    "Linguaggio gotico lombardo solenne e decorativo.",
+    "In Sant'Eustorgio a Milano: l'Arca di Gaspare Visconti, il Monumento a Pietro Torelli e l'Ancona della Passione (voluta da Gian Galeazzo Visconti, 1395-1402) sono suoi o della sua cerchia."
+   ],
+   "opere": [
+    "zp48d1",
+    "1fr77x5"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Michelino da Besozzo": {
+   "sint": "Miniatore e pittore, tra le voci più alte del gotico internazionale lombardo: linea fluida, colori tenui e luminosi, volti idealizzati, natura da giardino fantastico. Anche nei dipinti su tavola conserva il gusto del miniatore.",
+   "vita": [
+    "Attivo tra il 1388 e il 1450 circa; figlio di un artigiano, si forma probabilmente a Pavia (bottega di Pietro da Pavia); nel 1388 affresca il chiostro di San Pietro in Ciel d'Oro.",
+    "Milano 1400-1405: al servizio dei Visconti, lavora per il Duomo (anche vetrate).",
+    "Venezia e Vicenza 1410-1417: per i Cornaro (Codice Cornaro, British Library) e per la cappella Thiene in Santa Corona a Vicenza; in contatto con Gentile da Fabriano.",
+    "Dal 1418 di nuovo a Milano: Duomo e famiglia Borromeo (affreschi di Palazzo Borromeo, 1445-46)."
+   ],
+   "stile": [
+    "Linea sottile e ornamentale, figure slanciate, volti allungati con occhi a mandorla.",
+    "Colori pastello, oro frequente, spazialità piatta e simbolica.",
+    "Naturalismo ornamentale: fiori, uccelli e animali da osservazione diretta, ma filtrati dal gusto cortese.",
+    "Temi cortesi e devozionali: Madonna dell'Umiltà, sposalizi mistici, giardino chiuso.",
+    "La sua influenza segna gli Zavattari, Stefano da Verona e la scultura di Jacopino da Tradate."
+   ],
+   "tappe": [
+    [
+     "Opere da ricordare",
+     "Offiziolo Bodmer (Morgan Library), Imago Pietatis dei Musei civici di Pavia (1402-04), Sposalizio mistico di santa Caterina firmato «Michelinus fecit» (Siena, c. 1420), Sposalizio della Vergine (Metropolitan, c. 1435), Madonna dell'Idea del Duomo di Milano, portata in processione ogni Candelora."
+    ]
+   ],
+   "opere": [
+    "121cbax",
+    "9z6u3m"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Stefano da Verona": {
+   "sint": "Detto anche Stefano da Zevio: poesia grafica, figure sottili su linee flessuose, scenografie fiabesche e oro abbondante. Con Pisanello è il volto veronese del gotico internazionale.",
+   "vita": [
+    "Attivo tra fine Trecento e prima metà del Quattrocento (circa 1379-1438 per gli appunti; il catalogo dice 1375-1451).",
+    "Figlio del francese Jean d'Arbois, pittore alla corte viscontea; formazione probabile a Pavia tra i miniatori dei Visconti.",
+    "Dopo Pavia soggiorna a Padova e si stabilisce a Verona (dal 1425 circa); tracce anche a Mantova (affreschi frammentari in San Francesco)."
+   ],
+   "stile": [
+    "Drappeggi morbidi, dettagli minuziosi e preziosi dal gotico francese, lombardo e boemo.",
+    "Fondi piatti appena modellati, spazi irreali.",
+    "Forti scambi con Michelino da Besozzo e con Pisanello; eco di Gentile da Fabriano nell'Adorazione dei Magi."
+   ],
+   "brera": "A Brera: l'Adorazione dei Magi del 1435, unica opera firmata e datata («Stefanus pinxit 1435»).",
+   "opere": [
+    "13dyu2o",
+    "1kpryt3"
+   ],
+   "v": [
+    "Date di vita: appunti 1379-1438, catalogo 1375-1451."
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Lorenzo e Jacopo Salimbeni": {
+   "sint": "I fratelli di San Severino Marche, principali esponenti del gotico cortese nelle Marche: colori vivaci e cangianti, panneggi a falcate nervose, narrazione fitta di dettagli. Il capolavoro è l'oratorio di San Giovanni Battista a Urbino.",
+   "vita": [
+    "Lorenzo nasce nel 1373-74, Jacopo nel 1370-80 circa, a San Severino Marche, dove si formano sotto la signoria degli Smeducci, in contatto con Emilia, Veneto e Lombardia.",
+    "Lavorano quasi sempre insieme: Storie di san Biagio a San Ginesio (1406), Storie di sant'Andrea e di san Giovanni Evangelista a San Severino, oratorio di Urbino (1416).",
+    "Lorenzo muore tra il 1416 e il 1420; Jacopo dopo il 1426."
+   ],
+   "stile": [
+    "Gotico internazionale di accento transalpino: eleganza, dettagli minuti, resa raffinata dei panneggi.",
+    "Proporzioni ancora gerarchiche di tradizione locale unite alle novità europee."
+   ],
+   "opere": [
+    "1rs4vb2",
+    "7vlyc8"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Zavattari": {
+   "sint": "Famiglia-bottega milanese attiva per tutto il Quattrocento (Cristoforo, Franceschino, poi Giovanni, Gregorio e Ambrogio): gotico internazionale lombardo elegante e narrativo. Il capolavoro è la cappella di Teodolinda nel Duomo di Monza.",
+   "vita": [
+    "Cristoforo (documentato 1404-1409) avvia la bottega presso la Fabbrica del Duomo di Milano; Franceschino (1417-1453) la guida e firma vetrate per il Duomo.",
+    "I figli di Franceschino — Giovanni, Gregorio e Ambrogio — lavorano con lui alla cappella di Teodolinda (1441-1446).",
+    "Attivi tra Milano, Monza, Pavia, Corbetta e la Certosa di Pavia, per i Visconti e poi gli Sforza; a Gregorio è attribuita la Madonna col Bambino e angeli di Corbetta (1475)."
+   ],
+   "stile": [
+    "Eleganza lineare, colori vivaci, sfondi dorati e motivi vegetali; prospettive intuitive.",
+    "Modello di riferimento: Michelino da Besozzo; raffinatezze alla Pisanello nei materiali.",
+    "Tecnica mista: affresco con tempera a secco, rilievi, dorature in foglia e pastiglia."
+   ],
+   "opere": [
+    "1vzhvr4"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Bonifazio Bembo": {
+   "sint": "Pittore e miniatore cremonese al servizio degli Sforza, erede del gusto tardogotico di corte: suoi i ritratti di Francesco Sforza e Bianca Maria e buona parte dei celebri tarocchi Visconti-Sforza.",
+   "vita": [
+    "Attivo a Cremona e Milano a metà Quattrocento, per la corte sforzesca.",
+    "Al mazzo «Brera-Brambilla», commissionato da Francesco Sforza (gli appunti lo datano 1463), si aggiunge il mazzo Pierpont-Morgan/Colleoni-Baglioni (c. 1451): carte dal fondo d'oro con dame e cavalieri di un Medioevo fantastico.",
+    "Un tempo i tarocchi erano riferiti agli Zavattari: oggi si attribuiscono alla bottega dei fratelli Bembo."
+   ],
+   "stile": [
+    "Fondo oro per trionfi e figure, argento per le carte numerali: oggetti d'oreficeria da collezione prima che da gioco.",
+    "Mondo fiabesco cortese che gli appunti paragonano all'immaginario dei libri illustrati e dei film Disney."
+   ],
+   "brera": "A Brera: i ritratti di Francesco Sforza e Bianca Maria Sforza e le carte del mazzo Brambilla.",
+   "opere": [
+    "1kdse56",
+    "uy6cwm"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Lorenzo Monaco": {
+   "sint": "Piero di Giovanni, monaco camaldolese: l'ultimo grande gotico di Firenze. Linee nervose, figure allungate, panneggi a falce e colori freddi e squillanti; un ponte spirituale verso l'Umanesimo senza mai adottare la prospettiva rinascimentale.",
+   "vita": [
+    "Nasce intorno al 1370, probabilmente a Siena, ma si forma a Firenze nella cerchia di Jacopo di Cione.",
+    "Nel 1390 entra nel monastero camaldolese di Santa Maria degli Angeli, dove prende i voti nel 1391 e lavora come miniatore e pittore.",
+    "Dal 1404 il suo stile svolta al gotico internazionale, sotto l'influenza del giovane Ghiberti e di Gherardo Starnina tornato dalla Spagna.",
+    "Muore verso il 1425, lasciando incompiuta la pala per la sagrestia di Santa Trinita, finita (o ridipinta al centro) dal Beato Angelico: la Deposizione oggi al Museo di San Marco."
+   ],
+   "stile": [
+    "Figure allungate, cadenze falcate dei panneggi, fondi oro e blu intensi.",
+    "Spazio volutamente illusorio e fiabesco, in contrasto con Brunelleschi e Masaccio.",
+    "Spiritualità ascetica camaldolese unita all'eleganza decorativa."
+   ],
+   "tappe": [
+    [
+     "Committenze",
+     "Soprattutto religiose: il suo monastero, la cappella Bartolini Salimbeni in Santa Trinita (Annunciazione e affreschi, c. 1420-24), pale dorate per l'élite fiorentina."
+    ]
+   ],
+   "opere": [
+    "1ftyriy",
+    "scn3ir",
+    "x51tqq"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Gentile da Fabriano": {
+   "sint": "Il massimo pittore del gotico internazionale in Italia: oro lavorato come un orafo, tessuti preziosi, natura fiabesca osservata nei minimi dettagli. Nel soggiorno fiorentino assorbe anche le prime novità rinascimentali.",
+   "vita": [
+    "Nasce a Fabriano intorno al 1370; formazione probabilmente lombarda (Pavia, corte di Gian Galeazzo Visconti), tramite i legami dei Chiavelli, signori di Fabriano, con Milano.",
+    "Venezia (c. 1408-09): affreschi per il Palazzo Ducale, perduti; lavora anche per Pandolfo Malatesta a Brescia e a Palazzo Trinci a Foligno.",
+    "Firenze 1420-23: ospite di Palla Strozzi, per cui dipinge l'Adorazione dei Magi; poi il Polittico Quaratesi (1425).",
+    "Muore a Roma nel 1427, mentre lavora agli affreschi di San Giovanni in Laterano (perduti); Pisanello ne eredita gli strumenti."
+   ],
+   "stile": [
+    "Eleganza formale estrema, oro e luce: punzonature, pastiglia, laminature d'argento sotto il colore.",
+    "Dettagli materici dei tessuti e naturalismo lenticolare di piante e animali.",
+    "Maestro e ispiratore di Pisanello e Jacopo Bellini.",
+    "A Firenze le figure si fanno più solide e lo spazio più misurabile (Quaratesi): dialogo con Masaccio senza uscire dal gotico."
+   ],
+   "brera": "A Brera: il Polittico di Valle Romita e la Crocifissione che probabilmente ne coronava il centro.",
+   "opere": [
+    "c031ru",
+    "bkzomq",
+    "vsu49a",
+    "1snidys",
+    "4xz2bf"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Pisanello": {
+   "sint": "Antonio di Puccio Pisano: l'ultimo grande protagonista del gotico internazionale e il fondatore della medaglia rinascimentale. Disegnatore instancabile dal vero, soprattutto di animali; conteso da tutte le corti d'Italia.",
+   "vita": [
+    "Nasce verso il 1395 (origine pisana o veneta); si forma a Verona, probabilmente con Stefano da Verona, nella scia di Altichiero.",
+    "1415-22 circa: con Gentile da Fabriano agli affreschi del Maggior Consiglio nel Palazzo Ducale di Venezia (perduti); alla morte di Gentile (1427) ne eredita gli strumenti e ne prosegue i cantieri romani al Laterano (perduti).",
+    "Corti: Gonzaga a Mantova, Este a Ferrara, Visconti a Milano e Pavia, il papa a Roma, Alfonso d'Aragona a Napoli (1449).",
+    "1438: artista ufficiale del concilio di Ferrara, dove conia la medaglia di Giovanni VIII Paleologo, prototipo della medaglistica rinascimentale.",
+    "1441-42: processato da Venezia per i fatti di Verona; confino a Ferrara fino al 1447.",
+    "Muore probabilmente nell'ottobre 1455, a Napoli o a Mantova; il titolo di pittore di corte dei Gonzaga passa poco dopo a Mantegna."
+   ],
+   "stile": [
+    "Eleganza cortese e fiabesca con una nuova attenzione psicologica e spaziale.",
+    "Studio dal vero di cavalli, cani, uccelli: il Codice Vallardi del Louvre raccoglie i suoi disegni.",
+    "Ritratti di profilo sul modello delle monete romane.",
+    "La Madonna della quaglia (Verona, c. 1420), sua prima opera sicura, estremizza l'eleganza della Madonna dell'umiltà."
+   ],
+   "opere": [
+    "1boou2d",
+    "166xrkh",
+    "1wtgmfl",
+    "15xw5yi",
+    "k4hvv5",
+    "rqqw6e",
+    "ifaeh",
+    "162xmvc",
+    "3nluli"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Boltraffio": {
+   "sint": "Tra i discepoli più diretti e fedeli di Leonardo a Milano: sfumato, dolcezza dei lineamenti, attenzione alla psicologia, ma con una compostezza e una spiritualità più esplicite. Nel Codice Atlantico Leonardo annota: «Gian Antonio dipintore sta con meco».",
+   "vita": [
+    "Giovanni Antonio Boltraffio nasce a Milano intorno al 1467, da famiglia di nobili origini.",
+    "Si forma nella cerchia leonardesca dopo l'arrivo di Leonardo a Milano (1482); lavora nel suo studio dopo il 1491.",
+    "Attivo quasi solo in Lombardia, per committenti privati e religiosi: non fu un artista di corte. Si reca a Bologna per la Pala Casio (chiesa della Misericordia, oggi al Louvre).",
+    "Muore a Milano nel 1516."
+   ],
+   "stile": [
+    "Sfumato e volti idealizzati, espressione calma e riflessiva.",
+    "Pulizia formale, eleganza nei panneggi, narrazione chiara.",
+    "Nella maturità (Santa Barbara) si avvicina alla vena classicista di Francesco Francia e Bramantino, allontanandosi dal naturalismo leonardesco degli inizi.",
+    "Ritratti raffinati, Madonne col Bambino, sacre conversazioni."
+   ],
+   "brera": "A Brera: il Ritratto del poeta Girolamo Casio.",
+   "opere": [
+    "1fkwc6h",
+    "vrhk5m",
+    "nwao56",
+    "1qo5nnj",
+    "t13ke",
+    "tci9bv"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Andrea Solario": {
+   "sint": "Uno degli esiti più alti e personali del Rinascimento lombardo: raffinatezza veneta, profondità leonardesca e realismo quasi fiammingo nei materiali. Pittore da cavalletto, meticoloso, mai attivo nell'affresco.",
+   "vita": [
+    "Nasce a Milano attorno al 1460, in una famiglia di artisti: il fratello maggiore Cristoforo Solari, «il Gobbo», è scultore alla corte sforzesca.",
+    "Formazione lombarda (clima di Foppa) e poi veneziana: le prime opere risentono di Giovanni Bellini e Antonello da Messina.",
+    "La svolta è l'incontro con l'arte di Leonardo a Milano: chiaroscuro sfumato, volti morbidi, introspezione.",
+    "1507-1509: in Francia, chiamato dal cardinale Georges d'Amboise per il castello di Gaillon in Normandia.",
+    "Muore attorno al 1524, probabilmente a Caronno Pertusella."
+   ],
+   "stile": [
+    "Luce che scolpisce i volumi con delicatezza; velluti, broccati e metalli resi con realismo fiammingo.",
+    "Formati ridotti per la devozione privata: Madonne, ritratti, scene religiose.",
+    "Espressività contenuta, tra idealizzazione e verità fisiognomica."
+   ],
+   "brera": "A Brera: la Madonna dei garofani e un Ritratto d'uomo.",
+   "opere": [
+    "1m8maui",
+    "1wt21gk",
+    "12mic1n",
+    "is8rui",
+    "au1y0k",
+    "139eu6y"
+   ],
+   "v": [
+    "Gli appunti sono incoerenti sulla nascita: il titolo dice 1470, il testo «attorno al 1460» (il catalogo: 1460 ca.). Morte: appunti Caronno Pertusella, catalogo Pavia."
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Cesare da Sesto": {
+   "sint": "Uno dei leonardeschi più fedeli e raffinati, capace però di fondere Leonardo con Raffaello conosciuto a Roma. Con i suoi viaggi porta il linguaggio leonardesco e raffaellesco nel Sud Italia.",
+   "vita": [
+    "Nasce a Sesto Calende intorno al 1477; formazione probabilmente a Milano, nel clima creato dall'arrivo di Leonardo.",
+    "In contatto con la cerchia leonardesca (Salaì, Marco d'Oggiono), anche se una sua presenza nella bottega di Leonardo non è documentata.",
+    "Verso il 1514 è a Roma, dove studia Raffaello e Michelangelo; poi lavora a Napoli, Messina e Palermo, lasciando un segno profondo in Sicilia.",
+    "Torna al Nord e muore a Milano nel 1523, mentre lavora al Polittico di san Rocco, finito dalla bottega."
+   ],
+   "stile": [
+    "Sfumato sofisticato, figure armoniose, attenzione anatomica e naturalistica.",
+    "Dopo Roma: monumentalità, grazia raffaellesca, pose più dinamiche.",
+    "L'Adorazione dei Magi di Napoli (da Messina) influenzò a lungo la pittura meridionale."
+   ],
+   "brera": "A Brera: la Madonna col Bambino detta Madonna dell'Albero.",
+   "opere": [
+    "jvkgkz",
+    "2ognwg",
+    "a46llf",
+    "11q5g62",
+    "cdz7ur"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Giampietrino": {
+   "sint": "Giovan Pietro Rizzoli, detto Giampietrino: interprete fedele e prolifico del leonardismo, con una bottega milanese molto attiva. La sua copia dell'Ultima Cena è tra le testimonianze più preziose dell'originale ormai degradato.",
+   "vita": [
+    "Nasce attorno al 1480-1485; nel Codice Atlantico compare un «Gian Pietro» tra gli allievi di Leonardo, identificato da molti con lui.",
+    "Prime notizie certe a Milano nel 1508; lavora in Lombardia (anche Pavia, Ospedaletto Lodigiano, Legnano) fino alla morte, attorno al 1549.",
+    "Produce pale d'altare e molta pittura devozionale privata: Madonne, Maddalene penitenti, Cleopatre, Lede, replicate con piccole variazioni.",
+    "Autore anche di cartoni per gli arazzi del Duomo di Milano."
+   ],
+   "stile": [
+    "Sfumato raffinato, incarnati rosati levigati e quasi traslucidi.",
+    "Pose armoniose, panneggi fluidi, sguardi morbidi e meditativi.",
+    "Dagli anni Trenta figure più sensuali e manieriste.",
+    "La sua influenza arriva fino al Seicento lombardo (Daniele Crespi, i Procaccini)."
+   ],
+   "opere": [
+    "pmwnjk",
+    "rr0b03"
+   ],
+   "v": [
+    "Date di attività: il catalogo dice «attivo 1520-40», gli appunti 1480/85 - 1549 circa."
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Francesco Melzi": {
+   "sint": "Il discepolo prediletto e l'erede di Leonardo: pittore raro ma di qualità, soprattutto custode dei codici e dei disegni del maestro, da cui nacque il «Trattato della pittura».",
+   "vita": [
+    "Nasce a Milano nel 1491 (il catalogo dice 1493) dai conti Melzi, proprietari della villa di Vaprio d'Adda.",
+    "Entra nella cerchia di Leonardo verso il 1506-1508, quindicenne: ne diventa segretario, copista e accompagnatore.",
+    "1513: con Leonardo a Roma; 1516: in Francia a Clos-Lucé, dove è «gentiluomo di camera» della corte di Francesco I.",
+    "Alla morte di Leonardo (1519) eredita disegni, codici e strumenti; torna a Vaprio d'Adda e li cataloga, preparando il «Trattato della pittura».",
+    "Sposa Angiola Landriani; muore intorno al 1570. Dopo la sua morte molti materiali leonardeschi si disperdono."
+   ],
+   "stile": [
+    "Sfumato raffinato, dolcezza espressiva, cura botanica derivata dagli studi di Leonardo.",
+    "Unica opera firmata e certa: Vertumno e Pomona (Berlino); gli è attribuita anche la Flora dell'Ermitage."
+   ],
+   "opere": [
+    "12a40jd",
+    "aalrss",
+    "1jaj18d"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Salaì": {
+   "sint": "Gian Giacomo Caprotti, detto Salaì («piccolo diavolo»): nella bottega di Leonardo dal 1490, a dieci anni, e con lui per quasi trent'anni. Più modello, assistente e compagno di vita che pittore: le opere sicure quasi non esistono.",
+   "vita": [
+    "Nasce nel 1480 a Oreno di Vimercate, figlio di un contadino che lavorava la vigna di Leonardo presso Milano.",
+    "Leonardo lo definisce «ladro, bugiardo, ostinato, ghiotto», ma non lo allontana mai: lo ritrae spesso, e per molti ispira il San Giovanni Battista, il Bacco e una versione della Gioconda.",
+    "Segue Leonardo a Firenze, a Roma (1513) e in Francia (1516); eredita tra l'altro la vigna milanese del maestro.",
+    "Tornato a Milano, si sposa nel 1523 con Bianca Coldiroli; muore nel 1524, forse per una ferita da balestra."
+   ],
+   "stile": [
+    "Copista: aderenza mimetica ai modelli leonardeschi, con risultati meno sofisticati di Melzi o Boltraffio.",
+    "Unica opera firmata: la Testa di Cristo Redentore (1511) dell'Ambrosiana, se la scritta «Salai» è una firma e non l'indicazione del modello."
+   ],
+   "opere": [
+    "pgm5t5",
+    "x6ond4",
+    "10n8x3o"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Ambrogio de Predis": {
+   "sint": "Giovanni Ambrogio de Predis: ritrattista e miniatore della Milano sforzesca, collaboratore di Leonardo per la Vergine delle Rocce. Unisce precisione fiamminga, rigore lombardo e, dopo Leonardo, sfumature più morbide.",
+   "vita": [
+    "Nasce a Milano intorno al 1455, in una famiglia di artisti: comincia nella bottega familiare col fratello Cristoforo, noto miniatore.",
+    "1483: con il fratello Evangelista e Leonardo firma il contratto per l'ancona dell'Immacolata Concezione in San Francesco Grande (la Vergine delle Rocce): ai De Predis i pannelli laterali con gli angeli musicanti e le dorature.",
+    "1493: accompagna Bianca Maria Sforza a Innsbruck per le nozze con Massimiliano I d'Asburgo; lavora per la corte imperiale (ritratti, bozzetti per monete).",
+    "Unico dipinto firmato e datato: il Ritratto di Massimiliano I (1502, Vienna). Ultima notizia nel 1508; morto probabilmente poco dopo."
+   ],
+   "stile": [
+    "Ritratti di profilo di tradizione quattrocentesca, con resa calligrafica dei dettagli da miniatore.",
+    "L'influenza di Leonardo resta semi-assimilata: gli appunti notano occhi vitrei e plasticità dura accanto a parti più sensibili."
+   ],
+   "brera": "A Brera: il Ritratto di giovane (ca. 1500), con il motto di Seneca «Se sai usarla bene, la vita è lunga».",
+   "opere": [
+    "1vyt8tt"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Marco d'Oggiono": {
+   "sint": "Nella bottega di Leonardo dal 1490, tra i leonardeschi più riconosciuti: sfumature atmosferiche e morbidezza, ma colori più accesi e, per i critici, meno introspezione psicologica del maestro.",
+   "vita": [
+    "Nasce attorno al 1470 in Brianza, probabilmente a Oggiono, da famiglia di orafi.",
+    "1493-94: con Boltraffio, sotto la supervisione di Leonardo, dipinge la Resurrezione di Cristo con i santi Leonardo e Lucia per San Giovanni sul Muro.",
+    "Dal 1497 ha bottega propria; lavora per la cattedrale di Savona su commissione del cardinale Giuliano della Rovere (il futuro Giulio II), per i Trivulzio e i Bagarotti, e per Santa Maria della Pace a Milano.",
+    "Muore a Milano nel 1524 (per alcune fonti più tardi, fino al 1540); gli ultimi anni mostrano formule ripetitive."
+   ],
+   "stile": [
+    "Riprese puntuali da Leonardo: fisionomie dalla Vergine delle Rocce, mani dal San Giovanni Battista.",
+    "Chiaroscuro più accentuato e colori vivaci; figure raffinate ma spesso «freddamente idealizzate».",
+    "Richiami a Perugino e Raffaello nei volti e nei panneggi più ideali."
+   ],
+   "brera": "A Brera: la Pala dei Tre Arcangeli.",
+   "opere": [
+    "fec32x",
+    "tci9bv"
+   ],
+   "v": [
+    "Nascita: appunti «Brianza, probabilmente Oggiono»; catalogo Milano."
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Giovanni Agostino da Lodi": {
+   "sint": "Pittore anticlassico e sperimentale tra Milano e Venezia, a lungo noto come «Pseudo-Boccaccino»: fonde tradizione lombarda, influssi leonardeschi, pittura veneta (Bellini, Giorgione) e stampe di Dürer.",
+   "vita": [
+    "Nasce a Lodi attorno al 1470; attivo tra il 1490 e il 1520 circa, muore verso il 1524.",
+    "Documentato a Venezia nel 1492 (Pala dei Barcaioli per Murano) e di nuovo nel 1504; torna a Milano nel 1506.",
+    "Identificato solo nel 1912 da Malaguzzi Valeri grazie al dipinto firmato dei santi Pietro e Giovanni oggi a Brera.",
+    "Lavora per la Certosa di Pavia, Gerenzano e Santa Maria della Pace a Milano, dove collabora con Marco d'Oggiono."
+   ],
+   "stile": [
+    "Linguaggio personale: dolcezza espressiva e ricerca formale, dettagli simbolici, paesaggi curati.",
+    "Dai veneti e da Dürer: resa minuta del paesaggio e degli animali; panneggi rigidi e angolosi di ascendenza nordica."
+   ],
+   "opere": [
+    "1j0sjf3",
+    "4v1nmr"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Leonardo da Vinci": {
+   "sint": "Pittore, ingegnere, anatomista, architetto e scenografo: l'«uomo universale» del Rinascimento. Unisce arte e scienza e studia la natura con metodo quasi scientifico, annotando tutto nei taccuini (i «codici») con scrittura speculare.",
+   "vita": [
+    "Nasce il 15 aprile 1452 ad Anchiano, presso Vinci: figlio illegittimo del notaio Piero da Vinci e di Caterina, una giovane contadina.",
+    "Intorno ai 15 anni (c. 1469) entra a Firenze nella bottega di Andrea del Verrocchio, dove incontra Botticelli, Ghirlandaio e Perugino e impara pittura, scultura, prospettiva e fusione in bronzo.",
+    "Muore il 2 maggio 1519 a Clos-Lucé (Amboise), assistito dal discepolo Francesco Melzi, suo erede."
+   ],
+   "stile": [
+    "Sfumato: contorni morbidi, passaggi graduali tra luce e ombra, volti con profondità psicologica.",
+    "Prospettiva lineare e prospettiva aerea (sfondi sempre più azzurrini con la distanza).",
+    "Composizioni piramidali, equilibrate e fluide.",
+    "Studio diretto di anatomia, botanica, geometria, acque: la ricerca scientifica alimenta la pittura.",
+    "Rinnova le iconografie tradizionali: il gesto e i «moti dell'animo» contano più dell'ordine decorativo."
+   ],
+   "tappe": [
+    [
+     "Firenze, 1452-1482",
+     "Formazione con Verrocchio; Battesimo di Cristo (l'angelo è di Leonardo), Annunciazione, Ginevra de' Benci, Adorazione dei Magi lasciata incompiuta."
+    ],
+    [
+     "Milano, 1482-1499",
+     "17 anni alla corte di Ludovico il Moro, come pittore ma anche ingegnere, architetto e organizzatore di feste. Vergine delle Rocce, Dama con l'ermellino, Ultima Cena, decorazione della Sala delle Asse, monumento equestre a Francesco Sforza (mai fuso)."
+    ],
+    [
+     "Mantova e Venezia, 1499-1500",
+     "Dopo la caduta degli Sforza è ospite di Isabella d'Este (ritratto a carboncino, oggi al Louvre) e a Venezia studia difese militari per la Serenissima."
+    ],
+    [
+     "Firenze, 1500-1506",
+     "Gioconda (iniziata nel 1503), cartone di Sant'Anna e Battaglia di Anghiari a Palazzo Vecchio, rimasta incompiuta e perduta; confronto con Michelangelo (Battaglia di Cascina)."
+    ],
+    [
+     "Milano, 1506-1513",
+     "Richiamato dal governatore francese Charles d'Amboise; si stabilisce dal 1508. Studi anatomici e scientifici, allievi come Melzi."
+    ],
+    [
+     "Roma, 1513-1516",
+     "Ospite di Giuliano de' Medici al Belvedere vaticano, ma emarginato dalla scena dominata da Raffaello e Michelangelo."
+    ],
+    [
+     "Francia, 1516-1519",
+     "Invitato da Francesco I, vive a Clos-Lucé come «primo pittore, ingegnere e architetto del re». Porta con sé Gioconda, Sant'Anna e San Giovanni Battista."
+    ]
+   ],
+   "scuola": "Gli allievi e seguaci (leonardeschi) diffondono il suo linguaggio soprattutto in Lombardia: Melzi, Salaì, Luini, Boltraffio, Marco d'Oggiono, Cesare da Sesto, Solario, Giampietrino.",
+   "brera": "A Brera si conserva la Testa di Cristo, studio preparatorio per l'Ultima Cena.",
+   "opere": [
+    "1enmq9m",
+    "4rxf16",
+    "1933gnx",
+    "m5mn8b",
+    "13xftic",
+    "4avzk0",
+    "1ruv9ng",
+    "464sva",
+    "9b7g4j",
+    "l700so",
+    "hqslbd",
+    "huq5wv"
+   ],
+   "allievi": [
+    "Francesco Melzi",
+    "Salaì",
+    "Bernardino Luini",
+    "Boltraffio",
+    "Marco d'Oggiono",
+    "Cesare da Sesto",
+    "Andrea Solario",
+    "Giampietrino"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Bernardino Luini": {
+   "sint": "Il più «leonardesco» dei pittori lombardi: figure dolci, volti femminili delicati, sfumato, composizioni equilibrate. Meno visionario di Leonardo, più attento alla chiarezza del racconto e a una decorazione sobria.",
+   "vita": [
+    "Nasce intorno al 1480 nella zona del Lago Maggiore (probabilmente Dumenza). Si forma a Milano, forse presso Giovan Stefano Scotto o sotto l'influenza di Bergognone.",
+    "Apre a Milano una bottega molto attiva per chiese, conventi e committenti privati.",
+    "Intorno al 1521 compie un viaggio a Roma: lo studio di Raffaello e dei Vaticani rende le opere successive più eleganti e armoniose."
+   ],
+   "stile": [
+    "Sfumato e dolcezza leonardeschi, ma con sensibilità autonoma.",
+    "Colore luminoso, decorazione sobria ma raffinata, eredità della tradizione lombarda.",
+    "Grande narratore nei cicli di affreschi."
+   ],
+   "tappe": [
+    [
+     "Cicli di affreschi",
+     "Villa La Pelucca (Sesto San Giovanni), Santuario di Santa Maria dei Miracoli (Saronno), Certosa di Pavia, San Giorgio al Palazzo e San Maurizio al Monastero Maggiore a Milano, Santa Maria degli Angeli a Lugano."
+    ]
+   ],
+   "brera": "A Brera: Madonna del Roseto, Lo scherno di Cam, gli affreschi staccati da Villa La Pelucca e le storie di santa Caterina.",
+   "opere": [
+    "1qawfhk"
+   ],
+   "v": [
+    "Luogo di nascita: gli appunti dicono «probabilmente Dumenza», il catalogo (Wikidata) Luino."
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Giovanni Martino Spanzotti": {
+   "sint": "Pioniere del Rinascimento in Piemonte, rinnova la pittura locale introducendo la prospettiva e una narrazione realistica. La sua arte fonde magistralmente i modelli lombardi di Foppa e Bramantino con la cultura fiamminga e provenzale, esprimendo una profonda e quotidiana umanità.",
+   "vita": [
+    "Nasce a Casale Monferrato intorno al 1455 in una famiglia di pittori varesini; fa il primo tirocinio con il padre Pietro e il fratello Francesco.",
+    "Negli anni Settanta del Quattrocento entra verosimilmente in contatto a Bologna con la pittura di Francesco del Cossa.",
+    "Nel 1480 soggiorna a Milano, dove viene registrato come pittore milanese e assorbe le novità di Foppa, di Bramantino e dell'arte fiamminga.",
+    "Tra il 1481 e il 1498 guida un'attiva bottega a Vercelli, formando allievi come il Sodoma e avviando il sodalizio con Defendente Ferrari.",
+    "Dopo il matrimonio nel 1494 si stabilisce a Chivasso, legandosi poi alla corte sabauda e acquisendo la cittadinanza a Torino nel 1513.",
+    "Muore prima del 1528, probabilmente a Chivasso, lasciando un'impronta decisiva sulle generazioni successive."
+   ],
+   "stile": [
+    "Sintesi originale tra la cultura spaziale e prospettica italiana e la tradizione figurativa transalpina borgognona e fiamminga.",
+    "Sensibilità luministica e predilezione per i notturni derivate da Vincenzo Foppa, unite a costruzioni architettoniche memori di Bramantino.",
+    "Realismo narrativo e intimo, definito da Giovanni Testori come nobiltà umana, teso a restituire il valore della concreta esperienza quotidiana."
+   ],
+   "tappe": [
+    [
+     "Milano, 1480",
+     "Documentato come pittore milanese, aggiorna il proprio linguaggio a contatto con la corte sforzesca, Foppa e Bramantino."
+    ],
+    [
+     "Vercelli, 1481-1498",
+     "Apre una bottega autonoma da cui escono il Trittico della Sabauda e l'Adorazione di Rivarolo Canavese."
+    ],
+    [
+     "Ivrea, 1485-1490 ca.",
+     "Dipinge sul tramezzo di San Bernardino il ciclo della Vita di Cristo, celebre Biblia pauperum dal realismo antiretorico."
+    ],
+    [
+     "Torino, 1513-1523",
+     "Attivo come pittore di corte per i Savoia; nel 1523 realizza l'Elemosina di sant'Antonio Pierozzi in San Domenico."
+    ]
+   ],
+   "brera": "A Brera sono conservati due scomparti del Polittico Del Ponte (Sant'Andrea e Santi Caterina d'Alessandria e Sebastiano), eseguiti per la chiesa di San Francesco a Casale Monferrato.",
+   "opere": [
+    "1svidy"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 10 - RINASCIMENOT IN PIEMONTE  - RINASCIMENTO IN PIEMONTE .txt."
+  }
+ },
+ "opere": {
+  "3rj271": {
+   "d": "1450-1460 circa (o ca. 1460), tempera su tavola, 117,5 x 81 cm, Milano, Museo Poldi Pezzoli.",
+   "s": "Tavola proveniente dallo studiolo di Belfiore a Ferrara, ciclo voluto da Lionello d'Este e completato da Borso secondo il programma dell'umanista Guarino Veronese. Avviata probabilmente da Angelo Maccagnino e completata da Cosmè Tura dopo la morte del primo, sopravvisse all'incendio del palazzo nel 1632.",
+   "k": [
+    "La parte superiore mostra il volto dolce e l'illuminazione convenzionale di Maccagnino, mentre in basso emerge la mano plastica e tesa di Tura nei putti danzanti, nel panneggio blu scolpito e nei piedi in scorcio.",
+    "L'iscrizione latina sul trono sul tema della Carità aveva fatto dubitare dell'identità del soggetto, ma una lettera di Guarino Veronese del 1447 conferma che si tratta della musa della danza, qui associata allegoricamente alla fecondità e all'armonia sociale."
+   ]
+  },
+  "1u2aupt": {
+   "d": "1459-1463 circa, tempera su tavola, 61 x 41 cm, Venezia, Gallerie dell'Accademia.",
+   "s": "Dipinto devozionale proveniente da Merlara nel Padovano, appartenuto alla famiglia Bertoldi e destinato probabilmente all'oratorio privato di San Nicola.",
+   "k": [
+    "La Vergine si affaccia da una finta cornice lignea contemplando il Bambino dormiente, affiancata da grappoli d'uva e cardellini che prefigurano il sacrificio eucaristico.",
+    "Alle sue spalle compare uno zodiaco dorato (con visibili Acquario e Pesci) che presenta Cristo come signore del tempo e dell'universo, sormontato da una lunetta con il trigramma bernardiniano IHS.",
+    "I panneggi blu e rossi hanno pieghe rigide e metalliche, con colori smaltati e un segno grafico tagliente."
+   ]
+  },
+  "jojltm": {
+   "d": "1460 circa, olio e tempera su tavola, 47,7 x 33,5 cm, Venezia, Museo Correr.",
+   "s": "Piccola tavola devozionale donata alla città di Venezia nel 1830 dal collezionista Teodoro Correr e riconosciuta come autografa di Tura da Vincenzo Lazari nel 1859.",
+   "k": [
+    "Riprende l'iconografia nordica del Vesperbild, con Maria seduta sul bordo del sepolcro che regge il corpo morto di Cristo sullo sfondo del Calvario.",
+    "Fonde la minuzia fiamminga delle velature a olio con la costruzione prospettica mantegnesca, pieghe angolose e una luce tagliente quasi metallica.",
+    "In basso a sinistra su un albero compare una scimmia, simbolo dell'uomo terreno dominato dagli istinti inferiori in contrasto con Cristo."
+   ],
+   "ico": [
+    "La Pietà rientra tra gli eventi legati alla Passione di Cristo."
+   ]
+  },
+  "15aathh": {
+   "d": "1460 circa, olio su tavola, 22 x 13 cm, Venezia, Fondazione Giorgio Cini.",
+   "s": "Piccola tavola raffigurante San Giorgio e il drago, che faceva probabilmente parte di un altarolo portatile smembrato insieme a un San Maurelio con San Giorgio al Museo Poldi Pezzoli di Milano e a un'Annunciazione in collezione Colonna a Roma.",
+   "k": [
+    "Opera di formato ridotto legata alla devozione privata e al culto di San Giorgio, patrono di Ferrara."
+   ],
+   "ico": [
+    "San Giorgio è annoverato tra i santi guerrieri e martiri legati alla difesa della fede."
+   ]
+  },
+  "1odrcue": {
+   "d": "1469, tempera su tela, 349 x 305 cm (insieme delle ante), Ferrara, Museo del Duomo.",
+   "s": "Pannelli interni delle monumentali ante d'organo della Cattedrale di Ferrara, una delle pochissime opere datate e documentate di Tura (pagata il 2 giugno 1469).",
+   "k": [
+    "La scena è ambientata sotto una solenne architettura classica a lacunari con rigorosa prospettiva centrale e dettagli simbolici colti come lo scoiattolo, l'uccellino e rilievi con i Pianeti.",
+    "L'angelo ha panneggi incisi come nel metallo, mentre la Vergine si muove secondo assi divergenti che esprimono una forte tensione trattenuta."
+   ],
+   "ico": [
+    "L'Annunciazione appartiene ai temi iconografici dell'infanzia e giovinezza di Gesù."
+   ]
+  },
+  "1o3rr5f": {
+   "d": "1469, tempera su tela, 349 x 305 cm (insieme delle ante), Ferrara, Museo del Duomo.",
+   "s": "Pannelli esterni delle ante dell'organo del Duomo di Ferrara, visibili quando lo strumento era chiuso, oggi separati dai pannelli interni per ragioni conservative.",
+   "k": [
+    "Ambientata in un paesaggio aperto e irreale, mostra San Giorgio e il cavallo deformati dalla violenza dello scontro e fusi in un'unica forma dinamica con il drago.",
+    "Linee nervose, lumeggiature grafiche e smorfie caricate creano un forte effetto espressionista, mentre a sinistra fugge la principessa in ricchi abiti cortesi sotto una montagna con un corteo di sapienti."
+   ],
+   "ico": [
+    "San Giorgio è un santo guerriero e martire legato alla difesa della fede."
+   ]
+  },
+  "1q2spfy": {
+   "d": "1470-1474, olio e tempera all'uovo su tavola di pioppo, 239 x 102 cm, Londra, National Gallery.",
+   "s": "Scomparto centrale del monumentale Polittico Roverella, commissionato dal cardinale Bartolomeo Roverella per la chiesa di San Giorgio fuori le mura a Ferrara in memoria del fratello vescovo Lorenzo e smembrato dopo un'esplosione nel 1709.",
+   "k": [
+    "La Madonna in trono è inserita in una scenografia architettonica imponente con volte a lacunari impostate su una rigorosa prospettiva ribassata.",
+    "Accanto al trono compaiono strumenti musicali, tra cui un organo simile a quello dello Studiolo di Belfiore, a sottolineare il legame estense tra musica e pittura."
+   ]
+  },
+  "1rgqpwt": {
+   "d": "1470-1474, olio e tempera all'uovo su tavola di pioppo, 132 x 267 cm, Parigi, Musée du Louvre.",
+   "s": "Grande lunetta sommitale del Polittico Roverella, originariamente posta sopra la Madonna col Bambino in trono nell'abside di San Giorgio fuori le mura a Ferrara.",
+   "k": [
+    "Raffigura la Pietà circondata da santi con intensa partecipazione emotiva e gestualità drammatica, ispirata ai gruppi scultorei del Compianto diffusi in area romagnola.",
+    "Esibisce la tipica tensione lineare e la modellazione scolpita dei panneggi e dei volti della maturità di Tura."
+   ],
+   "ico": [
+    "La Pietà appartiene al ciclo degli eventi legati alla Passione di Cristo."
+   ]
+  },
+  "1wn8lpa": {
+   "d": "1474 circa, tempera su tavola, 21 x 17 cm (o 22 x 17 cm), Milano, Pinacoteca di Brera.",
+   "s": "Piccolo frammento acquistato da Brera nel 1903 su indicazione di Adolfo Venturi; secondo gli inventari ottocenteschi costituiva probabilmente la parte superiore del San Girolamo penitente della National Gallery di Londra.",
+   "k": [
+    "Opera di Brera: da sapere.",
+    "Il corpo di Cristo è scolpito da un chiaroscuro violento con tagli anatomici netti e una resa quasi metallica.",
+    "La formazione rocciosa a sinistra conferma il taglio da una tavola più ampia in cui il Crocifisso appariva come visione mistica a San Girolamo e a un frate francescano."
+   ],
+   "ico": [
+    "La Crocifissione fa parte degli eventi legati alla Passione di Cristo."
+   ]
+  },
+  "o30ari": {
+   "d": "1475 circa, tempera e oro su tavola, 51 x 32 cm, Firenze, Galleria degli Uffizi.",
+   "s": "Frammento di un polittico smembrato proveniente dalla collezione Canonici di Ferrara, messo in relazione dalla critica con il polittico di San Giacomo in Argenta o di San Luca in Borgo a Ferrara.",
+   "k": [
+    "Il santo si staglia su un fondo oro uniforme che ne accentua la ieraticità, scolpito da una luce laterale che crea riflessi lapidei.",
+    "Spiccano il virtuosismo anatomico delle mani illuminate e le pieghe pesanti e volumetriche della cappa domenicana."
+   ],
+   "ico": [
+    "San Domenico rientra tra i santi vescovi e religiosi."
+   ]
+  },
+  "1rxqe0t": {
+   "d": "1468-1470 circa, affresco, circa 500 x 320 cm, Ferrara, Palazzo Schifanoia, Salone dei Mesi.",
+   "s": "Scomparto della parete nord del Salone dei Mesi, parte del ciclo voluto da Borso d'Este su programma astrologico di Pellegrino Prisciani per celebrare l'investitura ducale del 1471; attribuito a Cosmè Tura e al Maestro di Ercole.",
+   "k": [
+    "Diviso in tre registri: in alto il trionfo di Cerere su un carro trainato da draghi tra scene agricole e il ratto di Proserpina; in basso scene di corte e caccia di Borso.",
+    "Nella fascia centrale compaiono il segno della Vergine e i tre decani, attribuiti con sicurezza a Tura per la vigorosa forza plastica e i panneggi pesanti e cristallizzati."
+   ],
+   "v": "Gli appunti attribuiscono l'opera a Cosmè Tura e al Maestro di Ercole, ma nell'excursus generale sul Salone mettono in dubbio la partecipazione diretta di Tura al ciclo."
+  },
+  "1x2vrva": {
+   "d": "1468-1470 circa, affresco, circa 500 x 320 cm, Ferrara, Palazzo Schifanoia, Salone dei Mesi.",
+   "s": "Affresco della parete est del Salone dei Mesi, l'unico mese firmato e rivendicato da Francesco del Cossa nella celebre lettera del 25 marzo 1470 in cui chiedeva a Borso d'Este un compenso più adeguato.",
+   "k": [
+    "In alto Minerva trionfa su un carro trainato da unicorni tra sapienti, tessitrici e le tre Parche; al centro sta l'Ariete con i tre decani esoterici tra cui il Vir niger.",
+    "In basso Borso d'Este amministra la giustizia e parte per la caccia accanto a contadini che potano le viti.",
+    "Coniuga la logica prospettica di Piero della Francesca con dettagli fantastici come rocce a panna montata e castelli irreali."
+   ]
+  },
+  "1b68v6m": {
+   "d": "1468-1470 circa, affresco, circa 500 x 320 cm, Ferrara, Palazzo Schifanoia, Salone dei Mesi.",
+   "s": "Secondo scomparto documentato di Francesco del Cossa sulla parete est del Salone dei Mesi a Palazzo Schifanoia, realizzato su programma iconografico di Pellegrino Prisciani.",
+   "k": [
+    "Nella fascia superiore Venere su un carro trainato da cigni trionfa su Marte incatenato, circondata dalle Tre Grazie e da giovani amanti; al centro campeggia il Toro con i suoi decani.",
+    "In basso si svolge la corsa del Palio di San Giorgio e Borso premia il giullare Scocola sotto una loggia.",
+    "Spicca l'effetto illusionistico del giovane con falcone seduto sulla cornice inferiore con le gambe che sporgono verso lo spettatore."
+   ],
+   "ico": [
+    "Le Tre Grazie sono figlie di Zeus (Aglaia, Eufrosine e Talia) e rappresentano bellezza, gioia e generosità."
+   ]
+  },
+  "1m7710m": {
+   "d": "1468-1470 circa, affresco, circa 500 x 320 cm, Ferrara, Palazzo Schifanoia, Salone dei Mesi.",
+   "s": "Terzo scomparto autografo di Francesco del Cossa sulla parete est del Salone dei Mesi a Palazzo Schifanoia, parzialmente mutilo nel registro inferiore per l'apertura di una porta.",
+   "k": [
+    "In alto Apollo avanza su un carro guidato dall'Aurora accanto alle nove Muse presso una fonte e a una moltitudine di infanti simbolici.",
+    "Nella fascia centrale il segno dei Gemelli è affiancato dai tre decani, mentre in basso restano scene campestri di falciatura dei campi.",
+    "La luce chiara e la prospettiva rigorosa rendono credibili anche le invenzioni più allegoriche e fantastiche."
+   ],
+   "ico": [
+    "Apollo è il dio della luce, della musica, della poesia, delle arti, della profezia e della razionalità, spesso raffigurato con le Muse."
+   ]
+  },
+  "afek58": {
+   "d": "1472-1473 circa, tempera su tavola, 153 x 60 cm, Londra, National Gallery.",
+   "s": "Scomparto centrale del Polittico Griffoni, commissionato da Floriano Griffoni per la cappella di famiglia in San Petronio a Bologna, smembrato nel Settecento e ricostruito da Roberto Longhi nel 1935.",
+   "k": [
+    "San Vincenzo Ferrer si erge monumentale su un piedistallo scorciato in prospettiva, indicando in alto verso Cristo in gloria entro una mandorla su fondo oro.",
+    "Dietro di lui corre una pertica dorata con fili di corallo e cristallo di rocca di gusto squarcionesco che prosegue nei pannelli laterali.",
+    "Lo sfondo mostra un paesaggio fantastico dall'orizzonte ribassato con archi naturali e castelli rocciosi unificati dalla luce chiara pierfrancescana."
+   ],
+   "ico": [
+    "San Vincenzo Ferrer è un santo religioso domenicano, canonizzato nel Quattrocento e promotore di intensa predicazione."
+   ]
+  },
+  "b9dd85": {
+   "d": "1472-1473 circa, tempera su tavola, 112 x 55 cm ciascuno, Milano, Pinacoteca di Brera.",
+   "s": "I due scomparti laterali principali del Polittico Griffoni della basilica di San Petronio a Bologna, originariamente posti ai lati del San Vincenzo Ferrer di Londra.",
+   "k": [
+    "Opera di Brera: da sapere.",
+    "San Pietro (a sinistra) e San Giovanni Battista (a destra) posano monumentali su massi scheggiati davanti a pilastri antichi in rovina, collegati dalla stessa pertica dorata con coralli.",
+    "Pietro colpisce per il gesto energico con cui regge il libro e le chiavi, mentre il Battista mostra virtuosismo anatomico nelle vene del braccio e regge il cartiglio EGO VOX CLAMANTIS IN DESERTO.",
+    "Entrambi presentano panneggi dai riflessi metallici e paesaggi onirici con castelli e archi rocciosi."
+   ],
+   "ico": [
+    "San Pietro è il primo degli Apostoli (con le chiavi del Paradiso); San Giovanni Battista è il precursore che predicava nel deserto."
+   ]
+  },
+  "9bg5dc": {
+   "d": "1472-1473 circa, tempera su tavola, 79 x 55 cm, Washington, National Gallery of Art.",
+   "s": "Scomparto del registro superiore del Polittico Griffoni di Bologna, concepito in coppia con il San Floriano dello stesso museo come affacciato da una loggia celeste.",
+   "k": [
+    "Il fondo oro arcaizzante si ricollega al Paradiso nel pannello centrale con San Vincenzo Ferrer.",
+    "Santa Lucia regge la palma del martirio e porge i propri occhi raffigurati poeticamente come due boccioli su uno stelo, unendo solidità pierfrancescana e preziosismi lineari ferraresi."
+   ],
+   "ico": [
+    "Santa Lucia appartiene al gruppo delle sante martiri e vergini."
+   ]
+  },
+  "a5eyg9": {
+   "d": "1472-1473 circa, tempera su tavola, tondo di diametro 63 cm, Washington, National Gallery of Art.",
+   "s": "Cimasa centrale superiore del Polittico Griffoni realizzato da Francesco del Cossa ed Ercole de' Roberti per San Petronio a Bologna.",
+   "k": [
+    "Nonostante la composizione essenziale e quasi araldica, le figure statuarie trasmettono un senso intenso e composto di dolore."
+   ],
+   "ico": [
+    "La Crocifissione rientra tra gli eventi legati alla Passione di Cristo."
+   ]
+  },
+  "13mwunf": {
+   "d": "1474, tempera su tela, 227 x 166 cm, Bologna, Pinacoteca Nazionale.",
+   "s": "Nota come Pala dei Mercanti, fu firmata e datata nel 1474 su commissione di Alberto de' Cattani e Domenico degli Amorini per il palazzo della Mercanzia a Bologna.",
+   "k": [
+    "La Madonna col Bambino siede in una nicchia marmorea affiancata da san Petronio (con il modellino di Bologna), san Giovanni Evangelista e dal committente Alberto de' Cattani inginocchiato.",
+    "Una forte luce radente da sinistra scolpisce le figure arcigne e i panneggi sbalzati come nel marmo o nel metallo.",
+    "In alto compare una piccola Annunciazione, accompagnata da decorazioni antiquarie con festoni e coralli."
+   ],
+   "ico": [
+    "San Petronio è un santo vescovo; san Giovanni Evangelista è riconosciuto dal Vangelo (e dal simbolo dell'aquila)."
+   ]
+  },
+  "1owrj7j": {
+   "d": "1472-1473 circa, tempera su tavola, 26,3 x 9,3 cm, Venezia, Fondazione Giorgio Cini.",
+   "s": "Uno dei santi dipinti da Ercole de' Roberti nei pilastrini laterali del Polittico Griffoni di Francesco del Cossa per San Petronio a Bologna.",
+   "k": [
+    "Inserita entro una nicchia architettonica, la figura esprime vivacità cromatica e tensione lineare tipiche della prima fase bolognese dell'artista."
+   ],
+   "ico": [
+    "Santa Caterina d'Alessandria fa parte delle sante martiri e vergini."
+   ]
+  },
+  "1o2sq4m": {
+   "d": "1472-1473 circa, tempera su tavola, 26,3 x 9,3 cm, Venezia, Fondazione Giorgio Cini.",
+   "s": "Scomparto dei pilastrini laterali del Polittico Griffoni di Bologna, eseguito dal giovane Ercole de' Roberti.",
+   "k": [
+    "Rappresentato entro una nicchia, dimostra il vigore espressivo e la precisione calligrafica appresi nella bottega ferrarese."
+   ],
+   "ico": [
+    "San Girolamo è uno dei Dottori della Chiesa e figure di studio."
+   ]
+  },
+  "1ocsbtl": {
+   "d": "1472-1473 circa, tempera su tavola, 26,3 x 9,3 cm, Venezia, Fondazione Giorgio Cini.",
+   "s": "Frammento dei pilastrini laterali del Polittico Griffoni, eseguito da Ercole de' Roberti in collaborazione con Francesco del Cossa.",
+   "k": [
+    "Piccola figura in nicchia caratterizzata da contorni taglienti e forte energia dinamica."
+   ],
+   "ico": [
+    "San Giorgio è un santo guerriero e martire legato alla difesa della fede."
+   ]
+  },
+  "1nitiqo": {
+   "d": "1472-1473 circa, tempera su tavola, 26 x 11 cm, Parigi, Musée du Louvre.",
+   "s": "Scomparto proveniente dai pilastrini laterali del Polittico Griffoni di San Petronio a Bologna, opera di Ercole de' Roberti.",
+   "k": [
+    "Affiancava originariamente gli altri santi in nicchia dei pilastrini, distinguendosi per la resa plastica incisiva."
+   ],
+   "ico": [
+    "Sant'Apollonia appartiene alle sante martiri e vergini."
+   ]
+  },
+  "1nst4fn": {
+   "d": "1472-1473 circa, tempera su tavola, 26 x 11 cm, Parigi, Musée du Louvre.",
+   "s": "Uno dei sette santi superstiti dei pilastrini laterali del Polittico Griffoni eseguiti da Ercole de' Roberti a Bologna.",
+   "k": [
+    "Esempio della capacità di Ercole de' Roberti di concentrare monumentalità e scatto nervoso anche in formato miniaturistico."
+   ],
+   "ico": [
+    "San Michele Arcangelo è annoverato tra i santi legati a miracoli o simboli particolari."
+   ]
+  },
+  "1pgqqlh": {
+   "d": "1473, tempera su tavola, 27,5 x 214 cm (o 217 cm), Città del Vaticano, Pinacoteca Vaticana.",
+   "s": "Unico grande pannello di predella del Polittico Griffoni per San Petronio a Bologna, già riconosciuto da Vasari come opera di Ercole de' Roberti.",
+   "k": [
+    "Narra i miracoli di san Vincenzo Ferrer in un flusso continuo senza scomparti, unendo guarigioni, resurrezioni e un'apparizione del Bambin Gesù.",
+    "Segna una svolta stilistica grazie ad architetture più razionali e prospetticamente coerenti di ispirazione pierfrancescana, unite a paesaggi fantastici cosseschi.",
+    "Le figure concitate mostrano un dinamismo donatelliano che influenzerà Niccolò dell'Arca e Michelangelo."
+   ],
+   "ico": [
+    "San Vincenzo Ferrer è un santo religioso domenicano protagonista di miracoli di guarigione e resurrezione."
+   ]
+  },
+  "x2ducv": {
+   "d": "1478-1480, olio su tavola, 54 x 31 cm, Berlino, Staatliche Museen.",
+   "s": "Dipinto devozionale realizzato da Ercole de' Roberti nella sua piena maturità artistica.",
+   "k": [
+    "La figura emaciata e mistica del Battista si staglia sopra rocce che sembrano dissolversi, separata dal paesaggio di fondo da una linea netta."
+   ],
+   "ico": [
+    "San Giovanni Battista è il santo profeta ed eremita nel deserto."
+   ]
+  },
+  "qjjco1": {
+   "d": "1479-1481, olio su tela (in catalogo olio su tavola), 323 x 240 cm, Milano, Pinacoteca di Brera.",
+   "s": "Nota come Pala Portuense, fu dipinta per l'altare maggiore di Santa Maria in Porto Fuori presso Ravenna per i Canonici Lateranensi e giunse a Brera nel 1811 con le soppressioni napoleoniche.",
+   "k": [
+    "Opera di Brera: da sapere.",
+    "La Vergine siede su un alto podio ottagonale ornato da tre finti bassorilievi all'antica ispirati all'altare padovano di Donatello.",
+    "Attorno al trono stanno sant'Agostino, il beato Pietro degli Onesti, sant'Anna e sant'Elisabetta, mentre sullo sfondo si apre un mare in tempesta che allude al naufragio votivo del fondatore.",
+    "Riprende lo schema piramidale della Pala di San Cassiano di Antonello da Messina, attenuando i furori giovanili in una solenne armonia classica."
+   ]
+  },
+  "1kmme7q": {
+   "d": "1475 circa, tempera su tavola, 54 x 39 cm (o 38 cm), Washington, National Gallery of Art.",
+   "s": "Tavola sinistra del Dittico Bentivoglio, realizzato durante il soggiorno bolognese per il signore di Bologna Giovanni II Bentivoglio a emulazione del dittico dei Duchi d'Urbino di Piero della Francesca.",
+   "k": [
+    "Ritratto di profilo secondo il modello umanistico dei vir illustris delle monete romane, con berretto rosso e sontuoso broccato dorato.",
+    "Una tenda scura scostata apre sulla veduta azzurra di Bologna in lontananza, unendo realismo fiammingo dei dettagli e rigore formale."
+   ]
+  },
+  "1kcmsir": {
+   "d": "1475 circa, tempera su tavola, 54 x 39 cm (o 38 cm), Washington, National Gallery of Art.",
+   "s": "Tavola destra del Dittico Bentivoglio, raffigurante Ginevra Sforza, moglie di Giovanni II Bentivoglio e sorella di Battista Sforza.",
+   "k": [
+    "Raffigurata di profilo davanti a una tenda scura che lascia intravedere il paesaggio bolognese, incarna un ideale di bellezza aristocratica.",
+    "Spiccano la resa fiamminga dei gioielli e delle perle sull'abito e le pieghe rigide e vorticose del velo, tipiche della scuola ferrarese."
+   ]
+  },
+  "1rgahup": {
+   "d": "1482, olio su tavola, 35 x 118 cm, Dresda, Gemäldegalerie.",
+   "s": "Primo scomparto della predella della pala di San Giovanni in Monte a Bologna, eseguita da Ercole de' Roberti.",
+   "k": [
+    "Parte del ciclo narrativo della Passione di Cristo realizzato per l'altare bolognese."
+   ],
+   "ico": [
+    "L'Orazione nell'orto dei Getsemani e la cattura appartengono agli eventi legati alla Passione di Cristo."
+   ]
+  },
+  "1qmbors": {
+   "d": "1482, olio su tavola, 33 x 30 cm, Liverpool, Walker Art Gallery.",
+   "s": "Scomparto centrale della predella dipinta nel 1482 per la chiesa di San Giovanni in Monte a Bologna.",
+   "k": [
+    "Inserito tra l'Orazione nell'orto e l'Andata al Calvario nella medesima predella bolognese."
+   ],
+   "ico": [
+    "La Pietà fa parte degli eventi legati alla Passione di Cristo."
+   ]
+  },
+  "1qwbagr": {
+   "d": "1482, olio su tavola, 35 x 118 cm, Dresda, Gemäldegalerie.",
+   "s": "Terzo scomparto della predella della pala di San Giovanni in Monte a Bologna, conservato a Dresda insieme all'Orazione nell'orto.",
+   "k": [
+    "Completa la sequenza della Passione nella predella realizzata da Ercole de' Roberti nel 1482."
+   ],
+   "ico": [
+    "L'Andata al Calvario rientra tra gli eventi legati alla Passione di Cristo."
+   ]
+  },
+  "ot9vna": {
+   "d": "1499, tempera su tavola, 75 x 81 cm, Milano, Pinacoteca di Brera.",
+   "s": "Firmato e datato 1499, era in origine la predella della pala d'altare di Francesco Francia con la Natività per Santa Maria della Misericordia a Bologna, commissionata da Antonio Galeazzo Bentivoglio e giunta a Brera nel 1809.",
+   "k": [
+    "Opera di Brera: da sapere.",
+    "La capanna della Natività poggia su rovine classiche (simbolo del paganesimo superato), mentre un ricco corteo esotico con cavalli, cammelli, un cagnolino e una scimmia accompagna i Magi.",
+    "L'impianto narrativo paratattico risente di Ghirlandaio, Perugino e Filippino Lippi, mentre le rupi scoscese uniscono la fantasia ferrarese alla prospettiva aerea leonardesca."
+   ],
+   "ico": [
+    "L'Adorazione dei Magi è narrata nel Vangelo di Matteo (cap. 2), dove i Magi giungono guidati dalla stella dopo la nascita di Gesù."
+   ]
+  },
+  "hicyyt": {
+   "d": "1403-1408, Museo della Cattedrale di Ferrara (in origine cappella Silvestri nel Duomo), marmo, h 152 cm circa.",
+   "s": "Commissionata nel settembre 1403 dagli esecutori testamentari di Virginio Silvestri, camerlengo del marchese Niccolò III d'Este. Considerata uno dei massimi capolavori della scultura italiana del Quattrocento, fu trasferita al museo nel 1929.",
+   "k": [
+    "Raffigura la Vergine con il Bambino, che stringe il rotolo della Legge dalla forma che richiama il pane ferrarese.",
+    "Contraddistinta da purezza formale ed equilibrio compositivo.",
+    "Forti influssi gotici mitigati da una nuova monumentalità rinascimentale.",
+    "Panneggio ampio che evidenzia la transizione verso il plasticismo moderno."
+   ]
+  },
+  "1olh6t2": {
+   "d": "1406-1408, Cattedrale di San Martino a Lucca (sacrestia), marmo, 88x244x66,5 cm.",
+   "s": "Commissionato da Paolo Guinigi, signore di Lucca, in memoria della moglie morta nel 1405 a soli 25 anni; il corpo non fu mai posto nel sarcofago. Dopo la caduta dei Guinigi nel 1430 l'opera fu spogliata delle fiancate, poi recuperate.",
+   "k": [
+    "Raffigura Ilaria dormiente a grandezza naturale su un catafalco, con acconciatura a cercine e testa posata su due cuscini.",
+    "Ai piedi compare un cagnolino, simbolo della fedeltà coniugale.",
+    "Catafalco decorato con putti reggifestone di chiara derivazione classica.",
+    "Equilibrio tra il panneggio tardo gotico borgognone e la sobria compostezza umanistica del volto."
+   ]
+  },
+  "ymwo8c": {
+   "d": "Commissionata nel 1409, eseguita tra il 1414 e il 1419, Piazza del Campo a Siena (originali a Santa Maria della Scala), marmo.",
+   "s": "Fontana monumentale pubblica di Piazza del Campo, commissionata dal Comune di Siena. Nel 1858 l'opera deteriorata fu sostituita da una copia di Tito Sarrocchi e i rilievi originali vennero musealizzati.",
+   "k": [
+    "Composta da un bacino rettangolare chiuso su tre lati da un parapetto con rilievi biblici e statue a tutto tondo.",
+    "Sul lato lungo campeggia la Madonna col Bambino in trono, affiancata da Angeli e Virtù Teologali.",
+    "Nei lati corti si trovano la Creazione di Adamo e la Cacciata, con le statue di Rea Silvia e Acca Larenzia sui pilastri.",
+    "Le figure sono animate da andamento serpentinato e profili ovali, unendo la plasticità gotica all'espressività umanistica."
+   ]
+  },
+  "1i8neid": {
+   "d": "1414-1418, Museo di Santa Maria della Scala a Siena (copia in Piazza del Campo), marmo, h 165 cm.",
+   "s": "Statua a tutto tondo scolpita per uno dei pilastri della Fonte Gaia su commissione del Comune di Siena. Ricollega l'opera alla fondazione mitica di Siena attraverso Senio, figlio di Remo.",
+   "k": [
+    "Raffigura Acca Larenzia a seno scoperto, con uno dei gemelli in braccio e l'altro ai piedi che si protende verso di lei.",
+    "Linee a spirale e testa ricurva creano un ritmo dinamico che bilancia l'ancheggiamento gotico.",
+    "Nudo morbido e naturalistico concepito per una pluralità di punti di vista.",
+    "Fusione magistrale tra tardo gotico, scultura borgognona e prime soluzioni rinascimentali."
+   ]
+  },
+  "1gkpscj": {
+   "d": "1414-1418, Museo di Santa Maria della Scala a Siena (copia in Piazza del Campo), marmo, h 163 cm.",
+   "s": "Collocata a una delle estremità della Fonte Gaia, fa coppia con Acca Larenzia per celebrare le origini mitiche di Roma e Siena. Fu gravemente danneggiata nel 1743 durante il Palio per la caduta di uno spettatore arrampicatosi su di essa.",
+   "k": [
+    "Rea Silvia è raffigurata in piedi, riccamente vestita a sottolineare il suo rango regale.",
+    "Tiene in braccio uno dei gemelli mentre l'altro ai suoi piedi allunga il braccio in un gesto affettuoso.",
+    "Avvitamento delle linee più contenuto rispetto ad Acca Larenzia, con forte equilibrio volumetrico.",
+    "Composizione avvolgente che guida lo sguardo attorno al centro plastico ed emotivo della madre."
+   ]
+  },
+  "1pi9jid": {
+   "d": "1417-1430, Battistero di San Giovanni a Siena, marmo, bronzo dorato, smalto e intarsi policromi.",
+   "s": "Complesso monumentale esagonale iniziato nel 1417 per i nuovi ambienti sotterranei sotto l'abside del Duomo di Siena. Progettato da Jacopo della Quercia, vide la collaborazione di Donatello, Ghiberti e Giovanni di Turino.",
+   "k": [
+    "Vasca esagonale decorata con formelle bronzee delle Storie del Battista alternate a Virtù nelle nicchie d'angolo.",
+    "Pilastro centrale con ciborio scolpito su cinque lati da Jacopo con rilievi di Profeti.",
+    "Sul sesto lato del ciborio è presente uno sportello bronzeo con la Madonna col Bambino di Giovanni di Turino.",
+    "Statua marmorea di San Giovanni Battista scolpita da Jacopo posta a coronamento del ciborio.",
+    "Equilibrio tra il rigore gotico e le nuove soluzioni plastiche rinascimentali fiorentine."
+   ]
+  },
+  "1bffj42": {
+   "d": "1425-1434, basilica di San Petronio a Bologna, marmo rosso istriano e marmo bianco.",
+   "s": "Portale centrale commissionato dal legato pontificio Louis Aleman, rimasto incompiuto alla morte dell'artista e spostato in avanti nel 1510. Rappresenta il capolavoro assoluto della maturità di Jacopo, studiato da Michelangelo.",
+   "k": [
+    "Dieci formelle con le Storie della Genesi sugli stipiti, diciotto Profeti nella strombatura e cinque scene del Nuovo Testamento sull'architrave.",
+    "Lunetta con la Madonna col Bambino tra i santi Ambrogio e Petronio.",
+    "Figure rustiche e massicce che riempiono interamente il campo delle formelle.",
+    "Rilievo compresso tra due piani invisibili senza ricorrere allo stiacciato donatelliano, con forte effetto di energia trattenuta."
+   ]
+  },
+  "1j86t86": {
+   "d": "1425-1434, basilica di San Petronio a Bologna, stipite sinistro della Porta Magna, marmo bianco, 99x92 cm.",
+   "s": "Prima delle dieci formelle con le Storie della Genesi scolpite da Jacopo per la Porta Magna di San Petronio. Ebbe una profonda influenza su Michelangelo per la volta della Sistina.",
+   "k": [
+    "Scena ambientata in un Eden essenziale, con uno sperone roccioso e un alberello sullo sfondo neutro.",
+    "Dio Padre avanza possente con aureola triangolare e panneggio mosso, tendendo la mano verso Adamo.",
+    "Adamo, nudo e muscoloso, sembra destarsi di soprassalto alla vita con intensa energia psichica.",
+    "Superfici lisce alternate a fratture di piani netti, creando un contrasto plastico di grande impatto visivo."
+   ],
+   "ico": [
+    "La Creazione di Adamo rappresenta il momento in cui Dio dona la vita al primo uomo; il corpo nudo e ideale sottolinea la perfezione originaria e la dignità umana a contatto diretto con la scintilla vitale divina."
+   ]
+  },
+  "1km4tp1": {
+   "d": "1425-1434, basilica di San Petronio a Bologna, stipite sinistro della Porta Magna, marmo bianco, 99x92 cm.",
+   "s": "Quarta formella delle Storie della Genesi per la Porta Magna di San Petronio. Fa parte della fase matura dello scultore e fu attentamente studiata da Michelangelo.",
+   "k": [
+    "L'angelo spinge con decisione Adamo premendogli sul gomito e sul fianco, uscendo da una porta con architrave rinascimentale.",
+    "Adamo esprime dignità e turbamento virile, mentre Eva riprende la posa classica della Venus pudica.",
+    "Accentua il conflitto fisico e psicologico tra l'angelo e i progenitori.",
+    "Figure massicce con linee decise e ombre minime, cariche di drammaticità e tensione visiva."
+   ],
+   "ico": [
+    "Rappresenta il momento drammatico in cui Adamo ed Eva vengono scacciati dall'Eden a causa del Peccato originale, segnando la perdita dell'innocenza primordiale e l'inizio del dolore e della fatica mortale dell'uomo."
+   ]
+  },
+  "ib49sb": {
+   "d": "1401-1402, Museo Nazionale del Bargello a Firenze, bronzo dorato, 45x38 cm.",
+   "s": "Formella realizzata per il concorso dell'Arte di Calimala per la seconda porta del Battistero fiorentino, vinto da Ghiberti. Destinata in seguito all'Arte di Calimala e alla Sagrestia Vecchia, giunse al Bargello nel 1859.",
+   "k": [
+    "Composizione racchiusa in una cornice quadrilobata, divisa verticalmente da uno sperone roccioso diagonale.",
+    "A sinistra si trovano l'asino e i servitori; a destra Abramo con il coltello levato e Isacco inginocchiato sull'altare.",
+    "Il corpo nudo di Isacco richiama la statuaria classica antica, in particolare il Torso Gaddi.",
+    "Eseguita quasi per intero in un unico getto di fusione con straordinaria perizia orafa, contrapposta al drammatismo di Brunelleschi."
+   ],
+   "ico": [
+    "Raffigura l'episodio biblico in cui Dio mette alla prova Abramo chiedendogli di sacrificare il figlio Isacco; la mano dell'angelo ferma il patriarca premiando la fede assoluta e l'obbedienza divina."
+   ]
+  },
+  "ymv664": {
+   "d": "1403-1424, Museo dell'Opera del Duomo a Firenze (copia sul lato nord del Battistero), bronzo dorato.",
+   "s": "Seconda porta del Battistero commissionata dall'Arte di Calimala dopo il concorso del 1401. Collocata inizialmente a est nel 1424, fu spostata a nord nel 1452 per far spazio alla Porta del Paradiso.",
+   "k": [
+    "Struttura a 28 formelle quadrilobate su 7 file: 20 con scene del Nuovo Testamento, 8 con Evangelisti e Dottori della Chiesa.",
+    "Telaio ornato da 47 testine di Profeti e Sibille, tra cui spicca l'autoritratto di Ghiberti con il turbante.",
+    "Cornici e stipiti decorati da ghirlande animate da piante e mammiferi modellati dal vero con funzione apotropaica.",
+    "Sintesi magistrale tra eleganza lineare gotica, rilievo plastico classico e minuzioso naturalismo nei dettagli."
+   ]
+  },
+  "2xopt7": {
+   "d": "1412-1416, Museo di Orsanmichele a Firenze (copia all'esterno), bronzo, h 268 cm.",
+   "s": "Prima statua bronzea del ciclo delle quattordici statue dei protettori delle Arti di Orsanmichele, commissionata dall'Arte di Calimala. Il bronzo fu scelto per il prestigio della corporazione, costando dieci volte più del marmo.",
+   "k": [
+    "Fusa a cera persa in quattro parti, recuperando un'antica tecnica metallurgica.",
+    "Postura inclinata con elegante hanchement e peso scaricato sulla gamba sinistra.",
+    "Panneggio ricco e ritmico in perfetto stile gotico internazionale che domina la figura.",
+    "La firma dell'artista è incisa sull'orlo della veste: OPUS LAURENTII.",
+    "Nicchia trilobata di Albizzo di Piero, in perfetto accordo proporzionale con la statua."
+   ]
+  },
+  "16acnav": {
+   "d": "1419-1423 circa, Museo di Orsanmichele a Firenze (copia nella nicchia esterna), bronzo, h 270 cm.",
+   "s": "Commissionata dall'Arte del Cambio per competere con il Battista di Calimala; tra i committenti figurava Cosimo de' Medici. La prima fusione fallì nel 1421 e Ghiberti dovette rifonderla a proprie spese.",
+   "k": [
+    "Raffigura San Matteo evangelista in piedi con toga classica, libro aperto e mano al petto.",
+    "Testa barbuta e ricciuta ispirata a modelli filosofici classici e umanistici.",
+    "Testimonia l'abbandono del gotico verso il Rinascimento, con forme più robuste influenzate da Donatello.",
+    "Nicchia poco profonda con pilastrini scanalati e valva a raggi che incornicia la statua come un'aureola."
+   ]
+  },
+  "5thgw6": {
+   "d": "1417-1427, Battistero di San Giovanni a Siena, rilievo in bronzo dorato.",
+   "s": "Formella per il fonte battesimale senese, commissionata nel 1417 e completata nel 1427 dopo numerosi solleciti. Realizzata a Firenze da Ghiberti in contemporanea ai lavori per la porta nord del Battistero fiorentino.",
+   "k": [
+    "Cristo nel Giordano al centro riceve il sacramento dal Battista con gesto arcuato, sotto la colomba dello Spirito Santo.",
+    "L'aura sacra su Cristo è ottenuta con una doratura liscia, affiancata da una corona di angeli a rilievo digradante.",
+    "Abbandono dei grafismi gotici in favore di un linguaggio più essenziale e sintetico.",
+    "Chiaroscuro marcato e drammaticità formale influenzati dal confronto con Donatello."
+   ]
+  },
+  "1m3c9w0": {
+   "d": "1425-1427, basilica di Santa Maria Novella a Firenze (Cappella Rucellai), rilievo in bronzo, 229x87,5 cm.",
+   "s": "Eseguita per commemorare Fra' Leonardo Dati, maestro generale dell'Ordine domenicano morto nel 1425, a spese del convento e della Repubblica fiorentina. Spostata nel 1565 e nel 1861, è nella sede attuale dal 1956.",
+   "k": [
+    "Il religioso è raffigurato dormiente con saio domenicano, cappuccio abbassato e libro sotto le mani conserte.",
+    "La testa poggia su un cuscino con nappe, in origine decorato con un motivo damascato.",
+    "Rilievo di altissima rifinitura orafa con fisionomia individuale del volto.",
+    "Iscrizione commemorativa latina incisa che ricorda i meriti teologici del maestro generale."
+   ]
+  },
+  "ov482r": {
+   "d": "1427-1428, Museo di Orsanmichele a Firenze (copia nella nicchia), bronzo, h 260 cm.",
+   "s": "Commissionata dall'Arte della Lana per sostituire una precedente statua di Andrea Pisano non più considerata all'altezza del prestigio della corporazione. Collocata nella nicchia nel 1429.",
+   "k": [
+    "Raffigurato come un giovane diacono con dalmatica e libro chiuso nella mano sinistra.",
+    "Grande precisione orafa nei dettagli fisionomici del volto e del colletto.",
+    "Panneggio ondulato che risente del tardo gotico ma inserito in proporzioni salde e classiche.",
+    "Equilibrio rinascimentale delle forme affine al San Filippo di Nanni di Banco."
+   ]
+  },
+  "1eq3egw": {
+   "d": "1432, Museo Nazionale di San Marco a Firenze, marmo.",
+   "s": "Disegno della maestosa struttura marmorea commissionata dall'Arte dei Linaioli e Rigattieri per la propria sede fiorentina. La parte lignea e i dipinti furono affidati a Beato Angelico nel 1433.",
+   "k": [
+    "Progetto architettonico monumentale eseguito da Simone di Nanni e Jacopo di Bartolomeo da Settignano.",
+    "Struttura a cuspide triangolare con mandorla contenente Cristo benedicente e cherubini.",
+    "Impostata come un portale monumentale per rivaleggiare con la scultura delle Arti maggiori a Orsanmichele.",
+    "La solennità e la plasticità della cornice dialogano perfettamente con le figure dipinte dall'Angelico."
+   ]
+  },
+  "wc1rcz": {
+   "d": "1425-1452, Museo dell'Opera del Duomo a Firenze (copia sul lato est del Battistero), bronzo dorato.",
+   "s": "Porta orientale del Battistero commissionata dagli Operai del Duomo con programma iconografico dell'umanista Ambrogio Traversari; ribattezzata da Michelangelo Porta del Paradiso. Danneggiata dall'alluvione del 1966 e restaurata.",
+   "k": [
+    "Dieci grandi pannelli quadrati illustranti episodi dell'Antico Testamento, con più scene per formella.",
+    "Uso magistrale della prospettiva lineare scientifica e complessi scorci architettonici.",
+    "Rilievo scalato graduato, dall'altorilievo in primo piano allo stiacciato per lo sfondo.",
+    "Cornice ricchissima con 24 profeti ed edicole, motivi vegetali e l'autoritratto di Ghiberti tra i medaglioni.",
+    "La doratura integrale amplifica la luce conferendo una dimensione sacrale e ultraterrena al racconto biblico."
+   ]
+  },
+  "13kxeuu": {
+   "d": "1422 circa, Museo dell'Opera del Duomo a Firenze (in origine Campanile di Giotto), marmo bianco.",
+   "s": "Scolpita per la nicchia all'estrema destra del lato ovest del Campanile di Giotto su commissione dell'Opera del Duomo. L'attribuzione è attestata dall'iscrizione sul cartiglio: Johannes Rossus Prophetam me sculpsit Abdiam.",
+   "k": [
+    "Il profeta minore è raffigurato come un giovane di bell'aspetto avvolto da ampia veste e mantello.",
+    "Colto nell'atto di voltarsi verso sinistra per mostrare agli osservatori in basso il rotolo svolto.",
+    "Sguardo mite, sicuro e compassionevole in riferimento al contenuto della sua profezia biblica.",
+    "Segna il passaggio dallo stile gotico a una rinnovata volumetria plastica influenzata da Donatello."
+   ]
+  },
+  "14ew7xr": {
+   "d": "1421, Museo dell'Opera del Duomo a Firenze (in origine nicchia del Campanile di Giotto), marmo bianco, 188x56 cm.",
+   "s": "Gruppo scultoreo a grandezza naturale eseguito in collaborazione con Donatello per il terzo ordine del Campanile di Giotto. Trasferito in museo nel 1937 per ragioni di tutela e sostituito all'esterno da una copia.",
+   "k": [
+    "Composizione studiata ingegnosamente per far occupare a due figure lo spazio di una sola nicchia.",
+    "Abramo poggia la gamba su un fascio di legna con il piede che sporge oltre la nicchia rompendo la barriera spaziale.",
+    "Isacco, nudo e muscoloso, si ritrae composto verso destra mentre il padre volge lo sguardo in alto verso l'angelo.",
+    "Posa dinamica e vibrante carica di tensione psicologica, di matrice prevalentemente donatelliana."
+   ],
+   "ico": [
+    "Dio mette alla prova Abramo chiedendogli di sacrificare il figlio Isacco; Abramo obbedisce, ma un angelo ferma la sua mano e un montone viene offerto al posto del ragazzo."
+   ]
+  },
+  "1sjcmy2": {
+   "d": "1423, Kunsthalle di Brema, tempera su tavola.",
+   "s": "Prima opera datata con certezza di Masolino, dipinta per devozione privata. Prende il nome dagli stemmi delle casate fiorentine Boni e Carnesecchi uniti sul dipinto, probabilmente in occasione di un matrimonio.",
+   "k": [
+    "Raffigura una Madonna dell'Umiltà seduta a terra su un cuscino mentre allatta il Bambino.",
+    "Composizione semplice ed elegante con campiture ridotte a blu, rosso e oro.",
+    "Gusto decorativo gotico internazionale arricchito da elementi innovativi come la plasticità del Bambino.",
+    "Modellazione raffinata dei volti con carnagioni delicate e volumetria naturale."
+   ]
+  },
+  "gs5883": {
+   "d": "1424-1425, Galleria degli Uffizi a Firenze, tempera su tavola, 175x103 cm.",
+   "s": "Dipinta per la chiesa di Sant'Ambrogio a Firenze, probabilmente per il tessitore Nofri d'Agnolo Buonamici. Prima collaborazione documentata tra Masolino e Masaccio, con divisione delle figure individuata da Longhi nel 1940.",
+   "k": [
+    "A Masolino spettano Sant'Anna e quattro dei cinque angeli che stendono il drappo damascato di sfondo.",
+    "Sant'Anna protegge Maria e Gesù con gesto affettuoso, ma mantiene un panneggio piatto e luce diffusa medievale.",
+    "La mano distesa in scorcio di Sant'Anna mostra un tentativo di tridimensionalità con evidenti incertezze prospettiche.",
+    "Rappresenta uno spartiacque fondamentale tra la persistenza gotica di Masolino e la rivoluzione volumetrica di Masaccio."
+   ]
+  },
+  "1np1qij": {
+   "d": "1424, Museo della Collegiata di Sant'Andrea a Empoli, affresco staccato.",
+   "s": "Dipinto per un altare nel battistero della collegiata di Empoli, forse per la famiglia Scassinati. Rinvenuto nel XIX secolo e a lungo attribuito a Masaccio, fu restituito a Masolino da Berenson nel 1902.",
+   "k": [
+    "Raffigura il Vir dolorum con Cristo vivo ma segnato dalla Passione che si solleva dal sepolcro tra Maria e Giovanni.",
+    "Cornice a cuspide decorata da tre clipei contenenti il profeta Isaia, una Sibilla con teschio e il volto della Veronica.",
+    "Impostazione prospettica centrale con punto di fuga coincidente esattamente sul petto di Cristo.",
+    "Definito da Joannides la più masaccesca delle invenzioni di Masolino per la plasticità dei corpi e la solida resa del sarcofago."
+   ]
+  },
+  "1hke3uz": {
+   "d": "1424-1428, Cappella Brancacci in Santa Maria del Carmine a Firenze, affresco, registro mediano.",
+   "s": "Apre il ciclo pittorico della Cappella Brancacci, collocato sullo spessore dell'arcone d'ingresso. Posto simmetricamente di fronte alla Cacciata di Masaccio, illustra l'antefatto della storia della Salvezza.",
+   "k": [
+    "Adamo ed Eva sono raffigurati in piedi in un dialogo silenzioso mentre Eva si appresta ad addentare il frutto.",
+    "Il serpente avvolto all'albero ha volto femminile antropomorfo e chioma bionda idealizzata secondo canoni gotici.",
+    "Luce morbida e avvolgente priva di contrasti violenti che esalta la plasticità sensuale dei corpi contro il fondo scuro.",
+    "La figura di Adamo denota una precoce adesione ai canoni di bellezza del classicismo antico."
+   ],
+   "ico": [
+    "Nel Peccato originale Adamo ed Eva trasgrediscono il comando divino mangiando il frutto proibito dall'albero della conoscenza; il serpente antropomorfo simboleggia la tentazione e l'inizio della caduta morale dell'umanità."
+   ]
+  },
+  "jo9d7i": {
+   "d": "1424-1428, Cappella Brancacci in Santa Maria del Carmine a Firenze, affresco, registro mediano.",
+   "s": "Grande affresco della parete destra raffigurante due miracoli compiuti da San Pietro narrati negli Atti degli Apostoli. Commissionato dal mercante di seta Felice Brancacci nell'ambito delle Storie di San Pietro.",
+   "k": [
+    "Unifica in un unico spazio urbano la guarigione dello storpio a sinistra e la resurrezione di Tabita a destra.",
+    "Al centro compare una piazza ispirata a Firenze con palazzi merlati, pertiche alle finestre e borghesi ben vestiti.",
+    "Ricchezza cromatica e decorativa raffinata che risente dell'influenza di Gentile da Fabriano.",
+    "Prospettiva architettonica accurata che riflette il tentativo di Masolino di adeguarsi alle novità di Masaccio."
+   ]
+  },
+  "126bvpc": {
+   "d": "1424-1428, Cappella Brancacci in Santa Maria del Carmine a Firenze, affresco della parete d'altare.",
+   "s": "Dipinto nel registro mediano della Cappella Brancacci e completato in otto giornate di lavoro. Rappresenta l'apostolo Pietro nell'atto di predicare alla folla dopo la Pentecoste.",
+   "k": [
+    "San Pietro al centro si rivolge con gesto eloquente a un uditorio variegato ed espressivo.",
+    "Fine introspezione psicologica: una monaca ascolta attenta, una fanciulla e un vecchio sono assopiti, una donna mostra timore.",
+    "I personaggi maschili alle spalle di Pietro e i due frati a destra sono probabili ritratti di contemporanei.",
+    "Le montagne sullo sfondo si raccordano visivamente a quelle del contiguo Pagamento del tributo di Masaccio."
+   ]
+  },
+  "1cdw4w9": {
+   "d": "1435 circa, Palazzo Branda Castiglioni a Castiglione Olona, affresco.",
+   "s": "Dipinto su una parete di una sala di rappresentanza nel palazzo del cardinale Branda Castiglioni. Fa parte del programma artistico che trasformò il borgo lombardo in una città ideale umanistica.",
+   "k": [
+    "Considerato una delle primissime rappresentazioni autonome del paesaggio nella storia della pittura italiana.",
+    "Raffigura una vallata turchese cinta da mura, insediamenti fortificati e montagne frastagliate cristalline.",
+    "Privo di figure umane o sacre, rompendo la tradizione medievale del paesaggio come puro sfondo decorativo.",
+    "Montagne tagliate a lama di memoria giottesca unite a una profonda resa atmosferica e spaziale rinascimentale."
+   ]
+  },
+  "1ganchv": {
+   "d": "1422 (datato 23 aprile), Museo Masaccio a Cascia di Reggello (Firenze), tempera e oro su tavola, 108x65 cm (centro).",
+   "s": "Prima opera nota di Masaccio, realizzata a Firenze per la chiesa rurale di San Giovenale sotto il patronato dei Castellani. Riscoperta nel 1961 in pessime condizioni, fu attribuita da Luciano Berti tramite la scrittura del catasto.",
+   "k": [
+    "Prima applicazione pittorica nota della prospettiva lineare scientifica brunelleschiana con punto di fuga unificato.",
+    "Madonna in maestà su un trono solido di forme romaniche e cosmatesche, affiancata da due angeli inginocchiati.",
+    "Il Bambino ha corpo robusto e scultoreo e stringe un grappolo d'uva, chiaro simbolo eucaristico della Passione.",
+    "Figure plastiche e prive di decorativismi gotici, ispirate al vigore formale di Giotto e Donatello."
+   ]
+  },
+  "1vx1r1v": {
+   "d": "1424-1425, Galleria degli Uffizi a Firenze, tempera su tavola, 175x103 cm.",
+   "s": "Commissionata probabilmente dal tessitore Nofri d'Agnolo Buonamici per la chiesa fiorentina di Sant'Ambrogio. Segna l'inizio del sodalizio con Masolino; Roberto Longhi nel 1940 assegnò a Masaccio la Madonna, il Bambino e l'angelo a destra.",
+   "k": [
+    "La Vergine e il Bambino mostrano una straordinaria plasticità tridimensionale modellata da un fascio di luce reale.",
+    "Il Bambino presenta membra robuste di matrice classica ispirate all'Ercole antico, con gesti naturali e vivaci.",
+    "La luce scolpisce i volumi lasciando zone d'ombra sul volto del Bambino e su quello concentrato della Madonna.",
+    "L'angelo reggicortina masaccesco è dipinto con scorcio ardito e forte contrasto cromatico complementare rosso e verde."
+   ]
+  },
+  "wr62tr": {
+   "d": "1424-1425, Cappella Brancacci in Santa Maria del Carmine a Firenze, affresco, 260x88 cm.",
+   "s": "Collocato sull'arcone d'ingresso della cappella, simmetrico al Peccato originale di Masolino, ne costituisce l'antitesi stilistica. Coperto da foglie di fico barocche nel 1642, è stato liberato dal restauro del 1983-1990.",
+   "k": [
+    "Rappresenta Adamo ed Eva cacciati dall'angelo con la spada, straziati da una disperazione umana senza precedenti.",
+    "Adamo piange coprendosi il volto con le mani e ventre contratto; Eva urla atterrita proteggendosi il seno e il pube.",
+    "Figure anatomicamente salde che poggiano i piedi a terra, proiettando ombre portate coerenti con la fonte di luce da destra.",
+    "Rielabora l'antico a fini drammatici: Adamo si ispira al Marsia ellenistico e al Crocifisso di Donatello, Eva alla Venere pudica."
+   ],
+   "ico": [
+    "La Cacciata dal Paradiso terrestre segna la condanna al dolore e al lavoro terreno dopo la trasgressione del Peccato originale; i progenitori nudi manifestano la vergogna, il rimorso e la perdita irreversibile dell'innocenza primordiale."
+   ]
+  },
+  "1mhm8ef": {
+   "d": "1424-1427, Cappella Brancacci in Santa Maria del Carmine a Firenze, affresco, 32 giornate.",
+   "s": "Scena principale del ciclo affrescato commissionato dal mercante Felice Brancacci, ispirata al Vangelo di Matteo. Allude al dovere civico di solidarietà e pagamento dei tributi, anticipando il catasto fiorentino del 1427.",
+   "k": [
+    "Narrazione simultanea in tre tempi entro il medesimo spazio: la richiesta del gabelliere, la pesca di Pietro e il pagamento.",
+    "Prospettiva lineare rigorosa con punto di fuga impostato dietro la testa di Cristo, centro geometrico e spirituale.",
+    "Apostoli disposti in un solido semicerchio plastico attorno a Gesù, trattati come statue viventi modellate dalla luce.",
+    "Figure definite da campiture cromatiche e chiaroscuro con stesura a getto, superando le linee di contorno gotiche."
+   ],
+   "ico": [
+    "A Cafarnao i gabellieri esigono il tributo del Tempio; Gesù invia Pietro al lago dicendogli che il primo pesce pescato conterrà in bocca la moneta necessaria per assolvere il pagamento per sé e per il Maestro."
+   ]
+  },
+  "t3stv9": {
+   "d": "1425-1426 circa, Cappella Brancacci in Santa Maria del Carmine a Firenze, affresco, 255x162 cm.",
+   "s": "Situato nel registro mediano a destra dell'altare, illustra la conversione dei fedeli narrata negli Atti degli Apostoli. Danneggiato dall'incendio del 1771, ha recuperato la cromia originaria con il restauro del 1983-1990.",
+   "k": [
+    "San Pietro battezza i nuovi fedeli in un fiume compiendo un gesto energico con la ciotola.",
+    "Celebre figura del giovane nudo che trema per il freddo stringendosi nelle braccia, elogiata da Vasari per il vivo realismo.",
+    "Altre figure colte nell'atto di ricevere l'acqua, spogliarsi o rivestirsi, con resa mirabile dell'anatomia e dei capelli bagnati.",
+    "L'uso innovativo del chiaroscuro e della luce modella i volumi e anticipa gli effetti della prospettiva aerea nel paesaggio."
+   ]
+  },
+  "173z5jp": {
+   "d": "1426, Museo Nazionale di Capodimonte a Napoli, tempera su tavola, 83x63 cm.",
+   "s": "Cimasa sommitale centrale del Polittico di Pisa, commissionato dal notaio ser Giuliano di Colino per la chiesa del Carmine. Descritto da Vasari, fu smembrato nel Seicento e acquistato a Napoli nel 1901.",
+   "k": [
+    "Cristo crocifisso è dipinto con il capo incassato nelle spalle, in un ardito tentativo di scorcio prospettico calcolato dal basso.",
+    "Ai lati della croce stanno Maria, avvolta in un ampio manto blu e impietrita, e Giovanni con il volto affranto.",
+    "Al centro, di spalle, la Maddalena si inginocchia aprendo le braccia con un gesto di drammatica disperazione.",
+    "In cima alla croce è raffigurato l'albero della vita, simbolo della resurrezione e della redenzione dal peccato."
+   ]
+  },
+  "kkj520": {
+   "d": "1426, National Gallery di Londra, tempera su tavola a fondo oro, 135,5x73 cm.",
+   "s": "Pannello centrale del Polittico di Pisa realizzato per la cappella di ser Giuliano di Colino nella chiesa del Carmine. Riconosciuto da Berenson nel 1907 grazie alla descrizione vasariana, fu acquistato dal museo londinese nel 1916.",
+   "k": [
+    "Madonna maestosa seduta su un trono classico con pilastri e punto di vista ribassato in prospettiva.",
+    "Il Bambino mangia l'uva offertagli dalla madre succhiandosi le dita, gesto naturale che allude al sangue eucaristico.",
+    "Ai piedi del trono due angeli suonano liuti scorciati con virtuosismo prospettico, gareggiando con la scultura donatelliana.",
+    "La luce laterale scolpisce potentemente i volumi, lasciando per la prima volta parte del volto della Vergine in ombra."
+   ]
+  },
+  "1cs1mla": {
+   "d": "1426-1428 circa, basilica di Santa Maria Novella a Firenze, affresco, 317x667 cm.",
+   "s": "Affresco monumentale posto sulla navata sinistra di fronte all'antico cimitero, commissionato probabilmente da Berto di Bartolomeo e Sandra. Nascosto da un altare vasariano, fu riscoperto nel 1860 e ricomposto nel 1952.",
+   "k": [
+    "Perfetta cappella rinascimentale a botte cassettonata su colonne ioniche e paraste corinzie, dipinta in prospettiva centrale.",
+    "L'illusione architettonica, studiata forse con Brunelleschi, dà l'effetto di bucare la parete reale della navata.",
+    "Struttura piramidale: Dio Padre eretto sorregge la croce, sotto cui stanno Maria e Giovanni, e all'esterno i due donatori oranti.",
+    "I committenti sono ritratti a grandezza naturale sullo stesso piano spaziale delle figure sacre, senza proporzioni gerarchiche.",
+    "Alla base campeggia un sarcofago con scheletro e il celebre memento mori: Io fu già quel che voi sete..."
+   ],
+   "v": "La datazione oscilla tra il 1425-1428 del catalogo e il 1426-1428 degli appunti."
+  },
+  "8323l5": {
+   "d": "1424-1425 (sfondo ridipinto nel 1501 da Lorenzo di Credi), Fiesole, chiesa di San Domenico; tempera su tavola, 212 x 237 cm.",
+   "s": "Dipinta per l'altare maggiore del convento domenicano di Fiesole e poi spostata su un altare laterale, è una delle prime opere note dell'Angelico. Nel 1501 Lorenzo di Credi ne ammodernò l'impianto eliminando le cuspidi gotiche e sostituendo il fondo oro con un'architettura e un paesaggio aperti.",
+   "k": [
+    "Raffigura una Maestà con la Madonna in trono tra otto angeli in emiciclo e i santi Tommaso d'Aquino, Barnaba, Domenico e Pietro Martire.",
+    "Il Bambino porge la mano verso due rose tenute dalla Vergine: la bianca allude alla purezza, la rossa prefigura la Passione eucaristica.",
+    "È uno dei primi esempi di pala con figure riunite su un piano unico, influenzata dalla spazialità di Masaccio, Gentile da Fabriano e Ghiberti.",
+    "La predella originale in cinque scomparti con Cristo risorto adorato da angeli e beati domenicani è conservata alla National Gallery di Londra."
+   ]
+  },
+  "1i8d3a4": {
+   "d": "1431 circa, Firenze, Museo Nazionale di San Marco; tempera su tavola, 105 x 210 cm.",
+   "s": "Eseguita per il convento camaldolese di Santa Maria degli Angeli a Firenze, decorava in origine la cimasa del seggio corale. La complessa impostazione dottrinale ed escatologica riflette le concezioni teologiche ed ecumeniche del priore umanista Ambrogio Traversari.",
+   "k": [
+    "Al centro svetta Cristo giudice in una mandorla di luce tra cherubini, affiancato dalla Vergine, da san Giovanni e da una schiera di santi e patriarchi biblici.",
+    "Una fila centrale di sepolcri scoperchiati in profondo scorcio prospettico divide nettamente lo spazio tra gli eletti e i dannati.",
+    "A sinistra i beati risorti partecipano a una danza circolare con gli angeli in un giardino fiorito, ispirata all'armonia delle sfere celesti di Platone.",
+    "A destra l'Inferno illustra i supplizi dei nove gironi secondo la legge del contrappasso, dominati da Lucifero tricefalo che strazia le anime."
+   ]
+  },
+  "a2znvu": {
+   "d": "1432-1433 (predella 1434-1435), Firenze, Museo Nazionale di San Marco; tempera su tavola entro marmo, 260 x 330 cm.",
+   "s": "Commissionato dall'Arte dei Linaioli e Rigattieri per la propria sede nel Mercato Vecchio di Firenze, con una monumentale incorniciatura marmorea ideata da Lorenzo Ghiberti. L'opera fu concepita con proporzioni grandiose per rivaleggiare con i tabernacoli scultorei delle corporazioni a Orsanmichele.",
+   "k": [
+    "La tavola centrale mostra la Maestà su un maestoso trono con drappeggi dorati che alludono all'arte tessile dei committenti, incorniciata da dodici angeli musicanti.",
+    "Sugli sportelli esterni figurano san Marco e san Pietro, mentre all'interno si stagliano a figura intera san Giovanni Battista e san Marco.",
+    "Le monumentali figure dei santi rivelano una solida tridimensionalità e una volumetria plastica desunta dalla scultura ghibertiana.",
+    "La predella include la Predica di san Pietro a san Marco, l'Adorazione dei Magi e il Martirio di san Marco con una tempesta atmosferica prodigiosa."
+   ]
+  },
+  "1q95jnh": {
+   "d": "1434-1435 circa, Parigi, Musée du Louvre; tempera su tavola, 213 x 211 cm.",
+   "s": "Realizzata per la chiesa conventuale di San Domenico a Fiesole, faceva parte del trittico delle grandi pale d'altare dell'edificio insieme alla Pala di Fiesole e all'Annunciazione. Requisita dalle truppe napoleoniche nel 1812, rimase a Parigi a causa delle monumentali dimensioni.",
+   "k": [
+    "L'Incoronazione si svolge sotto un imponente ciborio gotico traforato sopraelevato su gradini marmorei policromi, su uno sfondo di cielo azzurro.",
+    "Angeli e santi sono scalati prospetticamente su piani concentrici attorno al trono, con alcune figure viste di spalle memori delle innovazioni di Masaccio.",
+    "L'asse prospettico centrale cade sulla gradinata e culmina in basso nel vaso di unguenti della Maddalena inginocchiata in primo piano.",
+    "La predella sottostante narra con straordinaria vivacità sette scene della vita di san Domenico insieme alla Resurrezione di Cristo."
+   ]
+  },
+  "1cv10il": {
+   "d": "1433-1435 circa, Madrid, Museo del Prado; tempera su tavola, 194 x 194 cm (con predella).",
+   "s": "Dipinta per la chiesa di San Domenico a Fiesole entro il completamento del convento nel 1435, costituisce uno dei vertici della trilogia delle grandi Annunciazioni angelichiane. In seguito ceduta, entrò a far parte delle collezioni reali di Spagna per poi confluire al Museo del Prado.",
+   "k": [
+    "La scena evangelica è ambientata in un portico rinascimentale d'impronta michelozziana, scorciato con rigore prospettico verso l'interno.",
+    "A sinistra, fuori dal loggiato, Adamo ed Eva vengono scacciati dal Paradiso, prefigurando il riscatto del peccato originale mediante il consenso di Maria.",
+    "Il giardino fiorito (hortus conclusus) richiama la purezza verginale ed è popolato da piante simboliche come la palma del martirio e rose rosse.",
+    "La predella comprende cinque scene della vita mariana, tra cui spicca l'Adorazione dei Magi per la moderna visione frontale e i suggestivi scorci."
+   ]
+  },
+  "13b7e3j": {
+   "d": "1437-1440 circa, Firenze, Museo Nazionale di San Marco; tempera su tavola.",
+   "s": "Commissionata dal banchiere Palla Strozzi per la cappella di famiglia nella chiesa fiorentina di Santa Trinità. La pala era stata avviata da Lorenzo Monaco, che prima di morire nel 1424 dipinse le cuspidi e la predella, per essere poi completata nel pannello principale dall'Angelico.",
+   "k": [
+    "La composizione è strutturata su uno schema piramidale incentrato sulla discesa obliqua del corpo di Cristo, ambientata in un limpido paesaggio primaverile.",
+    "Si contrappongono la devozione affettiva delle pie donne a sinistra e la discussione intellettuale e teologica del gruppo di dotti a destra.",
+    "Tra gli astanti a destra compaiono ritratti contemporanei, tra cui Michelozzo nella figura con cappuccio nero e un esponente della famiglia Strozzi.",
+    "I pilastrini laterali originali ospitano dodici santi a figura intera su basamenti dorati scorciati dal basso e otto medaglioni con busti."
+   ]
+  },
+  "1k2lxvf": {
+   "d": "1438-1440 circa, Firenze, Museo Nazionale di San Marco; tempera su tavola, 220 x 227 cm.",
+   "s": "Finanziata da Cosimo de' Medici per l'altare maggiore della chiesa conventuale di San Marco, fu consacrata nel 1443 alla presenza di papa Eugenio IV. Smembrata tra Settecento e Ottocento, subì una pulitura distruttiva con soda caustica che ne compromise le delicate velature cromatiche.",
+   "k": [
+    "Costituisce il caposaldo della moderna pala rinascimentale quadrata priva di scomparti, impostata come Sacra Conversazione unificata nello spazio.",
+    "La Madonna in trono è attorniata da angeli e santi disposti a emiciclo, con i protettori medicei Cosma e Damiano inginocchiati in primo piano.",
+    "Lo sfondo unisce cortine architettoniche a un bosco di cedri, cipressi e palme, con un sontuoso tappeto anatolico prospettico e una piccola Crocifissione dipinta.",
+    "La predella originale, oggi smembrata in vari musei internazionali, illustrava in nove pannelli le storie dei santi Cosma e Damiano e una Pietà centrale."
+   ]
+  },
+  "1xj70rg": {
+   "d": "1440 circa (o post 1450), Firenze, Convento di San Marco (corridoio Nord); affresco.",
+   "s": "Dipinta sulla parete del corridoio superiore di San Marco, proprio di fronte alla scala che sale dal chiostro verso il dormitorio dei frati. Concepita come teofania silenziosa, invita alla preghiera e al raccoglimento monastico prima dell'ingresso nelle celle.",
+   "k": [
+    "L'Angelo e la Vergine dialogano lungo una traiettoria diagonale all'interno di un portico rinascimentale caratterizzato da capitelli ionici e corinzi.",
+    "Sullo sfondo si aprono la nuda parete di una cella conventuale e l'hortus conclusus recintato da una palizzata, simbolo della purezza di Maria.",
+    "Entrambi i protagonisti tengono le braccia incrociate sul petto in una posa speculare di deferenza, compostezza e sottomissione al volere divino.",
+    "Alla base dell'affresco compare un'iscrizione in latino che esorta il passante a non tralasciare di recitare un'Ave Maria."
+   ]
+  },
+  "16gvgqj": {
+   "d": "1390-1400 circa, Torre Aquila, Castello del Buonconsiglio (Trento). Affreschi.",
+   "s": "Il Ciclo dei Mesi, commissionato intorno al 1400 dal principe-vescovo Giorgio di Liechtenstein, raffinato mecenate e bibliofilo: dodici scene (ne restano undici, marzo è perduto) con le attività e i paesaggi di ogni mese.",
+   "k": [
+    "Le colonnine tortili dipinte creano l'illusione di una loggetta unitaria che gira intorno alla stanza.",
+    "Nobili a caccia e contadini al lavoro convivono: mondo cavalleresco e vita quotidiana in equilibrio.",
+    "Dettagli stagionali e naturalistici ispirati ai Tacuina sanitatis.",
+    "Tra le massime testimonianze del gotico internazionale «transalpino» in Italia."
+   ]
+  },
+  "zp48d1": {
+   "d": "1420 circa (catalogo: 1419-21), Duomo di Milano.",
+   "s": "Il rilievo con papa Martino V in trono, nel deambulatorio del Duomo: l'opera più nota di Jacopino per la Fabbrica, che celebra il papa del concilio di Costanza passato da Milano nel 1418.",
+   "k": [
+    "Panneggi morbidi e decorazione vegetale: il gotico internazionale in scultura.",
+    "Alcuni studiosi accostano a questa statua il Cristo deposto di Casalmaggiore, forse ripescato nel Po."
+   ]
+  },
+  "1fr77x5": {
+   "d": "1420-25, Castello Sforzesco (Milano). Marmo.",
+   "s": "Madonna col Bambino tra le opere più note di Jacopino: la grazia della figura traduce nel marmo le figure colorate di Michelino da Besozzo.",
+   "k": [
+    "Confrontala con l'Arca di Gaspare Visconti e il Monumento Torelli in Sant'Eustorgio, della sua cerchia: colonne tortili, leoni stilofori, angeli reggicortina e drappi finemente panneggiati."
+   ]
+  },
+  "121cbax": {
+   "d": "1403, Bibliothèque nationale de France (Parigi). Miniatura.",
+   "s": "La miniatura con l'elogio funebre di Gian Galeazzo Visconti, morto nel 1402: documento del lavoro di Michelino per la corte viscontea.",
+   "k": [
+    "La Lombardia viscontea è la regione italiana più pronta a recepire il linguaggio cortese, per i legami dinastici con la Francia."
+   ]
+  },
+  "9z6u3m": {
+   "d": "1420 circa, Pinacoteca Nazionale (Siena). Tavola.",
+   "s": "Lo Sposalizio mistico di santa Caterina, con i santi Giovanni Battista e Antonio Abate: una delle pochissime opere firmate di Michelino («Michelinus fecit»), punto fermo per ricostruirne lo stile.",
+   "k": [
+    "Caterina riceve l'anello da Gesù Bambino in braccio a Maria: il «matrimonio spirituale» caro alla devozione tardogotica.",
+    "Linee eleganti e ondulate, colori tenui, foglia d'oro, volti dolci e spirituali.",
+    "Attenzione quasi miniaturistica ad abiti e decorazioni."
+   ],
+   "ico": [
+    "Santa Caterina d'Alessandria è tra le sante martiri e vergini: principessa colta, sposa mistica di Cristo; i suoi attributi sono la corona e la ruota del martirio."
+   ]
+  },
+  "13dyu2o": {
+   "d": "1410 circa per il catalogo, 1435 circa per gli appunti, Museo di Castelvecchio (Verona). Tavola.",
+   "s": "La Madonna del Roseto: la Vergine col Bambino in un giardino recintato pieno di rose, con angeli musicanti. Attribuzione storicamente contesa tra Stefano da Verona e Michelino da Besozzo.",
+   "k": [
+    "L'hortus conclusus, il giardino chiuso, è simbolo della verginità di Maria; le rose sono fiore mariano per eccellenza.",
+    "Eleganza lineare, colori vivaci, cura dei dettagli floreali: capolavoro del gotico internazionale in area veneta."
+   ],
+   "v": "Data: catalogo ca. 1410, appunti 1420-30/1435 circa.",
+   "ico": [
+    "La Madonna dell'Umiltà — la Vergine seduta a terra — nasce con Simone Martini ad Avignone verso il 1340 e diventa uno dei soggetti simbolo del gotico internazionale: qui il tema si fonde con quello del giardino chiuso."
+   ]
+  },
+  "1kpryt3": {
+   "d": "1435, Pinacoteca di Brera (Milano). Tavola.",
+   "s": "L'Adorazione dei Magi, unica opera firmata e datata di Stefano da Verona («Stefanus pinxit 1435»). Il corteo fiabesco e i dettagli preziosi risentono dell'eco di Gentile da Fabriano.",
+   "k": [
+    "Linee flessuose, figure sottili, oro abbondante: il gotico cortese veronese maturo.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "1rs4vb2": {
+   "d": "1400, firmato e datato, Pinacoteca civica Tacchi-Venturi (San Severino Marche). Tempera su tavola.",
+   "s": "Il Matrimonio mistico di santa Caterina di Lorenzo Salimbeni: trittico nato sotto la signoria degli Smeducci, che aveva aperto San Severino agli scambi con Emilia, Veneto e Lombardia.",
+   "k": [
+    "Caterina, principessa coronata e aristocratica, riceve l'anello da Gesù Bambino in un giardino paradisiaco di rose.",
+    "Panneggi a falcate ampie o nervosamente arricciate; colori vivaci, cangianti e irreali.",
+    "Ai lati i santi Simone e Giuda Taddeo; sugli sportelli esterni san Luca allo scrittoio e una Pietà, con firma e data.",
+    "Proporzioni gerarchiche locali unite alle novità europee."
+   ],
+   "ico": [
+    "Il matrimonio mistico: la santa riceve l'anello nuziale da Cristo, segno della consacrazione totale; tema diffusissimo nella devozione tardogotica."
+   ]
+  },
+  "7vlyc8": {
+   "d": "1416 circa, Oratorio di San Giovanni Battista (Urbino). Affreschi.",
+   "s": "Il ciclo con la Crocifissione e le Storie di san Giovanni Battista, capolavoro dei due fratelli Salimbeni: l'ultima notizia su Lorenzo, morto poco dopo.",
+   "k": [
+    "Narrazione fitta e dettagliata, gusto cortese nei costumi e nei gesti.",
+    "Nel catalogo trovi anche le singole pareti e scene dell'oratorio."
+   ]
+  },
+  "1vzhvr4": {
+   "d": "1441-1446, cappella di Teodolinda, Duomo di Monza. Affreschi.",
+   "s": "Il ciclo di Teodolinda: 45 scene su cinque registri con la vita della regina longobarda, dipinte dalla bottega degli Zavattari (Franceschino con i figli) su committenza viscontea. Nella cappella si custodisce la Corona ferrea.",
+   "k": [
+    "Fonti: l'Historia Langobardorum di Paolo Diacono e la cronaca di Bonincontro Morigia.",
+    "Ben 28 scene riguardano nozze: allusione alle nozze di Bianca Maria Visconti con Francesco Sforza e legittimazione del nuovo potere.",
+    "La storia diventa fiaba cavalleresca: oro, pastiglia dorata, costumi di corte, nello stile di Michelino da Besozzo.",
+    "Tecnica mista: affresco e tempera a secco, rilievi e dorature.",
+    "Restauro 2008-2015 (Anna Lucchini)."
+   ],
+   "ico": [
+    "Teodolinda è la regina longobarda venerata per aver favorito la conversione del suo popolo al cattolicesimo e la fondazione del Duomo di Monza."
+   ]
+  },
+  "1kdse56": {
+   "d": "1460 circa, Pinacoteca di Brera (Milano).",
+   "s": "I ritratti di profilo di Francesco Sforza e Bianca Maria Sforza, riferiti a Bonifazio Bembo: le effigi ufficiali della nuova dinastia, ancora nel gusto tardogotico di corte.",
+   "k": [
+    "Il profilo è la formula celebrativa delle corti, sul modello antico.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "uy6cwm": {
+   "d": "Metà del Quattrocento (gli appunti datano il mazzo Brambilla al 1463), Pinacoteca di Brera (Milano).",
+   "s": "Il Cavaliere di coppe dei tarocchi Visconti-Sforza, mazzo «Brera-Brambilla» commissionato da Francesco Sforza a Bonifacio Bembo: ne restano 48 carte, con fondo oro per trionfi e figure e argento per le numerali.",
+   "k": [
+    "I mazzi Visconti-Sforza (una quindicina, quasi tutti incompleti) sono i progenitori dei tarocchi classici, fino al mazzo marsigliese del Settecento.",
+    "Gli altri due mazzi principali: Visconti di Modrone (Yale, 1442-47) e Pierpont-Morgan/Colleoni-Baglioni (c. 1451), diviso tra New York e Bergamo.",
+    "Dame e cavalieri in un Medioevo fantastico: il linguaggio elitario di corte che anticipa l'immaginario dei libri illustrati.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "1ftyriy": {
+   "d": "1407-09, National Gallery (Londra). Polittico.",
+   "s": "L'Incoronazione della Vergine londinese, prima versione del tema che Lorenzo Monaco riprenderà nel polittico degli Uffizi per il suo monastero.",
+   "k": [
+    "Confrontala con la versione del 1414: stesso soggetto, stessa ambientazione celeste."
+   ]
+  },
+  "scn3ir": {
+   "d": "1414 (firmata «febbraio 1413» in stile fiorentino), Uffizi (Firenze). Polittico monumentale, tempera e oro.",
+   "s": "L'Incoronazione della Vergine dal monastero camaldolese di Santa Maria degli Angeli: Cristo incorona Maria in paradiso, tra fasce azzurre e stellate che alludono ai sette cieli, due stuoli di santi su tre file e angeli spargi-incenso.",
+   "k": [
+    "Tra i santi: Benedetto e Bernardo, titolari delle storie della predella (i Camaldolesi erano congregazione benedettina).",
+    "Composizione affollata ma piatta, alla maniera giottesca; originali le forme allungate, i panneggi falcati, i colori freddi e squillanti con note cangianti.",
+    "Una delle opere più rappresentative del tardogotico fiorentino."
+   ]
+  },
+  "x51tqq": {
+   "d": "1420-22, Uffizi (Firenze). Tempera su tavola, 115×183 cm.",
+   "s": "L'Adorazione dei Magi, capolavoro di Lorenzo Monaco al culmine della carriera: pagata ben 182 fiorini, forse per l'altare maggiore di Sant'Egidio. Nel 1810 era creduta del Beato Angelico, che certamente la vide in San Marco.",
+   "k": [
+    "Scena unitaria con poco fondo oro: a sinistra la capanna con Madonna, Bambino e Giuseppe assorto; al centro il corteo dei Magi secondo le tre età dell'uomo, con corone deposte e iscrizioni in arabo antico sugli abiti.",
+    "Cammello, levriero, turbanti e cappelli esotici; in alto l'annuncio ai pastori in monocromo notturno.",
+    "Spazio illusorio e fiabesco, in polemica implicita con la prospettiva di Brunelleschi e Masaccio.",
+    "Le cuspidi con Profeti e Annunciazione furono aggiunte da Cosimo Rosselli a fine Quattrocento."
+   ],
+   "ico": [
+    "I tre Magi come tre età dell'uomo (giovinezza, maturità, vecchiaia): formula iconografica tipica dell'Adorazione tardogotica."
+   ]
+  },
+  "c031ru": {
+   "d": "1406-1410 circa, Pinacoteca di Brera (Milano). Tempera e oro su tavola; firmato «Gentilis de Fabriano pinxit».",
+   "s": "Il Polittico di Valle Romita, dall'eremo francescano presso Fabriano restaurato da Chiavello Chiavelli come propria sepoltura. Smembrato nel Settecento: il corpo principale arriva a Brera nel 1811 con le soppressioni napoleoniche, le quattro cuspidi vengono ricomprate nel 1901.",
+   "k": [
+    "Al centro l'Incoronazione della Vergine con la Trinità e angeli musicanti: fondo oro e sospensione eterea che ricordano i mosaici di San Marco a Venezia.",
+    "Oro lavorato con incisioni a raggio, pastiglia e laminature: la veste di Gesù è su lamina d'argento.",
+    "Ai lati, su un prato fiorito dettagliatissimo: san Girolamo, san Francesco, san Domenico e la Maddalena con l'ampolla incisa nell'oro.",
+    "Le cuspidi narrative (Battista nel deserto, martirio di Pietro da Verona, santo in lettura, stimmate di Francesco) riflettono la spiritualità ascetica dell'eremo.",
+    "Postura salda dei santi, oltre il gotico «in punta di piedi»: già un'apertura plastica verso il Rinascimento.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "bkzomq": {
+   "d": "1408 circa (catalogo), Pinacoteca di Brera (Milano).",
+   "s": "La Crocifissione di Gentile da Fabriano: nel 1991 è stata riconosciuta come probabile cuspide centrale del Polittico di Valle Romita, e oggi è esposta nella stessa sala.",
+   "k": [
+    "Guardala insieme al polittico: completa l'Incoronazione sottostante.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "vsu49a": {
+   "d": "1423, firmata «Opus Gentilis de Fabriano», Uffizi (Firenze). Tempera su tavola, 173×228 cm (303×282 con la cornice).",
+   "s": "L'Adorazione dei Magi o Pala Strozzi, commissionata da Palla Strozzi, l'uomo più ricco di Firenze, per la sua cappella in Santa Trinita: costò 150 fiorini d'oro. In piena Firenze rinascimentale, una scelta consapevolmente gotico-internazionale.",
+   "k": [
+    "Non un solo momento ma l'intero viaggio dei Magi: nelle tre lunette l'avvistamento della stella, il corteo verso Gerusalemme e l'ingresso in città.",
+    "I tre Magi come tre età dell'uomo; tra i personaggi, Palla Strozzi con il falcone e il figlio Lorenzo che guarda lo spettatore.",
+    "Animali esotici (leopardi, scimmie, dromedari), oro e argento in punzonature e pastiglia, fiori realistici su cornice e pilastrini.",
+    "Predella: Natività notturna con giochi di luce, Fuga in Egitto luminosa, Presentazione al tempio (l'originale è al Louvre, agli Uffizi una copia).",
+    "Restauro del 2004: recuperate lacche, verdi originali e motivi floreali a cera."
+   ],
+   "ico": [
+    "L'Adorazione dei Magi era popolarissima nella Firenze del Quattrocento anche per la processione cittadina dell'Epifania."
+   ]
+  },
+  "1snidys": {
+   "d": "1423, Louvre (Parigi).",
+   "s": "La Presentazione al tempio: lo scomparto originale della predella della Pala Strozzi, smembrata nel 1812.",
+   "k": [
+    "Agli Uffizi, sotto la pala, oggi c'è una copia di questo pannello."
+   ]
+  },
+  "4xz2bf": {
+   "d": "1425, firmato e datato maggio 1425 sulla cornice perduta; pannello centrale alla National Gallery di Londra (Royal Collection).",
+   "s": "La Madonna col Bambino e angeli del Polittico Quaratesi, per l'altare maggiore di San Niccolò Oltrarno: commissione testamentaria di Bernardo Quaratesi. Il polittico fu smembrato attorno al 1830.",
+   "k": [
+    "Ai lati, oggi agli Uffizi: Maria Maddalena, Nicola di Bari, Giovanni Battista e Giorgio.",
+    "La predella con le Storie di san Nicola è divisa tra Pinacoteca Vaticana e Washington.",
+    "Figure più solide e spazio più misurabile (il trono in prospettiva): il dialogo con il rinnovamento fiorentino di Masaccio.",
+    "Virtuosismi: sette scene cristologiche ricamate sul piviale di san Nicola, effetti materici quasi a pointillisme."
+   ],
+   "ico": [
+    "San Nicola di Bari: vescovo taumaturgo; nelle storie della predella dona tre palle d'oro alle fanciulle povere, salva una nave dalla tempesta e resuscita i tre giovani messi in salamoia."
+   ]
+  },
+  "1boou2d": {
+   "d": "1426 circa, San Fermo Maggiore (Verona). Affresco.",
+   "s": "L'Annunciazione del Monumento Brenzoni: Pisanello affresca la parte pittorica sopra il sepolcro scolpito da Nanni di Bartolo, in una delle più riuscite integrazioni di pittura e scultura del primo Quattrocento.",
+   "k": [
+    "Angeli musicanti sospesi in aria, tra le prime raffigurazioni italiane del genere.",
+    "Dettagli naturalistici, abiti sontuosi, influssi evidenti di Gentile da Fabriano."
+   ]
+  },
+  "166xrkh": {
+   "d": "1432-33 circa, Kunsthistorisches Museum (Vienna).",
+   "s": "Il Ritratto di Sigismondo di Lussemburgo, imperatore dal 1433: uno dei primissimi ritratti profani a figura singola del Quattrocento italiano, probabilmente legato al concilio di Basilea.",
+   "k": [
+    "Profilo su fondo neutro, copricapo elaborato: naturalismo e idealizzazione cortese insieme."
+   ]
+  },
+  "1wtgmfl": {
+   "d": "1433-38, cappella Pellegrini, Sant'Anastasia (Verona). Affresco.",
+   "s": "San Giorgio e la principessa di Trebisonda, sull'arco d'ingresso della cappella Pellegrini: il momento che precede il combattimento con il drago, capolavoro del gotico internazionale in Italia.",
+   "k": [
+    "Cavalli bardati, abiti e acconciature raffinatissime; atmosfera cortese e fiabesca.",
+    "Scorci prospettici avanzati e animali studiati dal vero: la nuova sensibilità di Pisanello.",
+    "Nel catalogo l'affresco è diviso in lato destro e lato sinistro."
+   ],
+   "ico": [
+    "San Giorgio è il santo cavaliere che difende la fede: uccide il drago per salvare la principessa; qui il drago attende incatenato."
+   ]
+  },
+  "15xw5yi": {
+   "d": "1435 circa (catalogo: 1445), National Gallery (Londra). Tavola.",
+   "s": "L'Apparizione della Vergine ai santi Antonio Abate e Giorgio: una delle pochissime tavole certe di Pisanello, firmata.",
+   "k": [
+    "La Vergine appare in gloria in un paesaggio roccioso e silenzioso; finezza quasi miniaturistica di animali e piante.",
+    "Antonio Abate incarna la vita ascetica, Giorgio la cavalleria cristiana.",
+    "Nel catalogo è presente anche con il titolo «Vergine col Bambino con i santi Giorgio e Antonio Abate»."
+   ],
+   "v": "Data: appunti 1435 circa, catalogo 1445."
+  },
+  "k4hvv5": {
+   "d": "1435-45 circa (catalogo: 1436-38), Louvre (Parigi).",
+   "s": "Il Ritratto di principessa estense, forse Ginevra d'Este o Margherita Gonzaga: tra le immagini femminili più celebri del Quattrocento.",
+   "k": [
+    "Profilo alla maniera antica; abito ricamato, perle e fiori come simboli di virtù e nobiltà.",
+    "Non ritratto psicologico ma ideale femminile: silenziosa, casta, nobile."
+   ]
+  },
+  "rqqw6e": {
+   "d": "1440 circa, National Gallery (Londra). Tempera su tavola.",
+   "s": "La Visione di sant'Eustachio: il nobile cacciatore romano si converte quando vede un cervo con il crocifisso tra le corna. Pretesto perfetto per il repertorio animalistico di Pisanello.",
+   "k": [
+    "Cavaliere elegantissimo in un bosco notturno popolato di cervi, cani, uccelli e lepri disegnati dal vero.",
+    "Naturalismo che anticipa il Rinascimento dentro un tono ancora fiabesco e spirituale."
+   ],
+   "ico": [
+    "Sant'Eustachio: la conversione davanti al cervo col crocifisso ne fa il patrono dei cacciatori; da non confondere con sant'Uberto, protagonista della stessa visione."
+   ]
+  },
+  "ifaeh": {
+   "d": "1441 circa (catalogo: ca. 1444), Accademia Carrara (Bergamo).",
+   "s": "Il Ritratto di Leonello d'Este, probabilmente legato all'ascesa del marchese nel 1441: in quell'anno Pisanello perse contro Jacopo Bellini la gara per il ritratto di Leonello indetta da Niccolò III, ma il suo è l'unico arrivato a noi.",
+   "k": [
+    "Profilo nitido su fondo scuro, tratti affilati resi con naturalismo.",
+    "Alla corte estense seguono sei medaglie per Leonello nei tre-quattro anni successivi."
+   ]
+  },
+  "162xmvc": {
+   "d": "1438, medaglia in bronzo (esemplari in vari musei).",
+   "s": "La medaglia di Giovanni VIII Paleologo, coniata al concilio di Ferrara del 1438, dove Pisanello era artista ufficiale: è considerata la prima medaglia rinascimentale e fu subito imitata ovunque.",
+   "k": [
+    "Profilo all'antica sul modello delle monete romane imperiali; sul rovescio l'imperatore a cavallo.",
+    "Dal concilio Pisanello trae disegni di abiti, copricapi e cavalli della corte bizantina.",
+    "Firma d'artista: «Opus Pisani pictoris»."
+   ]
+  },
+  "3nluli": {
+   "d": "1447, medaglia (esemplari al British Museum, al Bargello e altrove).",
+   "s": "La medaglia di Cecilia Gonzaga, figlia di Gianfrancesco, che aveva scelto la vita monastica: sul recto il profilo delicato, sul verso una delle più raffinate allegorie rinascimentali.",
+   "k": [
+    "Iscrizione «Cecilia virgo MCCCCXLVII»: l'affermazione della castità.",
+    "Sul verso una fanciulla in un paesaggio lunare ammansisce un unicorno, simbolo di purezza che solo una vergine può domare.",
+    "Firma «Opus Pisani pictoris»."
+   ],
+   "ico": [
+    "L'unicorno: secondo la leggenda può essere avvicinato e ammansito solo da una vergine; con la mezzaluna, simbolo di castità e contemplazione."
+   ]
+  },
+  "1ruv9ng": {
+   "d": "1490 circa, Ermitage (San Pietroburgo). Tempera su tavola, 42×33 cm.",
+   "s": "La Madonna Litta: piccola tavola tradizionalmente attribuita a Leonardo, ma per la critica moderna eseguita in gran parte da un allievo — Boltraffio o Marco d'Oggiono — su un disegno del maestro oggi perduto. L'Ermitage la espone ancora come autografa.",
+   "k": [
+    "Contorni più netti, figure semplificate e colori vivaci: indizi di una mano diversa da Leonardo.",
+    "Due disegni preparatori di Leonardo: al Louvre e allo Städel di Francoforte.",
+    "Per Carlo Pedretti qui si vedono le prime tracce del leonardismo lombardo.",
+    "Collezione Litta dal 1814; venduta nel 1865 allo zar Alessandro II."
+   ]
+  },
+  "1fkwc6h": {
+   "d": "1495 circa (per gli appunti legato alla Pala Casio del 1500), Pinacoteca di Brera (Milano).",
+   "s": "Ritratto del poeta Girolamo Casio (1464-1533), mercante e trovatore di umili origini diventato uno dei poeti più celebrati del tempo, e principale mecenate di Boltraffio. L'attribuzione si fonda sulla Pala Casio del Louvre, dove il poeta compare coronato d'alloro.",
+   "k": [
+    "Sulla carta sono scritti versi dello stesso Casio.",
+    "Ritratto «umanistico» e commemorativo su modelli classici; la mano sullo stesso piano del volto crea qualche incertezza compositiva.",
+    "Colori in zone ampie, lucide e ben definite.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "vrhk5m": {
+   "d": "1502 (il catalogo dice 1493-99), Staatliche Museen (Berlino).",
+   "s": "Opera certa perché ricordata dalle fonti: commissionata a Milano dalla congregazione di Santa Maria presso San Satiro nel 1502. Santa Barbara isolata sullo sfondo, in posa solenne e monumentale.",
+   "k": [
+    "Volto idealizzato dalla pelle levigata, sagoma perfettamente ovale.",
+    "Qui la critica vede l'avvicinamento alla vena classicista di Francesco Francia e Bramantino, lontano dal naturalismo leonardesco degli esordi."
+   ],
+   "v": "Data: appunti 1502 (commissione documentata), catalogo 1493-99."
+  },
+  "nwao56": {
+   "d": "1500 circa, Museo Thyssen-Bornemisza (Madrid).",
+   "s": "Ritratto di una gentildonna sconosciuta «alla maniera santa»: la donna si fa raffigurare come santa Lucia, con in mano lo spillo con l'occhio, attributo della santa, e una croce al collo.",
+   "k": [
+    "Volto ovale, naso largo, bocca piccola, grandi occhi malinconici: l'ideale di bellezza leonardesco.",
+    "Il sorriso trattenuto ricorda i personaggi di Leonardo; lo sfumato però è più duro, quasi scultoreo.",
+    "Ritratti simili restarono in uso fino al Barocco, commissionati da giovani aristocratiche devote."
+   ]
+  },
+  "1qo5nnj": {
+   "d": "Fine del Quattrocento (catalogo: 1493-99), National Gallery (Londra).",
+   "s": "Madonna col Bambino dai chiari influssi leonardeschi: dolcezza dei volti, modellato morbido, luce e ombra attente.",
+   "k": [
+    "Entrambe le figure guardano in basso: la tavola era forse collocata in alto, sopra un altare."
+   ]
+  },
+  "t13ke": {
+   "d": "1485-90, Museo Poldi Pezzoli (Milano).",
+   "s": "Tra i maggiori capolavori dell'arte lombarda del Quattrocento, forse dipinto su disegni di Leonardo. Acquistato da Gian Giacomo Poldi Pezzoli dalla collezione Litta nel 1864.",
+   "k": [
+    "La veste verde della Vergine ha il motivo del cardo: la redenzione dal peccato attraverso la Passione.",
+    "Il gelsomino della Madonna nel vaso è attributo mariano; il fiore rosso di melograno verso cui il Bambino tende la mano prefigura la Passione.",
+    "Movimenti concatenati e contrapposti di Madre e Figlio: l'«energia trattenuta» tipica della migliore produzione leonardesca."
+   ]
+  },
+  "1m8maui": {
+   "d": "1495, tempera e olio su tavola di pioppo, 77×64 cm, Pinacoteca di Brera (Milano).",
+   "s": "Arrivata a Brera nel 1808 con le spoliazioni napoleoniche da San Francesco della Vigna a Venezia, era creduta di Giovanni Bellini anche per una firma apocrifa. Riattribuita a Solario dal 1871, con conferma definitiva al restauro del 2017.",
+   "k": [
+    "Madonna col Bambino in un interno con finestra aperta sul paesaggio: formula veneziana di origine fiamminga.",
+    "Cura estrema di figure e paesaggio, contro un'architettura imprecisa e povera di colore.",
+    "La Vergine mostra la conoscenza di Dürer; il Bambino richiama gli studi di Leonardo per la Madonna del gatto.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "1wt21gk": {
+   "d": "1500 circa, olio su tavola, 42×32 cm, Pinacoteca di Brera (Milano).",
+   "s": "Ritratto d'uomo un tempo attribuito a Cesare da Sesto. L'impostazione viene da Antonello da Messina, ancora vivissimo nella ritrattistica del Nord; il volto guarda invece a Leonardo.",
+   "k": [
+    "Il bordo bianco del colletto isola i lineamenti; la mano emerge da dietro il parapetto.",
+    "La luce vibra nel chiaroscuro del volto, ammorbidendo l'espressione ostinata.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "12mic1n": {
+   "d": "1515, firmato e datato, olio su tavola, 76×55 cm, Museo Poldi Pezzoli (Milano).",
+   "s": "Una delle opere più note di Solario e tra le prime scelte da Gian Giacomo Poldi Pezzoli per la sua collezione (1855). Vi si fondono Leonardo, la tradizione lombarda, la pittura veneziana e la scultura.",
+   "k": [
+    "Eco veneta nel paesaggio e nella gamma cromatica; naturalismo lombardo-fiammingo nell'asino che bruca e nella natura morta con bastone, bisaccia e fiasca da pellegrino.",
+    "Leonardo nel profilo e nella torsione della Vergine, e nella circolarità di sguardi tra le figure.",
+    "Struttura scultorea del gruppo sacro: gli anni accanto al fratello scultore Cristoforo Solari."
+   ]
+  },
+  "is8rui": {
+   "d": "1506-07, Metropolitan Museum of Art (New York).",
+   "s": "Salomè con la testa del Battista, tema affrontato da Solario in più versioni, forse durante il periodo francese presso il cardinale d'Amboise. Deriva da una composizione perduta di Leonardo che ispirò anche altri milanesi.",
+   "k": [
+    "Finitura e dettagli di eccezionale cura, tipici dell'artista.",
+    "Influenza leonardesca nell'impostazione, nella psicologia e nella luce atmosferica."
+   ]
+  },
+  "au1y0k": {
+   "d": "1507 circa, olio su tela, 75×52 cm, Louvre (Parigi).",
+   "s": "Ritratto di Carlo II d'Amboise, governatore francese di Milano e nipote del cardinale Georges d'Amboise, per cui Solario lavorò due anni in Francia. Eseguito a Milano.",
+   "k": [
+    "Documenta il legame di Solario con i nuovi dominatori francesi del ducato."
+   ]
+  },
+  "139eu6y": {
+   "d": "1509 circa, olio su tavola, Louvre (Parigi).",
+   "s": "Compianto sul Cristo morto: Solario conserva motivi e dolcezza espressiva di Leonardo.",
+   "k": [
+    "L'atteggiamento di san Giovanni è un omaggio all'angelo della Vergine delle Rocce."
+   ]
+  },
+  "jvkgkz": {
+   "d": "Dopo il ritorno da Roma (1515 circa), Pinacoteca di Brera (Milano).",
+   "s": "La Madonna dell'Albero, tra i dipinti più noti dell'artista: successo immediato, attestato da repliche anche autografe e numerose copie. Donata a Brera nel 1824 dal collezionista Cesare Sega.",
+   "k": [
+    "Schema piramidale leonardesco e paesaggio «atmosferico» importato in Lombardia da Leonardo.",
+    "Solidità dei volumi e grazia che rimandano a Raffaello e al classicismo centroitaliano, conosciuti nel viaggio a Roma (1508-1515 circa).",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "2ognwg": {
+   "d": "Fine del 1515, Museo Poldi Pezzoli (Milano).",
+   "s": "Piccola tavola devozionale che riproduce, con varianti, la Sant'Anna di Leonardo del Louvre: manca sant'Anna, probabilmente su richiesta del committente, e cambia il paesaggio.",
+   "k": [
+    "Architetture nordiche, forse francesi, in omaggio ai nuovi dominatori del ducato.",
+    "Cromia fredda intonata all'azzurro e interpretazione raffaellesca di Leonardo.",
+    "La vegetazione minuta in primo piano (digitali, galium) è probabilmente di Bernardino Bernazzano, suo collaboratore abituale."
+   ]
+  },
+  "a46llf": {
+   "d": "1520-23, City Art Gallery (Southampton).",
+   "s": "San Girolamo in penitenza, dipinto negli ultimi anni nella produttiva bottega milanese, preceduto da numerosi disegni.",
+   "k": [
+    "Il santo siede su una panca rocciosa coperta d'erbe; dietro un albero, ai lati un vasto paesaggio montuoso.",
+    "Come Leonardo, Cesare disegnava dal vero gli elementi di paesaggio."
+   ]
+  },
+  "11q5g62": {
+   "d": "1515-20, Ermitage (San Pietroburgo).",
+   "s": "Sacra Famiglia con santa Caterina, detta Madonna del Bassorilievo: fino a metà Ottocento era attribuita a Leonardo.",
+   "k": [
+    "La stessa modella presta il volto sia a Maria sia a Caterina: il «mistero» delle immagini femminili leonardesche.",
+    "Il suo lavoro ricorda anche Dosso Dossi."
+   ]
+  },
+  "cdz7ur": {
+   "d": "1505-10 (catalogo), Wilton House (Salisbury). Attribuita.",
+   "s": "Copia della Leda perduta di Leonardo, nota solo attraverso repliche come questa. Una versione analoga, pure riferita a Cesare da Sesto, è alla Galleria Borghese.",
+   "k": [
+    "Leda abbraccia il cigno (Giove); ai piedi le uova da cui nascono Elena, Clitennestra e i Dioscuri.",
+    "Prospettiva aerea e rovine classiche di gusto leonardesco e umanistico."
+   ]
+  },
+  "pmwnjk": {
+   "d": "1520 circa, olio su tavola, 128×106 cm, Staatliche Museen (Berlino).",
+   "s": "Leda inginocchiata con i figli: in passato creduta di Leonardo, oggi attribuita a Giampietrino, che la trasse dalla Leda perduta del maestro. Si ipotizza il contributo di Bernazzano.",
+   "k": [
+    "Il mito: Zeus si unisce a Leda in forma di cigno; nascono Castore e Polluce, Elena e Clitennestra.",
+    "Esempio della produzione di Giampietrino su modelli leonardeschi, replicati con variazioni."
+   ]
+  },
+  "rr0b03": {
+   "d": "Ermitage (San Pietroburgo).",
+   "s": "Maria Maddalena penitente: uno dei soggetti devozionali e sensuali — Maddalene, Cleopatre, Lede — che Giampietrino e la sua bottega replicarono più volte con piccole variazioni per la devozione privata.",
+   "k": [
+    "Incarnati rosati levigati e sfumato: la cifra del suo leonardismo."
+   ]
+  },
+  "12a40jd": {
+   "d": "1518-1522, olio su tavola trasportato su tela, Gemäldegalerie (Berlino).",
+   "s": "Vertumno e Pomona, l'unico dipinto firmato e accertato di Melzi: il dio Vertumno, travestito da vecchia, tenta di sedurre la ninfa Pomona. Dal libro XIV delle Metamorfosi di Ovidio.",
+   "k": [
+    "Al centro l'unione di olmo e vite: simbolo di matrimonio e fecondità; in primo piano la colombina, simbolo di fertilità.",
+    "A lungo venduto come Leonardo: la firma (lettere greche su una roccia) fu rimossa e ritrovata solo nel 1995.",
+    "Cromia che ricorda la Sant'Anna del Louvre; montagne e ponte ad arco come nella Gioconda; posa di Pomona dal Cartone di sant'Anna.",
+    "Acquistato nel 1771 da Federico II di Prussia come Leonardo; a Berlino dal 1820 (allora come Salaì)."
+   ]
+  },
+  "aalrss": {
+   "d": "1520 circa (catalogo: 1517-21), olio su tavola trasferito su tela, Ermitage (San Pietroburgo).",
+   "s": "Flora, detta anche Colombina: la dea della primavera seduta in una grotta tra felci ed edera. Entrò nella collezione imperiale russa come Leonardo; l'attribuzione a Melzi si consolidò per le affinità con Vertumno e Pomona, e nel 1963 furono trovate tracce della firma.",
+   "k": [
+    "In grembo gelsomini (purezza); in mano la colombina (fertilità); tra le pieghe anemoni (rinascita, Zefiro); edera (eternità) e felce (solitudine).",
+    "Prima notizia nel 1649 nella collezione di Maria de' Medici; poi Orleans, Paesi Bassi, Russia.",
+    "Restauro del 2019: tolta la vernice ingiallita; blu oltremare puro, pigmento costosissimo, segno dell'agiatezza di Melzi."
+   ]
+  },
+  "1jaj18d": {
+   "d": "Dopo il 1510, sanguigna, Royal Library (Windsor).",
+   "s": "Ritratto di Leonardo di profilo, come appariva nell'ultimo decennio: probabilmente copia fedele di un autoritratto, eseguita da qualcuno della cerchia più stretta, forse Melzi.",
+   "k": [
+    "Nel Cinquecento questo profilo fu il modello quasi esclusivo per le raffigurazioni di Leonardo."
+   ]
+  },
+  "pgm5t5": {
+   "d": "1511, Pinacoteca Ambrosiana (Milano).",
+   "s": "Testa di Cristo Redentore, con la data 1511 e il nome «Salai» nell'angolo: unica opera firmata — se è una firma e non l'indicazione del modello, cioè un ritratto di Salaì prestato al volto di Cristo.",
+   "k": [
+    "Tre segni a croce dietro il capo accennano all'aureola trinitaria: il soggetto è sacro.",
+    "Ultima donazione pervenuta all'Ambrosiana, come «Il Caprotti di Caprotti»."
+   ]
+  },
+  "x6ond4": {
+   "d": "1520, Pinacoteca Ambrosiana (Milano).",
+   "s": "Copia fedele del San Giovanni Battista di Leonardo (Louvre), con una differenza: lo sfondo notturno è sostituito da un limpido paesaggio prealpino, e manca la croce.",
+   "k": [
+    "Storia attributiva travagliata: Luini, perfino Leonardo, poi Salaì; la critica recente parla di un generico leonardesco del primo quarto del Cinquecento.",
+    "Tratti più femminei e vezzosi rispetto all'originale."
+   ]
+  },
+  "10n8x3o": {
+   "d": "1508 (catalogo), Hammer Museum (Los Angeles).",
+   "s": "Madonna col Bambino e sant'Anna esemplata su quella di Leonardo. Appartenne a Carlo Borromeo, poi alla sacrestia di San Celso a Milano; oggi al museo dell'Università della California.",
+   "k": [
+    "Una copia dello stesso dipinto è agli Uffizi."
+   ]
+  },
+  "1vyt8tt": {
+   "d": "1500 circa, Pinacoteca di Brera (Milano).",
+   "s": "Ritratto di giovane non identificato; in alto a sinistra il motto di Seneca: «Se sai usarla bene, la vita è lunga». Busto di tre quarti secondo una formula consueta.",
+   "k": [
+    "Chioma setosa e colletto di pelliccia resi con sensibilità; ma occhi vitrei, naso e guance di plasticità dura, labbra sensuali: l'influenza di Leonardo resta semi-assimilata, con correnti anche tedesche.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "fec32x": {
+   "d": "1517 circa (per gli appunti; inizio Cinquecento), olio su tavola, 255×190 cm, Pinacoteca di Brera (Milano).",
+   "s": "La Pala dei Tre Arcangeli, dalla chiesa milanese di Santa Marta (demolita nel 1806): commissione di Giovanni Paolo Visconti per la cappella di San Michele. Soggetto inusuale: i tre arcangeli e la cacciata di Lucifero.",
+   "k": [
+    "Ispirata dalla dottrina amadeita delle monache agostiniane: nell'Apocalypsis Nova la cacciata di Lucifero è metafora della riforma della Chiesa.",
+    "Fisionomie dall'angelo della Vergine delle Rocce; pose delle mani dal San Giovanni Battista del Louvre.",
+    "Paesaggio con riferimenti all'Adda e botanica minuziosa alla Leonardo; ma chiaroscuro più forte, colori vivaci, poca introspezione: per parte della critica una «recita manierata di manichini leonardeschi».",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "tci9bv": {
+   "d": "1491-94, olio su tavola, Staatliche Museen (Berlino).",
+   "s": "La Resurrezione di Cristo con i santi Leonardo e Lucia, dipinta da Marco d'Oggiono con Boltraffio per San Giovanni sul Muro a Milano, sotto la supervisione di Leonardo.",
+   "k": [
+    "Documento della collaborazione tra i due principali allievi milanesi negli anni della bottega."
+   ]
+  },
+  "1j0sjf3": {
+   "d": "1500 (iscrizione MCCCCC), olio su tavola, 132×111 cm, Gallerie dell'Accademia (Venezia).",
+   "s": "La Lavanda dei piedi: in una stanza semibuia Gesù lava i piedi a Pietro davanti agli apostoli sorpresi, disposti in isocefalia. L'espressione quasi irritata di Cristo dice la delusione per chi non capisce il gesto.",
+   "k": [
+    "In primo piano, su un gradino marmoreo, un sandalo slacciato e una bacinella di maiolica piena d'acqua: riflessi di lustro alla fiamminga.",
+    "Panneggi rigidi e angolosi di ascendenza nordica; fisionomie degli apostoli da modelli leonardeschi.",
+    "Giorgione la studiò: ne trasse spunti per il Ragazzo con la freccia e le Tre età dell'uomo."
+   ]
+  },
+  "4v1nmr": {
+   "d": "1492 circa (catalogo: ca. 1510), chiesa di San Pietro Martire (Murano).",
+   "s": "La Pala dei Barcaioli, dipinta per l'isola di Murano durante il primo soggiorno veneziano, documentato dal 1492.",
+   "k": [
+    "Testimonia il ruolo di ponte dell'artista tra Milano e Venezia."
+   ],
+   "v": "Data: appunti 1492 circa, catalogo ca. 1510."
+  },
+  "1enmq9m": {
+   "d": "1472-75 circa, Uffizi (Firenze). Tempera e olio su tavola, 98×217 cm.",
+   "s": "Prima opera importante attribuita a Leonardo, ancora nella bottega di Verrocchio. Scoperta nel 1867 in San Bartolomeo a Monte Oliveto. L'attribuzione fu a lungo discussa (Ghirlandaio, Lorenzo di Credi…): oggi si pensa a una collaborazione di bottega, con Leonardo protagonista.",
+   "k": [
+    "Iconografia nuova: la scena è all'aperto, in un giardino, con paesaggio portuale e luce mattutina.",
+    "Angelo appena atterrato, con ali anatomiche (non decorative) e giglio, simbolo di purezza.",
+    "Maria dietro un altare-leggio marmoreo, con il libro.",
+    "Prospettiva aerea ancora immatura: passaggi bruschi tra alberi e sfondo.",
+    "Due disegni preparatori: manica dell'angelo (Oxford) e panneggio della Vergine (Louvre). Restaurata nel 2000."
+   ]
+  },
+  "4rxf16": {
+   "d": "1474 circa (gli appunti indicano anche 1474-78), National Gallery of Art, Washington. Olio e tempera su tavola, 38,8×36,7 cm.",
+   "s": "Ritratto giovanile del periodo fiorentino, legato alla famiglia Benci. Mostra già l'attenzione di Leonardo per la luce, il paesaggio e la resa psicologica.",
+   "k": [
+    "Periodo fiorentino, subito dopo la bottega di Verrocchio.",
+    "Sul retro è dipinta una decorazione simbolica (il verso è presente nel catalogo)."
+   ]
+  },
+  "1933gnx": {
+   "d": "1481-82, Uffizi (Firenze). Olio su tavola, 246×243 cm. Incompiuta.",
+   "s": "Commissionata nel 1481 dai monaci di San Donato a Scopeto. Leonardo la lascia incompiuta nel 1482 partendo per Milano; i monaci affidano poi la pala a Filippino Lippi (anch'essa agli Uffizi). Restaurata dall'Opificio delle Pietre Dure (2011-2017).",
+   "k": [
+    "Rivoluziona la tradizione: al centro il gesto di benedizione del Bambino, che suscita stupore nei presenti.",
+    "Composizione a diagonali convergenti sulla Vergine; il corteo semicircolare ha un effetto «centrifugo», come onde.",
+    "Sfondo diviso da un alloro (resurrezione) e da una palma (passione); architetture in rovina (declino di paganesimo ed ebraismo) e zuffa di cavalli.",
+    "Fonte d'ispirazione per Raffaello (Trasfigurazione).",
+    "Studi preparatori: composizione (Louvre), sfondo prospettico (Uffizi), cavalli e figure."
+   ]
+  },
+  "m5mn8b": {
+   "d": "1483-86, Louvre (Parigi). Olio su tavola trasportato su tela, 199×122 cm. Prima versione.",
+   "s": "Pala per la cappella dell'Immacolata Concezione in San Francesco Grande a Milano, commissionata nel 1483 dalla Confraternita dell'Immacolata Concezione a Leonardo e ai fratelli Evangelista e Giovanni Ambrogio de Predis. Leonardo cambia il soggetto: incontro tra Gesù Bambino e san Giovannino, protetti dalla Madonna.",
+   "k": [
+    "Contratto per un trittico con Madonna, Dio Padre, profeti e angeli musicanti (questi ultimi ai De Predis).",
+    "Lite con la Confraternita sul compenso (200 ducati pattuiti): chiusa solo nel 1506.",
+    "Seconda versione (1495-1508) alla National Gallery di Londra: Madonna più imponente, gesto dell'angelo eliminato; aureole e croce aggiunte forse nel Seicento.",
+    "Ambientazione in una grotta con rocce e vegetazione studiata dal vero."
+   ]
+  },
+  "13xftic": {
+   "d": "1495-1508, National Gallery (Londra). Olio su tavola, 189,5×120 cm. Seconda versione.",
+   "s": "Seconda versione della Vergine delle Rocce, dopo la lunga controversia con la Confraternita. Rispetto alla prima la Madonna è più monumentale, i due bambini sono più riconoscibili e scompare il gesto dell'angelo che indicava Giovanni.",
+   "k": [
+    "Attributi canonici (aureole, bastone a croce) probabilmente aggiunti nel Seicento.",
+    "Confrontala con la versione del Louvre (1483-86)."
+   ]
+  },
+  "4avzk0": {
+   "d": "1488-90 circa, Museo Czartoryski (Cracovia). Olio su tavola, 54,8×40,3 cm.",
+   "s": "Ritratto di Cecilia Gallerani, giovane colta amante di Ludovico il Moro, del primo soggiorno milanese. Con il Ritratto di musico e la Belle Ferronnière cambia il ritratto milanese, dando maggiore espressività psicologica.",
+   "k": [
+    "Duplice rotazione: busto a sinistra, testa e sguardo a destra; anche l'ermellino guarda nella stessa direzione.",
+    "L'ermellino è simbolo di purezza e allude al cognome (in greco galé = faina).",
+    "Sorriso appena accennato: il sentimento si suggerisce, non si mostra.",
+    "Fu nascosta e poi trafugata nella Seconda guerra mondiale."
+   ]
+  },
+  "464sva": {
+   "d": "1494-98, Refettorio di Santa Maria delle Grazie (Milano). Tempera grassa e olio su parete, 460×880 cm.",
+   "s": "Dipinta su commissione di Ludovico il Moro: non è un vero affresco ma una tecnica sperimentale a secco, ricchissima di dettagli e trasparenze ma fragilissima per l'umidità del refettorio. Restauro lunghissimo (1978-1999).",
+   "k": [
+    "Scatola prospettica con il punto di fuga sul volto di Cristo (il foro del chiodo è stato ritrovato nel restauro).",
+    "Apostoli in quattro gruppi da tre, con reazioni che si propagano «a onde» dal centro.",
+    "Il momento è la frase «uno di voi mi tradirà»; Giuda è tra gli apostoli, con la borsa, e rovescia il sale; Pietro ha il coltello.",
+    "Cristo con le braccia aperte a piramide, testa reclinata.",
+    "Copie importanti: Giampietrino (c. 1520, Royal Academy, Londra) e Marco d'Oggiono (Écouen).",
+    "Dirimpetto, sulla parete opposta, la Crocifissione di Donato Montorfano. Nel 1980 patrimonio UNESCO."
+   ]
+  },
+  "9b7g4j": {
+   "d": "1494 circa, Pinacoteca di Brera (Milano). Gessetto e pastello su carta, 40×32 cm.",
+   "s": "Studio preparatorio per il Cristo dell'Ultima Cena. Il disegno è in cattive condizioni ma considerato autografo, con un tratteggio posteriore (forse un allievo, forse legato al trasferimento su cartone).",
+   "k": [
+    "Testa inclinata a destra, occhi chiusi, labbra chiuse: raccoglimento intimo.",
+    "Nel dipinto finale il Cristo ha invece le labbra dischiuse, appena pronunciata la frase fatale.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "l700so": {
+   "d": "1490 circa, Gallerie dell'Accademia (Venezia). Penna e inchiostro su carta, 34×24 cm.",
+   "s": "Le proporzioni ideali del corpo umano inscritto in un cerchio e in un quadrato, con due testi che riprendono Vitruvio. Nasce dopo l'incontro con Francesco di Giorgio Martini, che gli fa conoscere il De Architectura.",
+   "k": [
+    "Cerchio = cielo (perfezione divina); quadrato = terra.",
+    "L'uomo come microcosmo che riflette il macrocosmo (platonismo e neoplatonismo): «l'uomo misura di tutte le cose».",
+    "Acquistato dal governo austriaco nel 1822; raramente esposto."
+   ]
+  },
+  "hqslbd": {
+   "d": "1503-06 circa (gli appunti indicano 1503-1514), Louvre (Parigi). Olio su tavola di pioppo, 77×53 cm.",
+   "s": "Probabile ritratto di Lisa Gherardini, moglie di Francesco del Giocondo (da cui «Gioconda» e «Monna Lisa»), secondo Vasari e un appunto del 1503 di Agostino Vespucci. L'alternativa più plausibile è Isabella d'Este. Rimasta con Leonardo fino alla morte, arriva in Francia.",
+   "k": [
+    "Sfumato e sorriso ambiguo: il ritratto più famoso della storia.",
+    "Paesaggio con prospettiva aerea; radiografie mostrano versioni sottostanti.",
+    "Furto del 1911 da parte di Vincenzo Peruggia, e ritorno al Louvre.",
+    "Lavorata durante il secondo periodo fiorentino (dal 1503)."
+   ]
+  },
+  "huq5wv": {
+   "d": "1510-13 circa, Louvre (Parigi). Olio su tavola, 168×112 cm.",
+   "s": "Le tre generazioni della famiglia di Cristo: sant'Anna, Maria e il Bambino che gioca con un agnello, simbolo della Passione. Sviluppa il cartone del 1501 e quello di Burlington House (National Gallery). Fu ritrovata nel 1629 da Richelieu a Casale Monferrato; al Louvre dal 1801.",
+   "k": [
+    "Composizione piramidale: in alto il volto sereno di sant'Anna, interpretabile come la Chiesa.",
+    "Paesaggio montano con prospettiva aerea e tonalità fredde.",
+    "Ispirò Raffaello e Andrea del Sarto. Restauro del 2012 («restauro del secolo»)."
+   ]
+  },
+  "1qawfhk": {
+   "d": "1510 circa, Pinacoteca di Brera (Milano). Olio su tavola, 70×63 cm. Bernardino Luini.",
+   "s": "Capolavoro giovanile di Luini, acquistato da Brera nel 1826 dalla collezione di Giuseppe Bianchi. La provenienza dalla Certosa di Pavia è solo tradizione, senza documenti.",
+   "k": [
+    "Madonna a mezza figura davanti a una spalliera di rose bianche (simbolo mariano).",
+    "Il Bambino indica un vaso con una pianta di aquilegia (il «vaso mistico» di Maria).",
+    "Volto della Madonna con sfumato leonardesco; il Bambino richiama la Madonna del gatto.",
+    "Composizione ovale: il Bambino in diagonale chiude un arco nella figura materna.",
+    "Opera di Brera: da sapere."
+   ],
+   "brera": true
+  },
+  "1svidy": {
+   "d": "1475-1480 ca., Torino, Galleria Sabauda.",
+   "s": "Trittico della Galleria Sabauda di Torino, datato dagli appunti al 1475-1480 e posto in parallelo agli esordi del ciclo di San Bernardino a Ivrea.",
+   "k": [
+    "Raffigura la Vergine in trono con il Bambino tra i santi Ubaldo e Sebastiano."
+   ],
+   "v": "Nell'elenco delle opere gli appunti la datano al 1475-1480, mentre nella biografia collegano il Trittico della Sabauda al soggiorno vercellese iniziato nel 1481."
+  }
+ },
+ "gruppi": {
+  "Ferrara": {
+   "sint": "Stagione artistica raffinata e cortese fiorita sotto la signoria degli Este, capace di fondere la tradizione tardogotica e fiamminga con le novità prospettiche toscane e padovane in un linguaggio autonomo ed espressivo.",
+   "punti": [
+    "A differenza del Rinascimento urbano e mercantile toscano, quello ferrarese ha carattere cortese, letterario e astrologico, promosso dai marchesi e duchi Leonello, Borso ed Ercole I d'Este.",
+    "Sotto Leonello d'Este (1441-1450) transitano a corte Pisanello, Leon Battista Alberti, Piero della Francesca, il giovane Mantegna e maestri fiamminghi come Rogier van der Weyden e Jean Fouquet.",
+    "Con Borso d'Este (1450-1471) questi stimoli si consolidano nella Scuola ferrarese, caratterizzata da disegno teso, colori squillanti, luce cristallina, minuzia fiamminga e tensione plastica squarcionesca.",
+    "I protagonisti della pittura sono Cosmè Tura, Francesco del Cossa ed Ercole de' Roberti, attivi insieme nell'Officina ferrarese per il Salone dei Mesi di Palazzo Schifanoia, seguiti da Lorenzo Costa che media verso il classicismo padano.",
+    "In ambito urbanistico e architettonico spicca Biagio Rossetti, autore dal 1492 dell'Addizione Erculea per Ercole I d'Este, uno dei primi esempi di pianificazione urbana moderna in Europa."
+   ],
+   "artisti": [
+    "Cosmè Tura",
+    "Francesco del Cossa",
+    "Ercole de' Roberti",
+    "Lorenzo Costa il Vecchio"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 8 - RINASCIMENTO A FERRARA  - RINASCIMENTO A FERRARA.txt."
+  },
+  "Firenze": {
+   "sint": "Culla del Rinascimento europeo, Firenze sviluppa nel Quattrocento un linguaggio fondato sull'Umanesimo, sulla centralità razionale dell'uomo, sul recupero classico e sulla prospettiva scientifica.",
+   "punti": [
+    "Firenze diviene il laboratorio culturale del Quattrocento grazie alla stabilità politica ed economica favorita dal mecenatismo dei Medici, da Cosimo il Vecchio a Lorenzo il Magnifico.",
+    "La prima fase (1400-1450) vede la nascita dei fondamenti rinascimentali promossi da Filippo Brunelleschi in architettura, Donatello in scultura e Masaccio in pittura.",
+    "La prospettiva lineare scientifica, teorizzata da Brunelleschi e applicata da Masaccio, consente l'organizzazione geometrica e razionale della tridimensionalità dello spazio reale su superfici bidimensionali.",
+    "Il recupero dell'arte classica greca e romana si fonde con l'anatomia, l'espressività umana e la nuova dignità dell'artista come intellettuale e creatore autonomo.",
+    "L'eredità fiorentina si irradia nei maggiori centri italiani ed europei attraverso i viaggi e le committenze dei suoi maestri."
+   ],
+   "artisti": [
+    "Masaccio",
+    "Filippo Brunelleschi",
+    "Donatello",
+    "Lorenzo Ghiberti",
+    "Jacopo della Quercia",
+    "Masolino da Panicale",
+    "Nanni di Bartolo"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 1 - RINASCIMENTO A FIRENZE  - 1 - RINASCIMENTO FIRENZE_ QUERCIA-GHIBERTI- NANNI DI BARTOLO - MASOLINO -MASACCIO .txt"
+  },
+  "Gotico internazionale": {
+   "sint": "Tra gli ultimi decenni del Trecento e la metà del Quattrocento, uno stile raffinato e aristocratico — detto anche Tardogotico o gotico cortese — fa da cerniera tra il gotico maturo e il primo Rinascimento, diffuso lungo la rete delle corti europee.",
+   "punti": [
+    "Premesse alla corte pontificia di Avignone (1309-1377), dove Simone Martini elabora verso il 1340 la Madonna dell'umiltà, uno dei soggetti simbolo dello stile.",
+    "Caratteri: paesaggi ordinati e prati fioriti, cura del particolare, spazio non verosimile e atmosfera fiabesca, figure elegantemente abbigliate, ori abbondanti, linea come guida, colori accesi.",
+    "Gli artisti viaggiano di corte in corte e diffondono lo stile: miniature (i fratelli De Limbourg con le Très Riches Heures del duca di Berry, 1413-16), libri d'ore, oreficerie.",
+    "In architettura è il gotico fiorito o flamboyant: la Ca' d'Oro a Venezia, la cappella del King's College a Cambridge, il monastero dos Jerónimos a Lisbona.",
+    "In scultura il primo grande maestro è Claus Sluter (Pozzo dei Profeti alla Certosa di Champmol, per il duca di Borgogna).",
+    "In Italia il centro è la Lombardia viscontea: Gian Galeazzo Visconti avvia nel 1387 il Duomo di Milano; con Filippo Maria fioriscono la cappella di Teodolinda a Monza (Zavattari) e i tarocchi Visconti-Sforza.",
+    "Il Quattrocento è anche il secolo di Umanesimo e Rinascimento: i due linguaggi convivono a lungo, e mentre a Roma lavorano Raffaello e Michelangelo molte corti europee parlano ancora la lingua del gotico internazionale."
+   ],
+   "artisti": [
+    "Gentile da Fabriano",
+    "Pisanello",
+    "Michelino da Besozzo",
+    "Stefano da Verona",
+    "Lorenzo Monaco",
+    "Zavattari",
+    "Maestro Venceslao",
+    "Jacopino da Tradate",
+    "Lorenzo e Jacopo Salimbeni",
+    "Bonifazio Bembo",
+    "Pere Serra"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Gotico internazionale."
+  },
+  "Leonardo e leonardeschi": {
+   "sint": "Leonardo da Vinci e i pittori che ne diffondono il linguaggio, soprattutto a Milano, tra la fine del Quattrocento e i primi decenni del Cinquecento.",
+   "punti": [
+    "Leonardo lavora a Firenze, poi a Milano (1482-1499, corte di Ludovico il Moro), poi di nuovo tra Firenze, Mantova, Venezia, Milano, Roma e infine in Francia con Francesco I.",
+    "Leonardeschi: Melzi (il discepolo più fedele ed erede dei codici), Salaì (Gian Giacomo Caprotti, con Leonardo per oltre vent'anni), Luini, Marco d'Oggiono, Boltraffio, Cesare da Sesto, Solario, Giampietrino.",
+    "Caratteri: attenzione ai volti, sfumato, figure femminili idealizzate (volti ovali, occhi socchiusi), composizioni pacate con luce diffusa, armonia malinconica.",
+    "Limite: spesso imitano più che innovare, con iconografie ripetitive: sono più divulgatori che continuatori.",
+    "Luoghi: Uffizi (Battesimo di Cristo), Santa Maria delle Grazie e Pinacoteca Ambrosiana (Codice Atlantico) a Milano; Luini a San Maurizio al Monastero Maggiore; Cesare da Sesto porta lo stile al Sud (Napoli e Sicilia); Clos-Lucé in Francia."
+   ],
+   "artisti": [
+    "Leonardo da Vinci",
+    "Bernardino Luini",
+    "Boltraffio",
+    "Marco d'Oggiono",
+    "Andrea Solario",
+    "Cesare da Sesto",
+    "Francesco Melzi",
+    "Salaì",
+    "Giampietrino",
+    "Ambrogio de Predis",
+    "Giovanni Agostino da Lodi",
+    "Francesco Napoletano"
+   ],
+   "fonte": "Appunti del corso, parte istituzionale: Leonardo e i leonardeschi."
+  },
+  "Piemonte": {
+   "sint": "Il Rinascimento piemontese non fu una replica passiva dei canoni toscani, ma un'originale confluenza di tradizioni locali, rigore prospettico lombardo e apporti fiamminghi e provenzali.",
+   "punti": [
+    "Contesto politico frammentato tra Ducato di Savoia, Marchesato del Monferrato, contea di Asti e feudi minori, privo di una capitale egemone.",
+    "Crescita culturale alimentata dalle élites locali, dalle committenze religiose e dai legami dinastici con la corte milanese, la Francia e la Borgogna.",
+    "Stile ibrido e autonomo, contraddistinto dalla persistenza di elementi decorativi tardogotici fusi con il realismo e la prospettiva rinascimentale.",
+    "Ruolo di apertura europea di Giovanni Martino Spanzotti, mediatore fondamentale tra le novità padane e il naturalismo transalpino.",
+    "Sviluppo di vivaci botteghe a Ivrea, Vercelli, Asti e Chivasso con personalità come Defendente Ferrari, Gerolamo Giovenone e Gandolfino da Roreto."
+   ],
+   "artisti": [
+    "Giovanni Martino Spanzotti"
+   ],
+   "fonte": "Appunti del corso: 2- QUATTROCENTO - 10 - RINASCIMENOT IN PIEMONTE  - RINASCIMENTO IN PIEMONTE .txt."
+  }
+ }
+}

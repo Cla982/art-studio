@@ -129,6 +129,22 @@ a{color:inherit}
 .passo{background:var(--fondo2);border:1px solid var(--riga);border-radius:8px;padding:10px 12px;line-height:1.45;font-size:14.5px}
 .passo b{color:var(--oro2)}
 
+/* schede di studio */
+#scheda{z-index:14}
+.sc-testa{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.sc-img{float:right;width:min(42%,230px);margin:0 0 10px 14px;border-radius:8px;background:#0b0908}
+.scheda-box h1{font-size:26px}
+.scheda-box h2{font-size:17px;margin:20px 0 6px;color:var(--oro2)}
+.scheda-box ul{margin:0;padding-left:20px;line-height:1.55}
+.scheda-box li{margin:0 0 5px}
+.sc-sint{font-size:16.5px;line-height:1.55;margin:0 0 6px}
+.sc-meta{color:var(--tenue);font-size:13.5px;margin:0 0 12px;line-height:1.45}
+.sc-verifica{border-left:3px solid var(--forse);background:#c794331a;padding:7px 11px;border-radius:0 6px 6px 0;margin:14px 0;font-size:13.5px;line-height:1.45}
+.sc-tappa{margin:0 0 8px;line-height:1.5}.sc-tappa b{color:var(--oro2)}
+.sc-riga{display:block;width:100%;text-align:left;background:var(--fondo2);border:1px solid var(--riga);border-radius:8px;padding:8px 11px;margin:0 0 6px}
+.sc-riga:hover{border-color:var(--oro)}.sc-riga small{color:var(--tenue);display:block}
+.sc-pill{display:inline-block;background:#d4a24c22;border:1px solid var(--oro);color:var(--oro2);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600}
+.sc-fonte{color:var(--tenue);font-size:12px;margin-top:22px}
 /* pagine a tutto schermo */
 .pagina{position:fixed;inset:calc(var(--barra) + env(safe-area-inset-top)) 0 0 0;overflow:auto;background:var(--fondo);z-index:10;
   padding:22px 18px calc(40px + env(safe-area-inset-bottom))}
@@ -249,6 +265,7 @@ details .corpo{padding:0 2px 16px}
       <section id="cartellino" aria-label="Didascalia" hidden>
         <p id="c-riga1"><span id="c-titolo"></span><span class="di">di</span><span id="c-artista"></span><span id="c-vita"></span></p>
         <p id="c-info"></p>
+        <p id="c-scheda" hidden style="margin:6px 0 0"><button class="lk" id="c-sc-opera" data-az="scheda-opera" style="color:var(--oro2);font-weight:600">📖 Scheda dell'opera</button> <button class="lk" id="c-sc-artista" data-az="scheda-artista" style="color:var(--oro2);font-weight:600;margin-left:10px">📖 Scheda dell'artista</button></p>
       </section>
     </div>
     <div id="comandi">
@@ -304,6 +321,7 @@ details .corpo{padding:0 2px 16px}
 <section class="pagina" id="pag-guidato" hidden><div class="dentro" id="guid-dentro"></div></section>
 <section class="pagina" id="pag-statistiche" hidden><div class="dentro" id="stat-dentro"></div></section>
 
+<section class="pagina" id="scheda" hidden><div class="dentro scheda-box" id="sc-dentro" style="max-width:760px"></div></section>
 <section class="pagina" id="griglia" hidden>
   <div class="dentro" style="max-width:1200px">
     <div class="testa">
@@ -405,6 +423,7 @@ details .corpo{padding:0 2px 16px}
 <div id="finestra" hidden><div><p></p><div class="fila" style="justify-content:flex-end;margin:0"></div></div></div>
 
 <script id="catalogo-incorporato" type="application/json"></script>
+<script id="schede-incorporate" type="application/json"></script>
 <script>
 'use strict';
 /* =============================================================== utilità */
@@ -477,6 +496,7 @@ async function avvia() {
   OPERE = C.opere.map((o, i) => ({ i, id: o[0], a: o[1], t: o[2], d: o[3], te: o[4], s: o[5], p: o[6], f: o[7], fl: o[8], y: o[9], loc: o[10] ? 1 : 0, wk: o[11] || '' }));
   for (const w of OPERE) PER_ID.set(w.id, w);
   costruisciCassetto();
+  caricaSchede();
   await leggiLink();
   await caricaSalvate();
   aggiornaTutto();
@@ -592,6 +612,8 @@ function cartellino() {
   $('#c-nasc').hidden = quiz || !w;
   $('#c-quiz').hidden = !(quiz && su && !mc);
   $('#c-mc').hidden = !(mc && w);
+  const so = su && haSchedaOpera(w), sa = su && haSchedaArtista(ART[w.a].n);
+  $('#c-scheda').hidden = !(so || sa); $('#c-sc-opera').hidden = !so; $('#c-sc-artista').hidden = !sa;
   if (!w) return;
   const a = ART[w.a], s = SEDI[w.s];
   if (!quiz) {
@@ -712,8 +734,8 @@ $('#succ').onclick = () => { if (S.modo === 'quiz') tocco(); else avanti(); };
 
 document.addEventListener('keydown', e => {
   if (e.target.matches('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
-  if (e.key === 'Escape') { if (!$('#finestra').hidden) return; if (!$('#cassetto').hidden) return chiudiCassetto(); if (!$('#griglia').hidden) return chiudiGriglia(); if (Z.s > 1) return azzeraZoom(); if (S.modo === 'sfoglia') return torna(); return; }
-  if (vista !== 'studio' || !$('#cassetto').hidden || !$('#griglia').hidden || !$('#finestra').hidden) return;
+  if (e.key === 'Escape') { if (!$('#finestra').hidden) return; if (!$('#scheda').hidden) return indietroScheda(); if (!$('#cassetto').hidden) return chiudiCassetto(); if (!$('#griglia').hidden) return chiudiGriglia(); if (Z.s > 1) return azzeraZoom(); if (S.modo === 'sfoglia') return torna(); return; }
+  if (vista !== 'studio' || !$('#scheda').hidden || !$('#cassetto').hidden || !$('#griglia').hidden || !$('#finestra').hidden) return;
   if (e.key === ' ' || e.key === 'Enter') {
     if (e.target.closest('#cartellino') || (e.key === 'Enter' && e.target.closest('button, a'))) return;   // lì valgono i pulsanti
     e.preventDefault(); if (document.activeElement && document.activeElement !== document.body) document.activeElement.blur(); tocco();
@@ -736,6 +758,8 @@ document.addEventListener('click', e => {
   else if (az === 'nasc-artista') nascondiArtista();
   else if (az === 'voto') voto(+v);
   else if (az === 'mc') rispostaMC(+v);
+  else if (az === 'scheda-artista') { const w = corrente(); if (w) apriScheda('artista', ART[w.a].n); }
+  else if (az === 'scheda-opera') { const w = corrente(); if (w) apriScheda('opera', w.id); }
   else if (az === 'mc-avanti') prossimoMC();
   else if (az === 'via-fuoco') { fuoco = null; nuovaSerie(); }
   else if (az === 'torna') torna();
@@ -773,6 +797,7 @@ function azioniGriglia() {
   if (f.tipo !== 'lista') h += '<button class="primario" style="padding:9px 14px;font-size:13.5px" data-g="studia">Studia solo queste</button>';
   if (f.tipo === 'artista') {
     const a = ART[f.valore];
+    if (haSchedaArtista(a.n)) h += '<button class="primario" style="padding:9px 14px;font-size:13.5px" data-g="scheda">📖 Scheda dell\'artista</button>';
     h += `<button class="secondario" data-g="occhio">${HA.has(a.n) ? 'Mostra di nuovo l\'artista' : 'Nascondi l\'artista'}</button>`;
     if (a.wk) h += `<a class="secondario" style="text-decoration:none" href="${esc(a.wk)}" target="_blank" rel="noopener">Wikipedia</a>`;
   }
@@ -811,6 +836,7 @@ $('#gr-azioni').addEventListener('click', e => {
   else if (g === 'studia') { fuoco = G.f; $('#griglia').hidden = true; vaiA('studio', true); nuovaSerie(); if (!S.lista.length) brindisi('Queste opere sono tutte nascoste'); }
   else if (g === 'occhio') { const n = ART[G.f.valore].n; HA.has(n) ? HA.delete(n) : HA.add(n); salva(); aggiornaTutto(); azioniGriglia(); if (S.modo === 'studio' && !fuoco) nuovaSerie(); }
   else if (g === 'ripristina') ripristinaOpere();
+  else if (g === 'scheda') apriScheda('artista', ART[G.f.valore].n);
 });
 function chiudiGriglia() { $('#griglia').hidden = true; if (S.modo === 'sfoglia') torna(true); }
 function torna(senzaGriglia) {
@@ -1117,6 +1143,75 @@ function pagGuidato() {
     ${filtro}`;
   el.querySelector('#g-via').onclick = sessioneGuidata; el.querySelector('#g-test').onclick = () => chiedi('Rifare il test di piazzamento? Il punto di partenza del percorso verrà ricalcolato; le statistiche restano.', 'Rifai il test', avviaTest);
 }
+
+/* ================================================================ schede */
+let SCHEDE = null, SK = [];
+async function caricaSchede() {
+  try {
+    const d = document.getElementById('schede-incorporate');
+    if (d && d.textContent.trim()) SCHEDE = JSON.parse(d.textContent);
+    else { const r = await fetch('schede.json', { cache: 'no-cache' }); if (r.ok) SCHEDE = await r.json(); }
+  } catch (e) { SCHEDE = null; }
+  if (SCHEDE && !$('#cartellino').hidden) cartellino();
+}
+const haSchedaOpera = w => !!(w && SCHEDE && SCHEDE.opere && SCHEDE.opere[w.id]);
+const haSchedaArtista = n => !!(SCHEDE && SCHEDE.artisti && SCHEDE.artisti[n]);
+const haSchedaGruppo = n => !!(SCHEDE && SCHEDE.gruppi && SCHEDE.gruppi[n]);
+function apriScheda(tipo, chiave) {
+  if (SK.length && SK[SK.length - 1].tipo === tipo && SK[SK.length - 1].chiave === chiave) return;
+  SK.push({ tipo, chiave }); mostraScheda();
+}
+function indietroScheda() { SK.pop(); if (SK.length) mostraScheda(); else $('#scheda').hidden = true; }
+function chiudiScheda() { SK = []; $('#scheda').hidden = true; }
+const ul = l => l && l.length ? '<ul>' + l.map(x => `<li>${esc(x)}</li>`).join('') + '</ul>' : '';
+const bottoniScheda = () => `<div class="sc-testa"><button class="secondario" data-sc="indietro">‹ ${SK.length > 1 ? 'Indietro' : 'Chiudi'}</button>${SK.length > 1 ? '<button class="secondario" data-sc="chiudi">✕</button>' : ''}</div>`;
+const rigaOpera = id => { const w = PER_ID.get(id); return w ? `<button class="sc-riga" data-sc="opera" data-v="${w.id}"><i style="font-family:var(--serif)">${esc(w.t)}</i><small>${esc([w.d, SEDI[w.s].n].filter(Boolean).join(' · '))}</small></button>` : ''; };
+const nomeArt = n => haSchedaArtista(n) ? `<button class="lk" data-sc="artista" data-v="${esc(n)}">${esc(n)}</button>` : esc(n);
+function mostraScheda() {
+  const t = SK[SK.length - 1], el = $('#sc-dentro'); if (!t || !SCHEDE) return;
+  let h = bottoniScheda();
+  if (t.tipo === 'opera') {
+    const w = PER_ID.get(t.chiave), d = SCHEDE.opere[t.chiave], a = ART[w.a];
+    h += `<img class="sc-img" alt="" referrerpolicy="no-referrer" src="${esc(urlMini(w))}" onerror="this.remove()">
+      <h1 style="font-style:italic">${esc(w.t)}</h1>
+      <p class="sc-meta">${nomeArt(a.n)}${a.b || a.d ? ' (' + esc([a.b, a.d].filter(Boolean).join(' – ')) + ')' : ''}<br>${esc(d.d || [w.d, SEDI[w.s].n].filter(Boolean).join(', '))}${d.brera ? '<br><span class="sc-pill">Pinacoteca di Brera</span>' : ''}${w.fl & F_RIPASSO ? ' <span class="sc-pill">★ Ripasso</span>' : ''}</p>
+      <p class="sc-sint">${esc(d.s)}</p>
+      ${d.k ? '<h2>Da sapere</h2>' + ul(d.k) : ''}
+      ${d.ico ? '<h2>Iconografia</h2>' + ul(d.ico) : ''}
+      ${d.v ? `<div class="sc-verifica"><b>Da verificare:</b> ${esc(d.v)}</div>` : ''}
+      <div class="fila" style="clear:both;margin-top:16px">${haSchedaArtista(a.n) ? `<button class="primario" data-sc="artista" data-v="${esc(a.n)}">Scheda di ${esc(a.n)}</button>` : ''}<button class="secondario" data-sc="griglia" data-v="${a.i}">Tutte le sue opere</button></div>
+      <p class="sc-fonte">${esc((SCHEDE.artisti[a.n] || {}).fonte || 'Appunti del corso')}</p>`;
+  } else if (t.tipo === 'artista') {
+    const d = SCHEDE.artisti[t.chiave], a = ART.find(x => x.n === t.chiave);
+    const gr = Object.keys(SCHEDE.gruppi || {}).filter(g => SCHEDE.gruppi[g].artisti.includes(t.chiave));
+    h += `<h1>${esc(t.chiave)}</h1>
+      <p class="sc-meta">${esc(d.vita && typeof d.vita === 'string' ? d.vita : [a && a.b, a && a.d].filter(Boolean).join(' – '))}${a ? ' · ' + num(OPERE.filter(w => w.a === a.i).length) + ' opere nell\'app' : ''}${gr.length ? '<br>' + gr.map(g => `<button class="lk" data-sc="gruppo" data-v="${esc(g)}">${esc(g)}</button>`).join(', ') : ''}</p>
+      <p class="sc-sint">${esc(d.sint)}</p>
+      ${Array.isArray(d.vita) ? '<h2>Vita</h2>' + ul(d.vita) : ''}
+      ${d.stile ? '<h2>Stile</h2>' + ul(d.stile) : ''}
+      ${d.tappe ? '<h2>Tappe e luoghi</h2>' + d.tappe.map(([l, x]) => `<p class="sc-tappa"><b>${esc(l)}.</b> ${esc(x)}</p>`).join('') : ''}
+      ${d.scuola ? `<h2>Scuola e seguaci</h2><p class="sc-tappa">${esc(d.scuola)}</p>` : ''}
+      ${d.brera ? `<h2>A Brera</h2><p class="sc-tappa">${esc(d.brera)}</p>` : ''}
+      ${d.opere && d.opere.length ? '<h2>Opere da conoscere</h2>' + d.opere.map(rigaOpera).join('') : ''}
+      ${d.allievi ? '<h2>Allievi e seguaci</h2><p class="sc-tappa">' + d.allievi.map(nomeArt).join(', ') + '</p>' : ''}
+      ${d.v && d.v.length ? `<div class="sc-verifica"><b>Da verificare:</b> ${d.v.map(esc).join(' ')}</div>` : ''}
+      <div class="fila"><button class="secondario" data-sc="griglia" data-v="${a ? a.i : ''}">Tutte le opere</button></div>
+      <p class="sc-fonte">${esc(d.fonte || 'Appunti del corso')}</p>`;
+  } else if (t.tipo === 'gruppo') {
+    const d = SCHEDE.gruppi[t.chiave];
+    h += `<h1>${esc(t.chiave)}</h1><p class="sc-sint">${esc(d.sint)}</p><h2>Da sapere</h2>${ul(d.punti)}<h2>Artisti</h2>` +
+      d.artisti.map(n => `<button class="sc-riga" data-sc="${haSchedaArtista(n) ? 'artista' : 'griglia-n'}" data-v="${esc(n)}">${esc(n)}</button>`).join('') +
+      `<p class="sc-fonte">${esc(d.fonte || 'Appunti del corso')}</p>`;
+  }
+  el.innerHTML = h; $('#scheda').hidden = false; $('#scheda').scrollTop = 0;
+}
+$('#scheda').addEventListener('click', e => {
+  const b = e.target.closest('[data-sc]'); if (!b) return; const k = b.dataset.sc, v = b.dataset.v;
+  if (k === 'indietro') indietroScheda();
+  else if (k === 'chiudi') chiudiScheda();
+  else if (k === 'opera' || k === 'artista' || k === 'gruppo') apriScheda(k, v);
+  else if (k === 'griglia' || k === 'griglia-n') { const a = k === 'griglia' ? ART[+v] : ART.find(x => x.n === v); if (a) { chiudiScheda(); apriGriglia({ tipo: 'artista', valore: a.i }); } }
+});
 
 /* =========================================================== statistiche */
 function pagStat() {
@@ -1551,13 +1646,14 @@ function chiedi(testo, conferma, fn, soloChiudi, seAnnulla) {
 /* Finché c'è qualcosa di aperto (menu, griglia, una pagina diversa dall'iniziale) tengo una voce in più
    nella cronologia: così "Indietro" chiude quello che è aperto invece di chiudere l'app. */
 let trappola = false, ultimoIndietro = 0;
-const allaRadice = () => vista === 'inizio' && $('#cassetto').hidden && $('#griglia').hidden && $('#finestra').hidden;
+const allaRadice = () => vista === 'inizio' && $('#scheda').hidden && $('#cassetto').hidden && $('#griglia').hidden && $('#finestra').hidden;
 function armaIndietro() {
   if (trappola || allaRadice()) return;
   try { history.pushState({ artStudio: 1 }, ''); trappola = true; } catch (e) {}
 }
 function unPassoIndietro() {
   if (!$('#finestra').hidden) { const no = $('#finestra [data-x="no"]') || $('#finestra [data-x="si"]'); no && no.click(); return; }
+  if (!$('#scheda').hidden) return indietroScheda();
   if (!$('#cassetto').hidden) return chiudiCassetto();
   if (!$('#griglia').hidden) return chiudiGriglia();
   if (S.modo === 'sfoglia' && vista === 'studio') return torna();
