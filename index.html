@@ -601,6 +601,7 @@ function mostra() {
       img.classList.remove('carica'); avvisoImmagine(w);
     };
     delete img.dataset.rete;
+    img.style.filter = PG && PG.blur && !PG.chiuso ? 'blur(16px)' : '';
     mettiImmagine(w);
     const prossima = S.lista[S.i + 1];
     if (prossima && !SALVATE.has(prossima.id)) { const pre = new Image(); pre.referrerPolicy = 'no-referrer'; pre.src = urlImg(prossima); }
@@ -1204,10 +1205,23 @@ function gAbbina(w) {
   const s = altriSimili(w, 3); if (!s) return null;
   return { kind: 'ovl', game: 'abbina', dom: 'Abbina ogni opera al suo artista: tocca un\'immagine, poi un nome.', items: mescola([w, ...s]) };
 }
-const TAB_G = [['a0'], ['a1'], ['a2'], ['auto'], ['img', 'scuola', 'dove'], ['quando', 'intruso', 'ordina', 'abbina'], ['img', 'scuola', 'dove', 'quando', 'intruso', 'ordina', 'abbina', 'auto']];
+function gTitolo(w) {      // dall'immagine al titolo: prima i titoli di altre opere dello stesso artista, poi di artisti simili
+  const vis = new Set([piano(w.t)]), mie = [];
+  for (const x of mescola(OPERE.filter(x => x.a === w.a && x.id !== w.id && x.f === w.f && !(x.fl & (F_DETT | F_DOPPIA))))) { const k = piano(x.t); if (!k || vis.has(k)) continue; vis.add(k); mie.push(x.t); }
+  const out = mie.slice(0, 2);
+  if (out.length < 3) { const s = altriSimili(w, 3, true); if (s) for (const x of s) { const k = piano(x.t); if (out.length < 3 && k && !vis.has(k)) { vis.add(k); out.push(x.t); } } }
+  if (out.length < 3 || w.t.length > 90) return null;
+  return { kind: 'opz', game: 'titolo', dom: 'Come si intitola quest\'opera?', opz: mescola(out.concat(w.t)).map(t => ({ t, ok: t === w.t })) };
+}
+function gSfocata(w) {     // riconoscere dall'impianto generale: colori, masse, composizione
+  const o = opzArtisti(w, 1);
+  return { kind: 'opz', game: 'sfocata', blur: true, dom: 'Immagine sfocata: chi è l\'autore?', opz: o.map(i => ({ t: ART[i].n, ok: i === w.a })) };
+}
+const TAB_G = [['a0'], ['a1', 'img'], ['a2', 'sfocata'], ['auto', 'titolo'], ['img', 'scuola', 'dove', 'titolo'], ['quando', 'intruso', 'ordina', 'abbina', 'sfocata'], ['img', 'scuola', 'dove', 'quando', 'intruso', 'ordina', 'abbina', 'titolo', 'sfocata', 'auto']];
 function provaG(n, w, lv) {
   switch (n) {
     case 'a0': return gArtista(w, 0); case 'a1': return gArtista(w, 1); case 'a2': return gArtista(w, 2);
+    case 'titolo': return gTitolo(w); case 'sfocata': return gSfocata(w);
     case 'auto': return { kind: 'auto', game: 'auto', dom: '' };
     case 'img': return gImg(w); case 'scuola': return gScuola(w, lv); case 'dove': return gDove(w);
     case 'quando': return gQuando(w, lv); case 'intruso': return gIntruso(w); case 'ordina': return gOrdina(w); case 'abbina': return gAbbina(w);
@@ -1229,7 +1243,7 @@ function pianoG(w) {
 const piG = () => (Q && Q.tipo === 'guidato' && Q.pf && Q.pf[S.i]) ? Q.pf[S.i].p || null : null;
 function sequenzaG(works) {
   const lista = [], pf = [], pend = [];
-  const sblocca = forza => { for (let k = 0; k < pend.length;) { if (forza || pend[k].dopo <= lista.length) { lista.push(pend[k].w); pf.push({ f: 'test' }); pend.splice(k, 1); } else k++; } };
+  const sblocca = forza => { for (let k = 0; k < pend.length;) { if (forza || pend[k].dopo <= lista.length) { lista.push(pend[k].w); pf.push({ f: 'test', nuova: true }); pend.splice(k, 1); } else k++; } };
   for (const w of works) {
     sblocca(false);
     if (vistaG(w)) { lista.push(w); pf.push({ f: 'test' }); }
@@ -1249,6 +1263,10 @@ function registraG(w, v, f, game) {
   if (!f.rq) { g[0] = v === 2 ? Math.min(7, g[0] + 1) : v === 1 ? g[0] : Math.max(0, g[0] - 1); g[1] = ora; g[2] = v >= 1 ? 1 : 0; }
   g[3] = game; P.gl[w.id] = g; salva();
   if (!f.rq && !Q.vis.has(w.id)) { Q.vis.add(w.id); Q.esiti.push([w, v]); }
+  if (v === 2 && f.nuova && !f.rq && (f.passo || 0) < 2) {      // opera nuova: torna due volte nella stessa sessione, ogni volta più difficile
+    const pos = Math.min(S.i + 5, S.lista.length);
+    S.lista.splice(pos, 0, w); Q.pf.splice(pos, 0, { f: 'test', nuova: true, passo: (f.passo || 0) + 1 });
+  }
   if (v === 0 && (f.rq || 0) < 2) {
     const pos = Math.min(S.i + 4, S.lista.length);
     S.lista.splice(pos, 0, w); Q.pf.splice(pos, 0, { f: 'test', rq: (f.rq || 0) + 1 });
@@ -1264,7 +1282,7 @@ function finisciG(v, extra) {
   if (p.kind === 'ovl') $('#g-esito').innerHTML = (v === 2 ? '<b class="g-ok">Giusto.</b> ' : '<b class="g-no">Non proprio.</b> ') + (extra || '');
   const av = $('#mc-avanti'); av.hidden = false; av.textContent = S.i + 1 >= S.lista.length ? 'Vedi il risultato' : 'Avanti →';
   if (p.segnala) $('#g-segnala').hidden = false;
-  if (p.kind === 'opz') { S.scoperta = true; cartellino(); }
+  if (p.kind === 'opz') { S.scoperta = true; img.style.filter = ''; cartellino(); }
 }
 function rispostaG(k) {
   const p = piG(); if (!p || p.kind !== 'opz' || p.chiuso || !p.opz[k]) return;
@@ -1519,7 +1537,7 @@ $('#scheda').addEventListener('click', e => {
 /* =========================================================== statistiche */
 /* Le statistiche stanno dentro ogni modalità (Quiz e Guidato): P.sx.q e P.sx.g contano [risposte, artista/giusta, completa] per opera;
    P.sx.gg conta le risposte del guidato per tipo di gioco. P.st resta lo stato condiviso usato per il ripasso. */
-const NOMI_GIOCO = { artista: 'Chi è l\'autore', auto: 'Riconoscimento libero', img: 'Quale immagine', scuola: 'Che scuola è', dove: 'Dove si trova', quando: 'Quando', intruso: 'L\'intruso', ordina: 'Ordina nel tempo', abbina: 'Abbina opera e artista' };
+const NOMI_GIOCO = { artista: 'Chi è l\'autore', auto: 'Riconoscimento libero', img: 'Quale immagine', scuola: 'Che scuola è', dove: 'Dove si trova', quando: 'Quando', intruso: 'L\'intruso', ordina: 'Ordina nel tempo', abbina: 'Abbina opera e artista', titolo: 'Come si intitola', sfocata: 'Immagine sfocata' };
 function contaModo(m, id, v, game) {
   const t = P.sx[m][id] || (P.sx[m][id] = [0, 0, 0]);
   t[0]++; if (v >= 1) t[1]++; if (v === 2) t[2]++;
