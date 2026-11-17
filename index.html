@@ -610,7 +610,7 @@ function mostra() {
       img.classList.remove('carica'); avvisoImmagine(w);
     };
     delete img.dataset.rete;
-    img.style.filter = PG && PG.blur && !PG.chiuso ? 'blur(14.4px)' : '';
+    img.style.filter = PG && PG.blur && !PG.chiuso ? 'blur(10.8px)' : '';
     mettiImmagine(w);
     const prossima = S.lista[S.i + 1];
     if (prossima && !SALVATE.has(prossima.id)) { const pre = new Image(); pre.referrerPolicy = 'no-referrer'; pre.src = urlImg(prossima); }
@@ -1260,7 +1260,7 @@ function provaG(n, w, lv) {
 function scegliGioco(w, lv, f) {
   const ultimo = (P.gl[w.id] || [])[3];
   if (f.rq) lv = Math.min(lv, 2);
-  else if (lv >= 3 && ultimo !== 'auto') return { kind: 'auto', game: 'auto', dom: '' };      // da livello 3 un'opera su due torna senza aiuti, finché non è imparata
+  else if (lv >= 3) return { kind: 'auto', game: 'auto', dom: '' };      // da livello 3 un'opera su due torna senza aiuti, finché non è imparata
   const catena = [];
   for (let l = Math.min(lv, 6); l >= 0; l--) catena.push(...mescola(TAB_G[l].slice()).sort((x, y) => (x === ultimo) - (y === ultimo)));
   for (const n of catena) { const r = provaG(n, w, lv); if (r) return r; }
@@ -1470,6 +1470,7 @@ function percorso() {
 }
 function sessioneGuidata() {
   const p = percorso(), N = 12;
+  p.nuove = mescola(p.nuove.slice(0, 40)).concat(p.nuove.slice(40));      // tra le prime 40 nuove si pesca a caso: le sessioni non ripartono sempre dalle stesse
   let nu = p.nuove.slice(0, N - Math.min(p.dovuti.length, Math.round(N * 0.6)));
   const d = p.dovuti.slice(0, Math.max(Math.round(N * 0.6), N - nu.length));
   nu = nu.slice(0, N - d.length);
