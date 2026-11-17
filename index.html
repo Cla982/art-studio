@@ -460,6 +460,7 @@ function fnv36(t) { let h = 0x811c9dc5; for (const b of new TextEncoder().encode
 
 const CHIAVE = 'riconosci_opera_v1';
 const F_DETT = 1, F_FAMOSA = 2, F_DOPPIA = 4, F_RIPASSO = 8;
+const INTERVALLI_G = [0, 300, 900, 7200, 86400, 3 * 86400, 7 * 86400];      // guidato: secondi prima di riproporre un'opera, per livello (5 min, 15 min, 2 ore, 1 giorno, 3, 7)
 const INTERVALLI = [0, 1, 3, 7, 14, 30, 60];      // giorni prima di riproporre un'opera, in base alle volte di fila in cui è stata riconosciuta
 const FORME = ['Dipinti', 'Sculture', 'Architetture', 'Disegni e altro'];
 const LIVELLI = [['fam', 'Più famose'], ['tutte', 'Tutte']];
@@ -1459,7 +1460,7 @@ function percorso() {
     if (imparata(w)) { fasi[2]++; continue; }
     if (!g && !s) { nuove.push(w); fasi[0]++; continue; }
     fasi[1]++;
-    const attesa = g ? (g[2] ? INTERVALLI[Math.min(g[0], 6)] * 86400 : 600) : (s[4] === 2 ? INTERVALLI[Math.min(s[3], INTERVALLI.length - 1)] * 86400 : s[4] === 1 ? 3600 : 600);
+    const attesa = g ? (g[2] ? INTERVALLI_G[Math.min(g[0], 6)] : 600) : (s[4] === 2 ? INTERVALLI[Math.min(s[3], INTERVALLI.length - 1)] * 86400 : s[4] === 1 ? 3600 : 600);
     const ritardo = ora - (g ? g[1] : s[5]) - attesa;
     if (ritardo >= 0) dovuti.push([(g ? !g[2] : s[4] < 2) ? 1 : 0, ritardo, w]);
   }
