@@ -147,6 +147,11 @@ a{color:inherit}
 .passo b{color:var(--oro2)}
 
 /* schede di studio */
+.riga-sc{display:flex;flex-wrap:nowrap;gap:6px;margin:8px 0 0}
+.riga-sc button,.sc-nav button{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--fondo3);border:1px solid var(--riga);border-radius:999px;padding:7px 8px;font-size:13px;font-weight:600;color:var(--oro2);text-decoration:none}
+.sc-nav{display:flex;gap:6px;margin:0 0 14px}.sc-nav button[aria-current="true"]{background:var(--oro);color:#1a1410;border-color:var(--oro)}
+.sc-cat{margin:18px 0 6px;color:var(--oro2);font-size:17px}.sc-sub{margin:12px 0 4px;color:var(--tenue);font-size:13.5px;text-transform:uppercase;letter-spacing:.04em}
+.sc-es{border-left:3px solid var(--riga);padding:4px 0 4px 10px;margin:0 0 8px;line-height:1.45}
 #scheda{z-index:14}
 .sc-testa{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
 .sc-img{float:right;width:min(42%,230px);margin:0 0 10px 14px;border-radius:8px;background:#0b0908}
@@ -285,7 +290,7 @@ details .corpo{padding:0 2px 16px}
       <section id="cartellino" aria-label="Didascalia" hidden>
         <p id="c-riga1"><span id="c-titolo"></span><span class="di">di</span><span id="c-artista"></span><span id="c-vita"></span></p>
         <p id="c-info"></p>
-        <p id="c-scheda" hidden style="margin:6px 0 0"><button class="lk" id="c-sc-opera" data-az="scheda-opera" style="color:var(--oro2);font-weight:600">📖 Scheda dell'opera</button> <button class="lk" id="c-sc-artista" data-az="scheda-artista" style="color:var(--oro2);font-weight:600;margin-left:10px">📖 Scheda dell'artista</button></p>
+        <p id="c-scheda" class="riga-sc" hidden><button class="lk" id="c-sc-opera" data-az="scheda-opera">📖 Opera</button><button class="lk" id="c-sc-artista" data-az="scheda-artista">🎨 Artista</button><button class="lk" id="c-sc-ico" data-az="scheda-ico">🖼 Iconografia</button></p>
       </section>
     </div>
     <div id="comandi">
@@ -655,7 +660,8 @@ function cartellino() {
   $('#c-quiz').hidden = !(quiz && su && !mc);
   $('#c-mc').hidden = !(mc && w);
   const so = su && haSchedaOpera(w), sa = su && haSchedaArtista(ART[w.a].n);
-  $('#c-scheda').hidden = !(so || sa); $('#c-sc-opera').hidden = !so; $('#c-sc-artista').hidden = !sa;
+  const si = su && haIcoOpera(w);
+  $('#c-scheda').hidden = !(so || sa || si); $('#c-sc-opera').hidden = !so; $('#c-sc-artista').hidden = !sa; $('#c-sc-ico').hidden = !si;
   if (!w) return;
   const a = ART[w.a], s = SEDI[w.s];
   if (!quiz) {
@@ -805,6 +811,7 @@ document.addEventListener('click', e => {
   else if (az === 'mc') rispostaMC(+v);
   else if (az === 'scheda-artista') { const w = corrente(); if (w) apriScheda('artista', ART[w.a].n); }
   else if (az === 'scheda-opera') { const w = corrente(); if (w) apriScheda('opera', w.id); }
+  else if (az === 'scheda-ico') { const w = corrente(); if (w) { const s = sogOpera(w); if (s.length === 1) apriScheda('tema', s[0]); else if (haSchedaOpera(w)) apriScheda('opera', w.id); } }
   else if (az === 'mc-avanti') prossimoMC();
   else if (az === 'via-fuoco') { fuoco = null; nuovaSerie(); }
   else if (az === 'torna') torna();
@@ -1567,8 +1574,12 @@ async function caricaSchede() {
     if (d && d.textContent.trim()) SCHEDE = JSON.parse(d.textContent);
     else { const r = await fetch('schede.json', { cache: 'no-cache' }); if (r.ok) SCHEDE = await r.json(); }
   } catch (e) { SCHEDE = null; }
+  try { const r = await fetch('iconografia.json', { cache: 'no-cache' }); if (r.ok) { ICO = await r.json(); ICO_T = new Map(ICO.temi.map(t => [t.id, t])); } } catch (e) { ICO = null; }
   if (SCHEDE && !$('#cartellino').hidden) cartellino();
 }
+let ICO = null, ICO_T = new Map();
+const sogOpera = w => (ICO && ICO.sog && w && ICO.sog[w.id]) || [];
+const haIcoOpera = w => sogOpera(w).length > 0;
 const haSchedaOpera = w => !!(w && SCHEDE && SCHEDE.opere && SCHEDE.opere[w.id]);
 const haSchedaArtista = n => !!(SCHEDE && SCHEDE.artisti && SCHEDE.artisti[n]);
 const haSchedaGruppo = n => !!(SCHEDE && SCHEDE.gruppi && SCHEDE.gruppi[n]);
@@ -1583,7 +1594,7 @@ const bottoniScheda = () => `<div class="sc-testa"><button class="secondario" da
 const rigaOpera = id => { const w = PER_ID.get(id); return w ? `<button class="sc-riga" data-sc="opera" data-v="${w.id}"><i style="font-family:var(--serif)">${esc(w.t)}</i><small>${esc([w.d, SEDI[w.s].n].filter(Boolean).join(' · '))}</small></button>` : ''; };
 const nomeArt = n => haSchedaArtista(n) ? `<button class="lk" data-sc="artista" data-v="${esc(n)}">${esc(n)}</button>` : esc(n);
 function mostraScheda() {
-  const t = SK[SK.length - 1], el = $('#sc-dentro'); if (!t || !SCHEDE) return;
+  const t = SK[SK.length - 1], el = $('#sc-dentro'); if (!t || !SCHEDE || ((t.tipo === 'tema' || t.tipo === 'indice') && !ICO)) return;
   let h = bottoniScheda();
   if (t.tipo === 'opera') {
     const w = PER_ID.get(t.chiave), d = SCHEDE.opere[t.chiave], a = ART[w.a];
@@ -1592,9 +1603,11 @@ function mostraScheda() {
       <p class="sc-meta">${nomeArt(a.n)}${a.b || a.d ? ' (' + esc([a.b, a.d].filter(Boolean).join(' – ')) + ')' : ''}<br>${esc(d.d || [w.d, SEDI[w.s].n].filter(Boolean).join(', '))}${d.brera ? '<br><span class="sc-pill">Pinacoteca di Brera</span>' : ''}${w.fl & F_RIPASSO ? ' <span class="sc-pill">★ Ripasso</span>' : ''}</p>
       <p class="sc-sint">${esc(d.s)}</p>
       ${d.k ? '<h2>Da sapere</h2>' + ul(d.k) : ''}
+      ${sogOpera(w).length ? '<h2>Soggetto</h2>' + sogOpera(w).map(x => ICO_T.get(x) ? `<button class="sc-riga" data-sc="tema" data-v="${x}">🖼 ${esc(ICO_T.get(x).t)}<small>${esc([ICO_T.get(x).c, ICO_T.get(x).sub].filter(Boolean).join(' · '))}</small></button>` : '').join('') : ''}
       ${d.ico ? '<h2>Iconografia</h2>' + ul(d.ico) : ''}
       ${d.v ? `<div class="sc-verifica"><b>Da verificare:</b> ${esc(d.v)}</div>` : ''}
-      <div class="fila" style="clear:both;margin-top:16px">${haSchedaArtista(a.n) ? `<button class="primario" data-sc="artista" data-v="${esc(a.n)}">Scheda di ${esc(a.n)}</button>` : ''}<button class="secondario" data-sc="griglia" data-v="${a.i}">Tutte le sue opere</button></div>
+      <div class="sc-nav" style="clear:both;margin-top:16px"><button aria-current="true" disabled>📖 Opera</button>${haSchedaArtista(a.n) ? `<button data-sc="artista" data-v="${esc(a.n)}">🎨 Artista</button>` : ''}${sogOpera(w).length ? `<button data-sc="tema" data-v="${sogOpera(w)[0]}">🖼 Iconografia</button>` : ''}</div>
+      <div class="fila"><button class="secondario" data-sc="griglia" data-v="${a.i}">Tutte le sue opere</button></div>
       <p class="sc-fonte">${esc((SCHEDE.artisti[a.n] || {}).fonte || 'Appunti del corso')}</p>`;
   } else if (t.tipo === 'artista') {
     const d = SCHEDE.artisti[t.chiave], a = ART.find(x => x.n === t.chiave);
@@ -1610,8 +1623,22 @@ function mostraScheda() {
       ${d.opere && d.opere.length ? '<h2>Opere da conoscere</h2>' + d.opere.map(rigaOpera).join('') : ''}
       ${d.allievi ? '<h2>Allievi e seguaci</h2><p class="sc-tappa">' + d.allievi.map(nomeArt).join(', ') + '</p>' : ''}
       ${d.v && d.v.length ? `<div class="sc-verifica"><b>Da verificare:</b> ${d.v.map(esc).join(' ')}</div>` : ''}
-      <div class="fila"><button class="secondario" data-sc="griglia" data-v="${a ? a.i : ''}">Tutte le opere</button></div>
+      <div class="fila"><button class="secondario" data-sc="griglia" data-v="${a ? a.i : ''}">Tutte le opere</button><button class="secondario" data-sc="indice" data-v="">🖼 Iconografia</button></div>
       <p class="sc-fonte">${esc(d.fonte || 'Appunti del corso')}</p>`;
+  } else if (t.tipo === 'tema') {
+    const d = ICO_T.get(t.chiave); if (!d) return;
+    const ops = []; ICO && ICO.sog && Object.keys(ICO.sog).forEach(i => { if (ICO.sog[i].includes(d.id)) ops.push(i); });
+    h += `<h1>${esc(d.t)}</h1><p class="sc-meta">${esc(['Iconografia', d.c, d.sub].filter(Boolean).join(' · '))}</p>
+      ${d.s.map(x => `<p class="sc-tappa">${esc(x)}</p>`).join('')}
+      ${d.el ? ul(d.el) : ''}
+      ${d.e.length ? '<h2>Esempi</h2>' + d.e.map(e => `<p class="sc-es">${esc(e.x)}</p>` + (e.id || []).map(rigaOpera).join('')).join('') : ''}
+      ${ops.length ? '<h2>Altre opere nell\'app con questo soggetto</h2>' + ops.filter(i => !d.e.some(e => (e.id || []).includes(i))).map(rigaOpera).join('') : ''}
+      <div class="fila"><button class="secondario" data-sc="indice" data-v="">Tutta l'Iconografia</button></div>
+      <p class="sc-fonte">Appunti del corso: ICONOGRAFIA .txt</p>`;
+  } else if (t.tipo === 'indice') {
+    let cat = null, sub = null; h += '<h1>Iconografia</h1><p class="sc-meta">Soggetti da riconoscere, con le opere dove compaiono.</p>';
+    ICO.temi.forEach(d => { if (d.c !== cat) { cat = d.c; sub = null; h += `<h2 class="sc-cat">${esc(cat)}</h2>`; } if (d.sub !== sub && d.sub) { sub = d.sub; h += `<p class="sc-sub">${esc(sub)}</p>`; }
+      const n = d.e.filter(e => e.id).length; h += `<button class="sc-riga" data-sc="tema" data-v="${d.id}">${esc(d.t)}${n ? `<small>${n} ${n === 1 ? 'esempio' : 'esempi'} nell'app</small>` : ''}</button>`; });
   } else if (t.tipo === 'gruppo') {
     const d = SCHEDE.gruppi[t.chiave];
     h += `<h1>${esc(t.chiave)}</h1><p class="sc-sint">${esc(d.sint)}</p><h2>Da sapere</h2>${ul(d.punti)}<h2>Artisti</h2>` +
@@ -1624,7 +1651,7 @@ $('#scheda').addEventListener('click', e => {
   const b = e.target.closest('[data-sc]'); if (!b) return; const k = b.dataset.sc, v = b.dataset.v;
   if (k === 'indietro') indietroScheda();
   else if (k === 'chiudi') chiudiScheda();
-  else if (k === 'opera' || k === 'artista' || k === 'gruppo') apriScheda(k, v);
+  else if (k === 'opera' || k === 'artista' || k === 'gruppo' || k === 'tema' || k === 'indice') apriScheda(k, v);
   else if (k === 'griglia' || k === 'griglia-n') { const a = k === 'griglia' ? ART[+v] : ART.find(x => x.n === v); if (a) { chiudiScheda(); apriGriglia({ tipo: 'artista', valore: a.i }); } }
 });
 
@@ -1737,6 +1764,7 @@ function pagInizio() {
       <button class="scelta-grande" data-i="studio"><b>Apprendimento libero</b><span>Le opere una alla volta, in ordine casuale. Tocchi e compare la didascalia.</span></button>
       <button class="scelta-grande" data-i="quiz"><b>Quiz</b><span>Scegli quante opere e come: autovalutazione o quattro artisti. In fondo trovi le tue statistiche.</span></button>
       <button class="scelta-grande" data-i="musei"><b>Un museo o un artista</b><span>Studia solo le opere di una sede (per esempio la Pinacoteca di Brera) o di un artista.</span></button>
+      <button class="scelta-grande" data-i="ico"><b>Iconografia</b><span>I soggetti da riconoscere (Bibbia, Vangeli, mito, storia di Roma): spiegazione ed esempi, con le opere dell'app.</span></button>
       <button class="scelta-grande" data-i="menu"><b>Filtri e impostazioni</b><span>Periodo e stile, cosa mostrare, artisti, musei, opere nascoste, salvataggio delle preferenze.</span></button>
     </div>
     <div class="fila"><button class="secondario" data-i="info">Contatti, segnalazioni e crediti</button></div>
@@ -1744,7 +1772,8 @@ function pagInizio() {
   $('#inizio-dentro').onclick = e => {
     if (e.target.closest('#nota-catalogo')) return toccoSegreto();
     const b = e.target.closest('[data-i]'); if (!b) return; const i = b.dataset.i;
-    if (i === 'studio' || i === 'guidato' || i === 'quiz' || i === 'info') vaiA(i);
+    if (i === 'ico') { if (ICO) apriScheda('indice', ''); else brindisi('Iconografia non ancora caricata, riprova tra un attimo.'); }
+    else if (i === 'studio' || i === 'guidato' || i === 'quiz' || i === 'info') vaiA(i);
     else { apriCassetto(); if (i === 'musei') { $('#sez-musei').open = true; $('#sez-musei').scrollIntoView(); } }
   };
 }
