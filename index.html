@@ -107,6 +107,13 @@ a{color:inherit}
   #c-domanda{text-align:left}
 }
 
+#lente{position:fixed;inset:0;z-index:60;background:#000;display:flex;align-items:center;justify-content:center;touch-action:pinch-zoom}
+#lente[hidden]{display:none}
+#lente img{max-width:100vw;max-height:100vh;width:100%;height:100%;object-fit:contain}
+#lente span{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff9;font-size:12.5px;pointer-events:none}
+/* quiz con opzioni: l'opera non finisce sotto i pulsanti */
+#palco.conopz #tela{bottom:calc(215px + env(safe-area-inset-bottom))}
+@media (min-width:761px){#palco.conopz #tela{bottom:130px;padding:6px 14px 0}}
 /* fase 2: ripasso, periodi, guidato, quiz a 4 artisti */
 .solo-stretto{display:none}
 #rip-badge{position:absolute;top:44px;left:10px;z-index:3;background:#d4a24ce6;color:#1b1407;font-weight:700;font-size:12px;border-radius:999px;padding:3px 10px;pointer-events:none}
@@ -589,7 +596,7 @@ function nuovaSerie() {
 function corrente() { return S.lista[S.i]; }
 
 function mostra() {
-  azzeraZoom();
+  azzeraZoom(); if (Q) Q.did = null; $('#mc-opz').hidden = false; chiudiLente();
   const w = corrente();
   $('#rip-badge').hidden = !(w && (w.fl & F_RIPASSO) && S.modo !== 'quiz');
   $('#progresso').hidden = S.modo !== 'quiz';
@@ -615,7 +622,7 @@ function mostra() {
       img.classList.remove('carica'); avvisoImmagine(w);
     };
     delete img.dataset.rete;
-    img.style.filter = PG && PG.blur && !PG.chiuso ? 'blur(10.8px)' : '';
+    img.style.filter = PG && PG.blur && !PG.chiuso ? 'blur(3.5px)' : '';
     mettiImmagine(w);
     const prossima = S.lista[S.i + 1];
     if (prossima && !SALVATE.has(prossima.id)) { const pre = new Image(); pre.referrerPolicy = 'no-referrer'; pre.src = urlImg(prossima); }
@@ -634,7 +641,7 @@ function avvisoImmagine(w) {
 
 function pillole() {
   const el = $('#conta'), w = corrente(); let h = '', n = '';
-  if (S.modo === 'quiz') { const et = Q && Q.libero ? (NOMI_GIOCO[Q.libero] || 'Giochi') : Q && Q.tipo === 'guidato' ? 'Guidato' : Q && Q.tipo === 'piazzamento' ? 'Test di piazzamento' : 'Quiz'; { const pg = piG(); n = `${et}${pg && pg.kind === 'impara' ? ' · Impara' : ''} · ${S.i + 1} di ${S.lista.length}`; } h = `<span class="pillola"><button data-az="esci-quiz">Interrompi</button></span>`; }
+  if (S.modo === 'quiz') { const et = Q && Q.libero ? (NOMI_GIOCO[Q.libero] || 'Giochi') : Q && Q.tipo === 'guidato' ? 'Guidato' : Q && Q.tipo === 'piazzamento' ? 'Test di piazzamento' : 'Quiz'; { const pg = piG(); n = Q && Q.tipo === 'guidato' && !Q.libero ? `Guidato${pg && pg.kind === 'impara' ? ' · Impara' : ''} · opera ${S.i + 1}` : `${et}${pg && pg.kind === 'impara' ? ' · Impara' : ''} · ${S.i + 1} di ${S.lista.length}`; } h = `<span class="pillola"><button data-az="esci-quiz">Interrompi</button></span>`; }
   else if (S.modo === 'sfoglia') { n = `${S.i + 1} di ${S.lista.length}`; h = `<span class="pillola"><button data-az="torna">‹ ${esc(S.ritorno ? S.ritorno.etichetta : 'Indietro')}</button></span>`; }
   else {
     n = (w ? num(S.i + 1) + ' di ' : '') + num(S.lista.length);
@@ -653,12 +660,12 @@ function cartellino() {
   el.hidden = !su;
   if (su) suggerito = true;
   const gq = quiz ? piG() : null, mc = quiz && Q && (Q.tipo === 'mc' || (gq && gq.kind !== 'auto'));
-  $('#suggerimento').hidden = su || !w || (suggerito && !mc) || (gq && gq.kind !== 'auto');
+  $('#suggerimento').hidden = su || !w || (Q && Q.did === false) || (suggerito && !mc) || (gq && gq.kind !== 'auto');
   $('#suggerimento').textContent = mc ? 'Scegli l\'artista tra i quattro' : quiz ? 'Prova a riconoscerla, poi tocca l\'opera' : 'Tocca l\'opera per scoprire la didascalia';
   $('#c-nav').hidden = quiz || !w;
   $('#c-nasc').hidden = quiz || !w;
   $('#c-quiz').hidden = !(quiz && su && !mc);
-  $('#c-mc').hidden = !(mc && w);
+  $('#c-mc').hidden = !(mc && w); $('#palco').classList.toggle('conopz', !!(mc && w));
   const so = su && haSchedaOpera(w), sa = su && haSchedaArtista(ART[w.a].n);
   const si = su && haIcoOpera(w);
   $('#c-scheda').hidden = !(so || sa || si); $('#c-sc-opera').hidden = !so; $('#c-sc-artista').hidden = !sa; $('#c-sc-ico').hidden = !si;
@@ -678,13 +685,19 @@ function cartellino() {
   $('#c-info').innerHTML = [w.d, w.te].filter(Boolean).map(esc).concat(dove).join('<span class="sep">|</span>');
   el.scrollTop = 0;
 }
-const wk = (u, t) => `<a class="wk" href="${esc(u)}" target="_blank" rel="noopener" title="${esc(t)}" aria-label="${esc(t)}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg></a>`;
+function apriLente() {
+  const s = img.currentSrc || img.src; if (!s || $('#gioco') && !$('#gioco').hidden) return;
+  let l = $('#lente'); if (!l) { l = document.createElement('div'); l.id = 'lente'; l.innerHTML = '<img alt="" referrerpolicy="no-referrer"><span>tocca per chiudere</span>'; l.onclick = chiudiLente; document.body.appendChild(l); }
+  l.querySelector('img').src = s; l.hidden = false;
+}
+function chiudiLente() { const l = $('#lente'); if (l) l.hidden = true; }
+const wk = (u, t) => `<a class="wk" href="${esc(u)}" target="_blank" rel="noopener" title="${esc(t)}" aria-label="${esc(t)}"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 7.5l3.2 9.5 2.3-6.2 2.3 6.2 3.2-9.5M13.2 7.5h6.3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5 0)"/></svg></a>`;
 
 function tocco() {
   if (!corrente()) return;
   if (!$('#avviso').hidden) { avviso(''); if (S.modo === 'quiz') { saltaQuiz(); } else avanti(); return; }
-  if (S.modo === 'quiz' && Q && Q.tipo === 'guidato') { const g = piG(); if (g && g.kind !== 'auto') { if (g.kind === 'impara' || g.chiuso) prossimoG(); return; } }
-  if (S.modo === 'quiz' && Q && Q.tipo === 'mc') { if (Q.risposto) prossimoMC(); return; }
+  if (S.modo === 'quiz' && Q && Q.tipo === 'guidato') { const g = piG(); if (g && g.kind !== 'auto') { if (g.kind === 'impara' || g.chiuso) prossimoG(); else if (g.kind === 'opz') apriLente(); return; } }
+  if (S.modo === 'quiz' && Q && Q.tipo === 'mc') { if (Q.risposto) prossimoMC(); else apriLente(); return; }
   if (!S.scoperta) { S.scoperta = true; cartellino(); return; }
   if (S.modo === 'quiz') return;            // nel quiz si avanza solo rispondendo
   avanti();
@@ -1013,7 +1026,7 @@ function voto(v) {
   if (S.i + 1 >= S.lista.length) return fineQuiz();
   S.i++; S.scoperta = false; mostra();
 }
-function saltaQuiz() { if (S.i + 1 >= S.lista.length) return fineQuiz(); S.i++; S.scoperta = false; mostra(); }
+function saltaQuiz() { if (S.i + 1 >= S.lista.length && !estendiG()) return fineQuiz(); S.i++; S.scoperta = false; mostra(); }
 function fineQuiz(interrotto) {
   const q = Q; Q = null; quizFuoco = null;
   S.modo = 'studio';
@@ -1049,7 +1062,7 @@ function fineQuiz(interrotto) {
       ? `<i style="width:${100 * c[1] / n}%;background:var(--si)"></i><i style="width:${100 * c[0] / n}%;background:var(--no)"></i>`
       : `<i style="width:${100 * c[2] / n}%;background:var(--si)"></i><i style="width:${100 * c[1] / n}%;background:var(--forse)"></i><i style="width:${100 * c[0] / n}%;background:var(--no)"></i>`}</div>`}
     <div class="fila">
-      ${guid ? '<button class="primario" id="q-continua">Continua con un\'altra sessione</button>' : ''}
+      ${guid ? '<button class="primario" id="q-continua">Continua</button>' : ''}
       ${sbagliate.length && !gl ? `<button class="${guid ? 'secondario' : 'primario'}" id="q-ripeti">Ripeti le ${sbagliate.length} da ripassare</button>` : ''}
       ${gl ? '<button class="secondario" id="q-riep">Riepilogo</button>' : ''}
       ${guid ? '<button class="secondario" id="q-percorso">Il tuo percorso</button>' : `<button class="${sbagliate.length ? 'secondario' : 'primario'}" id="q-nuovo">Nuovo quiz</button>`}
@@ -1117,10 +1130,15 @@ function rispostaMC(k) {
   s[5] = Math.floor(Date.now() / 1000); P.st[w.id] = s; contaModo('q', w.id, ok ? 1 : 0); salva();
   Q.esiti.push([w, ok ? 1 : 0]);
   $$('#mc-opz .bt').forEach((b, j) => { b.disabled = true; if (Q.opz[j] === w.a) b.classList.add('opz-ok'); else if (j === k) b.classList.add('opz-no'); });
-  S.scoperta = true; cartellino();
-  $('#mc-avanti').hidden = false; $('#mc-avanti').textContent = S.i + 1 >= S.lista.length ? 'Vedi il risultato' : 'Avanti →';
+  Q.did = false; S.scoperta = false; cartellino();
+  $('#mc-avanti').hidden = false; $('#mc-avanti').textContent = 'Didascalia →';
+}
+function mostraDid() {      // secondo tocco dopo la risposta: spariscono le opzioni e compare la didascalia
+  Q.did = true; S.scoperta = true; $('#mc-opz').hidden = true; cartellino();
+  $('#mc-avanti').textContent = S.i + 1 >= S.lista.length && !(Q.tipo === 'guidato' && !Q.libero) ? 'Vedi il risultato' : 'Avanti →';
 }
 function prossimoMC() {
+  if (Q && Q.did === false) return mostraDid();
   if (Q && Q.tipo === 'guidato') { const g = piG(); if (g && (g.kind === 'impara' || g.chiuso)) prossimoG(); return; }
   if (!Q || !Q.risposto) return;
   if (S.i + 1 >= S.lista.length) return fineQuiz();
@@ -1319,16 +1337,17 @@ function registraG(w, v, f, game) {
   }
 }
 function prossimoG() {
-  if (S.i + 1 >= S.lista.length) return fineQuiz();
+  if (Q && Q.did === false) return mostraDid();
+  if (S.i + 1 >= S.lista.length && !estendiG()) return fineQuiz();
   S.i++; S.scoperta = false; mostra();
 }
 function finisciG(v, extra) {
   const w = corrente(), f = Q.pf[S.i], p = f.p; if (p.chiuso) return; p.chiuso = true;
   registraG(w, v, f, p.game);
   if (p.kind === 'ovl') $('#g-esito').innerHTML = (v === 2 ? '<b class="g-ok">Giusto.</b> ' : '<b class="g-no">Non proprio.</b> ') + (extra || '');
-  const av = $('#mc-avanti'); av.hidden = false; av.textContent = S.i + 1 >= S.lista.length ? 'Vedi il risultato' : 'Avanti →';
+  const av = $('#mc-avanti'); av.hidden = false; av.textContent = p.kind === 'opz' ? 'Didascalia →' : S.i + 1 >= S.lista.length && !(Q && Q.tipo === 'guidato' && !Q.libero) ? 'Vedi il risultato' : 'Avanti →';
   if (p.segnala) $('#g-segnala').hidden = false;
-  if (p.kind === 'opz') { S.scoperta = true; img.style.filter = ''; cartellino(); }
+  if (p.kind === 'opz') { Q.did = false; S.scoperta = false; img.style.filter = ''; cartellino(); }
 }
 function rispostaG(k) {
   const p = piG(); if (p && p.game === 'quarto' && !p.chiuso && p.btns && p.btns[k]) return p.btns[k].click();
@@ -1475,18 +1494,29 @@ function percorso() {
   return { cl, K, sicure, fasi, dovuti: dovuti.map(x => x[2]), nuove, oltre: cl.slice(K).filter(w => !P.gl[w.id] && !statDi(w.id)), imp: cl.filter(imparata),
     brera: cl.slice(0, K).filter(w => SEDI[w.s].n === 'Pinacoteca di Brera').length };
 }
-function sessioneGuidata() {
+function loteG(escludi) {
   const p = percorso(), N = 12;
+  if (escludi) { const f = l => l.filter(w => !escludi.has(w.id)); p.nuove = f(p.nuove); p.dovuti = f(p.dovuti); p.oltre = f(p.oltre); }
   p.nuove = mescola(p.nuove.slice(0, 40)).concat(p.nuove.slice(40));      // tra le prime 40 nuove si pesca a caso: le sessioni non ripartono sempre dalle stesse
   let nu = p.nuove.slice(0, N - Math.min(p.dovuti.length, Math.round(N * 0.6)));
   const d = p.dovuti.slice(0, Math.max(Math.round(N * 0.6), N - nu.length));
   nu = nu.slice(0, N - d.length);
   let lista = d.concat(nu);
   if (!lista.length) lista = p.oltre.slice(0, N);
-  if (!lista.length) return brindisi('Con i filtri attuali non c\'è altro da studiare');
+  return lista.length ? sequenzaG(mescola(lista.slice())) : null;
+}
+function sessioneGuidata() {
+  const q = loteG();
+  if (!q) return brindisi('Con i filtri attuali non c\'è altro da studiare');
   if (vista !== 'guidato') vaiA('guidato', true);
-  const q = sequenzaG(mescola(lista.slice()));
   avviaQuiz(q.lista, 'guidato', { pf: q.pf });
+}
+function estendiG() {      // guidato senza fine: finito il lotto ne prepara un altro, ci si ferma solo con «Interrompi»
+  if (!Q || Q.tipo !== 'guidato' || Q.libero) return false;
+  const q = loteG(new Set(S.lista.map(w => w.id)));
+  if (!q) return false;
+  S.lista.push(...q.lista); Q.pf.push(...q.pf);
+  return true;
 }
 function avviaTest() {
   const cl = classifica(attive(null));
@@ -1518,7 +1548,7 @@ function pagGuidato() {
       <p class="sotto">Un percorso che si adatta a te: parti con un breve test, poi ti propongo le opere dalle più richieste all'esame a quelle meno note, e ogni tanto ti faccio ripassare quelle che stai dimenticando.</p>
       <div class="passi">
         <div class="passo"><b>1 · Test di piazzamento</b><br>21 opere di difficoltà crescente, per capire da dove cominciare.</div>
-        <div class="passo"><b>2 · Sessioni da 12 opere</b><br>Le opere nuove prima si studiano, poi si mettono alla prova con domande sempre più difficili (4 artisti, immagine sfocata, un quarto di immagine, luogo, data, scuola…). Un'opera è <b>imparata</b> quando l'hai riconosciuta per intero 3 volte, proposta senza alcun aiuto (solo i tre tasti). Il ripasso arriva dopo 1, 3, 7, 14… giorni.</div>
+        <div class="passo"><b>2 · Una raffica continua</b><br>Le opere scorrono senza interruzione finché premi «Interrompi». Le opere nuove prima si studiano, poi si mettono alla prova con domande sempre più difficili (4 artisti, immagine sfocata, un quarto di immagine, luogo, data, scuola…). Un'opera è <b>imparata</b> quando l'hai riconosciuta per intero 3 volte, proposta senza alcun aiuto (solo i tre tasti). Il ripasso arriva dopo 1, 3, 7, 14… giorni.</div>
         <div class="passo"><b>3 · Il percorso si allarga</b><br>Più opere impari, più entrano in gioco opere secondarie e artisti meno noti. Le opere della Pinacoteca di Brera hanno la precedenza.</div>
       </div>
       <div class="fila"><button class="primario" id="g-test">Fai il test di piazzamento</button><button class="secondario" id="g-salta">Salta il test e parti dall'inizio</button></div>
@@ -1540,7 +1570,7 @@ function pagGuidato() {
     <div class="barretta" style="height:10px;margin-bottom:6px"><i style="width:${Math.min(100, prog)}%;background:var(--si)"></i></div>
     <p class="nota" style="margin-top:0">Più opere impari, più il percorso si allarga (${P.gd.k0} di partenza + 3 per ogni opera imparata).</p>
     <p class="nota">Nuove ${num(p.fasi[0])} · In apprendimento ${num(p.fasi[1])} · Imparate ${num(p.fasi[2])}</p>
-    <div class="fila"><button class="primario" id="g-via"${p.cl.length ? '' : ' disabled style="opacity:.4"'}>Inizia una sessione (12 opere)</button>
+    <div class="fila"><button class="primario" id="g-via"${p.cl.length ? '' : ' disabled style="opacity:.4"'}>Inizia</button>
       <button class="secondario" id="g-riep">Riepilogo (${num(p.sicure)} imparate)</button>
       <button class="secondario" id="g-test">Rifai il test di piazzamento</button></div>
     ${filtro}
