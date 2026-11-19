@@ -112,8 +112,12 @@ a{color:inherit}
 #lente img{max-width:100vw;max-height:100vh;width:100%;height:100%;object-fit:contain}
 #lente span{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff9;font-size:12.5px;pointer-events:none}
 /* quiz con opzioni: l'opera non finisce sotto i pulsanti */
-#palco.conopz #tela{bottom:calc(215px + env(safe-area-inset-bottom))}
-@media (min-width:761px){#palco.conopz #tela{bottom:130px;padding:6px 14px 0}}
+.sg-frase{font-family:var(--serif);font-size:19px;margin:4px 0 12px;color:var(--oro2)}
+.sg-per{margin:0 0 11px}.sg-per-t{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:3px;flex-wrap:wrap}.sg-per-t span{color:var(--tenue)}
+.sg-graf{display:flex;align-items:flex-end;gap:4px;height:78px;margin:12px 0 4px}.sg-graf>div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px}
+.sg-graf i{display:block;width:100%;background:var(--oro);border-radius:3px 3px 0 0;min-height:3px;opacity:.85}.sg-graf span{font-size:10px;color:var(--tenue)}
+#b-lente{position:absolute;top:10px;right:10px;z-index:6;width:38px;height:38px;border-radius:50%;border:1px solid #ffffff30;background:#000a;color:#fff;display:grid;place-items:center;padding:0}
+#b-lente svg{pointer-events:none}
 /* fase 2: ripasso, periodi, guidato, quiz a 4 artisti */
 .solo-stretto{display:none}
 #rip-badge{position:absolute;top:44px;left:10px;z-index:3;background:#d4a24ce6;color:#1b1407;font-weight:700;font-size:12px;border-radius:999px;padding:3px 10px;pointer-events:none}
@@ -203,6 +207,7 @@ label.spunta input{width:18px;height:18px;margin-top:1px;accent-color:var(--oro)
 .numero{background:var(--fondo2);border:1px solid var(--riga);border-radius:10px;padding:14px}
 .numero b{display:block;font-family:var(--serif);font-size:30px;font-weight:400;color:var(--oro2);line-height:1.1}
 .numero span{color:var(--tenue);font-size:13px}
+.numeri.tre{grid-template-columns:repeat(3,1fr);gap:7px}.numeri.tre .numero{padding:10px 8px}.numeri.tre .numero b{font-size:24px}.numeri.tre .numero b small{font-size:13px;color:var(--tenue)}.numeri.tre .numero span{font-size:11.5px}
 table{width:100%;border-collapse:collapse;font-size:14px}
 th{font-weight:600;color:var(--tenue);text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:8px 6px;border-bottom:1px solid var(--riga);position:sticky;top:-22px;background:var(--fondo)}
 td{padding:8px 6px;border-bottom:1px solid #ffffff0d;vertical-align:middle}
@@ -287,6 +292,7 @@ details .corpo{padding:0 2px 16px}
 <main id="palco" aria-live="polite" hidden>
   <div id="progresso" hidden><i></i></div>
   <div id="tela"><img id="img" alt="" referrerpolicy="no-referrer" draggable="false"></div>
+  <button id="b-lente" hidden title="Vedi l'immagine a tutto schermo" aria-label="Vedi l'immagine a tutto schermo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
   <div id="avviso" hidden></div>
   <div id="gioco" hidden><p id="g-dom" class="g-dom"></p><div id="g-corpo"></div><p id="g-esito" class="g-esito"></p></div>
   <div id="conta"></div>
@@ -480,7 +486,7 @@ const LIVELLI = [['fam', 'Più famose'], ['tutte', 'Tutte']];
 /* ================================================================= stato */
 let C = null;              // catalogo
 let OPERE = [], ART = [], SEDI = [], PER_ID = new Map();
-let P = { v: 1, liv: 'tutte', det: false, forme: [1, 1, 1, 0], ho: [], ha: [], st: {}, ordine: 'alfa', salva: false, ospiti: false, gr: [], rip: false, gd: { fatto: false, k0: 30, t: 0 }, gl: {}, seg: {}, sx: null };
+let P = { v: 1, liv: 'tutte', det: false, forme: [1, 1, 1, 0], ho: [], ha: [], st: {}, ordine: 'alfa', salva: false, ospiti: false, gr: [], rip: false, gd: { fatto: false, k0: 30, t: 0 }, gl: {}, seg: {}, sx: null, us: {} };
 let HO = new Set(), HA = new Set(), GR = new Set(), GC = {}, RC = 0;
 let vista = 'studio';
 let fuoco = null;          // {tipo:'artista'|'sede'|'citta'|'lista', valore, etichetta}
@@ -503,6 +509,7 @@ function applica(d, conStat) {
   if (conStat && d.st && typeof d.st === 'object') P.st = d.st;
   if (conStat && d.gl && typeof d.gl === 'object') P.gl = d.gl;
   if (d.seg && typeof d.seg === 'object') P.seg = d.seg;
+  if (conStat && d.us && typeof d.us === 'object') P.us = d.us;
   if (conStat && d.sx && typeof d.sx === 'object') P.sx = { q: d.sx.q || {}, g: d.sx.g || {}, gg: d.sx.gg || {} };
   if (conStat && d.gd && typeof d.gd === 'object') P.gd = { fatto: !!d.gd.fatto, k0: Math.max(30, +d.gd.k0 || 30), t: +d.gd.t || 0 };
   HO = new Set(P.ho); HA = new Set(P.ha); GR = new Set(P.gr);
@@ -595,8 +602,11 @@ function nuovaSerie() {
 }
 function corrente() { return S.lista[S.i]; }
 
+let ultimaVista = null;
+const giorno = (t = Date.now()) => { const d = new Date(t); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+function contaVista(w) { if (!w || w === ultimaVista) return; ultimaVista = w; if (!P.us) P.us = {}; const g = giorno(); P.us[g] = (P.us[g] || 0) + 1; salva(); }
 function mostra() {
-  azzeraZoom(); if (Q) Q.did = null; $('#mc-opz').hidden = false; chiudiLente();
+  azzeraZoom(); chiudiLente();
   const w = corrente();
   $('#rip-badge').hidden = !(w && (w.fl & F_RIPASSO) && S.modo !== 'quiz');
   $('#progresso').hidden = S.modo !== 'quiz';
@@ -608,7 +618,7 @@ function mostra() {
       : '<div><b>Nessuna opera</b></div>');
     return;
   }
-  avviso('');
+  avviso(''); contaVista(w);
   const PG = (Q && Q.tipo === 'guidato' && Q.pf) ? pianoG(w) : null, sovr = !!(PG && PG.kind === 'ovl');
   $('#gioco').hidden = !sovr;
   if (sovr) { $('#tela').hidden = true; disegnaOvl(PG); }
@@ -660,12 +670,12 @@ function cartellino() {
   el.hidden = !su;
   if (su) suggerito = true;
   const gq = quiz ? piG() : null, mc = quiz && Q && (Q.tipo === 'mc' || (gq && gq.kind !== 'auto'));
-  $('#suggerimento').hidden = su || !w || (Q && Q.did === false) || (suggerito && !mc) || (gq && gq.kind !== 'auto');
+  $('#suggerimento').hidden = su || !w || (suggerito && !mc) || (gq && gq.kind !== 'auto');
   $('#suggerimento').textContent = mc ? 'Scegli l\'artista tra i quattro' : quiz ? 'Prova a riconoscerla, poi tocca l\'opera' : 'Tocca l\'opera per scoprire la didascalia';
   $('#c-nav').hidden = quiz || !w;
   $('#c-nasc').hidden = quiz || !w;
   $('#c-quiz').hidden = !(quiz && su && !mc);
-  $('#c-mc').hidden = !(mc && w); $('#palco').classList.toggle('conopz', !!(mc && w));
+  $('#c-mc').hidden = !(mc && w); $('#b-lente').hidden = !(mc && w && $('#gioco').hidden);
   const so = su && haSchedaOpera(w), sa = su && haSchedaArtista(ART[w.a].n);
   const si = su && haIcoOpera(w);
   $('#c-scheda').hidden = !(so || sa || si); $('#c-sc-opera').hidden = !so; $('#c-sc-artista').hidden = !sa; $('#c-sc-ico').hidden = !si;
@@ -696,8 +706,8 @@ const wk = (u, t) => `<a class="wk" href="${esc(u)}" target="_blank" rel="noopen
 function tocco() {
   if (!corrente()) return;
   if (!$('#avviso').hidden) { avviso(''); if (S.modo === 'quiz') { saltaQuiz(); } else avanti(); return; }
-  if (S.modo === 'quiz' && Q && Q.tipo === 'guidato') { const g = piG(); if (g && g.kind !== 'auto') { if (g.kind === 'impara' || g.chiuso) prossimoG(); else if (g.kind === 'opz') apriLente(); return; } }
-  if (S.modo === 'quiz' && Q && Q.tipo === 'mc') { if (Q.risposto) prossimoMC(); else apriLente(); return; }
+  if (S.modo === 'quiz' && Q && Q.tipo === 'guidato') { const g = piG(); if (g && g.kind !== 'auto') { if (g.kind === 'impara' || g.chiuso) prossimoG(); return; } }
+  if (S.modo === 'quiz' && Q && Q.tipo === 'mc') { if (Q.risposto) prossimoMC(); return; }
   if (!S.scoperta) { S.scoperta = true; cartellino(); return; }
   if (S.modo === 'quiz') return;            // nel quiz si avanza solo rispondendo
   avanti();
@@ -793,6 +803,7 @@ function fineDito(e) {
 palco.addEventListener('pointerup', fineDito);
 palco.addEventListener('pointercancel', fineDito);
 palco.addEventListener('wheel', e => { if (interattivo(e.target) && e.target.closest('#cartellino')) return; e.preventDefault(); zoomA(Z.s * (e.deltaY < 0 ? 1.2 : 1 / 1.2), e.clientX, e.clientY); }, { passive: false });
+$('#b-lente').onclick = e => { e.stopPropagation(); apriLente(); };
 $('#prec').onclick = indietro;
 $('#succ').onclick = () => { if (S.modo === 'quiz') tocco(); else avanti(); };
 
@@ -1130,15 +1141,10 @@ function rispostaMC(k) {
   s[5] = Math.floor(Date.now() / 1000); P.st[w.id] = s; contaModo('q', w.id, ok ? 1 : 0); salva();
   Q.esiti.push([w, ok ? 1 : 0]);
   $$('#mc-opz .bt').forEach((b, j) => { b.disabled = true; if (Q.opz[j] === w.a) b.classList.add('opz-ok'); else if (j === k) b.classList.add('opz-no'); });
-  Q.did = false; S.scoperta = false; cartellino();
-  $('#mc-avanti').hidden = false; $('#mc-avanti').textContent = 'Didascalia →';
-}
-function mostraDid() {      // secondo tocco dopo la risposta: spariscono le opzioni e compare la didascalia
-  Q.did = true; S.scoperta = true; $('#mc-opz').hidden = true; cartellino();
-  $('#mc-avanti').textContent = S.i + 1 >= S.lista.length && !(Q.tipo === 'guidato' && !Q.libero) ? 'Vedi il risultato' : 'Avanti →';
+  S.scoperta = true; cartellino();
+  $('#mc-avanti').hidden = false; $('#mc-avanti').textContent = S.i + 1 >= S.lista.length ? 'Vedi il risultato' : 'Avanti →';
 }
 function prossimoMC() {
-  if (Q && Q.did === false) return mostraDid();
   if (Q && Q.tipo === 'guidato') { const g = piG(); if (g && (g.kind === 'impara' || g.chiuso)) prossimoG(); return; }
   if (!Q || !Q.risposto) return;
   if (S.i + 1 >= S.lista.length) return fineQuiz();
@@ -1337,7 +1343,6 @@ function registraG(w, v, f, game) {
   }
 }
 function prossimoG() {
-  if (Q && Q.did === false) return mostraDid();
   if (S.i + 1 >= S.lista.length && !estendiG()) return fineQuiz();
   S.i++; S.scoperta = false; mostra();
 }
@@ -1345,9 +1350,9 @@ function finisciG(v, extra) {
   const w = corrente(), f = Q.pf[S.i], p = f.p; if (p.chiuso) return; p.chiuso = true;
   registraG(w, v, f, p.game);
   if (p.kind === 'ovl') $('#g-esito').innerHTML = (v === 2 ? '<b class="g-ok">Giusto.</b> ' : '<b class="g-no">Non proprio.</b> ') + (extra || '');
-  const av = $('#mc-avanti'); av.hidden = false; av.textContent = p.kind === 'opz' ? 'Didascalia →' : S.i + 1 >= S.lista.length && !(Q && Q.tipo === 'guidato' && !Q.libero) ? 'Vedi il risultato' : 'Avanti →';
+  const av = $('#mc-avanti'); av.hidden = false; av.textContent = S.i + 1 >= S.lista.length && !(Q && Q.tipo === 'guidato' && !Q.libero) ? 'Vedi il risultato' : 'Avanti →';
   if (p.segnala) $('#g-segnala').hidden = false;
-  if (p.kind === 'opz') { Q.did = false; S.scoperta = false; img.style.filter = ''; cartellino(); }
+  if (p.kind === 'opz') { S.scoperta = true; img.style.filter = ''; cartellino(); }
 }
 function rispostaG(k) {
   const p = piG(); if (p && p.game === 'quarto' && !p.chiuso && p.btns && p.btns[k]) return p.btns[k].click();
@@ -1540,6 +1545,55 @@ function fineTest(q, el) {
     <div class="fila" style="margin-top:18px"><button class="primario" id="q-continua">Inizia la prima sessione</button><button class="secondario" id="q-percorso">Il tuo percorso</button></div>`;
   el.querySelector('#q-continua').onclick = sessioneGuidata; el.querySelector('#q-percorso').onclick = pagGuidato;
 }
+function statGuidato() {
+  const pool = attive(null), st = { nuova: 0, corso: 0, quasi: 0, imp: 0 }, per = new Map();
+  const nomiP = C.periodi || [];
+  for (const w of pool) {
+    const g = P.gl[w.id] || [];
+    const k = imparata(w) ? 'imp' : vistaG(w) ? ((g[4] || 0) >= 1 || livelloG(w) >= 4 ? 'quasi' : 'corso') : 'nuova';
+    st[k]++;
+    const pi = gruppoP().get((ART[w.a].g || [])[0]), pk = pi === undefined ? -1 : pi;
+    const r = per.get(pk) || { nuova: 0, corso: 0, quasi: 0, imp: 0, tot: 0 }; r[k]++; r.tot++; per.set(pk, r);
+  }
+  const tot = pool.length || 1, viste = tot - st.nuova, pc = x => (100 * x / tot).toFixed(1);
+  const us = P.us || {}, oggi = giorno(), conta = (g) => us[g] || 0;
+  const giorni = new Set(Object.keys(us).filter(k => us[k] > 0));
+  for (const s of Object.values(P.st || {})) if (s[5]) giorni.add(giorno(s[5] * 1000));
+  for (const g of Object.values(P.gl || {})) if (g[1]) giorni.add(giorno(g[1] * 1000));
+  let serie = 0; { const d = new Date(); if (!giorni.has(giorno(d.getTime()))) d.setDate(d.getDate() - 1); while (giorni.has(giorno(d.getTime()))) { serie++; d.setDate(d.getDate() - 1); } }
+  const mostrate = Object.values(us).reduce((a, b) => a + b, 0);
+  let risp = 0, giuste = 0; for (const s of Object.values(P.st || {})) { risp += s[0]; giuste += s[1]; }
+  const ultimi = []; for (let i = 13; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); ultimi.push([giorno(d.getTime()), d]); }
+  const mx = Math.max(1, ...ultimi.map(([g]) => conta(g))), sett = ultimi.slice(7).reduce((a, [g]) => a + conta(g), 0);
+  const trag = [10, 25, 50, 100, 200, 300, 500, 750, 1000, 1500, 2000, 3000, 5000].find(x => x > st.imp) || tot;
+  const barra = r => `<div class="barretta" style="height:8px"><i style="width:${100 * r.imp / r.tot}%;background:var(--si)"></i><i style="width:${100 * r.quasi / r.tot}%;background:var(--forse)"></i><i style="width:${100 * r.corso / r.tot}%;background:#7a6a4a"></i></div>`;
+  const righe = [...per.entries()].sort((a, b) => a[0] - b[0]).map(([k, r]) => `<div class="sg-per"><div class="sg-per-t"><b>${esc(k < 0 ? 'Altro' : nomiP[k] || 'Periodo')}</b><span>${num(r.tot - r.nuova)} viste su ${num(r.tot)} · <b style="color:#8fc487">${num(r.imp)}</b> imparate</span></div>${barra(r)}</div>`).join('');
+  const frase = serie >= 2 ? `🔥 ${serie} giorni di studio di fila` : conta(oggi) ? `Oggi hai già visto ${num(conta(oggi))} opere` : serie === 1 ? 'Hai studiato ieri: oggi continui la serie?' : 'Oggi non hai ancora studiato: bastano pochi minuti';
+  return `<p class="sg-frase">${frase}</p>
+    <div class="numeri tre">
+      <div class="numero"><b>${num(viste)}<small> / ${num(pool.length)}</small></b><span>opere viste</span></div>
+      <div class="numero"><b style="color:#8fc487">${num(st.imp)}</b><span>imparate</span></div>
+      <div class="numero"><b style="color:var(--forse,#d4a24c)">${num(st.quasi)}</b><span>quasi conosciute</span></div>
+    </div>
+    <div class="barretta" style="height:12px;margin:2px 0 6px"><i style="width:${pc(st.imp)}%;background:var(--si)"></i><i style="width:${pc(st.quasi)}%;background:var(--forse)"></i><i style="width:${pc(st.corso)}%;background:#7a6a4a"></i></div>
+    <p class="nota" style="margin-top:0">Imparate ${num(st.imp)} · quasi conosciute ${num(st.quasi)} · in apprendimento ${num(st.corso)} · da scoprire ${num(st.nuova)}</p>
+    <p class="nota">Prossimo traguardo: <b style="color:var(--testo)">${num(trag)} opere imparate</b> (${num(st.imp)}/${num(trag)})</p>
+    <div class="barretta" style="height:6px;margin-bottom:14px"><i style="width:${Math.min(100, 100 * st.imp / trag)}%;background:var(--oro)"></i></div>
+    <h2>Quanto stai usando l'app</h2>
+    <div class="numeri tre">
+      <div class="numero"><b>${num(mostrate)}</b><span>immagini mostrate</span></div>
+      <div class="numero"><b>${num(conta(oggi))}</b><span>oggi</span></div>
+      <div class="numero"><b>${num(sett)}</b><span>ultimi 7 giorni</span></div>
+    </div>
+    <div class="numeri tre">
+      <div class="numero"><b>${num(giorni.size)}</b><span>giorni di studio</span></div>
+      <div class="numero"><b>${num(serie)}</b><span>giorni di fila</span></div>
+      <div class="numero"><b>${risp ? Math.round(100 * giuste / risp) + '%' : '–'}</b><span>artista indovinato</span></div>
+    </div>
+    <div class="sg-graf">${ultimi.map(([g, d]) => `<div title="${g}: ${conta(g)}"><i style="height:${Math.max(3, 100 * conta(g) / mx)}%"></i><span>${d.getDate()}</span></div>`).join('')}</div>
+    <p class="nota" style="margin-top:2px">Immagini mostrate negli ultimi 14 giorni (il conteggio parte da questo aggiornamento).</p>
+    <h2>Avanzamento per periodo</h2>${righe}`;
+}
 function pagGuidato() {
   const el = $('#guid-dentro');
   if (!P.gd.fatto) {
@@ -1562,14 +1616,8 @@ function pagGuidato() {
   el.innerHTML = `<h1>Apprendimento guidato</h1>
     ${riepFiltri()}
     <p class="sotto">${p.cl.length ? `Hai in programma <b style="color:var(--testo)">${num(p.K)}</b> opere su ${num(p.cl.length)}` : 'Nessuna opera con i filtri attuali'}${p.brera ? `, di cui ${num(p.brera)} alla Pinacoteca di Brera` : ''}.</p>
-    <div class="numeri">
-      <div class="numero"><b>${num(p.dovuti.length)}</b><span>da ripassare ora</span></div>
-      <div class="numero"><b>${num(p.nuove.length)}</b><span>nuove in programma</span></div>
-      <div class="numero"><b style="color:#8fc487">${num(p.sicure)}</b><span>imparate</span></div>
-    </div>
-    <div class="barretta" style="height:10px;margin-bottom:6px"><i style="width:${Math.min(100, prog)}%;background:var(--si)"></i></div>
-    <p class="nota" style="margin-top:0">Più opere impari, più il percorso si allarga (${P.gd.k0} di partenza + 3 per ogni opera imparata).</p>
-    <p class="nota">Nuove ${num(p.fasi[0])} · In apprendimento ${num(p.fasi[1])} · Imparate ${num(p.fasi[2])}</p>
+    <div class="numeri"><div class="numero"><b>${num(p.dovuti.length)}</b><span>da ripassare ora</span></div><div class="numero"><b>${num(p.nuove.length)}</b><span>nuove in programma</span></div></div>
+    ${statGuidato()}
     <div class="fila"><button class="primario" id="g-via"${p.cl.length ? '' : ' disabled style="opacity:.4"'}>Inizia</button>
       <button class="secondario" id="g-riep">Riepilogo (${num(p.sicure)} imparate)</button>
       <button class="secondario" id="g-test">Rifai il test di piazzamento</button></div>
