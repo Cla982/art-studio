@@ -1657,18 +1657,19 @@ function mostraScheda() {
       <p class="sc-fonte">${esc(d.fonte || 'Appunti del corso')}</p>`;
   } else if (t.tipo === 'tema') {
     const d = ICO_T.get(t.chiave); if (!d) return;
-    const ops = []; ICO && ICO.sog && Object.keys(ICO.sog).forEach(i => { if (ICO.sog[i].includes(d.id)) ops.push(i); });
+    const tutte = (d.o || []).filter(i => PER_ID.has(i)), conSc = tutte.filter(i => SCHEDE.opere[i]);
     h += `<h1>${esc(d.t)}</h1><p class="sc-meta">${esc(['Iconografia', d.c, d.sub].filter(Boolean).join(' · '))}</p>
       ${d.s.map(x => `<p class="sc-tappa">${esc(x)}</p>`).join('')}
       ${d.el ? ul(d.el) : ''}
+      ${(d.ep || []).map(x => `<h2>${esc(x.t)}</h2>` + x.s.map(y => `<p class="sc-tappa">${esc(y)}</p>`).join('') + x.e.map(y => `<p class="sc-es">${esc(y)}</p>`).join('')).join('')}
       ${d.e.length ? '<h2>Esempi</h2>' + d.e.map(e => `<p class="sc-es">${esc(e.x)}</p>` + (e.id || []).map(rigaOpera).join('')).join('') : ''}
-      ${ops.length ? '<h2>Altre opere nell\'app con questo soggetto</h2>' + ops.filter(i => !d.e.some(e => (e.id || []).includes(i))).map(rigaOpera).join('') : ''}
+      ${tutte.length ? `<h2>Opere nell'app (${tutte.length})</h2><div class="fila"><button class="primario" data-sc="vedi-tema" data-v="${d.id}">Vedi le ${tutte.length} opere</button></div>` + conSc.filter(i => !d.e.some(e => (e.id || []).includes(i))).slice(0, 12).map(rigaOpera).join('') : ''}
       <div class="fila"><button class="secondario" data-sc="indice" data-v="">Tutta l'Iconografia</button></div>
       <p class="sc-fonte">Appunti del corso: ICONOGRAFIA .txt</p>`;
   } else if (t.tipo === 'indice') {
     let cat = null, sub = null; h += '<h1>Iconografia</h1><p class="sc-meta">Soggetti da riconoscere, con le opere dove compaiono.</p>';
     ICO.temi.forEach(d => { if (d.c !== cat) { cat = d.c; sub = null; h += `<h2 class="sc-cat">${esc(cat)}</h2>`; } if (d.sub !== sub && d.sub) { sub = d.sub; h += `<p class="sc-sub">${esc(sub)}</p>`; }
-      const n = d.e.filter(e => e.id).length; h += `<button class="sc-riga" data-sc="tema" data-v="${d.id}">${esc(d.t)}${n ? `<small>${n} ${n === 1 ? 'esempio' : 'esempi'} nell'app</small>` : ''}</button>`; });
+      const n = (d.o || []).length, ne = (d.ep || []).length; h += `<button class="sc-riga" data-sc="tema" data-v="${d.id}">${esc(d.t)}${n ? `<small>${n} ${n === 1 ? 'opera' : 'opere'} nell'app</small>` : ne ? `<small>${ne} episodi</small>` : ''}</button>`; });
   } else if (t.tipo === 'gruppo') {
     const d = SCHEDE.gruppi[t.chiave];
     h += `<h1>${esc(t.chiave)}</h1><p class="sc-sint">${esc(d.sint)}</p><h2>Da sapere</h2>${ul(d.punti)}<h2>Artisti</h2>` +
@@ -1682,6 +1683,7 @@ $('#scheda').addEventListener('click', e => {
   if (k === 'indietro') indietroScheda();
   else if (k === 'chiudi') chiudiScheda();
   else if (k === 'opera' || k === 'artista' || k === 'gruppo' || k === 'tema' || k === 'indice') apriScheda(k, v);
+  else if (k === 'vedi-tema') { const d = ICO_T.get(v); if (d) { chiudiScheda(); apriGriglia({ tipo: 'lista', valore: new Set(d.o), etichetta: d.t }); } }
   else if (k === 'griglia' || k === 'griglia-n') { const a = k === 'griglia' ? ART[+v] : ART.find(x => x.n === v); if (a) { chiudiScheda(); apriGriglia({ tipo: 'artista', valore: a.i }); } }
 });
 
