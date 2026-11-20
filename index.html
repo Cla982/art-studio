@@ -136,7 +136,11 @@ a{color:inherit}
 .bt.opz:disabled{opacity:1}
 .bt.opz-ok{background:#4f8a48f0;border-color:transparent;color:#fff}
 .bt.opz-no{background:#c9584af0;border-color:transparent;color:#fff}
-#mc-avanti{margin-top:6px;width:100%;border-color:var(--oro);color:var(--oro2)}
+#c-mc{position:relative}
+#c-mc .dom{min-height:36px;display:flex;align-items:flex-end;margin:0 0 3px}
+#mc-avanti{position:absolute;right:0;top:0;width:36px;height:34px;min-width:0;padding:0;margin:0;flex:none;font-size:0;border-radius:8px;border:1px solid var(--oro);color:var(--oro2);background:rgba(20,17,15,.88);display:grid;place-items:center;z-index:7}
+#mc-avanti::after{content:'→';font-size:20px;line-height:1}
+#mc-avanti[hidden]{display:none}
 #gioco{position:absolute;inset:0;padding:46px 12px 200px;overflow:auto;touch-action:pan-y;display:flex;flex-direction:column;align-items:center;gap:10px}
 .g-dom{font-family:var(--serif);font-size:18px;text-align:center;max-width:560px;margin:0;line-height:1.35}
 #g-corpo{width:100%;max-width:640px}
@@ -320,7 +324,7 @@ details .corpo{padding:0 2px 16px}
       <div id="c-mc" hidden>
         <p class="dom" id="c-dom">Chi è l'autore?</p>
         <div class="opz-g" id="mc-opz"></div>
-        <button class="bt" id="mc-avanti" data-az="mc-avanti" hidden>Avanti →</button>
+        <button class="bt" id="mc-avanti" data-az="mc-avanti" hidden aria-label="Avanti" title="Avanti">Avanti →</button>
         <button class="lk" id="g-segnala" hidden style="margin-top:4px;color:var(--oro2);font-size:12px">Non coincide con i tuoi appunti? Segnala</button>
       </div>
       <div id="c-quiz" hidden>
@@ -562,7 +566,7 @@ const locale = w => (C.locale && w.loc) ? 'img/' + (w.p.startsWith('http') ? 'ex
 const urlRete = w => w.p.startsWith('http') ? w.p : C.base + w.p + '.jpg';
 const urlImg = w => locale(w) || urlRete(w);
 const urlMedio = w => locale(w) || (w.p.startsWith('http') ? w.p.replace(/([?&]width=)\d+/, '$1900') : urlRete(w));
-const urlMini = w => locale(w) || (w.p.startsWith('http') ? w.p.replace(/([?&]width=)\d+/, '$1330') : C.base.replace('/art/', '/preview/') + w.p + '.jpg');
+const urlMini = w => locale(w) || (w.p.startsWith('http') ? w.p.replace(/([?&]width=)\d+/, '$1640') : C.base + w.p + '.jpg');      // miniature nitide: WGA a piena risoluzione (il pezzo /preview/ era minuscolo)
 
 function nelLivello(w) {
   if (!P.forme[w.f]) return false;
@@ -898,7 +902,7 @@ function altreCarte() {
     b.className = 'carta' + (HO.has(w.id) ? ' nasc' : ''); b.dataset.k = k;
     const im = document.createElement('img'); im.loading = 'lazy'; im.referrerPolicy = 'no-referrer'; im.alt = '';
     im.onerror = async () => { if (im.dataset.r) return; im.dataset.r = 1; const b = SALVATE.has(w.id) ? await dbLeggi(w.id) : null; im.src = b ? URL.createObjectURL(b) : urlImg(w); };
-    im.src = urlMini(w);
+    im.decoding = 'async'; im.src = urlMini(w);
     const d = document.createElement('div');
     d.innerHTML = `<b>${esc(w.t)}</b><span>${esc(G.f.tipo === 'artista' ? (w.d || '') : ART[w.a].n)}</span>`;
     b.append(im, d);
@@ -1499,7 +1503,10 @@ function classifica(pool) {
 function percorso() {
   const pool = attive(null), cl = classifica(pool), ora = Date.now() / 1000;
   const sicure = pool.filter(imparata).length;
-  const K = Math.min(cl.length, P.gd.k0 + 3 * sicure), dovuti = [], nuove = [], fasi = [0, 0, 0, 0];
+  // il percorso si allarga con l'impegno: +3 per ogni opera imparata, +1 per ogni quasi conosciuta, e comunque sempre almeno 12 opere nuove davanti a quelle già viste
+  let viste = 0, quasi = 0;
+  for (const w of pool) { if (!vistaG(w)) continue; viste++; const g = P.gl[w.id] || []; if (!imparata(w) && ((g[4] || 0) >= 1 || livelloG(w) >= 4)) quasi++; }
+  const K = Math.min(cl.length, Math.max(P.gd.k0 + 3 * sicure + quasi, viste + 12)), dovuti = [], nuove = [], fasi = [0, 0, 0, 0];
   for (const w of cl.slice(0, K)) {
     const g = P.gl[w.id], s = statDi(w.id);
     if (imparata(w)) { fasi[2]++; continue; }
@@ -1513,15 +1520,22 @@ function percorso() {
   return { cl, K, sicure, fasi, dovuti: dovuti.map(x => x[2]), nuove, oltre: cl.slice(K).filter(w => !P.gl[w.id] && !statDi(w.id)), imp: cl.filter(imparata),
     brera: cl.slice(0, K).filter(w => SEDI[w.s].n === 'Pinacoteca di Brera').length };
 }
+function ritardoG(w, ora) {      // secondi di ritardo rispetto al momento ideale per il ripasso (negativo = non ancora dovuta)
+  const g = P.gl[w.id], s = statDi(w.id);
+  const attesa = g ? (g[2] ? INTERVALLI_G[Math.min(g[0], 6)] : 600) : (s ? (s[4] === 2 ? INTERVALLI[Math.min(s[3], INTERVALLI.length - 1)] * 86400 : s[4] === 1 ? 3600 : 600) : 0);
+  return ora - (g ? g[1] : s ? s[5] : ora) - attesa + ((g ? !g[2] : s && s[4] < 2) ? 7200 : 0);      // chi era stata sbagliata passa avanti
+}
 function loteG(escludi) {
-  const p = percorso(), N = 12;
-  if (escludi) { const f = l => l.filter(w => !escludi.has(w.id)); p.nuove = f(p.nuove); p.dovuti = f(p.dovuti); p.oltre = f(p.oltre); }
-  p.nuove = mescola(p.nuove.slice(0, 40)).concat(p.nuove.slice(40));      // tra le prime 40 nuove si pesca a caso: le sessioni non ripartono sempre dalle stesse
-  let nu = p.nuove.slice(0, N - Math.min(p.dovuti.length, Math.round(N * 0.6)));
-  const d = p.dovuti.slice(0, Math.max(Math.round(N * 0.6), N - nu.length));
-  nu = nu.slice(0, N - d.length);
-  let lista = d.concat(nu);
-  if (!lista.length) lista = p.oltre.slice(0, N);
+  const p = percorso(), N = 12, ora = Date.now() / 1000, ex = escludi || new Set(), f = l => l.filter(w => !ex.has(w.id));
+  // opere già viste e non ancora imparate (anche fuori dal percorso base): prima le più scadute, poi quelle che stanno per scadere
+  const ap = attive(null).filter(w => vistaG(w) && !imparata(w) && !ex.has(w.id)).map(w => [ritardoG(w, ora), w]).sort((x, y) => y[0] - x[0]).map(x => x[1]);
+  const R = Math.min(ap.length, Math.round(N * 0.6));      // almeno il 60% del lotto è ripasso, finché ce n'è
+  const nuove = f(p.nuove);
+  const nuoveM = mescola(nuove.slice(0, 40)).concat(nuove.slice(40));      // tra le prime 40 nuove si pesca a caso: i lotti non ripartono sempre dalle stesse
+  let nu = nuoveM.slice(0, N - R);
+  if (nu.length < N - R) nu = nu.concat(f(p.oltre).slice(0, N - R - nu.length));
+  const d = ap.slice(0, Math.max(R, N - nu.length));
+  const lista = d.concat(nu);
   return lista.length ? sequenzaG(mescola(lista.slice())) : null;
 }
 function sessioneGuidata() {
@@ -1532,7 +1546,7 @@ function sessioneGuidata() {
 }
 function estendiG() {      // guidato senza fine: finito il lotto ne prepara un altro, ci si ferma solo con «Interrompi»
   if (!Q || Q.tipo !== 'guidato' || Q.libero) return false;
-  const q = loteG(new Set(S.lista.map(w => w.id)));
+  const q = loteG(new Set(S.lista.slice(-16).map(w => w.id)));      // solo le ultime 16: le altre possono tornare se è ora di ripassarle
   if (!q) return false;
   S.lista.push(...q.lista); Q.pf.push(...q.pf);
   return true;
@@ -1617,7 +1631,7 @@ function pagGuidato() {
       <div class="passi">
         <div class="passo"><b>1 · Test di piazzamento</b><br>21 opere di difficoltà crescente, per capire da dove cominciare.</div>
         <div class="passo"><b>2 · Una raffica continua</b><br>Le opere scorrono senza interruzione finché premi «Interrompi». Le opere nuove prima si studiano, poi si mettono alla prova con domande sempre più difficili (4 artisti, immagine sfocata, un quarto di immagine, luogo, data, scuola…). Un'opera è <b>imparata</b> quando l'hai riconosciuta per intero 3 volte, proposta senza alcun aiuto (solo i tre tasti). Il ripasso arriva dopo 1, 3, 7, 14… giorni.</div>
-        <div class="passo"><b>3 · Il percorso si allarga</b><br>Più opere impari, più entrano in gioco opere secondarie e artisti meno noti. Le opere della Pinacoteca di Brera hanno la precedenza.</div>
+        <div class="passo"><b>3 · Il percorso si allarga</b><br>Più opere vedi e impari, più entrano in gioco opere secondarie e artisti meno noti: il percorso resta sempre un po' più avanti di quanto hai già visto. Le opere della Pinacoteca di Brera hanno la precedenza.</div>
       </div>
       <div class="fila"><button class="primario" id="g-test">Fai il test di piazzamento</button><button class="secondario" id="g-salta">Salta il test e parti dall'inizio</button></div>
       <p class="nota">Il percorso rispetta i filtri del menu ☰ (periodo e stile, solo ripasso, artisti nascosti).</p>`;
