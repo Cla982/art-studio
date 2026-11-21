@@ -110,6 +110,9 @@ a{color:inherit}
 #lente{position:fixed;inset:0;z-index:60;background:#000;display:flex;align-items:center;justify-content:center;touch-action:pinch-zoom}
 #lente[hidden]{display:none}
 #lente img{max-width:100vw;max-height:100vh;width:100%;height:100%;object-fit:contain}
+#lente .l-det{position:absolute;left:0;right:0;bottom:34px;padding:10px 14px;background:linear-gradient(transparent,#000d 40%);color:#fff;text-align:center;pointer-events:none;display:flex;flex-direction:column;gap:2px}
+#lente .l-det[hidden]{display:none}
+#lente .l-det i{font-family:var(--serif);font-size:18px;color:var(--oro2)}#lente .l-det small{color:#ddd;font-size:12.5px}
 #lente span{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff9;font-size:12.5px;pointer-events:none}
 /* quiz con opzioni: l'opera non finisce sotto i pulsanti */
 .sg-frase{font-family:var(--serif);font-size:19px;margin:4px 0 12px;color:var(--oro2)}
@@ -136,9 +139,7 @@ a{color:inherit}
 .bt.opz:disabled{opacity:1}
 .bt.opz-ok{background:#4f8a48f0;border-color:transparent;color:#fff}
 .bt.opz-no{background:#c9584af0;border-color:transparent;color:#fff}
-#c-mc{position:relative}
-#c-mc .dom{min-height:36px;display:flex;align-items:flex-end;margin:0 0 3px}
-#mc-avanti{position:absolute;right:0;top:0;width:36px;height:34px;min-width:0;padding:0;margin:0;flex:none;font-size:0;border-radius:8px;border:1px solid var(--oro);color:var(--oro2);background:rgba(20,17,15,.88);display:grid;place-items:center;z-index:7}
+#mc-avanti{position:absolute;right:10px;bottom:calc(100% + 8px);width:44px;height:40px;min-width:0;padding:0;margin:0;flex:none;font-size:0;border-radius:8px;border:1px solid var(--oro);color:var(--oro2);background:rgba(20,17,15,.88);display:grid;place-items:center;z-index:7}
 #mc-avanti::after{content:'→';font-size:20px;line-height:1}
 #mc-avanti[hidden]{display:none}
 #gioco{position:absolute;inset:0;padding:46px 12px 200px;overflow:auto;touch-action:pan-y;display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -702,10 +703,12 @@ function cartellino() {
   el.scrollTop = 0;
 }
 const ZOOM_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
-function apriLente(src) {
+function apriLente(src, w) {
   const s = src || img.currentSrc || img.src; if (!s) return;
-  let l = $('#lente'); if (!l) { l = document.createElement('div'); l.id = 'lente'; l.innerHTML = '<img alt="" referrerpolicy="no-referrer"><span>tocca per chiudere</span>'; l.onclick = chiudiLente; document.body.appendChild(l); }
+  let l = $('#lente'); if (!l) { l = document.createElement('div'); l.id = 'lente'; l.innerHTML = '<img alt="" referrerpolicy="no-referrer"><div class="l-det"></div><span>tocca per chiudere</span>'; l.onclick = chiudiLente; document.body.appendChild(l); }
   l.querySelector('img').src = s; l.hidden = false;
+  const dt = l.querySelector('.l-det');      // i dettagli compaiono solo se l'opera è già stata svelata
+  dt.hidden = !w; dt.innerHTML = w ? `<i>${esc(w.t)}</i><b>${esc(ART[w.a].n)}</b><small>${esc([w.d, w.te, SEDI[w.s].n + (SEDI[w.s].c && SEDI[w.s].c !== SEDI[w.s].n ? ' (' + SEDI[w.s].c + ')' : '')].filter(Boolean).join(' · '))}</small>` : '';
 }
 function chiudiLente() { const l = $('#lente'); if (l) l.hidden = true; }
 const wk = (u, t) => `<a class="wk" href="${esc(u)}" target="_blank" rel="noopener" title="${esc(t)}" aria-label="${esc(t)}"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><rect x="1.5" y="1.5" width="21" height="21" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 7.5l3.2 9.5 2.3-6.2 2.3 6.2 3.2-9.5M13.2 7.5h6.3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5 0)"/></svg></a>`;
@@ -817,7 +820,7 @@ function fineDito(e) {
 palco.addEventListener('pointerup', fineDito);
 palco.addEventListener('pointercancel', fineDito);
 palco.addEventListener('wheel', e => { if (interattivo(e.target) && e.target.closest('#cartellino')) return; e.preventDefault(); zoomA(Z.s * (e.deltaY < 0 ? 1.2 : 1 / 1.2), e.clientX, e.clientY); }, { passive: false });
-$('#b-lente').onclick = e => { e.stopPropagation(); apriLente(); };
+$('#b-lente').onclick = e => { e.stopPropagation(); apriLente(undefined, S.scoperta ? corrente() : null); };
 $('#prec').onclick = indietro;
 $('#succ').onclick = () => { if (S.modo === 'quiz') tocco(); else avanti(); };
 
@@ -1253,7 +1256,7 @@ function gScuola(w, lv) {
 }
 function gImg(w) {
   const s = altriSimili(w, 3); if (!s) return null;
-  return { kind: 'ovl', game: 'img', dom: 'Quale di queste è «' + w.t + '» di ' + ART[w.a].n + '?', items: mescola([w, ...s]), giusta: w };
+  return { kind: 'ovl', game: 'img', dom: 'Quale di queste è di ' + ART[w.a].n + '?', items: mescola([w, ...s]), giusta: w };
 }
 function gIntruso(w) {
   const tit = new Set([piano(w.t)]), stesse = mescola(OPERE.filter(x => x.a === w.a && x.id !== w.id && x.f === w.f && !(x.fl & (F_DETT | F_DOPPIA)))).filter(x => { const k = piano(x.t); if (tit.has(k)) return false; tit.add(k); return true; });
@@ -1428,7 +1431,7 @@ function disegnaOvl(p) {
   if (p.game === 'quarto') return disegnaQuarto(p, corpo, gr);
   const carte = p.items.map(w => { const b = document.createElement('button'); b.className = 'g-card'; const imc = imgMini(w); b.append(imc);
     const zm = document.createElement('span'); zm.className = 'g-zoom'; zm.setAttribute('role', 'button'); zm.setAttribute('aria-label', 'Vedi a tutto schermo'); zm.innerHTML = ZOOM_SVG;
-    zm.onclick = e => { e.stopPropagation(); e.preventDefault(); apriLente(imc.currentSrc || imc.src, w); }; b.append(zm); const e = document.createElement('div'); e.className = 'g-et'; e.hidden = true; b.append(e); gr.append(b); return b; });
+    zm.onclick = e => { e.stopPropagation(); e.preventDefault(); apriLente(imc.currentSrc || imc.src, p.chiuso ? w : null); }; b.append(zm); const e = document.createElement('div'); e.className = 'g-et'; e.hidden = true; b.append(e); gr.append(b); return b; });
   gr.style.opacity = '0'; gr.style.transition = 'opacity .2s';      // le immagini compaiono tutte insieme: così quella già in cache non tradisce la risposta
   { const t0 = Date.now(), iv = setInterval(() => { if (carte.every(b => { const i = b.querySelector('img'); return i && i.complete && i.naturalWidth > 0; }) || Date.now() - t0 > 6000) { clearInterval(iv); gr.style.opacity = '1'; } }, 80); }
   const rivela = (j, html) => { const e = carte[j].querySelector('.g-et'); e.innerHTML = html; e.hidden = false; };
@@ -1479,6 +1482,10 @@ function disegnaOvl(p) {
     agg();
   }
 }
+$('#gioco').addEventListener('click', e => {      // a risposta data, un tocco fuori dalle carte passa alla domanda dopo
+  const g = piG(); if (!g || g.kind !== 'ovl' || !g.chiuso || e.target.closest('.g-card, .g-zoom, button, a')) return;
+  prossimoG();
+});
 $('#g-segnala').onclick = () => {
   const w = corrente(); if (!w) return;
   P.seg = P.seg || {}; P.seg[w.id] = 1; salva(); $('#g-segnala').hidden = true;
@@ -1529,7 +1536,9 @@ function loteG(escludi) {
   const p = percorso(), N = 12, ora = Date.now() / 1000, ex = escludi || new Set(), f = l => l.filter(w => !ex.has(w.id));
   // opere già viste e non ancora imparate (anche fuori dal percorso base): prima le più scadute, poi quelle che stanno per scadere
   const ap = attive(null).filter(w => vistaG(w) && !imparata(w) && !ex.has(w.id)).map(w => [ritardoG(w, ora), w]).sort((x, y) => y[0] - x[0]).map(x => x[1]);
-  const R = Math.min(ap.length, Math.round(N * 0.6));      // almeno il 60% del lotto è ripasso, finché ce n'è
+  // più opere viste e non ancora imparate si accumulano, meno ne entrano di nuove: da metà lotto fino a 2 su 12
+  const nN = ap.length ? Math.max(2, Math.round(N * Math.max(0.15, 0.5 - ap.length / 600))) : N;
+  const R = Math.min(ap.length, N - nN);
   const nuove = f(p.nuove);
   const nuoveM = mescola(nuove.slice(0, 40)).concat(nuove.slice(40));      // tra le prime 40 nuove si pesca a caso: i lotti non ripartono sempre dalle stesse
   let nu = nuoveM.slice(0, N - R);
