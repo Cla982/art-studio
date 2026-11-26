@@ -79,6 +79,7 @@ a{color:inherit}
 #suggerimento{display:inline-block;font-size:12.5px;color:#fffc;background:rgba(0,0,0,.6);padding:6px 12px;border-radius:8px;pointer-events:none!important}
 .lk{background:none;border:0;padding:0;color:inherit;font:inherit;text-align:left;text-decoration:underline dotted;text-decoration-color:#ffffff88;
   text-underline-offset:3px}
+.milano,.lk.milano{background:var(--oro);color:#1a1410!important;font-weight:800;padding:1px 8px;border-radius:5px;text-decoration:none!important;letter-spacing:.02em;box-shadow:0 0 0 2px #d4a24c55}
 .lk:hover{color:var(--oro2);text-decoration-style:solid;text-decoration-color:currentColor}
 .wk{display:inline-flex;align-items:center;margin-left:5px;text-decoration:none;color:var(--oro2);vertical-align:-2px;padding:1px;border-radius:3px}
 .wk:hover{background:var(--oro2);color:#1b1407}
@@ -698,7 +699,8 @@ function cartellino() {
   const luogo = (testo, citta) => citta && testo.startsWith(citta) ? `<button class="lk" data-az="citta" data-v="${esc(citta)}" title="Opere conservate a ${esc(citta)}">${esc(citta)}</button>${esc(testo.slice(citta.length))}` : esc(testo);
   $('#c-vita').innerHTML = a.b || a.d ? '(' + [a.b && luogo(a.b, a.bp), a.d && luogo(a.d, a.dp)].filter(Boolean).join(' – ') + ')' : '';
   let dove = `<button class="lk" data-az="sede" data-v="${w.s}" title="Altre opere in questa sede">${esc(s.n)}</button>` + (s.wk ? wk(s.wk, 'Wikipedia: ' + s.n) : '');
-  if (s.c && s.c !== s.n) dove += ` (<button class="lk" data-az="citta" data-v="${esc(s.c)}" title="Opere conservate a ${esc(s.c)}">${esc(s.c)}</button>)`;
+  if (s.c && s.c !== s.n) dove += ` (<button class="lk${/milano/i.test(s.c) ? ' milano' : ''}" data-az="citta" data-v="${esc(s.c)}" title="Opere conservate a ${esc(s.c)}">${esc(s.c)}</button>)`;
+  else if (/milano/i.test(s.n)) dove += ' <span class="milano">Milano</span>';
   $('#c-info').innerHTML = [w.d, w.te].filter(Boolean).map(esc).concat(dove).join('<span class="sep">|</span>');
   el.scrollTop = 0;
 }
@@ -1326,7 +1328,7 @@ function sequenzaG(works) {
   for (const w of works) {
     sblocca(false);
     if (vistaG(w)) { lista.push(w); pf.push({ f: 'test' }); }
-    else { lista.push(w); pf.push({ f: 'impara' }); pend.push({ w, dopo: lista.length + 3 }); }
+    else { lista.push(w); pf.push({ f: 'impara' }); pend.push({ w, dopo: lista.length + 6 }); }
   }
   sblocca(true);
   return { lista, pf };
@@ -1351,15 +1353,16 @@ function registraG(w, v, f, game) {
   g[3] = game; P.gl[w.id] = g; salva();
   if (!f.rq && !Q.vis.has(w.id)) { Q.vis.add(w.id); Q.esiti.push([w, v]); }
   if (v === 2 && f.nuova && !f.rq && (f.passo || 0) < 2) {      // opera nuova: torna due volte nella stessa sessione, ogni volta più difficile
-    const pos = Math.min(S.i + 5, S.lista.length);
+    const pos = Math.min(S.i + ((f.passo || 0) === 0 ? 10 : 24), S.lista.length);      // ritorni distanziati: dopo circa 10 e poi 24 opere
     S.lista.splice(pos, 0, w); Q.pf.splice(pos, 0, { f: 'test', nuova: true, passo: (f.passo || 0) + 1 });
   }
   if (v === 0 && (f.rq || 0) < 2) {
-    const pos = Math.min(S.i + 4, S.lista.length);
+    const pos = Math.min(S.i + 8, S.lista.length);
     S.lista.splice(pos, 0, w); Q.pf.splice(pos, 0, { f: 'test', rq: (f.rq || 0) + 1 });
   }
 }
 function prossimoG() {
+  if (Q && Q.tipo === 'guidato' && !Q.libero && S.lista.length - S.i < 30) estendiG();      // tengo sempre una trentina di opere già in coda, così i ritorni restano distanziati
   if (S.i + 1 >= S.lista.length && !estendiG()) return fineQuiz();
   S.i++; S.scoperta = false; mostra();
 }
@@ -1507,8 +1510,16 @@ function classifica(pool) {
   out.sort((x, y) => y[0] - x[0]);
   return out.map(x => x[1]);
 }
+const normT = s => piano(s).replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+const chiaveG = w => w._k || (w._k = w.a + '|' + normT(w.t) + '|' + (w.d || ''));
+function dedupG(pool) {      // la stessa opera compare nel catalogo con più immagini: nel guidato ne vale una sola (preferendo quella già vista)
+  const pt = w => (P.gl[w.id] ? 100 + P.gl[w.id][0] : statDi(w.id) ? 50 : 0) + ((w.fl & F_DETT) ? -5 : 0) + ((w.fl & F_DOPPIA) ? -4 : 0) + ((w.fl & F_FAMOSA) ? 3 : 0) + (w.loc ? 1 : 0);
+  const m = new Map();
+  for (const w of pool) { const k = chiaveG(w), c = m.get(k); if (!c || pt(w) > pt(c)) m.set(k, w); }
+  return pool.filter(w => m.get(chiaveG(w)) === w);
+}
 function percorso() {
-  const pool = attive(null), cl = classifica(pool), ora = Date.now() / 1000;
+  const pool = dedupG(attive(null)), cl = classifica(pool), ora = Date.now() / 1000;
   const sicure = pool.filter(imparata).length;
   // il percorso si allarga con l'impegno: +3 per ogni opera imparata, +1 per ogni quasi conosciuta, e comunque sempre almeno 12 opere nuove davanti a quelle già viste
   let viste = 0, quasi = 0;
@@ -1532,10 +1543,16 @@ function ritardoG(w, ora) {      // secondi di ritardo rispetto al momento ideal
   const attesa = g ? (g[2] ? INTERVALLI_G[Math.min(g[0], 6)] : 600) : (s ? (s[4] === 2 ? INTERVALLI[Math.min(s[3], INTERVALLI.length - 1)] * 86400 : s[4] === 1 ? 3600 : 600) : 0);
   return ora - (g ? g[1] : s ? s[5] : ora) - attesa + ((g ? !g[2] : s && s[4] < 2) ? 7200 : 0);      // chi era stata sbagliata passa avanti
 }
+function distanzia(l) {      // evita due opere dello stesso artista una dopo l'altra
+  const out = [], resto = l.slice();
+  while (resto.length) { const ult = out.length ? out[out.length - 1].a : -1; let j = resto.findIndex(w => w.a !== ult); if (j < 0) j = 0; out.push(resto.splice(j, 1)[0]); }
+  return out;
+}
 function loteG(escludi) {
   const p = percorso(), N = 12, ora = Date.now() / 1000, ex = escludi || new Set(), f = l => l.filter(w => !ex.has(w.id));
   // opere già viste e non ancora imparate (anche fuori dal percorso base): prima le più scadute, poi quelle che stanno per scadere
-  const ap = attive(null).filter(w => vistaG(w) && !imparata(w) && !ex.has(w.id)).map(w => [ritardoG(w, ora), w]).sort((x, y) => y[0] - x[0]).map(x => x[1]);
+  const rec = ora - 480;      // non ripropongo opere risposte negli ultimi 8 minuti
+  const ap = dedupG(attive(null)).filter(w => vistaG(w) && !imparata(w) && !ex.has(w.id) && !((P.gl[w.id] || [])[1] > rec)).map(w => [ritardoG(w, ora), w]).sort((x, y) => y[0] - x[0]).map(x => x[1]);
   // più opere viste e non ancora imparate si accumulano, meno ne entrano di nuove: da metà lotto fino a 2 su 12
   const nN = ap.length ? Math.max(2, Math.round(N * Math.max(0.15, 0.5 - ap.length / 600))) : N;
   const R = Math.min(ap.length, N - nN);
@@ -1543,9 +1560,10 @@ function loteG(escludi) {
   const nuoveM = mescola(nuove.slice(0, 40)).concat(nuove.slice(40));      // tra le prime 40 nuove si pesca a caso: i lotti non ripartono sempre dalle stesse
   let nu = nuoveM.slice(0, N - R);
   if (nu.length < N - R) nu = nu.concat(f(p.oltre).slice(0, N - R - nu.length));
-  const d = ap.slice(0, Math.max(R, N - nu.length));
-  const lista = d.concat(nu);
-  return lista.length ? sequenzaG(mescola(lista.slice())) : null;
+  const nd = Math.max(R, N - nu.length);
+  const d = mescola(ap.slice(0, nd * 2)).slice(0, nd);      // tra le più scadute si pesca a caso: i lotti non escono sempre uguali
+  const lista = distanzia(mescola(d.concat(nu)));
+  return lista.length ? sequenzaG(lista) : null;
 }
 function sessioneGuidata() {
   const q = loteG();
@@ -1555,7 +1573,7 @@ function sessioneGuidata() {
 }
 function estendiG() {      // guidato senza fine: finito il lotto ne prepara un altro, ci si ferma solo con «Interrompi»
   if (!Q || Q.tipo !== 'guidato' || Q.libero) return false;
-  const q = loteG(new Set(S.lista.slice(-16).map(w => w.id)));      // solo le ultime 16: le altre possono tornare se è ora di ripassarle
+  const q = loteG(new Set(S.lista.slice(-40).map(w => w.id)));      // solo le ultime 40: le altre possono tornare se è ora di ripassarle
   if (!q) return false;
   S.lista.push(...q.lista); Q.pf.push(...q.pf);
   return true;
@@ -1583,7 +1601,7 @@ function fineTest(q, el) {
   el.querySelector('#q-continua').onclick = sessioneGuidata; el.querySelector('#q-percorso').onclick = pagGuidato;
 }
 function statGuidato() {
-  const pool = attive(null), st = { nuova: 0, corso: 0, quasi: 0, imp: 0 }, per = new Map();
+  const pool = dedupG(attive(null)), st = { nuova: 0, corso: 0, quasi: 0, imp: 0 }, per = new Map();
   const nomiP = C.periodi || [];
   for (const w of pool) {
     const g = P.gl[w.id] || [];
