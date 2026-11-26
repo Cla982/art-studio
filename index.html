@@ -1034,10 +1034,10 @@ function pagQuiz() {
   $('#q-via-libera').onclick = () => { const b2 = agg(), l = scegliPerQuiz(b2, quizN, quizPriorita); if (quizModo === 'auto' || quizModo === 'mc') avviaQuiz(l, quizModo); else avviaGioco(l, quizModo); };
   montaStat($('#stat-q'), 'q');
 }
-const GIOCHI_Q = [['artista4', '4 artisti'], ['sfocata', 'Sfocata'], ['quarto', 'Un quarto'], ['quando', 'Decennio'], ['titolo', 'Titolo'], ['dove', 'Dove si trova'], ['scuola', 'Scuola'], ['img', 'Quale immagine'], ['intruso', 'Intruso'], ['ordina', 'Ordina nel tempo'], ['abbina', 'Abbina'], ['misto', 'Misto']];
-const SPIEGA_Q = { sfocata: 'Un\'opera sfocata: riconosci l\'autore dall\'impianto generale.', quarto: 'Vedi solo un quarto dell\'opera: chi è l\'autore?', quando: 'Indovina il decennio in cui è stata realizzata l\'opera.', titolo: 'Dall\'immagine al titolo.', dove: 'In quale città si trova?', scuola: 'A quale gruppo o scuola appartiene?', img: 'Tra quattro immagini, trova quella indicata.', intruso: 'Tre opere sono dello stesso artista: trova l\'intruso.', ordina: 'Metti quattro opere in ordine di tempo.', abbina: 'Abbina quattro opere ai loro artisti.', misto: 'Un gioco diverso a ogni opera.' };
+const GIOCHI_Q = [['artista4', '4 artisti'], ['sfocata', 'Sfocata'], ['quarto', 'Un quarto'], ['quando', 'Decennio'], ['titolo', 'Titolo'], ['dove', 'Dove si trova'], ['scuola', 'Scuola'], ['img', 'Quale immagine'], ['intruso', 'Intruso'], ['ordina', 'Ordina nel tempo'], ['abbina', 'Abbina'], ['omonime', 'Stesso titolo'], ['misto', 'Misto']];
+const SPIEGA_Q = { omonime: 'Due opere con lo stesso titolo, di artisti diversi: abbina ciascuna al suo autore.', sfocata: 'Un\'opera sfocata: riconosci l\'autore dall\'impianto generale.', quarto: 'Vedi solo un quarto dell\'opera: chi è l\'autore?', quando: 'Indovina il decennio in cui è stata realizzata l\'opera.', titolo: 'Dall\'immagine al titolo.', dove: 'In quale città si trova?', scuola: 'A quale gruppo o scuola appartiene?', img: 'Tra quattro immagini, trova quella indicata.', intruso: 'Tre opere sono dello stesso artista: trova l\'intruso.', ordina: 'Metti quattro opere in ordine di tempo.', abbina: 'Abbina quattro opere ai loro artisti.', misto: 'Un gioco diverso a ogni opera.' };
 function avviaGioco(works, g) {
-  const tutti = ['sfocata', 'quarto', 'quando', 'titolo', 'dove', 'scuola', 'img', 'intruso', 'ordina', 'abbina'], lista = [], pf = [];
+  const tutti = ['sfocata', 'quarto', 'quando', 'titolo', 'dove', 'scuola', 'img', 'intruso', 'ordina', 'abbina', 'omonime'], lista = [], pf = [];
   for (const w of works) {
     let p = null;
     if (g === 'artista4') p = gArtista(w, 1);
@@ -1139,14 +1139,14 @@ function finestre() {
   });
   return FIN;
 }
-function opzioniMC(w) {
+function opzioniMC(w, d) {      // d: 0 = preferisce artisti di altre scuole, 2 = (default) preferisce la stessa scuola; in ogni caso stesso decennio
   const F = finestre(), a0 = ART[w.a];
-  const y = w.y || (F[w.a] ? (F[w.a][0] + F[w.a][1]) / 2 : 0);
+  const y = annoG(w) || w.y || (F[w.a] ? (F[w.a][0] + F[w.a][1]) / 2 : 0);
   const ok = a => a.i !== w.a && !a.x && !fuori(a) && !HA.has(a.n) && F[a.i];
   let cand = [];
-  if (y) for (const tol of [5, 10, 20, 40, 80]) { cand = ART.filter(a => ok(a) && F[a.i][0] <= y + tol && F[a.i][1] >= y - tol); if (cand.length >= 3) break; }
+  if (y) for (const tol of [0, 5, 10, 20, 40, 80]) { cand = ART.filter(a => ok(a) && F[a.i][0] <= y + tol && F[a.i][1] >= y - tol); if (cand.length >= 4) break; }
   if (cand.length < 3) cand = ART.filter(ok);
-  const pool = cand.map(a => [a, a.g.some(n => a0.g.includes(n)) ? 3 : 1]), scelti = [];
+  const pool = cand.map(a => [a, a.g.some(n => a0.g.includes(n)) ? (d === 0 ? 0.4 : d === 1 ? 1 : 3) : 1]), scelti = [];
   while (scelti.length < 3 && pool.length) {
     let r = Math.random() * pool.reduce((t, x) => t + x[1], 0), j = 0;
     while (r > pool[j][1] && j < pool.length - 1) { r -= pool[j][1]; j++; }
@@ -1224,19 +1224,7 @@ function altriSimili(w, n, prefGruppo) {
   for (const [, x] of cand) { if (usati.has(x.a)) continue; usati.add(x.a); out.push(x); if (out.length >= n) break; }
   return out.length === n ? out : null;
 }
-function opzArtisti(w, d) {
-  if (d === 2) return opzioniMC(w);
-  const F = finestre(), a0 = ART[w.a], y = annoG(w) || mezzoArt(w.a) || 0, p0 = perArt(w.a);
-  const ok = a => a.i !== w.a && !a.x && !HA.has(a.n) && F[a.i];
-  let cand = [];
-  if (d === 0) for (const lim of [80, 40, 15]) { cand = ART.filter(a => ok(a) && y && Math.abs(mezzoArt(a.i) - y) >= lim && !a.g.some(n => a0.g.includes(n))); if (cand.length >= 3) break; }
-  else {
-    cand = ART.filter(a => ok(a) && [...perArt(a.i)].some(p => p0.has(p)) && !a.g.some(n => a0.g.includes(n)));
-    if (cand.length < 3) cand = ART.filter(a => ok(a) && [...perArt(a.i)].some(p => p0.has(p)));
-  }
-  if (!cand || cand.length < 3) return opzioniMC(w);
-  return mescola(scegli(cand, 3).map(a => a.i).concat(w.a));
-}
+function opzArtisti(w, d) { return opzioniMC(w, d); }      // sempre artisti attivi nello stesso periodo dell'opera
 const gArtista = (w, d) => { const o = opzArtisti(w, d); return { kind: 'opz', game: 'artista', dom: 'Chi è l\'autore?', opz: o.map(i => ({ t: ART[i].n, ok: i === w.a })) }; };
 function gDove(w) {
   if (segnalata(w)) return null;
@@ -1307,14 +1295,26 @@ function gQuarto(w) {      // si vede solo un quarto dell'opera: riconoscere da 
   const o = opzArtisti(w, 1);
   return { kind: 'ovl', game: 'quarto', dom: 'Vedi solo un quarto dell\'opera: chi è l\'autore?', items: [w], q: Math.floor(Math.random() * 4), opz: o.map(i => ({ t: ART[i].n, ok: i === w.a })) };
 }
-const TAB_G = [['a0'], ['a1', 'img'], ['a2', 'sfocata', 'quarto'], ['auto', 'titolo'], ['img', 'scuola', 'dove', 'titolo'], ['quando', 'intruso', 'ordina', 'abbina', 'sfocata', 'quarto'], ['img', 'scuola', 'dove', 'quando', 'intruso', 'ordina', 'abbina', 'titolo', 'sfocata', 'quarto', 'auto']];
+function gOmonime(w) {      // due opere con lo stesso titolo di artisti diversi: abbina i nomi
+  const k = piano(w.t); if (k.length < 4 || (w.fl & F_DETT) || /veduta|facciata|chiesa|interno|esterno|\(|^(auto)?ritratto/i.test(w.t)) return null;
+  const y = annoG(w) || w.y || 0, visti = new Set([w.a]), c = [];
+  for (const x of mescola(poolG())) {
+    if (x.a === w.a || visti.has(x.a) || (x.fl & F_DETT) || ART[x.a].x) continue;
+    if ((x._nt || (x._nt = piano(x.t))) !== k) continue;
+    visti.add(x.a); c.push(x);
+  }
+  if (!c.length) return null;
+  const x = c[0];
+  return { kind: 'ovl', game: 'abbina', omo: true, dom: 'Due opere intitolate «' + w.t + '»: abbina ogni opera al suo artista.', items: mescola([w, x]) };
+}
+const TAB_G = [['a0'], ['a1', 'img'], ['a2', 'sfocata', 'quarto'], ['auto', 'titolo'], ['img', 'scuola', 'dove', 'titolo', 'omonime'], ['quando', 'intruso', 'ordina', 'abbina', 'omonime', 'omonime', 'sfocata', 'quarto'], ['img', 'scuola', 'dove', 'quando', 'intruso', 'ordina', 'abbina', 'omonime', 'omonime', 'titolo', 'sfocata', 'quarto', 'auto']];
 function provaG(n, w, lv) {
   switch (n) {
     case 'a0': return gArtista(w, 0); case 'a1': return gArtista(w, 1); case 'a2': return gArtista(w, 2);
     case 'titolo': return gTitolo(w); case 'sfocata': return gSfocata(w); case 'quarto': return gQuarto(w);
     case 'auto': return { kind: 'auto', game: 'auto', dom: '' };
     case 'img': return gImg(w); case 'scuola': return gScuola(w, lv); case 'dove': return gDove(w);
-    case 'quando': return gQuando(w, lv); case 'intruso': return gIntruso(w); case 'ordina': return gOrdina(w); case 'abbina': return gAbbina(w);
+    case 'quando': return gQuando(w, lv); case 'intruso': return gIntruso(w); case 'ordina': return gOrdina(w); case 'abbina': return gAbbina(w); case 'omonime': return gOmonime(w);
   }
 }
 function scegliGioco(w, lv, f) {
@@ -1475,7 +1475,7 @@ function disegnaOvl(p) {
     const r = document.createElement('button'); r.className = 'lk'; r.style.cssText = 'display:block;margin:10px auto 0;color:var(--oro2)'; r.textContent = '↺ Ricomincia';
     r.onclick = () => { if (!p.chiuso) { ord.length = 0; numera(); } }; corpo.append(r);
   } else if (p.game === 'abbina') {
-    const art = mescola(p.items.map(w => w.a)), ass = [-1, -1, -1, -1]; let sel = 0;
+    const art = mescola(p.items.map(w => w.a)), ass = p.items.map(() => -1); let sel = 0;
     const barra = document.createElement('div'); barra.className = 'g-art'; corpo.append(barra);
     const bs = art.map(a => { const b = document.createElement('button'); b.textContent = ART[a].n; barra.append(b); return b; });
     const ver = document.createElement('button'); ver.className = 'primario'; ver.style.cssText = 'display:block;margin:12px auto 0'; ver.textContent = 'Controlla'; ver.hidden = true; corpo.append(ver);
@@ -1494,7 +1494,7 @@ function disegnaOvl(p) {
       if (p.chiuso) return;
       let giuste = 0;
       carte.forEach((c, j) => { const ok = ass[j] === p.items[j].a; if (ok) giuste++; c.classList.remove('sel'); c.classList.add(ok ? 'ok' : 'no'); rivela(j, etichettaOp(p.items[j])); });
-      finisciG(giuste === 4 ? 2 : 0, giuste === 4 ? '' : giuste + ' su 4 giuste.');
+      const n = p.items.length; finisciG(giuste === n ? 2 : 0, giuste === n ? '' : giuste + ' su ' + n + ' giuste.');
     };
     agg();
   }
@@ -1568,7 +1568,7 @@ function loteG(escludi) {
   const rec = ora - 480;      // non ripropongo opere risposte negli ultimi 8 minuti
   const ap = dedupG(attive(null)).filter(w => vistaG(w) && !imparata(w) && !ex.has(w.id) && !((P.gl[w.id] || [])[1] > rec)).map(w => [ritardoG(w, ora), w]).sort((x, y) => y[0] - x[0]).map(x => x[1]);
   // più opere viste e non ancora imparate si accumulano, meno ne entrano di nuove: da metà lotto fino a 2 su 12
-  const nN = ap.length ? Math.max(2, Math.round(N * Math.max(0.15, 0.5 - ap.length / 600))) : N;
+  const nN = ap.length ? Math.max(3, Math.round(N * Math.max(0.3, 0.55 - ap.length / 700))) : N;
   const R = Math.min(ap.length, N - nN);
   const nuove = f(p.nuove);
   const nuoveM = mescola(nuove.slice(0, 40)).concat(nuove.slice(40));      // tra le prime 40 nuove si pesca a caso: i lotti non ripartono sempre dalle stesse
@@ -1813,7 +1813,7 @@ $('#scheda').addEventListener('click', e => {
 /* =========================================================== statistiche */
 /* Le statistiche stanno dentro ogni modalità (Quiz e Guidato): P.sx.q e P.sx.g contano [risposte, artista/giusta, completa] per opera;
    P.sx.gg conta le risposte del guidato per tipo di gioco. P.st resta lo stato condiviso usato per il ripasso. */
-const NOMI_GIOCO = { artista: 'Chi è l\'autore', auto: 'Riconoscimento libero', img: 'Quale immagine', scuola: 'Che scuola è', dove: 'Dove si trova', quando: 'Quando', intruso: 'L\'intruso', ordina: 'Ordina nel tempo', abbina: 'Abbina opera e artista', titolo: 'Come si intitola', artista4: '4 artisti', misto: 'Giochi misti', sfocata: 'Immagine sfocata', quarto: 'Un quarto di immagine' };
+const NOMI_GIOCO = { artista: 'Chi è l\'autore', auto: 'Riconoscimento libero', img: 'Quale immagine', scuola: 'Che scuola è', dove: 'Dove si trova', quando: 'Quando', intruso: 'L\'intruso', ordina: 'Ordina nel tempo', abbina: 'Abbina opera e artista', omonime: 'Stesso titolo', titolo: 'Come si intitola', artista4: '4 artisti', misto: 'Giochi misti', sfocata: 'Immagine sfocata', quarto: 'Un quarto di immagine' };
 function contaModo(m, id, v, game) {
   const t = P.sx[m][id] || (P.sx[m][id] = [0, 0, 0]);
   t[0]++; if (v >= 1) t[1]++; if (v === 2) t[2]++;
