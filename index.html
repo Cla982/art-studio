@@ -79,7 +79,11 @@ a{color:inherit}
 #suggerimento{display:inline-block;font-size:12.5px;color:#fffc;background:rgba(0,0,0,.6);padding:6px 12px;border-radius:8px;pointer-events:none!important}
 .lk{background:none;border:0;padding:0;color:inherit;font:inherit;text-align:left;text-decoration:underline dotted;text-decoration-color:#ffffff88;
   text-underline-offset:3px}
-.milano,.lk.milano{background:var(--oro);color:#1a1410!important;font-weight:800;padding:1px 8px;border-radius:5px;text-decoration:none!important;letter-spacing:.02em;box-shadow:0 0 0 2px #d4a24c55}
+.milano,.lk.milano{animation:lampMi 1s steps(2,jump-none) infinite;background:var(--oro);color:#1a1410!important;font-weight:800;padding:1px 8px;border-radius:5px;text-decoration:none!important;letter-spacing:.02em;box-shadow:0 0 0 2px #d4a24c55}
+@keyframes lampMi{0%{background:var(--oro);color:#1a1410}50%{background:#fff;color:#7a1f14;box-shadow:0 0 0 3px #d4a24c}100%{background:var(--oro);color:#1a1410}}
+@media (prefers-reduced-motion:reduce){.milano,.lk.milano{animation:none}}
+.g-det{margin:10px auto 0;max-width:560px;text-align:left;background:#0007;border:1px solid var(--riga);border-radius:8px;padding:9px 12px;font-size:13px;line-height:1.45;color:#ddd;font-style:normal}
+.g-det i{display:block;font-family:var(--serif);font-size:17px;color:var(--oro2)}.g-det b{color:#fff}
 .lk:hover{color:var(--oro2);text-decoration-style:solid;text-decoration-color:currentColor}
 .wk{display:inline-flex;align-items:center;margin-left:5px;text-decoration:none;color:var(--oro2);vertical-align:-2px;padding:1px;border-radius:3px}
 .wk:hover{background:var(--oro2);color:#1b1407}
@@ -143,7 +147,7 @@ a{color:inherit}
 #mc-avanti{position:absolute;right:10px;bottom:calc(100% + 8px);width:44px;height:40px;min-width:0;padding:0;margin:0;flex:none;font-size:0;border-radius:8px;border:1px solid var(--oro);color:var(--oro2);background:rgba(20,17,15,.88);display:grid;place-items:center;z-index:7}
 #mc-avanti::after{content:'→';font-size:20px;line-height:1}
 #mc-avanti[hidden]{display:none}
-#gioco{position:absolute;inset:0;padding:46px 12px 200px;overflow:auto;touch-action:pan-y;display:flex;flex-direction:column;align-items:center;gap:10px}
+#gioco{position:absolute;inset:0;padding:46px 12px 260px;overflow:auto;touch-action:pan-y;display:flex;flex-direction:column;align-items:center;gap:10px}
 .g-dom{font-family:var(--serif);font-size:18px;text-align:center;max-width:560px;margin:0;line-height:1.35}
 #g-corpo{width:100%;max-width:640px}
 .g-gr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -1395,6 +1399,10 @@ function imgMini(w) {
   im.onerror = async () => { if (im.dataset.r) return; im.dataset.r = 1; const b = SALVATE.has(w.id) ? await dbLeggi(w.id) : null; im.src = b ? URL.createObjectURL(b) : urlImg(w); };
   im.src = urlMedio(w); return im;
 }
+function dettagliOp(w) {
+  const s = SEDI[w.s], mi = /milano/i.test((s.c || '') + ' ' + s.n), citta = s.c && s.c !== s.n ? ' (' + (/milano/i.test(s.c) ? '<span class="milano">Milano</span>' : esc(s.c)) + ')' : (mi ? ' <span class="milano">Milano</span>' : '');
+  return `<div class="g-det"><i>${esc(w.t)}</i><b>${esc(ART[w.a].n)}</b><br>${[w.d, w.te].filter(Boolean).map(esc).join(' · ')}${w.d || w.te ? '<br>' : ''}${esc(s.n)}${citta}</div>`;
+}
 const etichettaOp = w => `<b>${esc(w.t)}</b><br>${esc(ART[w.a].n)}${w.d ? ' · ' + esc(w.d) : ''}`;
 function disegnaQuarto(p, corpo, gr) {
   gr.remove();
@@ -1444,7 +1452,7 @@ function disegnaOvl(p) {
       const ok = p.items[k] === p.giusta;
       carte.forEach((c, j) => { if (p.items[j] === p.giusta) c.classList.add('ok'); rivela(j, etichettaOp(p.items[j])); });
       if (!ok) b.classList.add('no');
-      finisciG(ok ? 2 : 0, p.game === 'intruso' ? 'Le altre tre sono di <b>' + esc(ART[p.artista].n) + '</b>.' : '');
+      finisciG(ok ? 2 : 0, (p.game === 'intruso' ? 'Le altre tre sono di <b>' + esc(ART[p.artista].n) + '</b>.' : '') + dettagliOp(p.giusta));
     });
   } else if (p.game === 'ordina') {
     const ord = [], giusto = p.items.slice().sort((a, b) => annoG(a) - annoG(b));
