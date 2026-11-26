@@ -71,9 +71,12 @@ a{color:inherit}
 #cartellino:hover{background:rgba(0,0,0,.9)}
 #c-riga1{margin:0;display:flex;align-items:baseline;gap:4px 9px;flex-wrap:wrap;line-height:1.25}
 #c-titolo{color:var(--oro2);font-family:var(--serif);font-style:italic;font-size:17px;font-weight:600}
-#c-riga1 .di{color:#aaa;font-size:13px}
+#c-data{color:#bbb;font-size:13px;white-space:nowrap}
+#c-riga2{margin:2px 0 0;line-height:1.3}
+#c-riga2 .di{color:#aaa;font-size:13px}
+.nw{white-space:nowrap}
 #c-artista{font-weight:700;font-size:15px;white-space:nowrap}
-#c-vita{color:#a9a9a9;font-size:12px}
+#c-vita{color:#a9a9a9;font-size:12.5px;white-space:nowrap;margin-left:7px}
 #c-info{margin:3px 0 0;font-size:12.5px;color:#d0d0d0;line-height:1.4}
 #c-info .sep{color:#666;margin:0 6px}
 #suggerimento{display:inline-block;font-size:12.5px;color:#fffc;background:rgba(0,0,0,.6);padding:6px 12px;border-radius:8px;pointer-events:none!important}
@@ -313,7 +316,8 @@ details .corpo{padding:0 2px 16px}
     <div id="sinistra">
       <div id="suggerimento">Tocca l'opera per scoprire la didascalia</div>
       <section id="cartellino" aria-label="Didascalia" hidden>
-        <p id="c-riga1"><span id="c-titolo"></span><span class="di">di</span><span id="c-artista"></span><span id="c-vita"></span></p>
+        <p id="c-riga1"><span id="c-titolo"></span><span id="c-data"></span></p>
+        <p id="c-riga2"><span class="di">di</span> <span id="c-artista"></span><span id="c-vita"></span></p>
         <p id="c-info"></p>
         <p id="c-scheda" class="riga-sc" hidden><button class="lk" id="c-sc-opera" data-az="scheda-opera">📖 Opera</button><button class="lk" id="c-sc-artista" data-az="scheda-artista">🎨 Artista</button><button class="lk" id="c-sc-ico" data-az="scheda-ico">🖼 Iconografia</button></p>
       </section>
@@ -701,11 +705,13 @@ function cartellino() {
   $('#c-titolo').innerHTML = esc(w.t) + (w.wk ? wk(w.wk, 'Wikipedia: ' + w.t) : '');
   $('#c-artista').innerHTML = `<button class="lk" data-az="artista" data-v="${a.i}" title="Altre opere di ${esc(a.n)}">${esc(a.n)}</button>` + (a.wk ? wk(a.wk, 'Wikipedia: ' + a.n) : '');
   const luogo = (testo, citta) => citta && testo.startsWith(citta) ? `<button class="lk" data-az="citta" data-v="${esc(citta)}" title="Opere conservate a ${esc(citta)}">${esc(citta)}</button>${esc(testo.slice(citta.length))}` : esc(testo);
-  $('#c-vita').innerHTML = a.b || a.d ? '(' + [a.b && luogo(a.b, a.bp), a.d && luogo(a.d, a.dp)].filter(Boolean).join(' – ') + ')' : '';
+  const anni = (t, c) => c && t.startsWith(c) ? t.slice(c.length).replace(/^[,\s]+/, '') : t;
+  $('#c-vita').innerHTML = a.b || a.d ? esc([a.b && anni(a.b, a.bp), a.d && anni(a.d, a.dp)].filter(Boolean).join(' – ')) : '';
+  $('#c-data').textContent = w.d || '';
   let dove = `<button class="lk" data-az="sede" data-v="${w.s}" title="Altre opere in questa sede">${esc(s.n)}</button>` + (s.wk ? wk(s.wk, 'Wikipedia: ' + s.n) : '');
-  if (s.c && s.c !== s.n) dove += ` (<button class="lk${/milano/i.test(s.c) ? ' milano' : ''}" data-az="citta" data-v="${esc(s.c)}" title="Opere conservate a ${esc(s.c)}">${esc(s.c)}</button>)`;
+  if (s.c && s.c !== s.n) dove += ` <span class="nw">(<button class="lk${/milano/i.test(s.c) ? ' milano' : ''}" data-az="citta" data-v="${esc(s.c)}" title="Opere conservate a ${esc(s.c)}">${esc(s.c)}</button>)</span>`;
   else if (/milano/i.test(s.n)) dove += ' <span class="milano">Milano</span>';
-  $('#c-info').innerHTML = [w.d, w.te].filter(Boolean).map(esc).concat(dove).join('<span class="sep">|</span>');
+  $('#c-info').innerHTML = [w.te].filter(Boolean).map(esc).concat(dove).join('<span class="sep">|</span>');
   el.scrollTop = 0;
 }
 const ZOOM_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
