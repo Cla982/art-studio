@@ -1452,13 +1452,49 @@ function disegnaOvl(p) {
   gr.style.opacity = '0'; gr.style.transition = 'opacity .2s';      // le immagini compaiono tutte insieme: così quella già in cache non tradisce la risposta
   { const t0 = Date.now(), iv = setInterval(() => { if (carte.every(b => { const i = b.querySelector('img'); return i && i.complete && i.naturalWidth > 0; }) || Date.now() - t0 > 6000) { clearInterval(iv); gr.style.opacity = '1'; } }, 80); }
   const rivela = (j, html) => { const e = carte[j].querySelector('.g-et'); e.innerHTML = html; e.hidden = false; };
-  if (p.game === 'img' || p.game === 'intruso') {
+  if (p.game === 'img') {      // a catena: si indovina la prima, poi un'altra, poi un'altra; dell'ultima si sceglie fra 4 artisti
+    const fatte = new Set(); let bers = p.giusta, opzDiv = null;
+    const chiedi = () => {
+      const resto = p.items.filter(w => !fatte.has(w));
+      carte.forEach((c, j) => c.classList.toggle('sel', resto.length === 1 && p.items[j] === resto[0]));
+      if (resto.length === 1) {
+        bers = resto[0]; $('#g-dom').textContent = 'Di chi è l\'ultima opera?';
+        opzDiv = document.createElement('div'); opzDiv.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px auto 0;width:100%;max-width:560px';
+        corpo.append(opzDiv);
+        const o = opzioniMC(bers, 1);
+        o.forEach(i => { const b = document.createElement('button'); b.className = 'bt opz'; b.textContent = ART[i].n; opzDiv.append(b);
+          b.onclick = () => {
+            if (p.chiuso) return;
+            const ok = i === bers.a;
+            [...opzDiv.children].forEach((c, k) => { c.disabled = true; if (o[k] === bers.a) c.classList.add('opz-ok'); }); if (!ok) b.classList.add('opz-no');
+            carte.forEach((c, j) => { if (p.items[j] === bers) { c.classList.add(ok ? 'ok' : 'no'); rivela(j, etichettaOp(bers)); } });
+            fine(ok);
+          }; });
+      } else {
+        bers = fatte.size === 0 ? p.giusta : resto[Math.floor(Math.random() * resto.length)];
+        $('#g-dom').textContent = 'Quale di queste è di ' + ART[bers.a].n + '?';
+      }
+    };
+    const fine = ok => finisciG(ok && !p.errato ? 2 : 0, dettagliOp(p.giusta));
+    carte.forEach((b, k) => b.onclick = () => {
+      if (p.chiuso || fatte.has(p.items[k]) || opzDiv) return;
+      const w = p.items[k];
+      if (w === bers) {
+        fatte.add(w); b.classList.add('ok'); rivela(k, etichettaOp(w));
+        chiedi();
+      } else {
+        b.classList.add('no'); p.errato = true;
+        carte.forEach((c, j) => { if (p.items[j] === bers) c.classList.add('ok'); if (!fatte.has(p.items[j])) rivela(j, etichettaOp(p.items[j])); });
+        fine(false);
+      }
+    });
+  } else if (p.game === 'intruso') {
     carte.forEach((b, k) => b.onclick = () => {
       if (p.chiuso) return;
       const ok = p.items[k] === p.giusta;
       carte.forEach((c, j) => { if (p.items[j] === p.giusta) c.classList.add('ok'); rivela(j, etichettaOp(p.items[j])); });
       if (!ok) b.classList.add('no');
-      finisciG(ok ? 2 : 0, (p.game === 'intruso' ? 'Le altre tre sono di <b>' + esc(ART[p.artista].n) + '</b>.' : '') + dettagliOp(p.giusta));
+      finisciG(ok ? 2 : 0, 'Le altre tre sono di <b>' + esc(ART[p.artista].n) + '</b>.' + dettagliOp(p.giusta));
     });
   } else if (p.game === 'ordina') {
     const ord = [], giusto = p.items.slice().sort((a, b) => annoG(a) - annoG(b));
