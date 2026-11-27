@@ -1307,7 +1307,7 @@ function gOmonime(w) {      // due opere con lo stesso titolo di artisti diversi
   const x = c[0];
   return { kind: 'ovl', game: 'abbina', omo: true, dom: 'Due opere intitolate «' + w.t + '»: abbina ogni opera al suo artista.', items: mescola([w, x]) };
 }
-const TAB_G = [['a0'], ['a1', 'img'], ['a2', 'sfocata', 'quarto'], ['auto', 'titolo'], ['img', 'scuola', 'dove', 'titolo', 'omonime'], ['quando', 'intruso', 'ordina', 'abbina', 'omonime', 'omonime', 'sfocata', 'quarto'], ['img', 'scuola', 'dove', 'quando', 'intruso', 'ordina', 'abbina', 'omonime', 'omonime', 'titolo', 'sfocata', 'quarto', 'auto']];
+const TAB_G = [['a0'], ['a1', 'img', 'omonime'], ['a2', 'sfocata', 'quarto', 'omonime', 'omonime'], ['auto', 'titolo'], ['img', 'scuola', 'dove', 'titolo', 'omonime'], ['quando', 'intruso', 'ordina', 'abbina', 'omonime', 'omonime', 'sfocata', 'quarto'], ['img', 'scuola', 'dove', 'quando', 'intruso', 'ordina', 'abbina', 'omonime', 'omonime', 'titolo', 'sfocata', 'quarto', 'auto']];
 function provaG(n, w, lv) {
   switch (n) {
     case 'a0': return gArtista(w, 0); case 'a1': return gArtista(w, 1); case 'a2': return gArtista(w, 2);
