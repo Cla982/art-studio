@@ -126,6 +126,8 @@ a{color:inherit}
 .sg-frase{font-family:var(--serif);font-size:19px;margin:4px 0 12px;color:var(--oro2)}
 .sg-per{margin:0 0 11px}.sg-per-t{display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-bottom:3px;flex-wrap:wrap}.sg-per-t span{color:var(--tenue)}
 .sg-graf{display:flex;align-items:flex-end;gap:4px;height:78px;margin:12px 0 4px}.sg-graf>div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px}
+.sg-leg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--tenue)}.sg-leg i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.sg-leg b{color:var(--testo)}
+.sg-graf em{font-style:normal;font-size:9px;color:var(--tenue);line-height:1}.sg-graf>div{cursor:pointer}.sg-graf>div.sel i{background:#fff}
 .sg-graf i{display:block;width:100%;background:var(--oro);border-radius:3px 3px 0 0;min-height:3px;opacity:.85}.sg-graf span{font-size:10px;color:var(--tenue)}
 #b-lente{position:absolute;top:10px;right:10px;z-index:6;width:38px;height:38px;border-radius:50%;border:1px solid #ffffff30;background:#000a;color:#fff;display:grid;place-items:center;padding:0}
 #b-lente svg{pointer-events:none}
@@ -1720,28 +1722,24 @@ function statGuidato() {
   const righe = [...per.entries()].sort((a, b) => a[0] - b[0]).map(([k, r]) => `<div class="sg-per"><div class="sg-per-t"><b>${esc(k < 0 ? 'Altro' : nomiP[k] || 'Periodo')}</b><span>${num(r.tot - r.nuova)} viste su ${num(r.tot)} · <b style="color:#8fc487">${num(r.imp)}</b> imparate</span></div>${barra(r)}</div>`).join('');
   const frase = serie >= 2 ? `🔥 ${serie} giorni di studio di fila` : conta(oggi) ? `Oggi hai già visto ${num(conta(oggi))} opere` : serie === 1 ? 'Hai studiato ieri: oggi continui la serie?' : 'Oggi non hai ancora studiato: bastano pochi minuti';
   return `<p class="sg-frase">${frase}</p>
-    <div class="numeri tre">
-      <div class="numero"><b>${num(viste)}<small> / ${num(pool.length)}</small></b><span>opere viste · ${pr(viste)}</span></div>
-      <div class="numero"><b style="color:#8fc487">${num(st.imp)}</b><span>imparate · ${pr(st.imp)}</span></div>
-      <div class="numero"><b style="color:var(--forse,#d4a24c)">${num(st.quasi)}</b><span>quasi conosciute · ${pr(st.quasi)}</span></div>
+    <div id="sg-prog" style="cursor:pointer" title="Tocca per passare da numeri a percentuali">
+      <div class="barretta" style="height:16px;margin:4px 0 8px"><i style="width:${pc(st.imp)}%;background:var(--si)"></i><i style="width:${pc(st.quasi)}%;background:var(--forse)"></i><i style="width:${pc(st.corso)}%;background:#7a6a4a"></i></div>
+      <div class="sg-leg">
+        <span><i style="background:var(--si)"></i>Imparate <b data-n="${num(st.imp)}" data-p="${pr(st.imp)}">${num(st.imp)}</b></span>
+        <span><i style="background:var(--forse)"></i>Quasi conosciute <b data-n="${num(st.quasi)}" data-p="${pr(st.quasi)}">${num(st.quasi)}</b></span>
+        <span><i style="background:#7a6a4a"></i>In apprendimento <b data-n="${num(st.corso)}" data-p="${pr(st.corso)}">${num(st.corso)}</b></span>
+        <span><i style="background:#ffffff22"></i>Da scoprire <b data-n="${num(st.nuova)}" data-p="${pr(st.nuova)}">${num(st.nuova)}</b></span>
+      </div>
+      <p class="nota" style="margin:6px 0 14px">Viste <b data-n="${num(viste)} su ${num(pool.length)}" data-p="${pr(viste)}" style="color:var(--testo)">${num(viste)} su ${num(pool.length)}</b> · tocca per passare ai numeri o alle percentuali</p>
     </div>
-    <div class="barretta" style="height:12px;margin:2px 0 6px"><i style="width:${pc(st.imp)}%;background:var(--si)"></i><i style="width:${pc(st.quasi)}%;background:var(--forse)"></i><i style="width:${pc(st.corso)}%;background:#7a6a4a"></i></div>
-    <p class="nota" style="margin-top:0">Imparate ${num(st.imp)} · quasi conosciute ${num(st.quasi)} · in apprendimento ${num(st.corso)} · da scoprire ${num(st.nuova)}</p>
-    <p class="nota">Prossimo traguardo: <b style="color:var(--testo)">${num(trag)} opere imparate</b> (${num(st.imp)}/${num(trag)})</p>
-    <div class="barretta" style="height:6px;margin-bottom:14px"><i style="width:${Math.min(100, 100 * st.imp / trag)}%;background:var(--oro)"></i></div>
     <h2>Quanto stai usando l'app</h2>
     <div class="numeri tre">
       <div class="numero"><b>${num(mostrate)}</b><span>immagini mostrate</span></div>
       <div class="numero"><b>${num(conta(oggi))}</b><span>oggi</span></div>
-      <div class="numero"><b>${num(sett)}</b><span>ultimi 7 giorni</span></div>
+      <div class="numero"><b>${num(giorni.size)}</b><span>giorni di studio<small class="sp">🔥 ${num(serie)} di fila</small></span></div>
     </div>
-    <div class="numeri tre">
-      <div class="numero"><b>${num(giorni.size)}</b><span>giorni di studio</span></div>
-      <div class="numero"><b>${num(serie)}</b><span>giorni di fila</span></div>
-      <div class="numero"><b>${risp ? Math.round(100 * giuste / risp) + '%' : '–'}</b><span>artista indovinato</span></div>
-    </div>
-    <div class="sg-graf">${ultimi.map(([g, d]) => `<div title="${g}: ${conta(g)}"><i style="height:${Math.max(3, 100 * conta(g) / mx)}%"></i><span>${d.getDate()}</span></div>`).join('')}</div>
-    <p class="nota" style="margin-top:2px">Immagini mostrate negli ultimi 14 giorni (il conteggio parte da questo aggiornamento).</p>
+    <div class="sg-graf">${ultimi.map(([g, d]) => `<div data-g="${g}" data-n="${conta(g)}" data-d="${esc(d.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' }))}"><em>${conta(g) || ''}</em><i style="height:${Math.max(3, 100 * conta(g) / mx)}%"></i><span>${d.getDate()}</span></div>`).join('')}</div>
+    <p class="nota" id="sg-giorno" style="margin-top:2px">Tocca una barra per vedere le immagini mostrate quel giorno (ultimi 14 giorni; il conteggio parte da quando è stato introdotto).</p>
     <h2>Avanzamento per periodo</h2>${righe}`;
 }
 function pagGuidato() {
@@ -1771,11 +1769,12 @@ function pagGuidato() {
     <div class="spunta" style="display:block"><div>Domanda sulla data, dopo l'artista: <b id="g-dtx"></b></div><input type="range" id="g-opt-data" min="0" max="4" step="1" value="${(P.opz && +P.opz.data) || 0}" style="width:100%;accent-color:var(--oro);height:28px"><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--tenue)"><span>no</span><span>facile</span><span>medio</span><span>difficile</span><span>molto diff.</span></div></div>
     <div class="spunta" style="display:block"><div>Domanda sull'ubicazione, dopo l'artista: <b id="g-utx"></b></div><input type="range" id="g-opt-ubi" min="0" max="2" step="1" value="${(P.opz && +P.opz.ubi) || 0}" style="width:100%;accent-color:var(--oro);height:28px"><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--tenue)"><span>no</span><span>solo città</span><span>città e luogo</span></div></div>
     <label class="spunta"><input type="checkbox" id="g-opt-ripr"${P.opz && P.opz.ripr ? ' checked' : ''}><span>Riprova finché non trovi la risposta giusta (poi l'opera conta come sbagliata, o «quasi» se sbagli solo la data)</span></label>
-    <div class="numeri"><div class="numero"><b>${num(p.dovuti.length)}</b><span>ripassi in scadenza<small class="sp">opere già viste che è ora di rivedere</small></span></div><div class="numero"><b>${num(p.nuove.length)}</b><span>mai viste, nel percorso<small class="sp">opere nuove già pronte: ne entrano un po' alla volta</small></span></div></div>
     ${statGuidato()}
     ${filtro}
     <p style="margin-top:60px;padding-top:18px;border-top:1px solid var(--riga)"><button class="secondario rosso" id="g-azzera">Azzera progressi e livelli</button></p>`;
   el.querySelector('#g-riep').onclick = pagRiepilogo;
+  { let pct = false; const pg = el.querySelector('#sg-prog'); if (pg) pg.onclick = () => { pct = !pct; pg.querySelectorAll('b[data-n]').forEach(b => b.textContent = pct ? b.dataset.p : b.dataset.n); }; }
+  el.querySelectorAll('.sg-graf > div').forEach(d => d.onclick = () => { el.querySelector('#sg-giorno').innerHTML = '<b style="color:var(--testo)">' + esc(d.dataset.d) + '</b>: ' + num(+d.dataset.n) + ' immagini mostrate'; el.querySelectorAll('.sg-graf > div').forEach(x => x.classList.toggle('sel', x === d)); });
   el.querySelector('#g-azzera').onclick = () => {
     const nv = OPERE.filter(vistaG).length, ni = OPERE.filter(imparata).length;
     chiedi(`Stai per cancellare tutti i progressi del guidato: ${num(nv)} opere viste, ${num(ni)} imparate, livelli e statistiche.`, 'Continua', () => {
